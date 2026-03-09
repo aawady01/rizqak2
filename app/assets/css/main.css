@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @theme {
   /* ==========================================
@@ -284,17 +283,17 @@
   --filter-tree-line-width: 1.5px;
   --filter-tree-control-size: 16px;
   --filter-tree-control-gap: 12px;
-  --filter-tree-control-center-offset: 10px;
+  --filter-tree-control-center-offset: 16px;
   --filter-tree-rail-offset: 0px;
-  --filter-tree-control-edge-offset: var(--filter-tree-rail-offset);
-  --filter-tree-stem-offset: 10px;
+  --filter-tree-control-edge-offset: var(--filter-tree-root-branch-length);
+  --filter-tree-stem-offset: calc(var(--filter-tree-control-center-offset) + 2px);
   --filter-tree-child-stem-offset: -16px;
   --filter-tree-root-branch-length: 16px;
   --filter-tree-branch-length: 16px;
   --filter-tree-child-indent: 8px;
   --filter-tree-connector-overlap: 0px;
   --filter-tree-node-center: 16px;
-  --filter-tree-bridge-offset: 10px;
+  --filter-tree-bridge-offset: var(--filter-tree-control-center-offset);
   --filter-tree-bridge-height: 32px;
   --filter-tree-row-min-height: 32px;
   --filter-tree-row-min-height-child: 32px;
@@ -986,3 +985,5 @@ html.dark {
     animation: shake 0.2s ease-in-out 0s 2;
   }
 }
+
+
