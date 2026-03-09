@@ -1,0 +1,7 @@
+"Path","LineNumber","Line"
+"C:\Users\USER\Desktop\rizqak2\app\components\companies\CompanyCard.vue","78","          tag=""h4"""
+"C:\Users\USER\Desktop\rizqak2\app\components\home\HomeHero.vue","41","        tag=""h1"""
+"C:\Users\USER\Desktop\rizqak2\app\components\jobs\JobCard.vue","107","                tag=""h3"""
+"C:\Users\USER\Desktop\rizqak2\app\shared\components\base\BaseCard.vue","39","        <h4"
+"C:\Users\USER\Desktop\rizqak2\app\shared\components\base\BaseFilterHeader.vue","23","      <h4"
+"C:\Users\USER\Desktop\rizqak2\app\shared\components\base\BaseModal.vue","15","              <h2 :id=""titleId"" class=""text-lg font-bold"">{{ title }}</h2>"

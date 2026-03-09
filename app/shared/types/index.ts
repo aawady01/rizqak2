@@ -170,3 +170,5 @@ export interface JobApplication {
   cv?: string
   coverLetter?: string
 }
+
+export * from './domain'

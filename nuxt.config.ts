@@ -70,6 +70,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:3001',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com',
     },
   },
 
@@ -103,3 +104,4 @@ export default defineNuxtConfig({
     renderJsonPayloads: true,
   },
 })
+

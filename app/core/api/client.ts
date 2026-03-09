@@ -1,5 +1,7 @@
 import { createError } from 'h3'
 
+type QueryParamValue = string | number | boolean | undefined
+
 interface ApiClientOptions {
   baseURL?: string
   headers?: Record<string, string>
@@ -7,19 +9,31 @@ interface ApiClientOptions {
 
 interface RequestConfig {
   method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
-  body?: unknown
-  params?: Record<string, string | number | boolean | undefined>
+  body?: unknown | FormData
+  params?: Record<string, QueryParamValue>
   headers?: Record<string, string>
+}
+
+interface ApiErrorData {
+  code?: string
+  details?: unknown
+}
+
+interface ApiErrorResponse {
+  message?: string
+  error?: string
+  code?: string
+  details?: unknown
 }
 
 class ApiClient {
   private _baseURL: string | null = null
-  private _headers: Record<string, string>
+  private readonly _headers: Record<string, string>
 
   constructor(options: ApiClientOptions = {}) {
     this._headers = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Accept-Language': 'ar',
       ...options.headers,
     }
@@ -30,6 +44,7 @@ class ApiClient {
       const config = useRuntimeConfig()
       this._baseURL = config.public.apiBase || 'http://localhost:3001'
     }
+
     return this._baseURL
   }
 
@@ -37,11 +52,21 @@ class ApiClient {
     if (import.meta.client) {
       return localStorage.getItem('auth_token')
     }
+
     return null
   }
 
-  private buildURL(endpoint: string, params?: Record<string, string | number | boolean | undefined>): string {
-    const url = new URL(`${this.baseURL}${endpoint}`)
+  private normalizeEndpoint(endpoint: string): string {
+    return endpoint.startsWith('/') ? endpoint : `/${endpoint}`
+  }
+
+  private buildURL(
+    endpoint: string,
+    params?: Record<string, QueryParamValue>,
+  ): string {
+    const base = this.baseURL.endsWith('/') ? this.baseURL : `${this.baseURL}/`
+    const url = new URL(this.normalizeEndpoint(endpoint).slice(1), base)
+
     if (params) {
       Object.entries(params).forEach(([key, value]) => {
         if (value !== undefined && value !== '') {
@@ -49,47 +74,79 @@ class ApiClient {
         }
       })
     }
+
     return url.toString()
   }
 
-  private async request<T>(endpoint: string, config: RequestConfig = {}): Promise<T> {
+  private async parseResponse<T>(response: Response): Promise<T> {
+    const contentType = response.headers.get('content-type') || ''
+
+    if (contentType.includes('application/json')) {
+      return response.json() as Promise<T>
+    }
+
+    return response.text() as Promise<T>
+  }
+
+  private async request<T>(
+    endpoint: string,
+    config: RequestConfig = {},
+  ): Promise<T> {
     const { method = 'GET', body, params, headers = {} } = config
+
+    const requestHeaders: Record<string, string> = {
+      ...this._headers,
+      ...headers,
+    }
 
     const token = this.getAuthToken()
     if (token) {
-      headers['Authorization'] = `Bearer ${token}`
+      requestHeaders.Authorization = `Bearer ${token}`
     }
 
-    const requestHeaders = {
-      ...this._headers,
-      ...headers,
+    const isFormDataBody = body instanceof FormData
+    if (isFormDataBody) {
+      // Let the browser set multipart boundaries automatically.
+      delete requestHeaders['Content-Type']
     }
 
     const response = await fetch(this.buildURL(endpoint, params), {
       method,
       headers: requestHeaders,
-      body: body ? JSON.stringify(body) : undefined,
+      body: body
+        ? isFormDataBody
+          ? body
+          : JSON.stringify(body)
+        : undefined,
     })
 
     if (!response.ok) {
-      if (response.status === 401) {
-        if (import.meta.client) {
-          localStorage.removeItem('auth_token')
-          navigateTo('/auth/login')
-        }
+      if (response.status === 401 && import.meta.client) {
+        localStorage.removeItem('auth_token')
+        navigateTo('/auth/login')
       }
-      
-      let errorMessage = 'حدث خطأ غير متوقع'
+
+      let errorMessage = 'Unexpected request error'
+      let errorCode: string | undefined
+      let errorDetails: unknown
+
       try {
-        const errorData = await response.json()
+        const errorData = await this.parseResponse<ApiErrorResponse>(response)
         errorMessage = errorData.message || errorData.error || errorMessage
+        errorCode = errorData.code
+        errorDetails = errorData.details
       } catch {
         errorMessage = response.statusText || errorMessage
       }
 
       throw createError({
         statusCode: response.status,
+        statusMessage: errorMessage,
         message: errorMessage,
+        data: {
+          code: errorCode,
+          details: errorDetails,
+        } satisfies ApiErrorData,
       })
     }
 
@@ -97,22 +154,25 @@ class ApiClient {
       return undefined as T
     }
 
-    return response.json()
+    return this.parseResponse<T>(response)
   }
 
-  async get<T>(endpoint: string, params?: Record<string, string | number | boolean | undefined>): Promise<T> {
+  async get<T>(
+    endpoint: string,
+    params?: Record<string, QueryParamValue>,
+  ): Promise<T> {
     return this.request<T>(endpoint, { method: 'GET', params })
   }
 
-  async post<T>(endpoint: string, body?: unknown): Promise<T> {
+  async post<T>(endpoint: string, body?: unknown | FormData): Promise<T> {
     return this.request<T>(endpoint, { method: 'POST', body })
   }
 
-  async put<T>(endpoint: string, body?: unknown): Promise<T> {
+  async put<T>(endpoint: string, body?: unknown | FormData): Promise<T> {
     return this.request<T>(endpoint, { method: 'PUT', body })
   }
 
-  async patch<T>(endpoint: string, body?: unknown): Promise<T> {
+  async patch<T>(endpoint: string, body?: unknown | FormData): Promise<T> {
     return this.request<T>(endpoint, { method: 'PATCH', body })
   }
 
@@ -123,8 +183,6 @@ class ApiClient {
 
 const apiClient = new ApiClient()
 
-export const useApi = () => {
-  return apiClient
-}
+export const useApi = () => apiClient
 
 export { apiClient }

@@ -1,281 +1,79 @@
-# AI Instructions for Rizqak Project
+# AI Instructions (Binding)
 
-> ⚠️ MANDATORY: Read `docs/DESIGN_SYSTEM.md` before making ANY changes to this project.
+Last updated: 2026-03-09
+Scope: Mandatory operating rules for any AI agent editing this repository.
 
-## Overview
+## 1) Mandatory Read Order
+Before any change:
+1. Read `docs/DESIGN_SYSTEM.md`.
+2. Read `docs/ARCHITECTURE.md`.
+3. Read `docs/PHASE1_AUDIT.md`.
 
-Rizqak (رزقك) is an Egyptian job portal website built with:
-- **Framework**: Nuxt 4.3.1 + Vue 3.5.29
-- **Styling**: Tailwind CSS 4.2.1
-- **Language**: Arabic (RTL-first)
-- **State**: Pinia
+No implementation work starts before these three files are loaded.
 
----
+## 2) Non-Negotiable Visual Contract
+- Homepage output is the visual source of truth.
+- Do not alter user-visible visuals or interactions unless the user explicitly requests it.
+- Do not hardcode new colors, spacing, typography, radius, shadow, motion values.
+- Use existing tokens from `app/assets/css/main.css` only.
 
-## MANDATORY RULES
+## 3) Component Reuse Contract
+- Prefer existing base components in `app/shared/components/base/**`.
+- Do not create duplicate primitives when an equivalent exists.
+- Feature components in `app/components/**` must compose base primitives.
 
-### Rule 1: Read Documentation First
-Before making ANY change:
-1. Read `docs/DESIGN_SYSTEM.md` - understand all tokens, colors, typography
-2. Read `docs/ARCHITECTURE.md` - understand the project structure
-3. Read existing components to understand patterns
-4. Check `app/assets/css/main.css` for all design tokens
+## 4) RTL + Arabic Contract
+- Keep `dir='rtl'`, `lang='ar'` intact.
+- Prefer logical direction classes/properties (`ps`, `pe`, `inset-inline-*`, `text-start/end`).
+- Avoid physical direction (`left/right`) unless explicitly justified.
+- Preserve Arabic-first content patterns.
 
-### Rule 2: Design System Compliance
-- **NEVER** hardcode color values - always use design tokens
-- **NEVER** hardcode font sizes - use `ds-*` typography classes
-- **NEVER** hardcode spacing - use semantic spacing tokens
-- **NEVER** change border radius - all is 0 (sharp corners)
-- **ALWAYS** use logical CSS properties for RTL (`margin-inline-start`, not `margin-left`)
+## 5) TypeScript Contract
+- Strict TypeScript only. No `any` in new code.
+- All props, emits, composable returns, API payloads must be typed.
+- Prefer interface/type exports from shared type modules.
 
-### Rule 3: Visual Consistency
-- The Homepage is the **only** source of truth for visual design
-- If creating a new page, use EXACT same colors, fonts, spacing as homepage
-- Do NOT add new colors - use existing palette only
-- Do NOT add new font sizes - use existing scale only
+## 6) SEO Contract
+For every new page:
+- Add `useSeoMeta`/`useHead` title, description, canonical.
+- Add relevant structured data where applicable.
+- Keep heading hierarchy valid and semantic.
+- Ensure SSR-compatible content rendering.
 
-### Rule 4: Arabic & RTL
-- All content is Arabic first
-- Use `dir="rtl"` on `<html>` element
-- Use logical CSS properties throughout
-- Test all directional icons in RTL mode
+## 7) Security Contract
+- Keep security headers active in Nitro plugin.
+- Never expose secrets in client code.
+- External links require `rel='noopener noreferrer'` where applicable.
+- Validate and sanitize user-provided input before unsafe rendering.
 
-### Rule 5: TypeScript
-- Always use strict TypeScript
-- Never use `any` type
-- Define interfaces for all props and data
-- Use proper union types when needed
+## 8) Performance Contract
+- Maintain mobile-first behavior.
+- Prefer code-splitting and lazy loading for below-fold components.
+- Preserve explicit media dimensions to reduce CLS.
+- Avoid introducing heavy dependencies without necessity.
 
-### Rule 6: SEO
-- Always add meta tags using `useSeoMeta()`
-- Add structured data using `useJsonLd()` for relevant pages
-- Use semantic HTML elements
-- Ensure proper heading hierarchy (one h1 per page)
+## 9) Data-Layer Contract
+- API access must go through composable/service abstractions.
+- Do not hardcode API origins; use runtime config.
+- UI components should not directly embed backend-specific URL logic.
 
----
+## 10) Change Governance
+- Any user-facing logic decision requires explicit user approval.
+- Any potentially risky refactor must include a rollback-friendly diff.
+- After each substantial change:
+  1. Run build or type checks.
+  2. Report what changed and why.
+  3. Confirm no visual drift if UI-affecting files were touched.
 
-## Technology Versions (DO NOT CHANGE)
+## 11) Documentation Governance
+When adding/updating architecture or design rules:
+- Update `docs/DESIGN_SYSTEM.md` if token/component conventions changed.
+- Update `docs/ARCHITECTURE.md` if structure or data flow changed.
+- Add an entry to project status/changelog docs as needed.
 
-| Technology | Version | Notes |
-|------------|---------|-------|
-| Nuxt | 4.3.1 | Latest stable |
-| Vue | 3.5.29 | Use Composition API |
-| Tailwind CSS | 4.2.1 | Use @theme directive |
-| Pinia | 2.x | State management |
-| TypeScript | 5.x | Strict mode |
+## 12) Known Repository Reality (Must Respect)
+- Duplicate docs exist across legacy names and numbered variants.
+- Duplicate static assets exist in both `app/public` and `public`.
+- Some Arabic literals currently suffer encoding artifacts (mojibake).
 
----
-
-## Component Patterns
-
-### Creating New Components
-```vue
-<script setup lang="ts">
-import { computed } from 'vue'
-
-interface Props {
-  title: string
-  variant?: 'default' | 'primary' | 'secondary'
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  variant: 'default',
-})
-
-const classes = computed(() => {
-  // Use design tokens, not hardcoded values
-  return `bg-primary-700 text-white` // ✅
-  // return '#1B6B4A' // ❌ NEVER hardcode
-})
-</script>
-
-<template>
-  <div :class="classes">
-    {{ title }}
-  </div>
-</template>
-```
-
-### Using Existing Components
-```vue
-<script setup lang="ts">
-import BaseButton from '~/shared/components/base/BaseButton.vue'
-import JobCard from '~/components/jobs/JobCard.vue'
-</script>
-
-<template>
-  <BaseButton variant="default">
-    ابحث عن وظيفة
-  </BaseButton>
-  
-  <JobCard :job="jobData" />
-</template>
-```
-
----
-
-## Design Tokens Reference
-
-### Colors (Use These)
-```
-Primary: var(--color-primary-700)     // #1b6b4a
-Accent: var(--color-accent-500)       // #e8b931
-Background: var(--color-bg-primary)    // #f3f4f6
-Surface: var(--color-surface)         // #ffffff
-Text: var(--color-text-primary)       // #1a1a1a
-Muted: var(--color-text-muted)        // #999999
-Border: var(--color-border-default)   // #e2e2e2
-```
-
-### Typography (Use These)
-```
-.text-ds-display  // 36px, bold, tight line-height
-.text-ds-title    // 22px, bold
-.text-ds-heading  // 17px, semibold
-.text-ds-body     // 15px, regular
-.text-ds-sm       // 13px, regular
-.text-ds-caption  // 12px, medium
-.text-ds-xs       // 10px, medium
-```
-
-### Spacing (Use These)
-```
-.p-content    // 16px padding
-.p-element    // 12px padding
-.p-compact    // 8px padding
-.mt-section   // 32px margin
-.gap-section  // 32px gap
-.gap-element   // 12px gap
-.gap-compact   // 8px gap
-```
-
----
-
-## SEO Implementation
-
-### Basic SEO
-```typescript
-useSeoMeta({
-  title: 'Job Title - Rizqak',
-  description: 'Arabic job description...',
-  ogTitle: 'Job Title',
-  ogDescription: '...',
-})
-```
-
-### Job Posting Schema
-```typescript
-useJsonLd({
-  '@type': 'JobPosting',
-  title: job.title,
-  description: job.description,
-  datePosted: job.datePosted,
-  employmentType: 'FULL_TIME',
-  // ... more properties
-})
-```
-
----
-
-## File Naming Conventions
-
-- **Components**: PascalCase (`JobCard.vue`, `LayoutHeader.vue`)
-- **Composables**: camelCase with `use` prefix (`useJobsApi.ts`, `useTheme.ts`)
-- **Types**: PascalCase (`Job.ts`, `Company.ts`)
-- **Utilities**: camelCase (`tailwind.ts`, `string.ts`)
-- **Pages**: kebab-case (`index.vue`, `jobs/[id].vue`)
-
----
-
-## Folder Structure
-
-```
-app/
-├── assets/css/main.css    # Design tokens
-├── components/
-│   ├── base/              # Atomic components (Flag)
-│   ├── jobs/              # Job-related components
-│   ├── companies/         # Company components
-│   ├── home/              # Homepage sections
-│   ├── layout/            # Header, Footer
-│   └── filters/          # Filter components
-├── core/api/              # API clients, SEO
-├── shared/
-│   ├── components/base/   # Base components (Button, Input, etc.)
-│   ├── composables/       # Shared composables
-│   ├── types/            # TypeScript types
-│   └── utils/            # Utilities
-├── pages/                 # Nuxt pages
-├── stores/               # Pinia stores
-└── app.vue               # Root
-```
-
----
-
-## Common Patterns
-
-### Navigation Links (from LayoutHeader)
-```vue
-<NuxtLink
-  to="/jobs"
-  class="px-5 h-full flex items-center hover:bg-white/5"
-  active-class="bg-white/10 font-bold"
->
-  الوظائف
-</NuxtLink>
-```
-
-### Card with Hover Indicator (from JobCard)
-```vue
-<div class="group relative overflow-hidden">
-  <!-- Vertical indicator on right -->
-  <div class="absolute right-0 top-0 bottom-0 w-[2px] bg-primary opacity-0 group-hover:opacity-100" />
-  <!-- Content -->
-  <div class="p-content">...</div>
-</div>
-```
-
-### Dark Mode Toggle
-```vue
-<script setup>
-const isDark = ref(false)
-const toggleDark = () => {
-  document.documentElement.classList.toggle('dark')
-  isDark.value = !isDark.value
-}
-</script>
-```
-
----
-
-## What NOT To Do
-
-1. ❌ Don't add new colors - use existing palette
-2. ❌ Don't change border radius - it's always 0
-3. ❌ Don't use English placeholders - use Arabic
-4. ❌ Don't use left/right - use start/end
-5. ❌ Don't skip SEO meta tags
-6. ❌ Don't use inline styles
-7. ❌ Don't forget RTL testing
-8. ❌ Don't use `any` type in TypeScript
-
----
-
-## Getting Help
-
-- Design tokens: See `docs/DESIGN_SYSTEM.md`
-- Architecture: See `docs/ARCHITECTURE.md`
-- Existing components: Check `app/components/` and `app/shared/components/`
-- Types: Check `app/shared/types/`
-
----
-
-## Before Committing
-
-1. ✅ Check design tokens are used (not hardcoded values)
-2. ✅ Verify Arabic text is correct
-3. ✅ Test RTL layout works
-4. ✅ Add SEO meta tags
-5. ✅ Add structured data if applicable
-6. ✅ Verify TypeScript compiles without errors
-7. ✅ Check mobile responsive works
+Agents must not silently normalize or mass-rewrite content encoding without explicit approval, because it can affect content correctness across many files.

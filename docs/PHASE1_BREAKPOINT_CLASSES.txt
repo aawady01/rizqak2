@@ -1,0 +1,15 @@
+lg:grid-cols-[290px_1fr]
+lg:px-8
+lg:px-section
+md:flex
+md:grid-cols-4
+md:hidden
+md:text-sm
+sm:block
+sm:flex-row
+sm:grid-cols-6
+sm:justify-end
+sm:max-w-lg
+sm:px-6
+sm:text-start
+xl:grid-cols-[310px_1fr]

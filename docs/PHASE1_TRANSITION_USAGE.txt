@@ -1,0 +1,16 @@
+duration-150
+duration-200
+duration-300
+duration-500
+transition-all
+transition-colors
+transition-duration-base
+transition-duration-fast
+transition-duration-normal
+transition-duration-slow
+transition-opacity
+transition-timing-function-default
+transition-timing-function-in
+transition-timing-function-in-out
+transition-timing-function-out
+transition-transform
