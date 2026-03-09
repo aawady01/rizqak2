@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+﻿import { computed } from 'vue'
 
 /**
  * SEO options for page-level metadata.
@@ -12,7 +12,7 @@ export interface SEOOptions {
   robots?: 'index,follow' | 'index,nofollow' | 'noindex,nofollow'
 }
 
-interface JobSEOInput {
+export interface JobSEOInput {
   id: string | number
   slug?: string
   title: string
@@ -22,10 +22,12 @@ interface JobSEOInput {
   summary?: string
 }
 
-const DEFAULT_TITLE = 'Rizqak - Jobs in Egypt and Gulf'
+const DEFAULT_TITLE = 'Rizqak | Jobs in Egypt'
 const DEFAULT_DESCRIPTION =
-  'Rizqak helps job seekers in Egypt discover relevant opportunities in Egypt and Gulf markets.'
+  'Find trusted jobs in Egypt and across the Gulf with Rizqak.'
 const DEFAULT_ROBOTS: SEOOptions['robots'] = 'index,follow'
+
+const trimSlash = (value: string): string => value.replace(/\/$/, '')
 
 const resolveSiteUrl = (): string => {
   const runtime = useRuntimeConfig()
@@ -33,14 +35,23 @@ const resolveSiteUrl = (): string => {
   const apiBase = runtime.public.apiBase as string | undefined
 
   if (siteUrl && siteUrl.trim().length > 0) {
-    return siteUrl.replace(/\/$/, '')
+    return trimSlash(siteUrl)
   }
 
   if (apiBase && apiBase.trim().length > 0) {
-    return apiBase.replace(/\/api\/?$/, '').replace(/\/$/, '')
+    return trimSlash(apiBase.replace(/\/api\/?$/, ''))
   }
 
   return 'https://rizqak.com'
+}
+
+const toAbsoluteUrl = (siteUrl: string, pathOrUrl: string): string => {
+  if (/^https?:\/\//i.test(pathOrUrl)) {
+    return pathOrUrl
+  }
+
+  const normalizedPath = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`
+  return `${siteUrl}${normalizedPath}`
 }
 
 /**
@@ -66,7 +77,9 @@ export const useSEO = (options: SEOOptions = {}): void => {
   })
 
   const canonicalUrl = computed(() => `${siteUrl}${canonicalPath.value}`)
-  const imageUrl = options.image ? `${siteUrl}${options.image}` : `${siteUrl}/og-default.png`
+  const imageUrl = options.image
+    ? toAbsoluteUrl(siteUrl, options.image)
+    : `${siteUrl}/favicon.svg`
 
   useHead({
     link: [
@@ -86,6 +99,7 @@ export const useSEO = (options: SEOOptions = {}): void => {
     ogType: type,
     ogUrl: canonicalUrl.value,
     ogImage: imageUrl,
+    ogLocale: 'ar_EG',
     twitterCard: 'summary_large_image',
     twitterTitle: title,
     twitterDescription: description,

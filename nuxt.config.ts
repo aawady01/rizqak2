@@ -1,4 +1,4 @@
-import tailwindcss from '@tailwindcss/vite'
+﻿import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     dirs: [
       'composables',
       'core/api',
+      'shared/composables',
     ],
   },
 
@@ -41,7 +42,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Rizqak - رزقك',
+      title: 'Rizqak | Jobs in Egypt',
       htmlAttrs: {
         lang: 'ar',
         dir: 'rtl',
@@ -49,14 +50,17 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'منصة التوظيف العربية الأولى للعمل في الخليج' },
+        { name: 'description', content: 'Rizqak helps job seekers in Egypt find trusted opportunities.' },
         { name: 'theme-color', content: '#1B6B4A' },
-        { property: 'og:locale', content: 'ar_AR' },
+        { property: 'og:locale', content: 'ar_EG' },
+        { property: 'og:site_name', content: 'Rizqak' },
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com" },
+        { name: 'format-detection', content: 'telephone=no, address=no, email=no' },
       ],
       link: [
+        { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
+        { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap' },
@@ -94,6 +98,16 @@ export default defineNuxtConfig({
       '/': { prerender: true },
       '/jobs/**': { swr: 3600 },
       '/companies/**': { swr: 3600 },
+      '/sitemap.xml': {
+        headers: {
+          'cache-control': 'public, max-age=3600, stale-while-revalidate=86400',
+        },
+      },
+      '/robots.txt': {
+        headers: {
+          'cache-control': 'public, max-age=3600',
+        },
+      },
       '/auth/**': { ssr: false },
       '/dashboard/**': { ssr: false },
     },
@@ -104,4 +118,3 @@ export default defineNuxtConfig({
     renderJsonPayloads: true,
   },
 })
-

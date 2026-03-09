@@ -1,20 +1,43 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import HomeHero from '~/components/home/HomeHero.vue'
 import HomeSidebar from '~/components/home/HomeSidebar.vue'
 import HomeFeaturedCompanies from '~/components/home/HomeFeaturedCompanies.vue'
 import HomeJobList from '~/components/home/HomeJobList.vue'
+import { jobsData } from '~/shared/utils/mockData'
+import { useSEO } from '~/shared/composables/useSEO'
+import {
+  useWebsiteStructuredData,
+  useOrganizationStructuredData,
+  useBreadcrumbStructuredData,
+  useItemListStructuredData,
+} from '~/shared/composables/useStructuredData'
 
-useSeoMeta({
-  title: 'المعالي للتوظيف - فرصتك الوظيفية في الخارج',
-  description: 'آلاف الوظائف في دول الخليج والعالم العربي بانتظارك من خلال منصة المعالي للتوظيف.',
+useSEO({
+  title: 'Rizqak | Jobs in Egypt and the Gulf',
+  description:
+    'Browse verified opportunities in engineering, healthcare, finance, and more with Rizqak.',
+  canonicalPath: '/',
+  type: 'website',
 })
+
+useWebsiteStructuredData()
+useOrganizationStructuredData()
+useBreadcrumbStructuredData([
+  { name: 'Home', path: '/' },
+])
+useItemListStructuredData(
+  jobsData.map((job) => ({
+    name: job.title,
+    path: `/jobs/${job.id}`,
+  })),
+)
 </script>
 
 <template>
   <div>
     <HomeHero />
 
-    <!-- Main content — py-section, gap-section -->
+    <!-- Main content - py-section, gap-section -->
     <div class="max-w-7xl mx-auto px-content sm:px-6 lg:px-section py-section">
       <div class="grid grid-cols-1 lg:grid-cols-[290px_1fr] xl:grid-cols-[310px_1fr] gap-section">
         <HomeSidebar />

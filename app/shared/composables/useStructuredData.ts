@@ -1,4 +1,4 @@
-export interface StructuredDataNode {
+﻿export interface StructuredDataNode {
   '@context'?: 'https://schema.org'
   '@type': string
   [key: string]: unknown
@@ -48,37 +48,43 @@ export interface JobPostingStructuredData {
   path: string
 }
 
+const trimSlash = (value: string): string => value.replace(/\/$/, '')
+
 const resolveSiteUrl = (): string => {
   const runtime = useRuntimeConfig()
   const siteUrl = runtime.public.siteUrl as string | undefined
   const apiBase = runtime.public.apiBase as string | undefined
 
   if (siteUrl && siteUrl.trim().length > 0) {
-    return siteUrl.replace(/\/$/, '')
+    return trimSlash(siteUrl)
   }
 
   if (apiBase && apiBase.trim().length > 0) {
-    return apiBase.replace(/\/api\/?$/, '').replace(/\/$/, '')
+    return trimSlash(apiBase.replace(/\/api\/?$/, ''))
   }
 
   return 'https://rizqak.com'
 }
 
+const withContext = (schema: StructuredDataNode): StructuredDataNode => ({
+  '@context': 'https://schema.org',
+  ...schema,
+})
+
 /**
- * Attach a JSON-LD schema node to the page head.
+ * Attach one or many JSON-LD schema nodes to the page head.
  */
-export const useStructuredData = (schema: StructuredDataNode): void => {
+export const useStructuredData = (
+  schema: StructuredDataNode | StructuredDataNode[],
+): void => {
+  const nodes = Array.isArray(schema) ? schema : [schema]
+
   useHead({
-    script: [
-      {
-        key: `jsonld-${schema['@type']}`,
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify({
-          '@context': 'https://schema.org',
-          ...schema,
-        }),
-      },
-    ],
+    script: nodes.map((node, index) => ({
+      key: `jsonld-${node['@type']}-${index}`,
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify(withContext(node)),
+    })),
   })
 }
 
@@ -92,6 +98,7 @@ export const useWebsiteStructuredData = (): void => {
     '@type': 'WebSite',
     name: 'Rizqak',
     url: siteUrl,
+    inLanguage: 'ar-EG',
     potentialAction: {
       '@type': 'SearchAction',
       target: `${siteUrl}/jobs?q={search_term_string}`,
