@@ -76,7 +76,7 @@ const clearSearch = () => {
       @focus="isFocused = true"
       @blur="isFocused = false"
       :class="[
-        'w-full h-8 bg-muted/50 focus:bg-white dark:focus:bg-[#1e1e1e] border border-transparent focus:border-border rounded-none text-ds-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-0 transition-all z-0 disabled:opacity-50 disabled:cursor-not-allowed ps-10 pe-8 py-1',
+        'w-full h-8 bg-muted/50 focus:bg-white dark:focus:bg-search-surface-focus-dark border border-transparent focus:border-border rounded-none text-ds-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-0 transition-all z-0 disabled:opacity-50 disabled:cursor-not-allowed ps-10 pe-8 py-1',
         isFocused ? 'bg-white border-border shadow-sm' : '',
       ]"
     />

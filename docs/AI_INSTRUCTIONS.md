@@ -5,11 +5,12 @@ Scope: Mandatory operating rules for any AI agent editing this repository.
 
 ## 1) Mandatory Read Order
 Before any change:
-1. Read `docs/DESIGN_SYSTEM.md`.
-2. Read `docs/ARCHITECTURE.md`.
-3. Read `docs/PHASE1_AUDIT.md`.
+1. Read `docs/PHASE0_ZERO_VISUAL_CHANGE_PROTOCOL.md`.
+2. Read `docs/DESIGN_SYSTEM.md`.
+3. Read `docs/ARCHITECTURE.md`.
+4. Read `docs/PHASE1_AUDIT.md`.
 
-No implementation work starts before these three files are loaded.
+No implementation work starts before these files are loaded.
 
 ## 2) Non-Negotiable Visual Contract
 - Homepage output is the visual source of truth.
@@ -61,9 +62,10 @@ For every new page:
 - Any user-facing logic decision requires explicit user approval.
 - Any potentially risky refactor must include a rollback-friendly diff.
 - After each substantial change:
-  1. Run build or type checks.
-  2. Report what changed and why.
-  3. Confirm no visual drift if UI-affecting files were touched.
+  1. Run `npm run baseline:visual` if frozen UI files were touched.
+  2. Run build or type checks.
+  3. Report what changed and why.
+  4. Confirm no visual drift if UI-affecting files were touched.
 
 ## 11) Documentation Governance
 When adding/updating architecture or design rules:

@@ -76,6 +76,29 @@
   --color-border-focus: #1b6b4a;
 
   /* ==========================================
+     SEMANTIC COLORS - Shell / Overlay Aliases
+     These aliases preserve exact current literals
+     used in visible components without changing output.
+     ========================================== */
+  --color-shell-bg: var(--color-primary-700);
+  --color-shell-border: rgba(255, 255, 255, 0.1);
+  --color-shell-surface: rgba(255, 255, 255, 0.1);
+  --color-shell-surface-strong: rgba(255, 255, 255, 0.2);
+  --color-shell-text: #ffffff;
+  --color-shell-text-soft: rgba(255, 255, 255, 0.9);
+  --color-shell-text-muted: rgba(255, 255, 255, 0.8);
+  --color-shell-text-faint: rgba(255, 255, 255, 0.7);
+  --color-shell-divider: rgba(255, 255, 255, 0.2);
+
+  /* ==========================================
+     SEMANTIC COLORS - Interactive State Aliases
+     ========================================== */
+  --color-state-selected-bg: #1b6b4a;
+  --color-state-selected-text: #ffffff;
+  --color-filter-control-bg-dark: #2a2a2a;
+  --color-search-surface-focus-dark: #1e1e1e;
+
+  /* ==========================================
      SHADCN / GLOBAL COMPATIBILITY ALIASES
      ========================================== */
   --color-background: var(--color-bg-primary);
@@ -211,6 +234,8 @@
   --transition-timing-function-in: ease-in;
   --transition-timing-function-out: ease-out;
   --transition-timing-function-in-out: ease-in-out;
+  --motion-scale-press-subtle: 0.98;
+  --motion-scale-press-default: 0.95;
 
   /* ==========================================
      Z-INDEX SCALE
@@ -223,6 +248,7 @@
   --z-popover: 600;
   --z-tooltip: 700;
   --z-toast: 800;
+  --z-dropdown-overlay: 100;
 
   /* ==========================================
      CONTAINER
@@ -279,6 +305,27 @@
   --spacing-element: 12px;
   --spacing-compact: 8px;
 
+  /* ==========================================
+     COMPONENT METRICS - Reusable fixed values
+     Exact aliases for current UI measurements.
+     ========================================== */
+  --size-divider-thin: 2px;
+  --size-flag-height-sm: 18px;
+  --size-country-card-height: 110px;
+  --size-filter-option-min-height: 40px;
+  --size-dropdown-trigger-width: 140px;
+  --size-search-input-max-width-compact: 160px;
+  --size-select-panel-min-width: 8rem;
+  --size-icon-material-md: 20px;
+  --size-icon-micro: 10px;
+  --radius-flag-sm: 2px;
+  --radius-flag-md: 3px;
+  --radius-flag-lg: 4px;
+  --layout-home-sidebar-width-lg: 290px;
+  --layout-home-sidebar-width-xl: 310px;
+  --offset-carousel-nav-overhang-md: 16px;
+  --offset-carousel-nav-overhang-lg: 20px;
+
   /* Filter Tree Tokens */
   --filter-tree-line-width: 1.5px;
   --filter-tree-control-size: 16px;
@@ -333,6 +380,7 @@ html.dark {
   --color-border-focus: #22c55e;
   --color-separator: #404040;
   --color-filter-tree-line: #4ade80;
+  --color-filter-control-bg-dark: #2a2a2a;
 
   /* Primary colors */
   --color-primary-50: #052e16;
@@ -698,6 +746,10 @@ html.dark {
     font-family: var(--font-family-display);
   }
 
+  .font-app-sans {
+    font-family: var(--font-family-sans);
+  }
+
   /* Text utilities */
   .text-title {
     font-size: var(--font-size-lg);
@@ -928,6 +980,79 @@ html.dark {
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-relaxed);
     color: var(--color-text-secondary);
+  }
+
+  .max-w-search-compact {
+    max-width: var(--size-search-input-max-width-compact);
+  }
+
+  .h-divider-thin {
+    height: var(--size-divider-thin);
+  }
+
+  .filter-control-idle-surface {
+    background-color: var(--color-surface);
+  }
+
+  html.dark .filter-control-idle-surface {
+    background-color: var(--color-filter-control-bg-dark);
+  }
+
+  .dialog-mobile-max-w {
+    max-width: calc(100% - 2rem);
+  }
+
+  .transition-color-shadow {
+    transition-property: color, box-shadow;
+  }
+
+  .min-w-select-panel {
+    min-width: var(--size-select-panel-min-width);
+  }
+
+  .checkbox-baseline-nudge {
+    transform: translateY(2px);
+  }
+
+  .inset-inline-start-0 {
+    inset-inline-start: 0;
+  }
+
+  .inset-inline-end-0 {
+    inset-inline-end: 0;
+  }
+
+  .w-dropdown-trigger {
+    width: var(--size-dropdown-trigger-width);
+  }
+
+  .z-dropdown-overlay {
+    z-index: var(--z-dropdown-overlay);
+  }
+
+  .bg-shell-bg {
+    background-color: var(--color-shell-bg);
+  }
+
+  .bg-state-selected {
+    background-color: var(--color-state-selected-bg);
+  }
+
+  .bg-search-surface-focus-dark {
+    background-color: var(--color-search-surface-focus-dark);
+  }
+
+  .text-state-selected {
+    color: var(--color-state-selected-text);
+  }
+
+  .active-scale-subtle:active {
+    transform: scale(var(--motion-scale-press-subtle));
+  }
+
+  .hover-state-selected:hover {
+    background-color: var(--color-state-selected-bg) !important;
+    color: var(--color-state-selected-text) !important;
   }
 
   /* Background utilities */

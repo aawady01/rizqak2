@@ -1,5 +1,5 @@
 ﻿<template>
-  <div dir="rtl" class="min-h-screen flex flex-col bg-background text-foreground font-[Cairo]">
+  <div dir="rtl" class="font-app-sans min-h-screen flex flex-col bg-background text-foreground">
     <LayoutHeader />
 
     <main class="flex-1">

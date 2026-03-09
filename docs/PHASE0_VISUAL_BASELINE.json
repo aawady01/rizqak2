@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-03-09T21:15:32.736Z",
+  "fileCount": 51,
+  "files": [
+    {
+      "path": "app/app.vue",
+      "sha256": "2f4b4c9be4542ae0370490c54148ff28beedc94ef1bb51d3411f85ccf2a57d30"
+    },
+    {
+      "path": "app/assets/css/main.css",
+      "sha256": "9d4fff56261c2a17e0924a5a41468fe4dc18da1fd0b12601e765a7d265f396fe"
+    },
+    {
+      "path": "app/components/base/BaseFlag.vue",
+      "sha256": "7d8884fa98aaac307d7fda4620e72c72f436fdb56629ca4e4a4ff19718595ee9"
+    },
+    {
+      "path": "app/components/base/BaseTypography.vue",
+      "sha256": "e88f56e867d3aafaa00b150376fc468f25ce7c74e6213e90eebe9f3ef0f3c3bc"
+    },
+    {
+      "path": "app/components/companies/CompanyCard.vue",
+      "sha256": "cc6c358e0a2df8ac3643ad44357ae466eff109b869a6246f91cb1af20d5f2528"
+    },
+    {
+      "path": "app/components/filters/BaseFilterSection.vue",
+      "sha256": "6a6e7697815c09404dc636d6a8edb7ca45c952b6d1e89f23f2586643652adc27"
+    },
+    {
+      "path": "app/components/filters/GenderFilter.vue",
+      "sha256": "97a145e050c195cf95d2ba653f58ccd88f5aa82e19dac7af91c052ce741929e2"
+    },
+    {
+      "path": "app/components/filters/SimpleFilter.vue",
+      "sha256": "3c0326f8967ff0f9428a64fad808ee486cda523185984f396ce3b7cfbee04be3"
+    },
+    {
+      "path": "app/components/filters/TreeBranch.vue",
+      "sha256": "4731d39ea3e2524c2f13a6e1236902a3e15c6870bd7ea884e4b7d41b3bbd6d65"
+    },
+    {
+      "path": "app/components/filters/TreeFilterSection.vue",
+      "sha256": "6d2f72d64843369414fecd88e440ff7c904681a86f3cfd4f1a5d43aed79e3aec"
+    },
+    {
+      "path": "app/components/home/CountryCard.vue",
+      "sha256": "9be1422482c528810981f2ca76d9b2464d4f1afbf276c537808854c1fb15c998"
+    },
+    {
+      "path": "app/components/home/CountryCarousel.vue",
+      "sha256": "4bf94077bdebede35b030617372f5e65c2b11dde132fa4e833a6956217e14e8d"
+    },
+    {
+      "path": "app/components/home/HomeFeaturedCompanies.vue",
+      "sha256": "721609621de5806a548477ca7be047084d86dd608b0fc6aa87b14cd9d65e80bb"
+    },
+    {
+      "path": "app/components/home/HomeHero.vue",
+      "sha256": "c31a08d0b283fcd6f6d69fc9dcc7b4301963ac24eb8b470ae70dfe90695199e9"
+    },
+    {
+      "path": "app/components/home/HomeJobList.vue",
+      "sha256": "89af78e361975ec6a23d1672545e04b5d018528db041a0beea6e4b6d0f84df55"
+    },
+    {
+      "path": "app/components/home/HomeSidebar.vue",
+      "sha256": "77610be4ba8be004739a475196c18ff6898fe9c7fa785334b30bc93e782fa385"
+    },
+    {
+      "path": "app/components/jobs/JobCard.vue",
+      "sha256": "5d42cc45eceefa704e1bf203953b69c07c354e94e8b85f889f2545913fd5acde"
+    },
+    {
+      "path": "app/components/layout/LayoutFooter.vue",
+      "sha256": "ff1cd9ab602495342721e63cae5675a97b035ac20bbda73eb9bf96704c6da719"
+    },
+    {
+      "path": "app/components/layout/LayoutHeader.vue",
+      "sha256": "447d7e18debafb90f3dea2d58bdad4fc818a39d81fc84ffdc99df7703382accb"
+    },
+    {
+      "path": "app/layouts/default.vue",
+      "sha256": "3e165793e8145442346eb533142a37716d4931f00563ed5242cbfbf80ba137ff"
+    },
+    {
+      "path": "app/pages/index.vue",
+      "sha256": "d66a11f5551706df3fd20a02e5b6fcf8967e04b57abd6eca3530cda45524e953"
+    },
+    {
+      "path": "app/shared/components/base/BaseAvatar.vue",
+      "sha256": "9ddda1d478f85eeec49fd49e5687cf553975878194b8873972030dd52d11df80"
+    },
+    {
+      "path": "app/shared/components/base/BaseBadge.vue",
+      "sha256": "7aea5657e592708d7192c26e376948d273582e1219fff8a8c5e5f2e6206cfc16"
+    },
+    {
+      "path": "app/shared/components/base/BaseButton.vue",
+      "sha256": "ac78fbe17de9dcceb07842da6ce1f5b74f5d35503bfde3f00506d0b6ea69e82b"
+    },
+    {
+      "path": "app/shared/components/base/BaseCard.vue",
+      "sha256": "6d46b4750d6ed0b10c2d6177a0739fb9c45897e961934f68c016eb9c91ed64dc"
+    },
+    {
+      "path": "app/shared/components/base/BaseCheckbox.vue",
+      "sha256": "479665c646324b68ffc1b7ec070f71f5ba6c1268ef80aa361bb6cf5858287b6e"
+    },
+    {
+      "path": "app/shared/components/base/BaseChip.vue",
+      "sha256": "eb20be6702cd05e890f255dac90f526e8b5e767a232405a0e2b6b09c7fda169c"
+    },
+    {
+      "path": "app/shared/components/base/BaseDialog.vue",
+      "sha256": "b8c4866dcd386e52d7505576102264306b9912014f411cc0f8cf7bcc192a30b4"
+    },
+    {
+      "path": "app/shared/components/base/BaseDisclosureButton.vue",
+      "sha256": "d1db067757ef25e39f5f6d30772c89dec396d776b7b45abca00ac248c06dd0b8"
+    },
+    {
+      "path": "app/shared/components/base/BaseFilterHeader.vue",
+      "sha256": "516bff0bf5cb6ce32af68bff3a6b8c9c18e00cc5f062a1476d2c29c568f00621"
+    },
+    {
+      "path": "app/shared/components/base/BaseFilterItemRow.vue",
+      "sha256": "b026ae515b3dee529701f93d72eceed9a49617b17ea601367bb15863314f7d99"
+    },
+    {
+      "path": "app/shared/components/base/BaseFilterShowMore.vue",
+      "sha256": "454046d424600129cfef83538824ca44785b9e0b5812b6d960d602c4f276b39b"
+    },
+    {
+      "path": "app/shared/components/base/BaseImageWithFallback.vue",
+      "sha256": "1123f7c406aa68da88b3d4c628b60369c7a532e13cbed43bd8f15d87cffb2e53"
+    },
+    {
+      "path": "app/shared/components/base/BaseInput.vue",
+      "sha256": "32121ee4557afef4a7d83e2705ac20e6cbf371ccbd4e56869c7cda9e3e8d2549"
+    },
+    {
+      "path": "app/shared/components/base/BaseLabel.vue",
+      "sha256": "fc5fbfe4a7d1e6c8871e970baf124114997289494410ab7ed9ba8d31f7804665"
+    },
+    {
+      "path": "app/shared/components/base/BaseModal.vue",
+      "sha256": "a66de8b81296acab50007e266f019470fbd8b90db6a1d9ad3135c3ea10596f0e"
+    },
+    {
+      "path": "app/shared/components/base/BasePagination.vue",
+      "sha256": "ca2c3c426215b6259bc916ce3fdc99df13e9dbb104fde99fb8fb7fc602127e31"
+    },
+    {
+      "path": "app/shared/components/base/BaseSearchInput.vue",
+      "sha256": "ba810655a109ba2a46a4cfc530f538860e9f976412b119e2e37ed94cc54d50ae"
+    },
+    {
+      "path": "app/shared/components/base/BaseSelect.vue",
+      "sha256": "e6c1837bd1e5124849b51fe965c70be35be15a4b67ff77e8abbcf0d0b8caba1b"
+    },
+    {
+      "path": "app/shared/components/base/BaseSkeleton.vue",
+      "sha256": "0ea3730e0327ce6c954bcd959793a91226e775682f32bd38c8343c5bd2929f04"
+    },
+    {
+      "path": "app/shared/components/base/BaseTable.vue",
+      "sha256": "a0c848b9d3bf1bb527c5ea696caaf1a76a409012579d740a13f43109e73666b6"
+    },
+    {
+      "path": "app/shared/components/base/BaseTableBody.vue",
+      "sha256": "910875db16c866688e801e50f4c6d5a5796d679ec57b2f56bf07b62ae99bb7fc"
+    },
+    {
+      "path": "app/shared/components/base/BaseTableCaption.vue",
+      "sha256": "bcdd980038baf3e573f8db42a315f45e07ae203cb59217d8262a0702100cf04a"
+    },
+    {
+      "path": "app/shared/components/base/BaseTableCell.vue",
+      "sha256": "06cb17d44f1744f0a2b3c9aed4434581090c31f8270690a7f051698a5bb1a91d"
+    },
+    {
+      "path": "app/shared/components/base/BaseTableFooter.vue",
+      "sha256": "89e0ab1093c0c787d40d2f05a7aa70ad2f627639265dce80b13d3dc7b274f6e0"
+    },
+    {
+      "path": "app/shared/components/base/BaseTableHead.vue",
+      "sha256": "4da3d749db1f9611d7a79c8be6fd4e1cf1d39d0453b3ef355c80d989c7c323cc"
+    },
+    {
+      "path": "app/shared/components/base/BaseTableHeader.vue",
+      "sha256": "182df1d7236756266baf50e492bf309f393274c24b794d52e955aec2936ccf3d"
+    },
+    {
+      "path": "app/shared/components/base/BaseTableRow.vue",
+      "sha256": "6edafc671347c9f103ac78d0ebfbd46382501da06ee9119071bec67ce9901710"
+    },
+    {
+      "path": "app/shared/components/base/BaseTabs.vue",
+      "sha256": "0d047afe8300189dbafcc1222b69a3c65698a78559874e4da8cb55ecf67b32f4"
+    },
+    {
+      "path": "app/shared/components/base/BaseTextarea.vue",
+      "sha256": "5d4cffa21b564bcdddca9f5255d42b96019661fa5d896d947d5d7f17548a932b"
+    },
+    {
+      "path": "app/shared/components/base/BaseTreeConnector.vue",
+      "sha256": "53f48bbadc1a86d794ca64d8fca896d6c7884bb3605e7fb372f76215cfcc358d"
+    }
+  ]
+}

@@ -3,6 +3,8 @@
 Last updated: 2026-03-09
 Canonical source: Homepage implementation in `app/components/home/**` + global tokens in `app/assets/css/main.css`.
 
+Visual freeze protocol: `docs/PHASE0_ZERO_VISUAL_CHANGE_PROTOCOL.md`
+
 ## 1) System Principles
 - Arabic-first and RTL-first across all pages.
 - Mobile-first layout decisions by default.
@@ -25,6 +27,7 @@ Primary token source: `app/assets/css/main.css` under `@theme`.
   - Status: success/warning/error/info groups
 
 Full inventory (light/dark + values): `docs/PHASE1_TOKEN_INVENTORY.csv`.
+Coverage verification for repeatable static values: `docs/PHASE2_TOKEN_COVERAGE_VERIFICATION.md`.
 
 ### 2.2 Typography Tokens
 - Families: `--font-family-sans`, `--font-family-display` (Cairo)
@@ -40,6 +43,17 @@ Full inventory (light/dark + values): `docs/PHASE1_TOKEN_INVENTORY.csv`.
   - `--spacing-content`
   - `--spacing-element`
   - `--spacing-compact`
+- Fixed measurement aliases for reusable UI geometry now also exist for stable future page composition:
+  - dropdown widths
+  - sidebar widths
+  - compact control heights
+  - carousel overhang offsets
+  - thin indicator/divider sizes
+  - icon micro/material sizes
+  - flag radii/heights
+- Coverage status:
+  - repeatable static measurements discovered by the audit now have a token home
+  - remaining measurement findings are mostly behavioral layout expressions or runtime geometry variables rather than missing token definitions
 
 ### 2.4 Radius Tokens
 - `--radius-none/sm/md/lg/xl/2xl/3xl` all map to zero.
@@ -110,6 +124,10 @@ Z-index usage extraction: `docs/PHASE1_ZINDEX_USAGE.txt`.
 4. Public assets duplicated across `app/public` and `public`.
 5. shadcn CLI configuration (`components.json`) is not explicitly represented.
 
+Clarification:
+- Token replacement inside visible components is still partial.
+- Token coverage for reusable static values is materially stronger and is tracked in `docs/PHASE2_TOKEN_COVERAGE_VERIFICATION.md`.
+
 ## 10) Rules for Any New Page
 1. Extract structure intent from reference input.
 2. Implement appearance only from this design system.
@@ -118,6 +136,7 @@ Z-index usage extraction: `docs/PHASE1_ZINDEX_USAGE.txt`.
 5. Any user-visible behavioral decision requires explicit user confirmation.
 
 ## 11) Verification Artifacts
+- `docs/PHASE0_VISUAL_BASELINE.md`
 - `docs/PHASE1_AUDIT.md`
 - `docs/PHASE1_FILE_LIST.txt`
 - `docs/PHASE1_FILE_CATALOG.csv`

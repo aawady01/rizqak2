@@ -87,13 +87,30 @@ Current gap:
 - RTL baseline: `lang='ar'`, `dir='rtl'` applied globally.
 
 ## 6) SEO Architecture
-- Head/meta configured at app and page/layout levels.
-- Structured data helper utilities exist in `app/core/api/seo.ts`.
-- Canonical and OG helpers exist but are not uniformly applied across all routes yet.
+- Head/meta is configured at both app and page levels.
+- Canonical SEO composables live in:
+  - `app/shared/composables/useSEO.ts`
+  - `app/shared/composables/useStructuredData.ts`
+- Compatibility exports remain available in `app/core/api/seo.ts`.
+- Homepage currently uses the shared SEO/structured-data layer.
+- Dynamic crawler endpoints are served from:
+  - `app/server/routes/robots.txt.ts`
+  - `app/server/routes/sitemap.xml.ts`
+- Site URL normalization helpers live in `app/server/utils/seo.ts`.
 
 ## 7) Security Architecture
-- Active headers: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy, Permissions-Policy, HSTS.
-- CSP currently configured as head meta in Nuxt config; recommended to centralize/enforce at header layer for consistency.
+- Active headers are applied in `app/server/plugins/security-headers.ts`.
+- Current header set includes:
+  - `X-Content-Type-Options`
+  - `X-Frame-Options`
+  - `Referrer-Policy`
+  - `Permissions-Policy`
+  - `Cross-Origin-Opener-Policy`
+  - `Cross-Origin-Resource-Policy`
+  - `X-DNS-Prefetch-Control`
+  - `Origin-Agent-Cluster`
+  - `Strict-Transport-Security` for HTTPS requests
+- CSP is currently emitted as `Content-Security-Policy-Report-Only` outside dev to avoid breaking the existing UI while policy observability is gathered.
 
 ## 8) Performance Architecture
 - SSR active.
@@ -104,9 +121,10 @@ Current gap:
 ## 9) Technical Debt Register (Current)
 1. Duplicate docs and non-canonical architecture narratives.
 2. Duplicate static asset trees (`app/public` and `public`).
-3. Mixed tokenized vs literal style values in key shell components.
+3. Mixed tokenized vs literal style values in key shell/home components.
 4. Encoding artifacts in Arabic literals.
 5. Sparse page coverage beyond homepage route.
+6. `typescript.typeCheck` is disabled in Nuxt config even though strict TypeScript is enforced through the workspace and `nuxt typecheck`.
 
 ## 10) Target Architecture Direction (Non-Visual)
 1. Consolidate canonical docs and deprecate duplicates.

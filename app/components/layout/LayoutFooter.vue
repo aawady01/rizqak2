@@ -13,7 +13,7 @@ import {
 <template>
   <footer
     id="contact"
-    class="bg-[#145239] border-t border-white/10 mt-16 py-12 scroll-mt-24"
+    class="bg-shell-bg border-t border-white/10 mt-16 py-12 scroll-mt-24"
   >
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">

@@ -59,14 +59,14 @@ onUnmounted(() => document.removeEventListener("click", closeDropdown));
           <button
             type="button"
             @click="toggleDropdown"
-            class="bg-card border border-border py-1.5 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium w-[140px]"
+            class="w-dropdown-trigger bg-card border border-border py-1.5 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium"
           >
             {{ sortOptions.find((o) => o.value === sortBy)?.label }}
           </button>
 
           <div
             v-if="isDropdownOpen"
-            class="absolute top-full left-0 w-full bg-card border border-border shadow-lg z-[100]"
+            class="inset-inline-start-0 z-dropdown-overlay absolute top-full w-full bg-card border border-border shadow-lg"
           >
             <button
               v-for="option in sortOptions"
@@ -76,8 +76,8 @@ onUnmounted(() => document.removeEventListener("click", closeDropdown));
               :class="[
                 'w-full text-center py-2 px-element text-ds-caption font-medium transition-all duration-200 cursor-pointer outline-none border-none animate-none',
                 sortBy === option.value
-                  ? 'bg-[#1B6B4A] text-[#FFFFFF]'
-                  : 'text-foreground bg-transparent hover:!bg-[#1B6B4A] hover:!text-[#FFFFFF]',
+                  ? 'bg-state-selected text-state-selected'
+                  : 'text-foreground bg-transparent hover-state-selected',
               ]"
             >
               {{ option.label }}

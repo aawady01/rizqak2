@@ -73,7 +73,7 @@ watchEffect(() => {
         :class="[
           checked
             ? 'border-primary bg-primary'
-            : 'border-border bg-white dark:bg-[#2a2a2a]',
+            : 'border-border filter-control-idle-surface',
         ]"
       >
         <span v-if="checked" class="size-1.5 rounded-full bg-white" />
@@ -85,7 +85,7 @@ watchEffect(() => {
         :class="[
           checked || indeterminate
             ? 'border-primary bg-primary'
-            : 'border-border bg-white dark:bg-[#2a2a2a]',
+            : 'border-border filter-control-idle-surface',
         ]"
       >
         <Check
@@ -95,7 +95,7 @@ watchEffect(() => {
         />
         <span
           v-else-if="indeterminate"
-          class="h-[2px] w-2 rounded-full bg-white"
+          class="h-divider-thin w-2 rounded-full bg-white"
         />
       </span>
 

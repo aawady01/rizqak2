@@ -65,7 +65,8 @@ Observed:
 Findings:
 - Good baseline for SSR/Nitro/RTL.
 - `typescript.typeCheck` is disabled in Nuxt config despite strict TypeScript in tsconfig.
-- SEO/social defaults include mojibake Arabic text (encoding issue in literals).
+- Default head metadata is currently English-first in `nuxt.config.ts`, while visible UI content remains Arabic-first.
+- No CSP `http-equiv` meta tag is currently present in `nuxt.config.ts`; active CSP strategy lives in the Nitro security headers plugin.
 
 ### 1.2.2 Tailwind CSS v4 audit
 - Tailwind import and CSS-first token definition are in `app/assets/css/main.css` using `@theme`.
@@ -94,7 +95,7 @@ Core targets from project requirements:
 - TypeScript: `^5.9.3` (strict mode enabled)
 
 Gaps:
-- No explicit shadcn package/version pin in dependencies.
+- No explicit shadcn CLI package/version pin in dependencies.
 - Dev dependencies include expected ecosystem packages for current stack.
 
 ### 1.2.6 Other config files
@@ -134,6 +135,7 @@ Findings:
 - `lang='ar'` and `dir='rtl'` applied at app level.
 - Default shell composition: `LayoutHeader -> main slot -> LayoutFooter`.
 - Page transition configured globally in Nuxt app config.
+- Visual baseline for these files is now tracked under Phase 0 manifest outputs.
 
 ## 1.5 App Bar and Navigation Microscopic Analysis
 
@@ -282,17 +284,18 @@ Checks:
 1. Design system token foundation is strong in CSS but compliance is partial at component usage level.
 2. Documentation is fragmented and partly outdated relative to actual code.
 3. Duplicate asset trees and duplicate docs create maintainability noise.
-4. SEO utilities exist but are underused by pages and include encoding issues in literals.
-5. Security headers plugin exists; CSP strategy is split between meta tag and server headers.
+4. Shared SEO utilities exist and the homepage already consumes them, but route coverage is still incomplete.
+5. Security headers plugin exists; CSP currently runs in report-only mode outside development.
 6. Arabic source text encoding quality needs normalization (mojibake in multiple files).
 
 ## Immediate Recommended Next Execution Block (Phase 2+)
 
-1. Canonicalize documentation set and deprecate duplicates.
-2. Create strict DS compliance matrix (component -> tokens -> variants).
-3. Normalize SEO composables and site URL strategy.
-4. Standardize API typed contracts and error model.
-5. Keep all changes non-visual and verify with build/typecheck.
+1. Keep Phase 0 visual baseline manifest current before and after any UI-adjacent touch.
+2. Canonicalize documentation set and deprecate duplicates.
+3. Create strict DS compliance matrix (component -> tokens -> variants).
+4. Extend SEO coverage route-by-route without editing visible component structure.
+5. Standardize API typed contracts and error model.
+6. Keep all changes non-visual and verify with baseline/typecheck/build.
 
 ## Generated Audit Artifacts
 

@@ -28,7 +28,7 @@ const searchQuery = defineModel<string>("searchQuery", { default: "" });
       </h4>
     </div>
 
-    <div v-if="searchable" class="w-full max-w-[160px]">
+    <div v-if="searchable" class="max-w-search-compact w-full">
       <BaseSearchInput
         v-model="searchQuery"
         :placeholder="searchPlaceholder"

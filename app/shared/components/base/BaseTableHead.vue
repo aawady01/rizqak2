@@ -10,7 +10,7 @@ const props = defineProps<Props>();
 
 const headClass = computed(() => {
   return cn(
-    "text-ds-foreground h-10 px-2 text-start align-middle font-bold whitespace-nowrap [&:has([role=checkbox])]:pe-0 [&>[role=checkbox]]:translate-y-[2px]",
+    "text-ds-foreground h-10 px-2 text-start align-middle font-bold whitespace-nowrap [&:has([role=checkbox])]:pe-0 [&>[role=checkbox]]:checkbox-baseline-nudge",
     props.class,
   );
 });

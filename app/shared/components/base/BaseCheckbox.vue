@@ -68,6 +68,6 @@ const toggleCheckbox = () => {
     "
     @click.prevent="toggleCheckbox"
   >
-    <Check v-if="isChecked" class="size-3.5 stroke-[3]" />
+    <Check v-if="isChecked" class="size-3.5" :stroke-width="3" />
   </button>
 </template>

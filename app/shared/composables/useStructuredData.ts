@@ -127,6 +127,13 @@ export const useOrganizationStructuredData = (): void => {
 }
 
 /**
+ * Legacy-friendly alias for organization/employer identity schema.
+ */
+export const useEmployerStructuredData = (): void => {
+  useOrganizationStructuredData()
+}
+
+/**
  * JobPosting schema for job detail pages.
  */
 export const useJobPostingStructuredData = (job: JobPostingStructuredData): void => {

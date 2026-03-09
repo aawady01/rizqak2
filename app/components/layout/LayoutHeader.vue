@@ -14,7 +14,7 @@ const toggleMobileMenu = () => {
 
 <template>
   <header
-    class="sticky top-0 z-50 w-full border-b border-white/10 bg-[#145239] shadow-sm transition-all duration-300"
+    class="bg-shell-bg sticky top-0 z-50 w-full border-b border-white/10 shadow-sm transition-all duration-300"
   >
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
@@ -62,7 +62,7 @@ const toggleMobileMenu = () => {
           <div class="w-px h-6 bg-white/20 mx-1" />
 
           <button
-            class="flex items-center gap-2 text-white/90 hover:text-white hover:bg-white/10 px-4 py-2 rounded-none transition-all active:scale-[0.98]"
+            class="active-scale-subtle flex items-center gap-2 text-white/90 hover:text-white hover:bg-white/10 px-4 py-2 rounded-none transition-all"
           >
             <SquareUser class="size-5" :stroke-width="2" />
             <BaseTypography
