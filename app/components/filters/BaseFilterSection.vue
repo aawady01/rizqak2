@@ -2,7 +2,6 @@
 import { computed } from "vue";
 import BaseDisclosureButton from "../../shared/components/base/BaseDisclosureButton.vue";
 import BaseFilterHeader from "../../shared/components/base/BaseFilterHeader.vue";
-import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
 import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
 import { toDomSafeId } from "~/shared/utils/string";
 
@@ -70,16 +69,25 @@ const connectorActive = computed(
     />
 
     <div class="relative">
-      <BaseTreeConnector
-        v-if="hasSelectAll"
-        type="stem"
-        :active="connectorActive"
+      <!-- الخط العمودي من "كل المجالات" إلى الفئات -->
+      <div
+        v-if="hasSelectAll && expanded"
+        class="absolute w-[2px] bg-primary transition-all duration-300 z-5 rounded-full"
+        :class="connectorActive ? 'opacity-90' : 'opacity-40'"
+        style="inset-inline-end: 2px; top: 18px; height: 22px;"
       />
-
+      
       <div
         v-if="hasSelectAll"
         class="relative mb-1 z-20"
       >
+        <!-- الخط الأفقي من مربع "كل المجالات" للربط بالخط العمودي -->
+        <div 
+          class="absolute h-[2px] bg-primary transition-all duration-300 z-20 rounded-full"
+          :class="connectorActive ? 'opacity-90' : 'opacity-40'"
+          style="inset-inline-end: -2px; top: 50%; transform: translateY(-50%); width: 6px;"
+        />
+        
         <BaseFilterItemRow
           :input-id="selectAllInputId"
           :label="totalLabel ?? ''"
@@ -102,7 +110,7 @@ const connectorActive = computed(
 
       <div
         :id="contentDomId"
-        class="grid transition-all duration-300 ease-in-out"
+        class="grid transition-all duration-300 ease-in-out origin-top"
         :class="
           expanded || !expandable
             ? 'grid-rows-[1fr] opacity-100'

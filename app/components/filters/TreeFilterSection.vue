@@ -80,6 +80,15 @@ const handleToggleBranchExpansion = (
 ) => {
   expandedCategoryId.value = nextExpanded ? categoryId : null;
 };
+
+// حساب نمط الخط العمودي الرئيسي
+const mainLineStyle = computed(() => {
+  const hasShowMore = hiddenCount.value > 0 || (showAllCategories.value && filteredCategories.value.length > 4 && !isSearching.value);
+  return {
+    top: '18px',
+    bottom: hasShowMore ? '40px' : '18px'
+  };
+});
 </script>
 
 <template>
@@ -99,27 +108,38 @@ const handleToggleBranchExpansion = (
     @toggle-all="handleToggleAll"
     @expand-toggle="handleExpandToggle"
   >
-    <TreeBranch
-      v-for="(category, idx) in visibleCategories"
-      :key="category.id"
-      :category="category"
-      :is-last="idx === visibleCategories.length - 1"
-      :checked-children="checkedItems"
-      :search-query="searchQuery"
-      :expanded="expandedCategoryId === category.id"
-      @toggle-child="handleToggleChild"
-      @toggle-category="handleToggleCategory"
-      @toggle-expand="handleToggleBranchExpansion"
-    />
+    <div class="relative filter-tree-categories">
+      <!-- الخط العمودي الرئيسي للفئات - يمتد من أول فئة إلى آخر فئة -->
+      <div 
+        v-if="visibleCategories.length > 1"
+        class="absolute w-[2px] bg-primary transition-all duration-300 ease-out rounded-full"
+        :class="someChecked || allChecked || allExpanded ? 'opacity-90' : 'opacity-40'"
+        :style="{ ...mainLineStyle, insetInlineEnd: '2px' }"
+      />
+      
+      <TreeBranch
+        v-for="(category, idx) in visibleCategories"
+        :key="category.id"
+        :category="category"
+        :is-last="idx === visibleCategories.length - 1 && hiddenCount === 0"
+        :checked-children="checkedItems"
+        :search-query="searchQuery"
+        :expanded="expandedCategoryId === category.id"
+        @toggle-child="handleToggleChild"
+        @toggle-category="handleToggleCategory"
+        @toggle-expand="handleToggleBranchExpansion"
+      />
 
-    <BaseFilterShowMore
-      v-if="
-        hiddenCount > 0 ||
-        (showAllCategories && filteredCategories.length > 4 && !isSearching)
-      "
-      :show-all="showAllCategories"
-      :hidden-count="hiddenCount"
-      @toggle="toggleShowAll"
-    />
+      <BaseFilterShowMore
+        v-if="
+          hiddenCount > 0 ||
+          (showAllCategories && filteredCategories.length > 4 && !isSearching)
+        "
+        :show-all="showAllCategories"
+        :hidden-count="hiddenCount"
+        class="relative z-10"
+        @toggle="toggleShowAll"
+      />
+    </div>
   </BaseFilterSection>
 </template>

@@ -281,27 +281,27 @@
   --spacing-compact: 8px;
 
   /* Filter Tree Tokens */
-  --filter-tree-line-width: 1.5px;
+  --filter-tree-line-width: 2px;
   --filter-tree-control-size: 16px;
   --filter-tree-control-gap: 12px;
-  --filter-tree-control-center-offset: 10px;
+  --filter-tree-control-center-offset: 8px;
   --filter-tree-rail-offset: 0px;
   --filter-tree-control-edge-offset: var(--filter-tree-rail-offset);
-  --filter-tree-stem-offset: 10px;
-  --filter-tree-child-stem-offset: -16px;
-  --filter-tree-root-branch-length: 16px;
-  --filter-tree-branch-length: 16px;
-  --filter-tree-child-indent: 8px;
-  --filter-tree-connector-overlap: 0px;
-  --filter-tree-node-center: 16px;
-  --filter-tree-bridge-offset: 10px;
-  --filter-tree-bridge-height: 32px;
-  --filter-tree-row-min-height: 32px;
-  --filter-tree-row-min-height-child: 32px;
+  --filter-tree-stem-offset: 8px;
+  --filter-tree-child-stem-offset: -14px;
+  --filter-tree-root-branch-length: 14px;
+  --filter-tree-branch-length: 14px;
+  --filter-tree-child-indent: 6px;
+  --filter-tree-connector-overlap: 2px;
+  --filter-tree-node-center: 50%;
+  --filter-tree-bridge-offset: 8px;
+  --filter-tree-bridge-height: 16px;
+  --filter-tree-row-min-height: 36px;
+  --filter-tree-row-min-height-child: 34px;
   --filter-tree-disclosure-size: 32px;
   --filter-tree-disclosure-icon-size: 14px;
-  --filter-tree-line-opacity-muted: 0.6;
-  --filter-tree-line-opacity-active: 0.95;
+  --filter-tree-line-opacity-muted: 0.5;
+  --filter-tree-line-opacity-active: 1;
   --color-text-tertiary: #6b7280;
   --color-separator: #d1d5db;
   --color-gold-star: #e8b931;
@@ -806,6 +806,35 @@ html.dark {
 
   html.dark .filter-tree-scope {
     --tree-line-color-rgb: 74 222 128;
+  }
+
+  /* الخط العمودي الرئيسي للفئات - يمتد من أول فئة إلى آخر فئة */
+  .filter-tree-categories .filter-tree-main-line {
+    top: 18px;
+    bottom: 18px;
+  }
+  
+  /* عندما يكون هناك عنصر "عرض المزيد" */
+  .filter-tree-categories:has(> .filter-show-more) .filter-tree-main-line {
+    bottom: 40px;
+  }
+  
+  /* تحسين مظهر خطوط الشجرة */
+  .filter-tree-scope .bg-primary {
+    background-color: var(--color-primary) !important;
+  }
+  
+  /* التأكد من أن الخطوط تظهر فوق العناصر الأخرى */
+  .filter-tree-scope [class*="z-5"] {
+    z-index: 5;
+  }
+  
+  .filter-tree-scope [class*="z-10"] {
+    z-index: 10;
+  }
+  
+  .filter-tree-scope [class*="z-20"] {
+    z-index: 20;
   }
 
   .filter-disclosure-button {

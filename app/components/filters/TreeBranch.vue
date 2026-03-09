@@ -4,7 +4,6 @@ import type { FilterCategory } from "~/shared/utils/mockData";
 import { normalizeArabic, toDomSafeId } from "~/shared/utils/string";
 import { useFilterPagination } from "~/composables/filters/useFilterPagination";
 import BaseDisclosureButton from "../../shared/components/base/BaseDisclosureButton.vue";
-import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
 import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
 
@@ -108,13 +107,14 @@ const onChildToggle = (childId: string) => {
 
 <template>
   <div class="relative">
-    <BaseTreeConnector
-      type="root-branch"
-      :is-last="isLast"
-      :active="rowStateActive"
+    <!-- الخط الأفقي للفئة الرئيسية - يربط الفئة بالخط العمودي -->
+    <div 
+      class="absolute h-[2px] bg-primary transition-all duration-300 z-20 rounded-full"
+      :class="rowStateActive ? 'opacity-90' : 'opacity-40'"
+      style="inset-inline-end: -2px; top: 50%; transform: translateY(-50%); width: 6px;"
     />
 
-    <div class="ps-[var(--filter-tree-root-branch-length)]">
+    <div class="ps-[6px]">
       <div class="relative z-20">
         <BaseFilterItemRow
           :input-id="categoryInputId"
@@ -138,35 +138,41 @@ const onChildToggle = (childId: string) => {
         </BaseFilterItemRow>
       </div>
 
-      <BaseTreeConnector
-        v-if="hasChildren && expanded"
-        type="bridge"
-        :active="rowStateActive"
-      />
-
       <div
         v-if="hasChildren"
         :id="childGroupId"
-        class="grid transition-all duration-300 ease-in-out"
+        class="grid transition-all duration-300 ease-in-out origin-top"
         :class="
           expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         "
       >
         <div class="overflow-hidden">
           <div
-            class="relative"
+            class="relative ps-[20px] pt-1"
             role="group"
             :aria-labelledby="categoryInputId"
           >
+            <!-- الخط العمودي الرئيسي للأطفال - متصل وسلس -->
+            <div 
+              v-if="visibleChildren.length > 0"
+              class="absolute w-[2px] bg-primary transition-all duration-300 z-10 rounded-full"
+              :class="rowStateActive ? 'opacity-90' : 'opacity-40'"
+              style="inset-inline-start: 0; top: 4px;"
+              :style="{ 
+                height: `calc(100% - ${visibleChildren.length > 1 ? '21px' : '4px'})`
+              }"
+            />
+            
             <div
               v-for="(child, idx) in visibleChildren"
               :key="child.id"
               class="relative"
             >
-              <BaseTreeConnector
-                type="branch"
-                :is-last="idx === visibleChildren.length - 1"
-                :active="checkedChildren.has(child.id)"
+              <!-- الخط الأفقي للعنصر الطفل - يتصل بالخط العمودي -->
+              <div 
+                class="absolute h-[2px] bg-primary transition-all duration-300 z-20 rounded-full"
+                :class="checkedChildren.has(child.id) ? 'opacity-90' : 'opacity-40'"
+                style="inset-inline-start: -20px; top: 50%; transform: translateY(-50%); width: 20px;"
               />
 
               <BaseFilterItemRow
@@ -188,6 +194,7 @@ const onChildToggle = (childId: string) => {
               "
               :show-all="showAllChildren"
               :hidden-count="hiddenChildrenCount"
+              class="relative z-10 ps-0"
               @toggle="toggleShowAll"
             />
           </div>
