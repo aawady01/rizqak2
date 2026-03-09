@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Profile &amp; Reviews - Shoghlak Barra</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1B6B4A",
+                        "primary-active": "#2D8A4E",
+                        "primary-dark": "#145238",
+                        "primary-light": "#e8f5f0",
+                        "background-light": "#FFFFFF", 
+                        "background-sub": "#F9F9F9",
+                        "border-light": "#E5E7EB",
+                        "facebook": "#1877F2",
+                        "whatsapp": "#25D366",
+                        "gold": "#E8B931",
+                        "track": "#F5F5F0"
+                    },
+                    fontFamily: {
+                        "display": ["Cairo", "Inter", "sans-serif"],
+                        "body": ["Cairo", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.regular { font-variation-settings: 'FILL' 0; }
+        .material-symbols-outlined.light { font-variation-settings: 'wght' 300; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 min-h-screen flex flex-col font-display overflow-x-hidden antialiased">
+<header class="bg-primary sticky top-0 z-50 shadow-none border-none">
+<div class="container mx-auto px-4 h-16 flex items-center justify-between gap-4 max-w-7xl">
+<div class="flex items-center gap-12">
+<a class="flex items-center gap-2 text-white group" href="#">
+<div class="size-8 text-white">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C12.95 4 4 12.95 4 24H44C44 12.95 35.05 4 24 4Z" fill="currentColor"></path>
+<path d="M24 44C35.05 44 44 35.05 44 24H4C4 35.05 12.95 44 24 44Z" fill="currentColor" opacity="0.5"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-white">شغلك<span class="text-white/80">بره</span></h1>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-bold text-white transition-colors" href="#">الرئيسية</a>
+<a class="text-sm font-medium text-white/90 hover:text-white transition-colors" href="#">الوظائف</a>
+<a class="text-sm font-medium text-white/90 hover:text-white transition-colors" href="#">الشركات</a>
+<a class="text-sm font-medium text-white/90 hover:text-white transition-colors" href="#">تواصل معنا</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3">
+<button class="p-2 text-white/90 hover:text-white transition-colors rounded-full hover:bg-white/10">
+<span class="material-symbols-outlined regular text-[20px]">dark_mode</span>
+</button>
+<button class="relative p-2 text-white/90 hover:text-white transition-colors rounded-full hover:bg-white/10">
+<span class="material-symbols-outlined regular text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-primary"></span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/10 overflow-hidden border border-white/20 hover:border-white/40 transition-colors">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="User profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLidGzkduG51cIFpxGZKgtNjTny5ic7BcPDm2YQomiHqYuh0Y7dPa61P43HM1TLyEgSFXxwGn5H1kPxuJzYDcbgLcYXl_m0I_dhpUCA9qSda2C-VU5I7jntkCdaUJ2YYhiTbOrT8w-s3H93HX4d6NU2Nl2DPKUoEUkiYXQ2YTeuC6xyo4vo1wN_n_ciquDlTSqNJLlyehFCIzB34n6dYsTh-LDocr7ejrOS8Gwa9SjhXm4xknAiU8N_YA1c1i_LQmNO11z72edlQ"/>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+<nav aria-label="Breadcrumb" class="flex text-sm text-slate-500 mb-6">
+<ol class="inline-flex items-center gap-2">
+<li>
+<a class="hover:text-primary transition-colors" href="#">الرئيسية</a>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-[16px] text-slate-400 mx-1">chevron_left</span>
+<a class="hover:text-primary transition-colors" href="#">الشركات</a>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-[16px] text-slate-400 mx-1">chevron_left</span>
+<span class="font-medium text-slate-900">الشركة المصرية للتوظيف</span>
+</li>
+</ol>
+</nav>
+<div class="flex flex-col md:flex-row gap-8 items-start mb-12 border-b border-border-light pb-8">
+<div class="shrink-0 flex flex-col items-center gap-2">
+<div class="w-24 h-24 rounded-full border border-slate-100 overflow-hidden shadow-sm bg-white">
+<img alt="Company Logo" class="w-full h-full object-cover" data-alt="Abstract corporate logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6LdSlIF5TRMicCT2EuW5PgL1O3Ds8F7rOGlMBIIo9TH2PEGaNEj-ezNCgra5g6Ha_0D1cIb97J7jbYpZ0jwD3dA0sgFlJ2MQBbKhy5KgZXJIzjnvKOQckDfJ-O5YafoJhZpv6s28FWJCRbQExIE2RVMLyIeQdvvpwVyOb5M2eQtzcYMgcHXzXeSTBc7J3quOMrGJMFDShjsZ7Qi08-mbKb-LyvF8z1rhbXpZA9Er1s2df-B4k7EbT9MYRfLt976_nblThgJmsJw"/>
+</div>
+<div class="w-24 bg-primary/10 rounded-md py-1 flex items-center justify-center gap-1">
+<span class="text-sm font-bold text-slate-900">4.2</span>
+<span class="material-symbols-outlined text-[14px] text-gold">star</span>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="flex flex-wrap items-center gap-3">
+<h1 class="text-3xl font-bold text-slate-900">الشركة المصرية للتوظيف</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+                    مرخصة (789)
+                </span>
+</div>
+<p class="text-slate-500 max-w-2xl leading-relaxed">
+                شركة رائدة في مجال التوظيف وإلحاق العمالة المصرية بالخارج. نسعى لتوفير فرص عمل حقيقية ومضمونة للشباب المصري في مختلف التخصصات.
+            </p>
+<div class="flex items-center gap-6 text-sm text-slate-500 pt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] regular text-slate-400">location_on</span>
+                    القاهرة، مدينة نصر
+                </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] regular text-slate-400">schedule</span>
+                    مفتوح الآن (9 ص - 5 م)
+                </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] regular text-slate-400">group</span>
+                    12,500 متابع
+                </div>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="h-10 px-6 rounded-md bg-primary hover:bg-primary-dark text-white text-sm font-semibold flex items-center justify-center gap-2 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                متابعة
+            </button>
+<button class="h-10 w-10 rounded-md border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-3 space-y-8 sticky top-24 pt-[85px]">
+<div class="border border-border-light rounded-lg p-6 bg-white">
+<div class="space-y-6">
+<div>
+<div class="text-6xl font-black text-slate-900 tracking-tight leading-none mb-2">4.2</div>
+<div class="flex items-center gap-1 text-slate-500 text-sm mb-4">
+<span class="font-medium">ممتاز</span>
+                            •
+                            <span>128 تقييم</span>
+</div>
+<div class="flex text-gold text-lg">
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px] text-slate-200">star</span>
+</div>
+</div>
+<div class="space-y-4 pt-2">
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">5 نجوم</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">60%</span>
+<span class="text-xs text-slate-400">(77)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">4 نجوم</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">20%</span>
+<span class="text-xs text-slate-400">(25)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">3 نجوم</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">10%</span>
+<span class="text-xs text-slate-400">(13)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 10%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">2 نجوم</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">5%</span>
+<span class="text-xs text-slate-400">(6)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 5%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">1 نجمة</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">5%</span>
+<span class="text-xs text-slate-400">(7)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 5%"></div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-100">
+<h4 class="text-sm font-bold text-slate-900 mb-4">تقييمات تفصيلية</h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">المصداقية</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">90%</span>
+<span class="text-xs text-slate-400">(115)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">الالتزام بالعقد</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">94%</span>
+<span class="text-xs text-slate-400">(120)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">وضوح الرسوم والتكاليف</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">85%</span>
+<span class="text-xs text-slate-400">(109)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">سرعة الإجراءات</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">76%</span>
+<span class="text-xs text-slate-400">(98)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 76%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs text-slate-500 font-medium">التعامل</span>
+<div class="flex items-center gap-1">
+<span class="text-xs font-bold text-slate-900">84%</span>
+<span class="text-xs text-slate-400">(108)</span>
+</div>
+</div>
+<div class="h-[8px] bg-track rounded-full overflow-hidden w-full">
+<div class="h-full bg-gold rounded-full" style="width: 84%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-[12px] hover:bg-primary-dark transition-colors">
+                            أضف تقييمك
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-9">
+<div class="flex items-center gap-1 mb-8 border-b border-border-light">
+<a class="px-6 py-3 text-lg font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">
+                    الوظائف (23)
+                </a>
+<a class="px-6 py-3 text-lg font-bold text-primary border-b-2 border-primary" href="#">
+                    المراجعات (128)
+                </a>
+<a class="px-6 py-3 text-lg font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">
+                    معلومات
+                </a>
+</div>
+<div class="bg-background-sub rounded-lg p-6 mb-8 flex items-center justify-between border border-border-light/50">
+<div>
+<h3 class="font-bold text-slate-900">شارك تجربتك مع الآخرين</h3>
+<p class="text-sm text-slate-500 mt-1">تساعد مراجعتك الآخرين في اتخاذ القرار المناسب</p>
+</div>
+<button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded-[10px] transition-colors text-sm shadow-sm">
+                    أضف تقييم
+                </button>
+</div>
+<div class="flex items-center justify-end mb-6">
+<div class="relative">
+<select class="appearance-none bg-white border border-slate-200 text-slate-700 py-1.5 pl-8 pr-3 rounded-md text-sm font-medium focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option>الأحدث أولاً</option>
+<option>الأعلى تقييماً</option>
+<option>الأقل تقييماً</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-slate-400 absolute left-2 top-2 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="space-y-0 divide-y divide-border-light">
+<div class="py-8 first:pt-0">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 overflow-hidden shrink-0">
+<img alt="Reviewer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX7cF2wkg_EHGcRU9OGSCGJRRJI0EXFejrDL_5Hr9WNpoYtSrxN6SLxh1lZxjykC4NARks-_0UBXgvlq8bkszmi9iFy8UFlH5JzAnAGckhpLLW-yKUUiqmAsqX5V9QuZhnjzDV4SNdERwa6Ty8-cIpo-m25f38KhrEAyxMryDEft2l5_BxX6_kVdkrXQyRPt2f9spyeUMd-ohP3IgYMaqwzJWNftdHJkiAWHytABstNghJwUtVkF6NCAmzBff4i3NGveUWS2iAew"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h4 class="font-bold text-slate-900 text-sm">أحمد محمد علي</h4>
+<div class="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
+<span>محاسب</span>
+<span class="w-0.5 h-0.5 rounded-full bg-slate-300"></span>
+<span>منذ أسبوعين</span>
+</div>
+</div>
+<div class="flex text-gold text-xs gap-0.5">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-primary/5 text-primary text-[10px] font-bold px-2 py-0.5 rounded border border-primary/10">سافر من خلال الشركة</span>
+</div>
+<p class="text-slate-700 text-sm leading-relaxed mb-4">
+                                تجربة ممتازة مع الشركة. الإجراءات كانت واضحة وسريعة جداً. فريق العمل محترم ومتعاون، ساعدوني في كل خطوة من بداية التقديم حتى الحصول على التأشيرة والسفر للسعودية. أنصح أي حد يتعامل معاهم.
+                            </p>
+<div class="flex items-center gap-6">
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light group-hover:fill-1">thumb_up</span>
+                                    12
+                                </button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light group-hover:fill-1">thumb_down</span>
+</button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light">chat_bubble</span>
+                                    رد
+                                </button>
+<button class="mr-auto text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] light">flag</span>
+</button>
+</div>
+<div class="mt-6 space-y-6 relative bg-primary-light/30 -ml-4 -mr-4 pr-4 pl-4 pt-4 pb-4 rounded-lg">
+<div class="relative pr-4">
+<div class="absolute right-[0] top-[-16px] w-[20px] h-[20px] text-primary-active flex items-center justify-center -mr-[8.5px] z-10 bg-primary-light/30 rounded-full">
+<span class="material-symbols-outlined text-[20px]">arrow_drop_down</span>
+</div>
+<div class="absolute right-0 top-0 bottom-[-24px] w-[3px] bg-primary-active rounded-full"></div>
+<div class="bg-[#E8F5E9] rounded-md p-4 border border-[#C8E6C9] relative">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full border border-white/50 overflow-hidden shrink-0">
+<img alt="Company Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6LdSlIF5TRMicCT2EuW5PgL1O3Ds8F7rOGlMBIIo9TH2PEGaNEj-ezNCgra5g6Ha_0D1cIb97J7jbYpZ0jwD3dA0sgFlJ2MQBbKhy5KgZXJIzjnvKOQckDfJ-O5YafoJhZpv6s28FWJCRbQExIE2RVMLyIeQdvvpwVyOb5M2eQtzcYMgcHXzXeSTBc7J3quOMrGJMFDShjsZ7Qi08-mbKb-LyvF8z1rhbXpZA9Er1s2df-B4k7EbT9MYRfLt976_nblThgJmsJw"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-bold text-slate-900">الشركة المصرية للتوظيف</span>
+<span class="text-[10px] bg-primary text-white px-1.5 rounded">مسؤول</span>
+</div>
+<p class="text-[12px] text-slate-700 leading-relaxed mb-3">
+                                                    شكراً لك يا أستاذ أحمد على ثقتك بنا. نتمنى لك التوفيق في رحلتك العملية الجديدة. نحن دائماً في الخدمة.
+                                                </p>
+<div class="flex items-center gap-6">
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-[10px] font-medium">
+<span class="material-symbols-outlined text-[14px] light group-hover:fill-1">thumb_up</span>
+                                                        3
+                                                    </button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors text-[10px] font-medium">
+<span class="material-symbols-outlined text-[14px] light">chat_bubble</span>
+                                                        رد
+                                                    </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 relative pr-4">
+<div class="absolute right-0 top-[-10px] bottom-0 w-[3px] bg-primary-active rounded-full"></div>
+<div class="absolute right-0 top-6 w-3 h-[3px] bg-primary-active rounded-r-full"></div>
+<div class="flex items-start gap-3 pt-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 overflow-hidden shrink-0 border border-slate-200">
+<img alt="Reviewer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX7cF2wkg_EHGcRU9OGSCGJRRJI0EXFejrDL_5Hr9WNpoYtSrxN6SLxh1lZxjykC4NARks-_0UBXgvlq8bkszmi9iFy8UFlH5JzAnAGckhpLLW-yKUUiqmAsqX5V9QuZhnjzDV4SNdERwa6Ty8-cIpo-m25f38KhrEAyxMryDEft2l5_BxX6_kVdkrXQyRPt2f9spyeUMd-ohP3IgYMaqwzJWNftdHJkiAWHytABstNghJwUtVkF6NCAmzBff4i3NGveUWS2iAew"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-bold text-slate-900 text-xs">أحمد محمد علي</h4>
+<span class="text-[10px] text-slate-400">منذ أسبوع</span>
+</div>
+<p class="text-[12px] text-slate-700 leading-relaxed mb-2">
+                                                    شكراً جزيلاً لاهتمامكم وردكم الكريم.
+                                                </p>
+<div class="flex items-center gap-6">
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-[10px] font-medium">
+<span class="material-symbols-outlined text-[14px] light group-hover:fill-1">thumb_up</span>
+                                                        1
+                                                    </button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors text-[10px] font-medium">
+<span class="material-symbols-outlined text-[14px] light">chat_bubble</span>
+                                                        رد
+                                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="py-8">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 overflow-hidden shrink-0">
+<img alt="Reviewer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBypZISlYWdKA1yTm_TEU7zgLVphcE8JZHE6T0-piONy_5l5uSn37rEnZMaTyPN4d7xjbjvYcsDJIKS1Z4XDtayYMr4FnIP921RQbnZluRPnTTN5lgEcm9ZHrfRrAR96McmxQEgb2Vx2ro5zHM3Uwl6FtT1gG0DODNW3xZ1MuMY0-iGaQ9cnZKo0UwIPWkjimn5pdhUinxo1yNRcxKC6Kzzfs11yG9N-Bxg0_pK39AeMlszDYJFTcXoHBr9SsS44ezJAqpPZynYlw"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h4 class="font-bold text-slate-900 text-sm">سارة إبراهيم</h4>
+<div class="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
+<span>مهندسة معمارية</span>
+<span class="w-0.5 h-0.5 rounded-full bg-slate-300"></span>
+<span>منذ شهر</span>
+</div>
+</div>
+<div class="flex text-gold text-xs gap-0.5">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px] text-gold">star</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-200">في انتظار السفر</span>
+</div>
+<p class="text-slate-700 text-sm leading-relaxed mb-4">
+                                الشركة كويسة والمقابلات كانت منظمة. بس كان فيه شوية تأخير في الرد على الاستفسارات بعد توقيع العقد. ياريت يهتموا بخدمة العملاء أكتر شوية عشان الواحد بيبقى قلقان.
+                            </p>
+<div class="flex items-center gap-6">
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light group-hover:fill-1">thumb_up</span>
+                                    5
+                                </button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light group-hover:fill-1">thumb_down</span>
+</button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light">chat_bubble</span>
+                                    رد
+                                </button>
+<button class="mr-auto text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] light">flag</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="py-8">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 overflow-hidden shrink-0">
+<img alt="Reviewer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCko8h8eMDE3MaWPGklSQmfONVVu79snB8Qrm72jmy5Zhceiiw44dYVDYLkpvif-1_hhQ1SWla_CCbCC43H5vTg0fdWMUEbP1Gu6N4B73jYpXHpukUJF_BIyJc2rNKacbfxr58xd_WCHDiEMlVeI6Z7PkEa2Ewkh7FPQgDE-64gnfos97gcFB3wsXzgKHY4fC8gzJ21Hs4NAxPVvhfkjLif21-ZxLmVTtZsVlygJnDTBZ4e-AWab7T4WbD_zdzN7-dh7A4iZNc8aA"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h4 class="font-bold text-slate-900 text-sm">محمود السيد</h4>
+<div class="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
+<span>فني كهرباء</span>
+<span class="w-0.5 h-0.5 rounded-full bg-slate-300"></span>
+<span>منذ شهرين</span>
+</div>
+</div>
+<div class="flex text-gold text-xs gap-0.5">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-primary/5 text-primary text-[10px] font-bold px-2 py-0.5 rounded border border-primary/10">سافر من خلال الشركة</span>
+</div>
+<p class="text-slate-700 text-sm leading-relaxed mb-4">
+                                بصراحة، أحسن شركة تعاملت معاها. مفيش أي رسوم مخفية وكل حاجة كانت زي ما اتفقنا عليها بالظبط. ربنا يباركلهم ويوفقهم.
+                            </p>
+<div class="flex items-center gap-6">
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light group-hover:fill-1">thumb_up</span>
+                                    24
+                                </button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light group-hover:fill-1">thumb_down</span>
+</button>
+<button class="group flex items-center gap-1.5 text-slate-500 hover:text-primary transition-colors text-xs font-medium">
+<span class="material-symbols-outlined text-[18px] light">chat_bubble</span>
+                                    رد
+                                </button>
+<button class="mr-auto text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px] light">flag</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-border-light text-center">
+<button class="px-6 py-2.5 rounded-md border border-slate-200 text-slate-600 text-sm font-medium hover:bg-slate-50 hover:text-slate-900 transition-colors">
+                    عرض المزيد من المراجعات
+                </button>
+</div>
+</div>
+</div>
+</div></main>
+</body></html>

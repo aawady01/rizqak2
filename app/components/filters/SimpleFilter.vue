@@ -1,0 +1,134 @@
+<script setup lang="ts">
+import { computed, ref } from "vue";
+import BaseFilterSection from "./BaseFilterSection.vue";
+import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
+import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
+import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
+import { useFilterSearch } from "~/composables/filters/useFilterSearch";
+import { useFilterPagination } from "~/composables/filters/useFilterPagination";
+import { useFlatSelection } from "~/composables/filters/useFlatSelection";
+import { toDomSafeId } from "~/shared/utils/string";
+
+interface Props {
+  title: string;
+  totalLabel: string;
+  totalCount: number;
+  totalJobs: number;
+  items: { id: string; label: string }[];
+  type?: "checkbox" | "radio";
+  radioName?: string;
+  searchable?: boolean;
+  expandable?: boolean;
+  urlKey?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  type: "checkbox",
+  expandable: true,
+  searchable: false,
+  urlKey: undefined,
+});
+
+const allExpanded = ref(true);
+const allItemIds = computed(() => props.items.map((item) => item.id));
+const sectionIdBase = computed(() => toDomSafeId(props.title, "flat-section"));
+
+const { searchQuery, isSearching, filteredItems } = useFilterSearch(
+  () => props.items,
+);
+const {
+  showAll: showAllItems,
+  visibleItems,
+  hiddenCount,
+  toggleShowAll,
+} = useFilterPagination(filteredItems, isSearching, 4);
+
+const selection = useFlatSelection(
+  allItemIds,
+  props.type === "radio"
+    ? {
+        mode: "single",
+        queryKey: props.urlKey,
+        defaultValue: null,
+      }
+    : {
+        mode: "multi",
+        queryKey: props.urlKey,
+        defaultSelectedIds: allItemIds.value,
+      },
+);
+
+const allChecked = computed(() => selection.allChecked.value);
+const someChecked = computed(() => selection.someChecked.value);
+
+const handleToggle = (id: string) => {
+  selection.toggle(id);
+};
+
+const handleToggleAll = () => {
+  if (props.type === "radio") {
+    selection.clearAll();
+    return;
+  }
+
+  if (selection.allChecked.value) {
+    selection.clearAll();
+  } else {
+    selection.selectAll();
+  }
+};
+
+const handleExpandToggle = () => {
+  allExpanded.value = !allExpanded.value;
+};
+</script>
+
+<template>
+  <BaseFilterSection
+    :title="title"
+    :searchable="searchable"
+    v-model:searchQuery="searchQuery"
+    :has-select-all="true"
+    :total-label="totalLabel"
+    :total-count="totalCount"
+    :total-jobs="totalJobs"
+    :all-checked="allChecked"
+    :some-checked="someChecked"
+    :is-radio="type === 'radio'"
+    :expandable="expandable"
+    :expanded="allExpanded"
+    :select-all-input-id="`${sectionIdBase}-all`"
+    @toggle-all="handleToggleAll"
+    @expand-toggle="handleExpandToggle"
+  >
+    <div v-for="(item, idx) in visibleItems" :key="item.id" class="relative">
+      <BaseTreeConnector
+        type="root-branch"
+        :is-last="idx === visibleItems.length - 1"
+        :active="selection.isChecked(item.id)"
+      />
+
+      <div class="ps-[var(--filter-tree-root-branch-length)]">
+        <BaseFilterItemRow
+          :input-id="`${sectionIdBase}-${item.id}`"
+          :input-name="type === 'radio' ? (radioName ?? title) : undefined"
+          :label="item.label"
+          :checked="selection.isChecked(item.id)"
+          :input-type="type"
+          level="category"
+          @toggle="handleToggle(item.id)"
+        />
+      </div>
+    </div>
+
+    <BaseFilterShowMore
+      v-if="
+        hiddenCount > 0 ||
+        (showAllItems && filteredItems.length > 4 && !isSearching)
+      "
+      :show-all="showAllItems"
+      :hidden-count="hiddenCount"
+      @toggle="toggleShowAll"
+    />
+  </BaseFilterSection>
+</template>

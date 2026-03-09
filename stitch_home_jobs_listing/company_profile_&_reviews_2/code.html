@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Profile &amp; About - Shoghlak Barra</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1B6B4A",
+                        "primary-active": "#2D8A4E",
+                        "primary-dark": "#145238",
+                        "primary-light": "#e8f5f0",
+                        "background-light": "#FFFFFF", 
+                        "background-sub": "#F9F9F9",
+                        "border-light": "#E0E0E0",
+                        "header-border": "#155A3E",
+                        "facebook": "#1877F2",
+                        "whatsapp": "#25D366",
+                        "linkedin": "#0A66C2",
+                        "twitter": "#1DA1F2",
+                        "gold": "#E8B931",
+                        "track": "#F5F5F0"
+                    },
+                    fontFamily: {
+                        "display": ["Cairo", "Inter", "sans-serif"],
+                        "body": ["Cairo", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.regular { font-variation-settings: 'FILL' 0; }
+        .material-symbols-outlined.light { font-variation-settings: 'wght' 300; }
+        .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 min-h-screen flex flex-col font-display overflow-x-hidden antialiased">
+<header class="bg-primary border-b border-header-border sticky top-0 z-50 text-white shadow-sm">
+<div class="container mx-auto px-4 h-16 flex items-center justify-between gap-4 max-w-7xl">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2 group" href="#">
+<div class="size-8 text-white">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C12.95 4 4 12.95 4 24H44C44 12.95 35.05 4 24 4Z" fill="currentColor"></path>
+<path d="M24 44C35.05 44 44 35.05 44 24H4C4 35.05 12.95 44 24 44Z" fill="currentColor" opacity="0.5"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-white">شغلك<span class="text-green-200">برا</span></h1>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/90 hover:text-white transition-colors" href="#">الرئيسية</a>
+<a class="text-sm font-medium text-white/90 hover:text-white transition-colors" href="#">الوظائف</a>
+<a class="text-sm font-bold text-white transition-colors border-b-2 border-white pb-0.5" href="#">الشركات</a>
+<a class="text-sm font-medium text-white/90 hover:text-white transition-colors" href="#">تواصل معنا</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 pl-2">
+<button class="relative p-2 text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-outlined regular">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-primary"></span>
+</button>
+<button class="w-9 h-9 rounded-full bg-primary-dark overflow-hidden border border-primary-light/30">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLidGzkduG51cIFpxGZKgtNjTny5ic7BcPDm2YQomiHqYuh0Y7dPa61P43HM1TLyEgSFXxwGn5H1kPxuJzYDcbgLcYXl_m0I_dhpUCA9qSda2C-VU5I7jntkCdaUJ2YYhiTbOrT8w-s3H93HX4d6NU2Nl2DPKUoEUkiYXQ2YTeuC6xyo4vo1wN_n_ciquDlTSqNJLlyehFCIzB34n6dYsTh-LDocr7ejrOS8Gwa9SjhXm4xknAiU8N_YA1c1i_LQmNO11z72edlQ"/>
+</button>
+<button class="p-2 text-white/80 hover:text-white transition-colors" title="تبديل الوضع الليلي">
+<span class="material-symbols-outlined regular">dark_mode</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+<nav aria-label="Breadcrumb" class="mb-6">
+<ol class="flex items-center gap-2 text-sm">
+<li>
+<a class="flex items-center gap-1 text-primary hover:text-primary-active transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[18px]">home</span>
+<span class="hover:underline">الصفحة الرئيسية</span>
+</a>
+</li>
+<li class="flex items-center text-slate-300">
+<span class="material-symbols-outlined text-[16px] rtl:rotate-180">chevron_right</span>
+</li>
+<li>
+<a class="text-primary hover:text-primary-active transition-colors hover:underline font-medium" href="#">ناشر وظائف</a>
+</li>
+<li class="flex items-center text-slate-300">
+<span class="material-symbols-outlined text-[16px] rtl:rotate-180">chevron_right</span>
+</li>
+<li>
+<a class="text-primary hover:text-primary-active transition-colors hover:underline font-medium" href="#">شركة إلحاق عمالة مرخصة</a>
+</li>
+<li class="flex items-center text-slate-300">
+<span class="material-symbols-outlined text-[16px] rtl:rotate-180">chevron_right</span>
+</li>
+<li aria-current="page">
+<span class="text-slate-500 font-medium">الشركة المصرية للتوظيف</span>
+</li>
+</ol>
+</nav>
+<div class="flex flex-col md:flex-row gap-8 items-start mb-12 border-b border-border-light pb-8 relative">
+<div class="flex flex-col items-center gap-2 shrink-0 w-24">
+<div class="w-24 h-24 rounded-lg border border-slate-100 overflow-hidden shadow-sm bg-white">
+<img alt="Company Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6LdSlIF5TRMicCT2EuW5PgL1O3Ds8F7rOGlMBIIo9TH2PEGaNEj-ezNCgra5g6Ha_0D1cIb97J7jbYpZ0jwD3dA0sgFlJ2MQBbKhy5KgZXJIzjnvKOQckDfJ-O5YafoJhZpv6s28FWJCRbQExIE2RVMLyIeQdvvpwVyOb5M2eQtzcYMgcHXzXeSTBc7J3quOMrGJMFDShjsZ7Qi08-mbKb-LyvF8z1rhbXpZA9Er1s2df-B4k7EbT9MYRfLt976_nblThgJmsJw"/>
+</div>
+<div class="flex items-center justify-center gap-1 w-full py-0.5 rounded-md border border-slate-200 bg-white">
+<span class="material-symbols-outlined text-gold text-[16px] filled">star</span>
+<span class="text-xs font-bold text-slate-800 dir-ltr">4.2</span>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="flex flex-wrap items-center gap-3">
+<h1 class="text-3xl font-bold text-slate-900">الشركة المصرية للتوظيف</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+                        مرخصة (1247)
+                    </span>
+</div>
+<p class="text-slate-500 max-w-2xl leading-relaxed">
+                شركة رائدة في مجال التوظيف وإلحاق العمالة المصرية بالخارج. نسعى لتوفير فرص عمل حقيقية ومضمونة للشباب المصري في مختلف التخصصات.
+            </p>
+<div class="flex items-center gap-6 text-sm text-slate-500 pt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] regular text-slate-400">location_on</span>
+                    القاهرة، مدينة نصر
+                </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] regular text-slate-400">schedule</span>
+                    مفتوح الآن (9 ص - 5 م)
+                </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] regular text-slate-400">group</span>
+                    540+ تم توظيفهم
+                </div>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-[18px] regular text-primary">people</span>
+                    12,500 متابع
+                </div>
+</div>
+</div>
+<div class="absolute top-0 left-0 flex items-center gap-2">
+<button class="h-[38px] px-4 rounded-[10px] bg-primary hover:bg-primary-active text-white text-[13px] font-semibold flex items-center justify-center gap-2 transition-all group border border-transparent shadow-none">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+                متابعة
+            </button>
+<button class="w-[38px] h-[38px] rounded-[10px] bg-white border border-primary hover:bg-slate-50 text-primary flex items-center justify-center transition-all" title="مشاركة">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-3 space-y-8 sticky top-24 pt-[74px]">
+<div>
+<div class="flex items-center gap-2 mb-3 px-1">
+<span class="material-symbols-outlined text-primary text-[22px]">link</span>
+<h3 class="text-base font-bold text-[#1A1A1A]">الروابط الرسمية</h3>
+</div>
+<div class="bg-white border border-border-light rounded-lg p-5">
+<div class="space-y-3">
+<a class="flex items-center justify-center gap-2 h-9 px-3 w-full rounded-md border border-slate-200 bg-white hover:bg-slate-50 text-primary text-xs font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">language</span>
+                            الموقع الإلكتروني
+                        </a>
+<div class="grid grid-cols-2 gap-2">
+<a class="flex items-center justify-center gap-2 h-9 px-3 rounded-lg bg-[#F5F5F0] text-[#1A1A1A] hover:bg-slate-200 text-xs font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">public</span>
+                                فيسبوك
+                            </a>
+<a class="flex items-center justify-center gap-2 h-9 px-3 rounded-lg bg-[#F5F5F0] text-[#1A1A1A] hover:bg-slate-200 text-xs font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">work</span>
+                                لينكد إن
+                            </a>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<a class="flex items-center justify-center gap-2 h-9 px-3 rounded-lg bg-[#F5F5F0] text-[#1A1A1A] hover:bg-slate-200 text-xs font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+                                واتساب
+                            </a>
+<a class="flex items-center justify-center gap-2 h-9 px-3 rounded-lg bg-[#F5F5F0] text-[#1A1A1A] hover:bg-slate-200 text-xs font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                اتصال
+                            </a>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-3 px-1">
+<span class="material-symbols-outlined text-primary text-[22px]">store</span>
+<h3 class="text-base font-bold text-[#1A1A1A]">معلومات الفرع</h3>
+</div>
+<div class="bg-white border border-border-light rounded-lg p-5">
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5 text-[20px]">location_on</span>
+<p class="text-slate-700 text-sm leading-snug">القاهرة، مدينة نصر، شارع عباس العقاد</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+<p class="text-slate-700 text-sm">مواعيد العمل: 9ص - 5م</p>
+</div>
+<div class="relative w-full h-32 bg-slate-100 rounded-lg overflow-hidden border border-slate-200 group cursor-pointer mt-4">
+<img alt="Map Preview" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_nW97shQcr0yLg3QdAJq0yNnbpoQQd5MtCWYQlIUeyMnS8EJy1uB96hpnMl9_in-4CFPmZ_jYZhN_FmOlCFx6Hapmsow73AcnMRWnaiVjlXkkVT632-1u4TWPtZZteINVjRMDSAnxMOGMFTqHajQSv4Skmnc1b2ySl5yRNYFXyngENo1ZFMXhiN9dcD-TzoewKjbKhLCsl65rgKyVpRk5u7sxwpjwKWPw1THZM950kzRZHqTBXUVx1-obeEqR1ucY75gaMIZLHA"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-black/10 transition-colors">
+<button class="bg-white text-primary text-xs font-bold px-3 py-2 rounded shadow-sm flex items-center gap-2 hover:bg-slate-50">
+<span class="material-symbols-outlined text-[16px]">map</span>
+                                    افتح في الخرائط
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-3 px-1">
+<span class="material-symbols-outlined text-primary text-[22px]">policy</span>
+<h3 class="text-base font-bold text-[#1A1A1A]">شفافية الرسوم</h3>
+</div>
+<div class="bg-white border border-border-light rounded-lg p-5">
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/10">
+<div class="w-4 h-4 rounded flex items-center justify-center shrink-0 border border-primary bg-primary/10">
+<span class="material-symbols-outlined text-primary text-[12px] font-bold">check</span>
+</div>
+<span class="text-[13px] font-bold text-slate-800">رسوم إدارية واضحة</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/10">
+<div class="w-4 h-4 rounded flex items-center justify-center shrink-0 border border-primary bg-primary/10">
+<span class="material-symbols-outlined text-primary text-[12px] font-bold">check</span>
+</div>
+<span class="text-[13px] font-bold text-slate-800">عقد موثق ورسمي</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/10">
+<div class="w-4 h-4 rounded flex items-center justify-center shrink-0 border border-primary bg-primary/10">
+<span class="material-symbols-outlined text-primary text-[12px] font-bold">check</span>
+</div>
+<span class="text-[13px] font-bold text-slate-800">لا توجد رسوم خفية</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-orange-50 border border-orange-100 rounded-lg p-5">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-orange-500 text-[24px]">warning</span>
+<div>
+<h4 class="text-sm font-bold text-orange-900 mb-1">تنبيه هام</h4>
+<p class="text-xs text-orange-700 leading-relaxed">
+                            لا تقم بدفع أي مبالغ مالية قبل توقيع العقد الرسمي وتوثيقه. تأكد من صحة التراخيص قبل البدء في الإجراءات.
+                        </p>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 border border-slate-200 rounded-lg p-5 text-center">
+<p class="text-sm text-slate-600 mb-3">هل أنت صاحب هذه الشركة؟</p>
+<button class="text-primary text-sm font-bold hover:underline">
+                    تواصل معنا لإدارة الصفحة
+                </button>
+</div>
+<div class="text-center pt-4 border-t border-slate-100">
+<p class="text-xs text-slate-400">MasrWorks v2.4.0</p>
+</div>
+</div>
+<div class="lg:col-span-9">
+<div class="flex items-center gap-1 mb-8 border-b border-border-light">
+<a class="px-6 py-3 text-lg font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">
+                    الوظائف (23)
+                </a>
+<a class="px-6 py-3 text-lg font-medium text-slate-500 hover:text-slate-900 transition-colors" href="#">
+                    المراجعات (128)
+                </a>
+<a class="px-6 py-3 text-lg font-bold text-primary border-b-2 border-primary" href="#">
+                    معلومات
+                </a>
+</div>
+<div class="space-y-8">
+<div>
+<div class="flex items-center gap-2 mb-3 px-1">
+<span class="material-symbols-outlined text-primary text-[24px]">apartment</span>
+<h3 class="text-lg font-bold text-[#1A1A1A]">عن الشركة</h3>
+</div>
+<div class="bg-white border border-border-light rounded-lg p-7">
+<p class="text-slate-600 leading-relaxed mb-8">
+                            الشركة المصرية للتوظيف هي شركة رائدة متخصصة في توفير الكوادر البشرية المؤهلة للعمل في دول الخليج. نتميز بخبرة واسعة في مجالات التشييد والبناء، بالإضافة إلى توفير الطواقم الطبية للمستشفيات والمراكز الصحية. نعمل وفقاً لأعلى معايير الجودة والمصداقية لضمان حقوق العمال وأصحاب العمل على حد سواء.
+                        </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 pt-7 border-t border-slate-100">
+<div class="flex flex-col gap-2">
+<span class="text-xs font-normal text-slate-400">تصنيف الشركة</span>
+<span class="text-[15px] font-bold text-slate-900">وكالة توظيف وإلحاق عمالة</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-normal text-slate-400">تاريخ التأسيس / سنوات الخبرة</span>
+<div class="flex items-center gap-2">
+<span class="text-[15px] font-bold text-slate-900">2010</span>
+<span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">14 سنة خبرة</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-normal text-slate-400">حجم المؤسسة</span>
+<span class="text-[15px] font-bold text-slate-900">20 - 50 موظف</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-3 px-1">
+<span class="material-symbols-outlined text-primary text-[24px]">analytics</span>
+<h3 class="text-lg font-bold text-[#1A1A1A]">إحصائيات النشاط</h3>
+</div>
+<div class="bg-white border border-border-light rounded-lg p-7">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-white border border-border-light rounded-lg overflow-hidden md:col-span-2">
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-x divide-x-reverse divide-slate-100 bg-white">
+<div class="p-6 flex flex-col items-center justify-center text-center gap-1">
+<span class="text-xs text-slate-400 font-normal">إجمالي</span>
+<span class="text-xs text-slate-400 font-normal">الوظائف</span>
+<span class="text-[18px] font-bold text-[#1A1A1A] mt-1">540</span>
+<span class="text-[18px] font-bold text-[#1A1A1A]">وظيفة</span>
+</div>
+<div class="p-6 flex flex-col items-center justify-center text-center gap-1">
+<span class="text-xs text-slate-400 font-normal">مشاهدات</span>
+<span class="text-xs text-slate-400 font-normal">الوظائف</span>
+<span class="text-[18px] font-bold text-[#1A1A1A] mt-1">25.4K</span>
+<span class="text-[18px] font-bold text-[#1A1A1A]">مشاهدة</span>
+</div>
+<div class="p-6 flex flex-col items-center justify-center text-center gap-1">
+<span class="text-xs text-slate-400 font-normal">زيارات</span>
+<span class="text-xs text-slate-400 font-normal">البروفايل</span>
+<span class="text-[18px] font-bold text-[#1A1A1A] mt-1">12.8K</span>
+<span class="text-[18px] font-bold text-[#1A1A1A]">زيارة</span>
+</div>
+<div class="p-6 flex flex-col items-center justify-center text-center gap-1">
+<span class="text-xs text-slate-400 font-normal">إجمالي</span>
+<span class="text-xs text-slate-400 font-normal">المتابعين</span>
+<span class="text-[18px] font-bold text-primary mt-1">12.5K</span>
+<span class="text-[18px] font-bold text-primary">متابع</span>
+</div>
+<div class="p-6 flex flex-col items-center justify-center text-center gap-1">
+<span class="text-xs text-slate-400 font-normal">إجمالي</span>
+<span class="text-xs text-slate-400 font-normal">المتقدمين</span>
+<span class="text-[18px] font-bold text-[#1A1A1A] mt-1">3,150</span>
+<span class="text-[18px] font-bold text-[#1A1A1A]">متقدم</span>
+</div>
+<div class="p-6 flex flex-col items-center justify-center text-center gap-1">
+<span class="text-xs text-slate-400 font-normal">متوسط النشر</span>
+<span class="text-xs text-slate-400 font-normal">الشهري</span>
+<span class="text-[18px] font-bold text-[#1A1A1A] mt-1">15</span>
+<span class="text-[18px] font-bold text-[#1A1A1A]">وظيفة</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+<div class="md:px-4">
+<h4 class="text-sm font-bold text-slate-900 mb-6 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    أكثر الدول توظيفاً
+                                </h4>
+<div class="space-y-5">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🇸🇦</span>
+<span class="text-[13px] font-semibold text-slate-700">المملكة العربية السعودية</span>
+</div>
+<span class="text-sm font-bold text-slate-900">320 وظيفة</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%] rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🇰🇼</span>
+<span class="text-[13px] font-semibold text-slate-700">دولة الكويت</span>
+</div>
+<span class="text-sm font-bold text-slate-900">150 وظيفة</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[35%] rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-lg">🇦🇪</span>
+<span class="text-[13px] font-semibold text-slate-700">الإمارات العربية المتحدة</span>
+</div>
+<span class="text-sm font-bold text-slate-900">70 وظيفة</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[15%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="md:px-4 border-r-0 md:border-r border-slate-100">
+<h4 class="text-sm font-bold text-slate-900 mb-6 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                                    أكثر المجالات طلباً
+                                </h4>
+<div class="space-y-5">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-semibold text-slate-700">التشييد والبناء</span>
+<span class="text-sm font-bold text-slate-900">250 وظيفة</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-teal-500 w-[60%] rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-semibold text-slate-700">الرعاية الصحية والتمريض</span>
+<span class="text-sm font-bold text-slate-900">180 وظيفة</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-teal-500 w-[40%] rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-semibold text-slate-700">المبيعات والتسويق</span>
+<span class="text-sm font-bold text-slate-900">60 وظيفة</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-teal-500 w-[15%] rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[13px] font-semibold text-slate-700">السائقين والنقل</span>
+<span class="text-sm font-bold text-slate-900">50 وظيفة</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-teal-500 w-[12%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">verified</span>
+<h3 class="text-lg font-bold text-[#1A1A1A]">بيانات الترخيص</h3>
+</div>
+<span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-lg border border-green-200">ساري المفعول</span>
+</div>
+<div class="bg-white border border-border-light rounded-lg p-7 h-full flex flex-col justify-center">
+<div class="space-y-6">
+<div class="flex justify-between items-center py-1">
+<span class="text-slate-400 font-normal text-sm">رقم الترخيص</span>
+<span class="text-slate-900 font-bold text-[15px]">1247</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="text-slate-400 font-normal text-sm">جهة الإصدار</span>
+<span class="text-slate-900 font-bold text-[15px]">وزارة القوى العاملة - مصر</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="text-slate-400 font-normal text-sm">تاريخ الانتهاء</span>
+<span class="text-slate-900 font-bold text-[15px]">2025</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-primary text-[24px]">badge</span>
+<h3 class="text-lg font-bold text-[#1A1A1A]">بيانات الحساب</h3>
+</div>
+<div class="bg-white border border-border-light rounded-lg p-7 h-full flex flex-col justify-center">
+<div class="space-y-6">
+<div class="flex justify-between items-center py-1">
+<span class="text-slate-400 font-normal text-sm">تاريخ الانضمام</span>
+<span class="text-slate-900 font-bold text-[15px]">يناير 2022</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="text-slate-400 font-normal text-sm">جهة الإدارة</span>
+<span class="text-slate-900 font-bold text-[15px]">الشركة نفسها</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="text-slate-400 font-normal text-sm">حالة التوثيق</span>
+<span class="flex items-center gap-1 text-primary font-bold text-[15px]">
+<span class="material-symbols-outlined text-[16px] filled">verified</span>
+                                        موثق
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

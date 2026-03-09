@@ -1,0 +1,723 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "م المعالي للتوظيف" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - paragraph [ref=e9]: م
+          - heading "المعالي للتوظيف" [level=3] [ref=e10]
+        - generic [ref=e11]:
+          - link "الرئيسية" [ref=e12] [cursor=pointer]:
+            - /url: /
+            - paragraph [ref=e13]: الرئيسية
+          - link "الوظائف" [ref=e14] [cursor=pointer]:
+            - /url: "#jobs"
+            - paragraph [ref=e15]: الوظائف
+          - link "شركات مميزة" [ref=e16] [cursor=pointer]:
+            - /url: "#companies"
+            - paragraph [ref=e17]: شركات مميزة
+          - link "تواصل معنا" [ref=e18] [cursor=pointer]:
+            - /url: "#contact"
+            - paragraph [ref=e19]: تواصل معنا
+        - generic [ref=e20]:
+          - button "الإشعارات" [ref=e21]:
+            - img [ref=e22]
+          - button "تسجيل الدخول" [ref=e27]:
+            - img [ref=e28]
+            - generic [ref=e32]: تسجيل الدخول
+          - button [ref=e33]:
+            - img [ref=e34]
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e39]:
+          - heading "ابحث عن فرصتك الوظيفية في الخارج" [level=1] [ref=e40]
+          - paragraph [ref=e41]: آلاف الوظائف في دول الخليج والعالم العربي بانتظارك.
+          - generic [ref=e44]:
+            - img [ref=e46]
+            - textbox "ابحث عن مسمى وظيفي، مهارة، أو شركة..." [ref=e49]
+            - button "بحث" [ref=e50]
+          - generic [ref=e51]:
+            - button [ref=e52]:
+              - img [ref=e53]
+            - generic [ref=e55]:
+              - button "السعودية السعودية ١٬٢٤٠ وظيفة" [ref=e56]:
+                - img "السعودية" [ref=e57]
+                - generic [ref=e58]: السعودية
+                - generic [ref=e59]:
+                  - paragraph [ref=e60]: ١٬٢٤٠
+                  - generic [ref=e61]: وظيفة
+              - button "الإمارات الإمارات ٨٥٦ وظيفة" [ref=e62]:
+                - img "الإمارات" [ref=e63]
+                - generic [ref=e64]: الإمارات
+                - generic [ref=e65]:
+                  - paragraph [ref=e66]: ٨٥٦
+                  - generic [ref=e67]: وظيفة
+              - button "الكويت الكويت ٤٣٢ وظيفة" [ref=e68]:
+                - img "الكويت" [ref=e69]
+                - generic [ref=e70]: الكويت
+                - generic [ref=e71]:
+                  - paragraph [ref=e72]: ٤٣٢
+                  - generic [ref=e73]: وظيفة
+              - button "قطر قطر ٢١٥ وظيفة" [ref=e74]:
+                - img "قطر" [ref=e75]
+                - generic [ref=e76]: قطر
+                - generic [ref=e77]:
+                  - paragraph [ref=e78]: ٢١٥
+                  - generic [ref=e79]: وظيفة
+              - button "عمان عمان ١٢٤ وظيفة" [ref=e80]:
+                - img "عمان" [ref=e81]
+                - generic [ref=e82]: عمان
+                - generic [ref=e83]:
+                  - paragraph [ref=e84]: ١٢٤
+                  - generic [ref=e85]: وظيفة
+              - button "كل الدول ٣٬٤٥٠ وظيفة" [ref=e86]:
+                - img [ref=e87]
+                - generic [ref=e92]: كل الدول
+                - generic [ref=e93]:
+                  - paragraph [ref=e94]: ٣٬٤٥٠
+                  - generic [ref=e95]: وظيفة
+            - button [ref=e96]:
+              - img [ref=e97]
+        - generic [ref=e100]:
+          - complementary [ref=e101]:
+            - generic [ref=e102]:
+              - generic [ref=e103]:
+                - heading "تصفية النتائج" [level=3] [ref=e104]:
+                  - img [ref=e105]
+                  - text: تصفية النتائج
+                - button "مسح الكل" [ref=e106] [cursor=pointer]:
+                  - generic [ref=e107]: مسح الكل
+              - generic [ref=e109]:
+                - region "مجال العمل" [ref=e111]:
+                  - generic [ref=e112]:
+                    - heading "مجال العمل" [level=4] [ref=e114]
+                    - generic [ref=e116]:
+                      - generic:
+                        - img
+                      - textbox "البحث داخل الفلتر" [ref=e117]:
+                        - /placeholder: ابحث...
+                  - generic [ref=e118]:
+                    - generic [ref=e120]:
+                      - generic [ref=e121] [cursor=pointer]:
+                        - checkbox "كل المجالات 18 (2340)" [checked] [ref=e122]
+                        - img [ref=e124]
+                        - generic [ref=e126]:
+                          - generic [ref=e127]: كل المجالات
+                          - generic [ref=e128]: 18 (2340)
+                      - button "طي القائمة" [expanded] [ref=e130] [cursor=pointer]:
+                        - img [ref=e131]
+                    - group "مجال العمل" [ref=e133]:
+                      - generic [ref=e135]:
+                        - generic [ref=e137]:
+                          - generic [ref=e138] [cursor=pointer]:
+                            - checkbox "الهندسة 6 (780)" [checked] [ref=e139]
+                            - img [ref=e141]
+                            - generic [ref=e143]:
+                              - generic [ref=e144]: الهندسة
+                              - generic [ref=e145]: 6 (780)
+                          - button "توسيع المجموعة" [ref=e147] [cursor=pointer]:
+                            - img [ref=e148]
+                        - group "الهندسة 6 (780)" [ref=e149]:
+                          - generic [ref=e152] [cursor=pointer]:
+                            - checkbox "مهندس مدني 245" [checked] [ref=e153]
+                            - img [ref=e155]
+                            - generic [ref=e157]:
+                              - generic [ref=e158]: مهندس مدني
+                              - generic [ref=e159]: "245"
+                          - generic [ref=e162] [cursor=pointer]:
+                            - checkbox "مهندس ميكانيكا 198" [checked] [ref=e163]
+                            - img [ref=e165]
+                            - generic [ref=e167]:
+                              - generic [ref=e168]: مهندس ميكانيكا
+                              - generic [ref=e169]: "198"
+                          - generic [ref=e172] [cursor=pointer]:
+                            - checkbox "مهندس كهرباء 156" [checked] [ref=e173]
+                            - img [ref=e175]
+                            - generic [ref=e177]:
+                              - generic [ref=e178]: مهندس كهرباء
+                              - generic [ref=e179]: "156"
+                          - generic [ref=e182] [cursor=pointer]:
+                            - checkbox "مهندس معماري 102" [checked] [ref=e183]
+                            - img [ref=e185]
+                            - generic [ref=e187]:
+                              - generic [ref=e188]: مهندس معماري
+                              - generic [ref=e189]: "102"
+                          - button "عرض عناصر إضافية" [ref=e191]: عرض المزيد (2)
+                      - generic [ref=e193]:
+                        - generic [ref=e195]:
+                          - generic [ref=e196] [cursor=pointer]:
+                            - checkbox "الطب والصحة 5 (520)" [checked] [ref=e197]
+                            - img [ref=e199]
+                            - generic [ref=e201]:
+                              - generic [ref=e202]: الطب والصحة
+                              - generic [ref=e203]: 5 (520)
+                          - button "توسيع المجموعة" [ref=e205] [cursor=pointer]:
+                            - img [ref=e206]
+                        - group "الطب والصحة 5 (520)" [ref=e207]:
+                          - generic [ref=e210] [cursor=pointer]:
+                            - checkbox "تمريض 210" [checked] [ref=e211]
+                            - img [ref=e213]
+                            - generic [ref=e215]:
+                              - generic [ref=e216]: تمريض
+                              - generic [ref=e217]: "210"
+                          - generic [ref=e220] [cursor=pointer]:
+                            - checkbox "صيدلة 120" [checked] [ref=e221]
+                            - img [ref=e223]
+                            - generic [ref=e225]:
+                              - generic [ref=e226]: صيدلة
+                              - generic [ref=e227]: "120"
+                          - generic [ref=e230] [cursor=pointer]:
+                            - checkbox "مختبرات طبية 85" [checked] [ref=e231]
+                            - img [ref=e233]
+                            - generic [ref=e235]:
+                              - generic [ref=e236]: مختبرات طبية
+                              - generic [ref=e237]: "85"
+                          - generic [ref=e240] [cursor=pointer]:
+                            - checkbox "أشعة 60" [checked] [ref=e241]
+                            - img [ref=e243]
+                            - generic [ref=e245]:
+                              - generic [ref=e246]: أشعة
+                              - generic [ref=e247]: "60"
+                          - button "عرض عناصر إضافية" [ref=e249]: عرض المزيد (1)
+                      - generic [ref=e251]:
+                        - generic [ref=e253]:
+                          - generic [ref=e254] [cursor=pointer]:
+                            - checkbox "فني / حرفي 8 (640)" [checked] [ref=e255]
+                            - img [ref=e257]
+                            - generic [ref=e259]:
+                              - generic [ref=e260]: فني / حرفي
+                              - generic [ref=e261]: 8 (640)
+                          - button "توسيع المجموعة" [ref=e263] [cursor=pointer]:
+                            - img [ref=e264]
+                        - group "فني / حرفي 8 (640)" [ref=e265]:
+                          - generic [ref=e268] [cursor=pointer]:
+                            - checkbox "لحام عام 120" [checked] [ref=e269]
+                            - img [ref=e271]
+                            - generic [ref=e273]:
+                              - generic [ref=e274]: لحام عام
+                              - generic [ref=e275]: "120"
+                          - generic [ref=e278] [cursor=pointer]:
+                            - checkbox "لحام أرجون (TIG) 85" [checked] [ref=e279]
+                            - img [ref=e281]
+                            - generic [ref=e283]:
+                              - generic [ref=e284]: لحام أرجون (TIG)
+                              - generic [ref=e285]: "85"
+                          - generic [ref=e288] [cursor=pointer]:
+                            - checkbox "لحام CO2 (MIG) 64" [checked] [ref=e289]
+                            - img [ref=e291]
+                            - generic [ref=e293]:
+                              - generic [ref=e294]: لحام CO2 (MIG)
+                              - generic [ref=e295]: "64"
+                          - generic [ref=e298] [cursor=pointer]:
+                            - checkbox "سباكة 95" [checked] [ref=e299]
+                            - img [ref=e301]
+                            - generic [ref=e303]:
+                              - generic [ref=e304]: سباكة
+                              - generic [ref=e305]: "95"
+                          - button "عرض عناصر إضافية" [ref=e307]: عرض المزيد (4)
+                      - generic [ref=e309]:
+                        - generic [ref=e311]:
+                          - generic [ref=e312] [cursor=pointer]:
+                            - checkbox "الكهرباء 4 (320)" [checked] [ref=e313]
+                            - img [ref=e315]
+                            - generic [ref=e317]:
+                              - generic [ref=e318]: الكهرباء
+                              - generic [ref=e319]: 4 (320)
+                          - button "توسيع المجموعة" [ref=e321] [cursor=pointer]:
+                            - img [ref=e322]
+                        - group "الكهرباء 4 (320)" [ref=e323]:
+                          - generic [ref=e326] [cursor=pointer]:
+                            - checkbox "تركيبات كهربائية 110" [checked] [ref=e327]
+                            - img [ref=e329]
+                            - generic [ref=e331]:
+                              - generic [ref=e332]: تركيبات كهربائية
+                              - generic [ref=e333]: "110"
+                          - generic [ref=e336] [cursor=pointer]:
+                            - checkbox "صيانة كهربائية 95" [checked] [ref=e337]
+                            - img [ref=e339]
+                            - generic [ref=e341]:
+                              - generic [ref=e342]: صيانة كهربائية
+                              - generic [ref=e343]: "95"
+                          - generic [ref=e346] [cursor=pointer]:
+                            - checkbox "كهرباء صناعية 70" [checked] [ref=e347]
+                            - img [ref=e349]
+                            - generic [ref=e351]:
+                              - generic [ref=e352]: كهرباء صناعية
+                              - generic [ref=e353]: "70"
+                          - generic [ref=e356] [cursor=pointer]:
+                            - checkbox "طاقة شمسية 45" [checked] [ref=e357]
+                            - img [ref=e359]
+                            - generic [ref=e361]:
+                              - generic [ref=e362]: طاقة شمسية
+                              - generic [ref=e363]: "45"
+                      - button "عرض عناصر إضافية" [ref=e365]: عرض المزيد (1)
+                - region "مكان العمل" [ref=e367]:
+                  - generic [ref=e368]:
+                    - heading "مكان العمل" [level=4] [ref=e370]
+                    - generic [ref=e372]:
+                      - generic:
+                        - img
+                      - textbox "البحث داخل الفلتر" [ref=e373]:
+                        - /placeholder: ابحث...
+                  - generic [ref=e374]:
+                    - generic [ref=e376]:
+                      - generic [ref=e377] [cursor=pointer]:
+                        - checkbox "كل الأماكن 35 (2340)" [checked] [ref=e378]
+                        - img [ref=e380]
+                        - generic [ref=e382]:
+                          - generic [ref=e383]: كل الأماكن
+                          - generic [ref=e384]: 35 (2340)
+                      - button "طي القائمة" [expanded] [ref=e386] [cursor=pointer]:
+                        - img [ref=e387]
+                    - group "مكان العمل" [ref=e389]:
+                      - generic [ref=e391]:
+                        - generic [ref=e393]:
+                          - generic [ref=e394] [cursor=pointer]:
+                            - checkbox "دول الخليج العربي 6 (1867)" [checked] [ref=e395]
+                            - img [ref=e397]
+                            - generic [ref=e399]:
+                              - generic [ref=e400]: دول الخليج العربي
+                              - generic [ref=e401]: 6 (1867)
+                          - button "توسيع المجموعة" [ref=e403] [cursor=pointer]:
+                            - img [ref=e404]
+                        - group "دول الخليج العربي 6 (1867)" [ref=e405]:
+                          - generic [ref=e408] [cursor=pointer]:
+                            - checkbox "السعودية 613" [checked] [ref=e409]
+                            - img [ref=e411]
+                            - generic [ref=e413]:
+                              - generic [ref=e414]: السعودية
+                              - generic [ref=e415]: "613"
+                          - generic [ref=e418] [cursor=pointer]:
+                            - checkbox "الإمارات 428" [checked] [ref=e419]
+                            - img [ref=e421]
+                            - generic [ref=e423]:
+                              - generic [ref=e424]: الإمارات
+                              - generic [ref=e425]: "428"
+                          - generic [ref=e428] [cursor=pointer]:
+                            - checkbox "الكويت 324" [checked] [ref=e429]
+                            - img [ref=e431]
+                            - generic [ref=e433]:
+                              - generic [ref=e434]: الكويت
+                              - generic [ref=e435]: "324"
+                          - generic [ref=e438] [cursor=pointer]:
+                            - checkbox "قطر 215" [checked] [ref=e439]
+                            - img [ref=e441]
+                            - generic [ref=e443]:
+                              - generic [ref=e444]: قطر
+                              - generic [ref=e445]: "215"
+                          - button "عرض عناصر إضافية" [ref=e447]: عرض المزيد (2)
+                      - generic [ref=e449]:
+                        - generic [ref=e451]:
+                          - generic [ref=e452] [cursor=pointer]:
+                            - checkbox "دول عربية أخرى 4 (280)" [checked] [ref=e453]
+                            - img [ref=e455]
+                            - generic [ref=e457]:
+                              - generic [ref=e458]: دول عربية أخرى
+                              - generic [ref=e459]: 4 (280)
+                          - button "توسيع المجموعة" [ref=e461] [cursor=pointer]:
+                            - img [ref=e462]
+                        - group "دول عربية أخرى 4 (280)" [ref=e463]:
+                          - generic [ref=e466] [cursor=pointer]:
+                            - checkbox "الأردن 95" [checked] [ref=e467]
+                            - img [ref=e469]
+                            - generic [ref=e471]:
+                              - generic [ref=e472]: الأردن
+                              - generic [ref=e473]: "95"
+                          - generic [ref=e476] [cursor=pointer]:
+                            - checkbox "ليبيا 78" [checked] [ref=e477]
+                            - img [ref=e479]
+                            - generic [ref=e481]:
+                              - generic [ref=e482]: ليبيا
+                              - generic [ref=e483]: "78"
+                          - generic [ref=e486] [cursor=pointer]:
+                            - checkbox "العراق 62" [checked] [ref=e487]
+                            - img [ref=e489]
+                            - generic [ref=e491]:
+                              - generic [ref=e492]: العراق
+                              - generic [ref=e493]: "62"
+                          - generic [ref=e496] [cursor=pointer]:
+                            - checkbox "الجزائر 45" [checked] [ref=e497]
+                            - img [ref=e499]
+                            - generic [ref=e501]:
+                              - generic [ref=e502]: الجزائر
+                              - generic [ref=e503]: "45"
+                      - generic [ref=e505]:
+                        - generic [ref=e507]:
+                          - generic [ref=e508] [cursor=pointer]:
+                            - checkbox "أفريقيا 3 (193)" [checked] [ref=e509]
+                            - img [ref=e511]
+                            - generic [ref=e513]:
+                              - generic [ref=e514]: أفريقيا
+                              - generic [ref=e515]: 3 (193)
+                          - button "توسيع المجموعة" [ref=e517] [cursor=pointer]:
+                            - img [ref=e518]
+                        - group "أفريقيا 3 (193)" [ref=e519]:
+                          - generic [ref=e522] [cursor=pointer]:
+                            - checkbox "جنوب أفريقيا 85" [checked] [ref=e523]
+                            - img [ref=e525]
+                            - generic [ref=e527]:
+                              - generic [ref=e528]: جنوب أفريقيا
+                              - generic [ref=e529]: "85"
+                          - generic [ref=e532] [cursor=pointer]:
+                            - checkbox "نيجيريا 63" [checked] [ref=e533]
+                            - img [ref=e535]
+                            - generic [ref=e537]:
+                              - generic [ref=e538]: نيجيريا
+                              - generic [ref=e539]: "63"
+                          - generic [ref=e542] [cursor=pointer]:
+                            - checkbox "كينيا 45" [checked] [ref=e543]
+                            - img [ref=e545]
+                            - generic [ref=e547]:
+                              - generic [ref=e548]: كينيا
+                              - generic [ref=e549]: "45"
+                - region "الراتب المتوقع" [ref=e551]:
+                  - generic [ref=e552]:
+                    - heading "الراتب المتوقع" [level=4] [ref=e554]
+                    - generic [ref=e556]:
+                      - generic:
+                        - img
+                      - textbox "البحث داخل الفلتر" [ref=e557]:
+                        - /placeholder: ابحث...
+                  - generic [ref=e558]:
+                    - generic [ref=e560]:
+                      - generic [ref=e561] [cursor=pointer]:
+                        - checkbox "كل الرواتب 4 (2340)" [checked] [ref=e562]
+                        - img [ref=e564]
+                        - generic [ref=e566]:
+                          - generic [ref=e567]: كل الرواتب
+                          - generic [ref=e568]: 4 (2340)
+                      - button "طي القائمة" [expanded] [ref=e570] [cursor=pointer]:
+                        - img [ref=e571]
+                    - group "الراتب المتوقع" [ref=e573]:
+                      - generic [ref=e577] [cursor=pointer]:
+                        - checkbox "أقل من 2,000 ريال" [checked] [ref=e578]
+                        - img [ref=e580]
+                        - generic [ref=e583]: أقل من 2,000 ريال
+                      - generic [ref=e587] [cursor=pointer]:
+                        - checkbox "2,000 - 4,000 ريال" [checked] [ref=e588]
+                        - img [ref=e590]
+                        - generic [ref=e593]: 2,000 - 4,000 ريال
+                      - generic [ref=e597] [cursor=pointer]:
+                        - checkbox "4,000 - 8,000 ريال" [checked] [ref=e598]
+                        - img [ref=e600]
+                        - generic [ref=e603]: 4,000 - 8,000 ريال
+                      - generic [ref=e607] [cursor=pointer]:
+                        - checkbox "أكثر من 8,000 ريال" [checked] [ref=e608]
+                        - img [ref=e610]
+                        - generic [ref=e613]: أكثر من 8,000 ريال
+                - region "سنوات الخبرة" [ref=e615]:
+                  - generic [ref=e616]:
+                    - heading "سنوات الخبرة" [level=4] [ref=e618]
+                    - generic [ref=e620]:
+                      - generic:
+                        - img
+                      - textbox "البحث داخل الفلتر" [ref=e621]:
+                        - /placeholder: ابحث...
+                  - generic [ref=e622]:
+                    - generic [ref=e624]:
+                      - generic [ref=e625] [cursor=pointer]:
+                        - checkbox "كل المستويات 4 (2340)" [checked] [ref=e626]
+                        - img [ref=e628]
+                        - generic [ref=e630]:
+                          - generic [ref=e631]: كل المستويات
+                          - generic [ref=e632]: 4 (2340)
+                      - button "طي القائمة" [expanded] [ref=e634] [cursor=pointer]:
+                        - img [ref=e635]
+                    - group "سنوات الخبرة" [ref=e637]:
+                      - generic [ref=e641] [cursor=pointer]:
+                        - checkbox "حديث التخرج (0-1)" [checked] [ref=e642]
+                        - img [ref=e644]
+                        - generic [ref=e647]: حديث التخرج (0-1)
+                      - generic [ref=e651] [cursor=pointer]:
+                        - checkbox "مستوى مبتدئ (1-3)" [checked] [ref=e652]
+                        - img [ref=e654]
+                        - generic [ref=e657]: مستوى مبتدئ (1-3)
+                      - generic [ref=e661] [cursor=pointer]:
+                        - checkbox "مستوى متوسط (3-5)" [checked] [ref=e662]
+                        - img [ref=e664]
+                        - generic [ref=e667]: مستوى متوسط (3-5)
+                      - generic [ref=e671] [cursor=pointer]:
+                        - checkbox "مستوى متقدم (5+)" [checked] [ref=e672]
+                        - img [ref=e674]
+                        - generic [ref=e677]: مستوى متقدم (5+)
+                - region "الجنس" [ref=e679]:
+                  - heading "الجنس" [level=4] [ref=e682]
+                  - group "الجنس" [ref=e685]:
+                    - radiogroup "تصفية حسب الجنس" [ref=e686]:
+                      - radio "الكل" [checked] [ref=e687]
+                      - radio "ذكور" [ref=e688]
+                      - radio "إناث" [ref=e689]
+                - button "تطبيق (145 وظيفة)" [ref=e691]
+          - generic [ref=e692]:
+            - generic [ref=e693]:
+              - generic [ref=e694]:
+                - generic [ref=e695]:
+                  - img [ref=e696]
+                  - heading "شركات توظيف مميزة" [level=3] [ref=e699]
+                - generic [ref=e700]: مختارة بعناية
+              - generic [ref=e701]:
+                - generic [ref=e702]:
+                  - generic [ref=e705]:
+                    - generic [ref=e706]:
+                      - img "المعالي للتوظيف" [ref=e708] [cursor=pointer]
+                      - heading "المعالي للتوظيف" [level=4] [ref=e709] [cursor=pointer]
+                    - generic [ref=e710]:
+                      - generic [ref=e711]:
+                        - img [ref=e712]
+                        - generic [ref=e714]: "4.8"
+                        - generic [ref=e715]: (128)
+                      - generic [ref=e717]: 14 وظيفة متاحة
+                  - generic [ref=e720]:
+                    - generic [ref=e721]:
+                      - img [ref=e723] [cursor=pointer]
+                      - heading "مجموعة الشايع" [level=4] [ref=e727] [cursor=pointer]
+                    - generic [ref=e728]:
+                      - generic [ref=e729]:
+                        - img [ref=e730]
+                        - generic [ref=e732]: "4.5"
+                        - generic [ref=e733]: (84)
+                      - generic [ref=e735]: 8 وظيفة متاحة
+                  - generic [ref=e738]:
+                    - generic [ref=e739]:
+                      - img [ref=e741] [cursor=pointer]
+                      - heading "مجموعة بن لادن" [level=4] [ref=e744] [cursor=pointer]
+                    - generic [ref=e745]:
+                      - generic [ref=e746]:
+                        - img [ref=e747]
+                        - generic [ref=e749]: "4.2"
+                        - generic [ref=e750]: (215)
+                      - generic [ref=e752]: 22 وظيفة متاحة
+                  - generic [ref=e755]:
+                    - generic [ref=e756]:
+                      - img [ref=e758] [cursor=pointer]
+                      - heading "أرامكو السعودية" [level=4] [ref=e760] [cursor=pointer]
+                    - generic [ref=e761]:
+                      - generic [ref=e762]:
+                        - img [ref=e763]
+                        - generic [ref=e765]: "4.9"
+                        - generic [ref=e766]: (542)
+                      - generic [ref=e768]: 5 وظيفة متاحة
+                - button "السابق" [ref=e769] [cursor=pointer]:
+                  - img [ref=e770]
+                - button "التالي" [ref=e772] [cursor=pointer]:
+                  - img [ref=e773]
+            - generic [ref=e775]:
+              - generic [ref=e776]:
+                - heading "الوظائف المتاحة (2,340)" [level=3] [ref=e777]:
+                  - img [ref=e778]
+                  - text: الوظائف المتاحة
+                  - generic [ref=e781]: (2,340)
+                - generic [ref=e782]:
+                  - generic [ref=e783]: "ترتيب حسب:"
+                  - button "الأحدث" [ref=e785] [cursor=pointer]
+              - generic [ref=e786]:
+                - generic [ref=e790]:
+                  - img "شركة آل سعيد للمقاولات" [ref=e792]
+                  - generic [ref=e794]:
+                    - generic [ref=e795]:
+                      - generic [ref=e796]:
+                        - link "#محاسب_تكاليف" [ref=e797] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=e798]: "#محاسب_تكاليف"
+                        - generic [ref=e800]: منذ 30 دقيقة
+                      - heading "محاسب تكاليف خبرة أكثر من 3 سنوات" [level=3] [ref=e801] [cursor=pointer]
+                      - generic [ref=e802]:
+                        - generic [ref=e803]:
+                          - img "الكويت" [ref=e804]
+                          - paragraph [ref=e805]: الكويت
+                        - generic [ref=e807]:
+                          - img [ref=e808]
+                          - paragraph [ref=e812]: شركة آل سعيد للمقاولات
+                      - generic [ref=e813]:
+                        - generic [ref=e814]:
+                          - img [ref=e815]
+                          - paragraph [ref=e818]: 450 دينار
+                        - generic [ref=e819]:
+                          - generic [ref=e820]: سكن مؤمن
+                          - generic [ref=e821]: مواصلات
+                          - generic [ref=e822]: تأمين طبي
+                          - generic [ref=e823]: تذاكر طيران
+                    - button "حفظ الوظيفة" [ref=e824]:
+                      - img [ref=e825]
+                - generic [ref=e830]:
+                  - img [ref=e832]
+                  - generic [ref=e837]:
+                    - generic [ref=e838]:
+                      - generic [ref=e839]:
+                        - link "#مهندس_مدني" [ref=e840] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=e841]: "#مهندس_مدني"
+                        - generic [ref=e843]: منذ ساعة
+                      - heading "مهندس مدني - مشاريع بنية تحتية" [level=3] [ref=e844] [cursor=pointer]
+                      - generic [ref=e845]:
+                        - generic [ref=e846]:
+                          - img "الرياض، السعودية" [ref=e847]
+                          - paragraph [ref=e848]: الرياض، السعودية
+                        - generic [ref=e850]:
+                          - img [ref=e851]
+                          - paragraph [ref=e855]: شركة البنيان المتين
+                      - generic [ref=e856]:
+                        - generic [ref=e857]:
+                          - img [ref=e858]
+                          - paragraph [ref=e861]: 6,000 - 8,000 ريال
+                        - generic [ref=e862]:
+                          - generic [ref=e863]: سكن عائلي
+                          - generic [ref=e864]: سيارة
+                          - generic [ref=e865]: تأمين شامل
+                    - button "حفظ الوظيفة" [ref=e866]:
+                      - img [ref=e867]
+                - generic [ref=e872]:
+                  - img [ref=e874]
+                  - generic [ref=e877]:
+                    - generic [ref=e878]:
+                      - generic [ref=e879]:
+                        - link "#فني_لحام" [ref=e880] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=e881]: "#فني_لحام"
+                        - generic [ref=e883]: منذ 3 ساعات
+                      - heading "فني لحام (TIG/MIG) خبرة صناعية" [level=3] [ref=e884] [cursor=pointer]
+                      - generic [ref=e885]:
+                        - generic [ref=e886]:
+                          - img "الدوحة، قطر" [ref=e887]
+                          - paragraph [ref=e888]: الدوحة، قطر
+                        - generic [ref=e890]:
+                          - img [ref=e891]
+                          - paragraph [ref=e895]: مصانع قطر للصلب
+                      - generic [ref=e896]:
+                        - generic [ref=e897]:
+                          - img [ref=e898]
+                          - paragraph [ref=e901]: 3,500 - 4,500 ريال
+                        - generic [ref=e902]:
+                          - generic [ref=e903]: سكن
+                          - generic [ref=e904]: وجبات
+                          - generic [ref=e905]: إضافي
+                    - button "حفظ الوظيفة" [ref=e906]:
+                      - img [ref=e907]
+                - generic [ref=e912]:
+                  - img [ref=e914]
+                  - generic [ref=e918]:
+                    - generic [ref=e919]:
+                      - generic [ref=e920]:
+                        - link "#تمريض" [ref=e921] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=e922]: "#تمريض"
+                        - generic [ref=e924]: منذ 5 ساعات
+                      - heading "ممرضين وممرضات - عناية مركزة" [level=3] [ref=e925] [cursor=pointer]
+                      - generic [ref=e926]:
+                        - generic [ref=e927]:
+                          - img "دبي، الإمارات" [ref=e928]
+                          - paragraph [ref=e929]: دبي، الإمارات
+                        - generic [ref=e931]:
+                          - img [ref=e932]
+                          - paragraph [ref=e936]: مستشفى المستقبل الدولي
+                      - generic [ref=e937]:
+                        - generic [ref=e938]:
+                          - img [ref=e939]
+                          - paragraph [ref=e942]: 8,000 - 12,000 درهم
+                        - generic [ref=e943]:
+                          - generic [ref=e944]: سكن فاخر
+                          - generic [ref=e945]: تأمين صحي VIP
+                          - generic [ref=e946]: تذكرة سنوية
+                    - button "حفظ الوظيفة" [ref=e947]:
+                      - img [ref=e948]
+                - generic [ref=e953]:
+                  - img [ref=e955]
+                  - generic [ref=e960]:
+                    - generic [ref=e961]:
+                      - generic [ref=e962]:
+                        - link "#سائق_مهني" [ref=e963] [cursor=pointer]:
+                          - /url: "#"
+                          - generic [ref=e964]: "#سائق_مهني"
+                        - generic [ref=e966]: منذ 8 ساعات
+                      - heading "سائق نقل ثقيل (رخصة درجة أولى)" [level=3] [ref=e967] [cursor=pointer]
+                      - generic [ref=e968]:
+                        - generic [ref=e969]:
+                          - img "مسقط، عمان" [ref=e970]
+                          - paragraph [ref=e971]: مسقط، عمان
+                        - generic [ref=e973]:
+                          - img [ref=e974]
+                          - paragraph [ref=e978]: شركة النقل العمانية
+                      - generic [ref=e979]:
+                        - generic [ref=e980]:
+                          - img [ref=e981]
+                          - paragraph [ref=e984]: 250 - 350 ريال عماني
+                        - generic [ref=e985]:
+                          - generic [ref=e986]: سكن
+                          - generic [ref=e987]: بدل إعاشة
+                          - generic [ref=e988]: حوافز
+                    - button "حفظ الوظيفة" [ref=e989]:
+                      - img [ref=e990]
+              - navigation "ترقيم الصفحات" [ref=e993]:
+                - button [disabled] [ref=e994]:
+                  - img [ref=e995]
+                - button "1" [ref=e997]
+                - button "2" [ref=e998]
+                - generic [ref=e999]: ...
+                - button "10" [ref=e1000]
+                - button [ref=e1001]:
+                  - img [ref=e1002]
+    - contentinfo [ref=e1004]:
+      - generic [ref=e1005]:
+        - generic [ref=e1006]:
+          - generic [ref=e1007]:
+            - generic [ref=e1008]:
+              - paragraph [ref=e1010]: م
+              - heading "المعالي" [level=3] [ref=e1011]
+            - paragraph [ref=e1012]: منصة توظيف رائدة تربط الكفاءات المصرية بفرص العمل المتميزة في دول الخليج والعالم العربي بمنتهى الاحترافية والشفافية.
+          - generic [ref=e1013]:
+            - paragraph [ref=e1014]: للباحثين عن عمل
+            - list [ref=e1015]:
+              - listitem [ref=e1016]:
+                - link "العودة للأعلى" [ref=e1017] [cursor=pointer]:
+                  - /url: "#hero"
+                  - generic [ref=e1018]: العودة للأعلى
+              - listitem [ref=e1019]:
+                - link "الوظائف المتاحة" [ref=e1020] [cursor=pointer]:
+                  - /url: "#jobs"
+                  - generic [ref=e1021]: الوظائف المتاحة
+              - listitem [ref=e1022]:
+                - link "الشركات المميزة" [ref=e1023] [cursor=pointer]:
+                  - /url: "#companies"
+                  - generic [ref=e1024]: الشركات المميزة
+              - listitem [ref=e1025]:
+                - link "تواصل معنا" [ref=e1026] [cursor=pointer]:
+                  - /url: "#contact"
+                  - generic [ref=e1027]: تواصل معنا
+          - generic [ref=e1028]:
+            - paragraph [ref=e1029]: لأصحاب العمل
+            - list [ref=e1030]:
+              - listitem [ref=e1031]:
+                - link "عن المنصة" [ref=e1032] [cursor=pointer]:
+                  - /url: "#hero"
+                  - generic [ref=e1033]: عن المنصة
+              - listitem [ref=e1034]:
+                - link "أبرز الشركات" [ref=e1035] [cursor=pointer]:
+                  - /url: "#companies"
+                  - generic [ref=e1036]: أبرز الشركات
+              - listitem [ref=e1037]:
+                - link "استعرض الفرص" [ref=e1038] [cursor=pointer]:
+                  - /url: "#jobs"
+                  - generic [ref=e1039]: استعرض الفرص
+          - generic [ref=e1040]:
+            - paragraph [ref=e1041]: تواصل معنا
+            - generic [ref=e1042]:
+              - link [ref=e1043] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e1044]
+              - link [ref=e1047] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e1048]
+              - link [ref=e1052] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e1053]
+        - generic [ref=e1058]: © 2026 جميع الحقوق محفوظة لمنصة المعالي للتوظيف — صمم بعناية فائقة
+  - generic:
+    - img
+  - generic [ref=e1059]:
+    - button "Toggle Nuxt DevTools" [ref=e1060] [cursor=pointer]:
+      - img [ref=e1061]
+    - generic "Page load time" [ref=e1064]:
+      - generic [ref=e1065]: "449"
+      - generic [ref=e1066]: ms
+    - button "Toggle Component Inspector" [ref=e1068] [cursor=pointer]:
+      - img [ref=e1069]
