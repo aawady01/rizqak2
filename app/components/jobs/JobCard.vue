@@ -54,7 +54,7 @@ const handleClick = () => {
   >
     <!-- Vertical Hover Indicator -->
     <div
-      class="absolute inset-inline-end-0 top-0 bottom-0 w-[2px] bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+      class="absolute inset-inline-end-0 top-0 bottom-0 w-divider-thin bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
     />
 
     <div class="p-5">

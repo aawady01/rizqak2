@@ -12,70 +12,73 @@ const props = withDefaults(defineProps<Props>(), {
   active: false,
 });
 
-const lineStyle = computed(() => ({
-  opacity: props.active
-    ? "var(--filter-tree-line-opacity-active)"
-    : "var(--filter-tree-line-opacity-muted)",
-}));
+const lineOpacityClass = computed(() =>
+  props.active ? "filter-tree-line--active" : "filter-tree-line--muted",
+);
 </script>
 
 <template>
   <template v-if="type === 'stem'">
     <div
-      :style="[
-        lineStyle,
-        {
-          'inset-inline-start': 'var(--filter-tree-stem-offset)',
-          top: 'calc(var(--filter-tree-node-center) + (var(--filter-tree-control-size) / 2))',
-          bottom: '0',
-        },
-      ]"
-      class="absolute w-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-10 transition-opacity duration-200"
+      :class="['filter-tree-line', 'filter-tree-line--stem', lineOpacityClass]"
     />
   </template>
 
   <template v-else-if="type === 'bridge'">
     <div
-      :style="lineStyle"
-      class="absolute inset-inline-start-[var(--filter-tree-bridge-offset)] top-[var(--filter-tree-node-center)] h-[var(--filter-tree-bridge-height)] w-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-10 transition-opacity duration-200"
+      :class="['filter-tree-line', 'filter-tree-line--bridge', lineOpacityClass]"
     />
   </template>
 
   <template v-else-if="type === 'branch'">
     <div
-      :style="lineStyle"
-      class="absolute inset-inline-start-[var(--filter-tree-child-stem-offset)] top-[var(--filter-tree-node-center)] h-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-20 transition-opacity duration-200"
-      style="width: var(--filter-tree-branch-length)"
+      :class="[
+        'filter-tree-line',
+        'filter-tree-line--branch-horizontal',
+        lineOpacityClass,
+      ]"
     />
     <div
       v-if="!isLast"
-      :style="lineStyle"
-      class="absolute inset-inline-start-[var(--filter-tree-child-stem-offset)] top-0 bottom-0 w-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-20 transition-opacity duration-200"
+      :class="[
+        'filter-tree-line',
+        'filter-tree-line--branch-vertical',
+        lineOpacityClass,
+      ]"
     />
     <div
       v-else
-      :style="lineStyle"
-      class="absolute inset-inline-start-[var(--filter-tree-child-stem-offset)] top-0 h-[var(--filter-tree-node-center)] w-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-20 transition-opacity duration-200"
+      :class="[
+        'filter-tree-line',
+        'filter-tree-line--branch-vertical-last',
+        lineOpacityClass,
+      ]"
     />
   </template>
 
   <template v-else>
     <div
-      :style="lineStyle"
-      class="absolute top-[var(--filter-tree-node-center)] h-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-20 transition-opacity duration-200"
-      style="inset-inline-start: 0; width: var(--filter-tree-root-branch-length)"
+      :class="[
+        'filter-tree-line',
+        'filter-tree-line--root-horizontal',
+        lineOpacityClass,
+      ]"
     />
     <div
       v-if="!isLast"
-      :style="lineStyle"
-      class="absolute top-0 bottom-0 w-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-20 transition-opacity duration-200"
-      style="inset-inline-start: var(--filter-tree-control-center-offset)"
+      :class="[
+        'filter-tree-line',
+        'filter-tree-line--root-vertical',
+        lineOpacityClass,
+      ]"
     />
     <div
       v-else
-      :style="lineStyle"
-      class="absolute top-0 h-[var(--filter-tree-node-center)] w-[var(--filter-tree-line-width)] bg-[var(--tree-line-color)] pointer-events-none z-20 transition-opacity duration-200"
-      style="inset-inline-start: var(--filter-tree-control-center-offset)"
+      :class="[
+        'filter-tree-line',
+        'filter-tree-line--root-vertical-last',
+        lineOpacityClass,
+      ]"
     />
   </template>
 </template>

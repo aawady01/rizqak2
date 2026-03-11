@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { TabsRoot, TabsList, TabsTrigger, TabsContent } from "radix-vue";
+import { TabsRoot, TabsList, TabsTrigger, TabsContent } from "reka-ui";
 import { cn } from "~/shared/utils/tailwind";
 
 const modelValue = defineModel<string>();
@@ -30,7 +30,7 @@ const finalListClass = computed(() =>
 );
 const finalTriggerClass = computed(() =>
   cn(
-    "data-[state=active]:bg-ds-surface data-[state=active]:text-primary data-[state=active]:border-ds-border-strong focus-visible:ring-ds-focus text-neutral-600 inline-flex h-full flex-1 items-center justify-center gap-2 rounded-none border border-transparent px-4 py-1.5 text-ds-body-r font-semibold whitespace-nowrap transition-all outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    "tabs-trigger-state focus-visible:ring-ds-focus text-neutral-600 inline-flex h-full flex-1 items-center justify-center gap-2 rounded-none border border-transparent px-4 py-1.5 text-ds-body-r font-semibold whitespace-nowrap transition-all outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     props.triggerClass,
   ),
 );

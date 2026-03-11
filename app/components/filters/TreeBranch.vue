@@ -114,7 +114,7 @@ const onChildToggle = (childId: string) => {
       :active="rowStateActive"
     />
 
-    <div class="ps-[var(--filter-tree-root-branch-length)]">
+    <div class="ps-filter-tree-root">
       <div class="relative z-20">
         <BaseFilterItemRow
           :input-id="categoryInputId"
@@ -149,7 +149,7 @@ const onChildToggle = (childId: string) => {
         :id="childGroupId"
         class="grid transition-all duration-300 ease-in-out"
         :class="
-          expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+          expanded ? 'grid-rows-expand opacity-100' : 'grid-rows-collapse opacity-0'
         "
       >
         <div class="overflow-hidden">

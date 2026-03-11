@@ -12,6 +12,27 @@ export default defineNuxtConfig({
 
   modules: [
     '@pinia/nuxt',
+    '@vueuse/nuxt',
+    '@nuxtjs/i18n',
+    '@nuxt/content',
+    '@nuxt/image',
+    '@nuxt/fonts',
+    '@nuxtjs/color-mode',
+    '@vite-pwa/nuxt',
+    'nuxt-og-image',
+    '@nuxt/scripts',
+    '@sentry/nuxt/module',
+    '@nuxtjs/device',
+    '@nuxt-modules/compression',
+    'nuxt-security',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+    'nuxt-schema-org',
+    'nuxt-auth-utils',
+    'nuxt-link-checker',
+    '@nuxt/eslint',
+    '@nuxt/test-utils/module',
+    '@vee-validate/nuxt',
   ],
 
   imports: {
@@ -26,8 +47,115 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
 
+  i18n: {
+    restructureDir: 'app',
+    defaultLocale: 'ar',
+    langDir: 'locales',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: false,
+    locales: [
+      {
+        code: 'ar',
+        iso: 'ar-EG',
+        name: 'Arabic',
+        dir: 'rtl',
+        file: 'ar.json',
+      },
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        dir: 'ltr',
+        file: 'en.json',
+      },
+    ],
+  },
+
+  content: {
+    watch: {
+      enabled: true,
+    },
+  },
+
+  fonts: {
+    provider: 'google',
+    families: [
+      {
+        name: 'Cairo',
+        provider: 'google',
+        weights: [300, 400, 500, 600, 700, 800],
+        styles: ['normal'],
+        subsets: ['arabic', 'latin'],
+      },
+    ],
+  },
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classSuffix: '',
+    storageKey: 'rizqak-color-mode',
+  },
+
+  pwa: {
+    registerType: 'autoUpdate',
+    includeAssets: ['favicon.svg'],
+    manifest: {
+      name: 'Rizqak',
+      short_name: 'Rizqak',
+      description: 'Rizqak helps job seekers in Egypt find trusted opportunities.',
+      lang: 'ar',
+      dir: 'rtl',
+      theme_color: '#1B6B4A',
+      background_color: '#ffffff',
+      display: 'standalone',
+      start_url: '/',
+    },
+  },
+
+  ogImage: {},
+
+  device: {
+    refreshOnResize: true,
+  },
+
+  compression: {
+    algorithm: 'brotliCompress',
+  },
+
+  linkChecker: {
+    failOnError: false,
+  },
+
+  veeValidate: {
+    autoImports: true,
+  },
+
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com',
+    name: 'Rizqak',
+    defaultLocale: 'ar',
+  },
+
+  image: {},
+
+  security: {},
+
+  sitemap: {
+    enabled: true,
+  },
+
+  robots: {
+    sitemap: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com'}/sitemap.xml`,
+  },
+
+  schemaOrg: {
+    canonicalHost: process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com',
+  },
+
   vite: {
     resolve: {
+      dedupe: ['vee-validate'],
     },
     plugins: [
       tailwindcss() as any,
@@ -63,7 +191,6 @@ export default defineNuxtConfig({
         { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       ],
@@ -75,6 +202,7 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:3001',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com',
+      sentryDsn: process.env.NUXT_PUBLIC_SENTRY_DSN || '',
     },
   },
 

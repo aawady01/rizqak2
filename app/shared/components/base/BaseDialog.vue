@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose,
-} from "radix-vue";
+} from "reka-ui";
 import { XIcon } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
@@ -26,13 +26,13 @@ const props = defineProps<Props>();
 
 const overlayClass = computed(() => {
   return cn(
-    "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+    "fixed inset-0 z-50 bg-black/50 dialog-overlay-state",
   );
 });
 
 const finalContentClass = computed(() => {
   return cn(
-    "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-1/2 inset-inline-start-1/2 z-50 dialog-mobile-max-w grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-none border border-ds-border p-6 shadow-lg duration-200 sm:max-w-lg",
+    "bg-background fixed top-1/2 inset-inline-start-1/2 z-50 dialog-mobile-max-w grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-none border border-ds-border p-6 shadow-lg duration-200 sm:max-w-lg dialog-content-state",
     props.contentClass,
   );
 });

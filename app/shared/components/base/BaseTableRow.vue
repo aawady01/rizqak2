@@ -9,7 +9,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const rowClass = computed(() => {
-  return cn('hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors', props.class)
+  return cn('table-row-base hover:bg-muted/50 border-b transition-colors', props.class)
 })
 </script>
 

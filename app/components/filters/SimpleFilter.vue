@@ -108,7 +108,7 @@ const handleExpandToggle = () => {
         :active="selection.isChecked(item.id)"
       />
 
-      <div class="ps-[var(--filter-tree-root-branch-length)]">
+      <div class="ps-filter-tree-root">
         <BaseFilterItemRow
           :input-id="`${sectionIdBase}-${item.id}`"
           :input-name="type === 'radio' ? (radioName ?? title) : undefined"

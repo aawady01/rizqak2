@@ -76,7 +76,7 @@ Findings:
 ### 1.2.3 shadcn configuration audit
 - No `components.json` found in repository.
 - shadcn-style component architecture exists under `app/shared/components/base/**`.
-- `radix-vue` and `class-variance-authority` dependencies are present.
+- `reka-ui` and `class-variance-authority` dependencies are present.
 
 Conclusion:
 - Runtime component style aligns with open-code distribution pattern.

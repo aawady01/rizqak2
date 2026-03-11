@@ -21,7 +21,7 @@ const emit = defineEmits<{
     @click="emit('click', country)"
     :class="
       cn(
-        'flex flex-col items-center justify-center p-4 border text-white transition-all h-[110px] w-full rounded-none',
+        'flex flex-col items-center justify-center p-4 border text-white transition-all h-country-card w-full rounded-none',
         isSelected
           ? 'bg-white/20 border-white/40 ring-1 ring-white/20'
           : 'bg-white/5 hover:bg-white/15 border-white/10 hover:border-white/30',

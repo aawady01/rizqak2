@@ -78,7 +78,7 @@ const BUCKET_META = {
   },
   'geometry-exception': {
     title: 'Geometry Exceptions',
-    policy: 'Do not treat runtime geometry, filter-tree connector math, or Radix variable-driven layout as generic token debt.',
+    policy: 'Do not treat runtime geometry, filter-tree connector math, or Reka variable-driven layout as generic token debt.',
     guidance: 'Change only through dedicated variable systems or focused component-level geometry work with visual verification.',
   },
   'selector-state': {
@@ -115,8 +115,8 @@ const HOTSPOT_CONFIGS = [
     guidance: 'Keep connector math and root-branch alignment centralized in the filter-tree variable system; do not fork local spacing rules in new filters.',
   },
   {
-    id: 'radix-select-geometry',
-    title: 'Radix Select Geometry',
+    id: 'reka-select-geometry',
+    title: 'Reka Select Geometry',
     bucket: 'geometry-exception',
     files: ['app/shared/components/base/BaseSelect.vue'],
     contract: 'docs/PHASE2_GEOMETRY_CONTRACTS.md',
@@ -124,7 +124,7 @@ const HOTSPOT_CONFIGS = [
   },
 ]
 
-const GEOMETRY_VAR_PATTERN = /var\(--filter-tree|var\(--tree-line-color|var\(--radix-/
+const GEOMETRY_VAR_PATTERN = /var\(--filter-tree|var\(--tree-line-color|var\(--radix-|var\(--reka-/
 
 const shouldIgnoreMatch = (filePath, lineText, ruleId, matchText) => {
   if (lineText.includes('eslint-disable')) return true

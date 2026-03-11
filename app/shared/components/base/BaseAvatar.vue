@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { AvatarRoot, AvatarImage, AvatarFallback } from "radix-vue";
+import { AvatarRoot, AvatarImage, AvatarFallback } from "reka-ui";
 import { cn } from "~/shared/utils/tailwind";
 
 interface Props {

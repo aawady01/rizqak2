@@ -105,8 +105,8 @@ const connectorActive = computed(
         class="grid transition-all duration-300 ease-in-out"
         :class="
           expanded || !expandable
-            ? 'grid-rows-[1fr] opacity-100'
-            : 'grid-rows-[0fr] opacity-0'
+            ? 'grid-rows-expand opacity-100'
+            : 'grid-rows-collapse opacity-0'
         "
       >
         <div

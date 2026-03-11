@@ -107,7 +107,7 @@ All notable changes documented with WHAT, WHERE, WHY.
   - `BaseCheckbox.vue` with native array binding.
   - `BasePagination.vue` identical to Radix-ui/Shadcn pattern.
   - Phase 6 Primitives: `BaseBadge.vue`, `BaseLabel.vue`, `BaseInput.vue`, `BaseTextarea.vue`, `BaseSkeleton.vue`, `BaseAvatar.vue`, `BaseTable.vue` (with slots).
-  - Radix-vue accessible components: `BaseSelect.vue`, `BaseDialog.vue`, `BaseTabs.vue`.
+  - Reka UI accessible components (formerly Radix Vue): `BaseSelect.vue`, `BaseDialog.vue`, `BaseTabs.vue`.
 - **Business Components**:
   - `CountryCard.vue`, `HomeHero.vue`, `CompanyCard.vue`, `HomeFeaturedCompanies.vue`, `JobCard.vue`, `HomeJobList.vue`.
 - **Filter Systems**:

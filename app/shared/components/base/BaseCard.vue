@@ -30,7 +30,7 @@ const props = defineProps<Props>();
       v-if="$slots.header || title || description || $slots.action"
       :class="
         cn(
-          '@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1 p-5 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-5',
+          '@container/card-header grid auto-rows-min card-header-layout items-start gap-1 p-5 [.border-b]:pb-5',
           props.headerClass,
         )
       "

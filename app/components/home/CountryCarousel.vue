@@ -3,9 +3,9 @@
     <!-- Prev Arrow -->
     <button
       aria-label="السابق"
-      class="absolute inset-inline-end-[-20px] top-1/2 -translate-y-1/2 size-10 bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/30 transition-all z-20 text-white rounded-none opacity-0 group-hover/carousel:opacity-100"
+      class="absolute inset-inline-end-overhang-lg top-1/2 -translate-y-1/2 size-10 bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/30 transition-all z-20 text-white rounded-none opacity-0 group-hover/carousel:opacity-100"
     >
-      <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+      <span class="material-symbols-outlined text-icon-material-md">chevron_right</span>
     </button>
 
     <!-- Country Grid -->
@@ -31,7 +31,7 @@
           </span>
           <span
             v-if="country.count"
-            class="text-[10px] text-white/60 font-medium"
+            class="text-ds-caption-s text-white/60 font-medium"
           >
             {{ country.count }} وظيفة
           </span>
@@ -42,10 +42,10 @@
     <!-- Next Arrow -->
     <button
       aria-label="التالي"
-      class="absolute inset-inline-start-[-20px] top-1/2 -translate-y-1/2 size-10 bg-white/10 border border-white/20 flex items-center justify-center cursor-pointer hover:bg-white hover:text-primary hover:border-white transition-all z-20 text-white shadow-sm group/btn rounded-none opacity-0 group-hover/carousel:opacity-100"
+      class="absolute inset-inline-start-overhang-lg top-1/2 -translate-y-1/2 size-10 bg-white/10 border border-white/20 flex items-center justify-center cursor-pointer hover:bg-white hover:text-primary hover:border-white transition-all z-20 text-white shadow-sm group/btn rounded-none opacity-0 group-hover/carousel:opacity-100"
     >
       <span
-        class="material-symbols-outlined text-[20px] transition-transform group-hover/btn:scale-110"
+        class="material-symbols-outlined text-icon-material-md transition-transform group-hover/btn:scale-110"
         >chevron_left</span
       >
     </button>

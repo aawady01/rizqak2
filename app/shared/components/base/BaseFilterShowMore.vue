@@ -12,10 +12,10 @@ const emit = defineEmits<{ toggle: [] }>();
 </script>
 
 <template>
-  <div class="mt-1 flex justify-end pe-[var(--filter-tree-root-branch-length)]">
+  <div class="mt-1 flex justify-end pe-filter-tree-root">
     <button
       type="button"
-      class="rounded-none px-1 py-0.5 text-ds-caption-r font-medium text-primary outline-none transition-colors hover:underline focus-visible:shadow-[var(--filter-tree-focus-ring)]"
+      class="rounded-none px-1 py-0.5 text-ds-caption-r font-medium text-primary outline-none transition-colors hover:underline filter-tree-focus-ring"
       :aria-expanded="showAll"
       :aria-label="showAll ? 'عرض عناصر أقل' : 'عرض عناصر إضافية'"
       @click.stop="emit('toggle')"

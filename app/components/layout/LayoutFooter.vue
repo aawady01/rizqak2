@@ -42,9 +42,7 @@ import {
 
         <!-- Job Seekers -->
         <div>
-          <BaseTypography
-            variant="subtitle-l"
-            class="font-bold text-white mb-6"
+          <BaseTypography variant="subtitle-l" class="font-bold text-white mb-6"
             >للباحثين عن عمل</BaseTypography
           >
           <ul class="space-y-3">
@@ -66,9 +64,7 @@ import {
 
         <!-- Employers -->
         <div>
-          <BaseTypography
-            variant="subtitle-l"
-            class="font-bold text-white mb-6"
+          <BaseTypography variant="subtitle-l" class="font-bold text-white mb-6"
             >لأصحاب العمل</BaseTypography
           >
           <ul class="space-y-3">
@@ -87,9 +83,7 @@ import {
 
         <!-- Contact -->
         <div>
-          <BaseTypography
-            variant="subtitle-l"
-            class="font-bold text-white mb-6"
+          <BaseTypography variant="subtitle-l" class="font-bold text-white mb-6"
             >تواصل معنا</BaseTypography
           >
           <div class="flex gap-3">

@@ -109,9 +109,9 @@ const handleCountrySelect = (country: Country) => {
         <!-- Navigation Arrows -->
         <button
           @click="null"
-          class="inset-inline-start-0 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-xl active:scale-95"
+          class="-inset-inline-start-5 absolute top-1/2 -translate-y-1/2 z-20 size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-xl active:scale-95"
         >
-          <ChevronLeft class="size-5" :stroke-width="3" />
+          <ChevronRight class="size-5" :stroke-width="3" />
         </button>
 
         <div class="hero__countries-grid">
@@ -126,9 +126,9 @@ const handleCountrySelect = (country: Country) => {
 
         <button
           @click="null"
-          class="inset-inline-end-0 absolute top-1/2 -translate-y-1/2 translate-x-1/2 z-20 size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-lg active:scale-95"
+          class="-inset-inline-end-5 absolute top-1/2 -translate-y-1/2 z-20 size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-lg active:scale-95"
         >
-          <ChevronRight class="size-5" :stroke-width="3" />
+          <ChevronLeft class="size-5" :stroke-width="3" />
         </button>
       </div>
     </div>

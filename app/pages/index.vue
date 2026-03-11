@@ -39,7 +39,7 @@ useItemListStructuredData(
 
     <!-- Main content - py-section, gap-section -->
     <div class="max-w-7xl mx-auto px-content sm:px-6 lg:px-section py-section">
-      <div class="grid grid-cols-1 lg:grid-cols-[290px_1fr] xl:grid-cols-[310px_1fr] gap-section">
+      <div class="grid grid-cols-1 lg:grid-cols-home-sidebar-lg xl:grid-cols-home-sidebar-xl gap-section">
         <HomeSidebar />
 
         <div class="space-y-section order-2 w-full min-w-0">

@@ -17,12 +17,24 @@ const props = defineProps<{
 const sizeClasses = computed(() => {
   switch (props.size) {
     case 'sm':
-      return 'w-6 h-[18px]'
+      return 'w-6 h-flag-sm'
     case 'lg':
-      return 'w-12 h-9 rounded-[4px]'
+      return 'w-12 h-9'
     case 'md':
     default:
-      return 'w-8 h-6 rounded-[3px]'
+      return 'w-8 h-6'
+  }
+})
+
+const radiusClass = computed(() => {
+  switch (props.size) {
+    case 'sm':
+      return 'rounded-flag-sm'
+    case 'lg':
+      return 'rounded-flag-lg'
+    case 'md':
+    default:
+      return 'rounded-flag-md'
   }
 })
 </script>
@@ -35,7 +47,7 @@ const sizeClasses = computed(() => {
     :class="[
       'object-cover flex-shrink-0',
       'border border-black/10 dark:border-white/10 shadow-sm',
-      size === 'sm' ? 'rounded-[2px]' : 'rounded-[3px]',
+      radiusClass,
       sizeClasses
     ]" 
   />
@@ -43,7 +55,8 @@ const sizeClasses = computed(() => {
   <div 
     v-else
     :class="[
-      'bg-muted/50 dark:bg-muted/20 flex-shrink-0 rounded-[2px]',
+      'bg-muted/50 dark:bg-muted/20 flex-shrink-0',
+      radiusClass,
       sizeClasses
     ]"
     aria-hidden="true"

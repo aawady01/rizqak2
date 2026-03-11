@@ -36,7 +36,7 @@ import { companiesData } from "~/shared/utils/mockData";
 
       <button
         aria-label="السابق"
-        class="absolute inset-inline-end-[-16px] top-1/2 -translate-y-1/2 size-10 bg-white border border-ds-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-20 text-neutral-400 shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100"
+        class="absolute inset-inline-end-overhang-md top-1/2 -translate-y-1/2 size-10 bg-white border border-ds-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-20 text-neutral-400 shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100"
       >
         <ChevronRight
           class="size-5 transition-transform group-hover/btn:scale-110"
@@ -45,7 +45,7 @@ import { companiesData } from "~/shared/utils/mockData";
       </button>
       <button
         aria-label="التالي"
-        class="absolute inset-inline-start-[-16px] top-1/2 -translate-y-1/2 size-10 bg-white border border-ds-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-20 text-neutral-400 shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100"
+        class="absolute inset-inline-start-overhang-md top-1/2 -translate-y-1/2 size-10 bg-white border border-ds-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-20 text-neutral-400 shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100"
       >
         <ChevronLeft
           class="size-5 transition-transform group-hover/btn:scale-110"
