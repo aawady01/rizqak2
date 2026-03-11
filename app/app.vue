@@ -2,7 +2,7 @@
   <NuxtPwaAssets />
   <NuxtLayout>
     <NuxtPage />
-    <Toaster rich-colors position="bottom-center" />
+    <Toaster rich-colors position="bottom-center" dir="rtl" />
   </NuxtLayout>
 </template>
 

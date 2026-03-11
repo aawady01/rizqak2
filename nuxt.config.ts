@@ -1,15 +1,18 @@
-﻿import tailwindcss from '@tailwindcss/vite'
+﻿import { defineNuxtConfig } from 'nuxt/config'
+
+import tailwindcss from '@tailwindcss/vite'
+
+const isDev = process.env.NODE_ENV !== 'production'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
+  srcDir: 'app',
   devtools: { enabled: true },
   telemetry: false,
 
   future: {
     compatibilityVersion: 4,
   },
-  srcDir: 'app',
-
   modules: [
     '@pinia/nuxt',
     '@vueuse/nuxt',
@@ -139,7 +142,50 @@ export default defineNuxtConfig({
 
   image: {},
 
-  security: {},
+  security: {
+    headers: {
+      contentSecurityPolicy: isDev
+        ? {
+            'base-uri': ["'none'"],
+            'font-src': ["'self'", 'https:', 'data:'],
+            'form-action': ["'self'"],
+            'frame-ancestors': ["'self'"],
+            'img-src': ["'self'", 'data:', 'blob:', 'https:'],
+            'object-src': ["'none'"],
+            'script-src-attr': ["'none'"],
+            'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+            'script-src': [
+              "'self'",
+              'https:',
+              "'unsafe-inline'",
+              "'unsafe-eval'",
+              "'strict-dynamic'",
+              "'nonce-{{nonce}}'",
+            ],
+            'connect-src': ["'self'", 'https:', 'http:', 'ws:', 'wss:'],
+            'upgrade-insecure-requests': false,
+          }
+        : {
+            'base-uri': ["'none'"],
+            'font-src': ["'self'", 'https:', 'data:'],
+            'form-action': ["'self'"],
+            'frame-ancestors': ["'self'"],
+            'img-src': ["'self'", 'data:', 'blob:', 'https:'],
+            'object-src': ["'none'"],
+            'script-src-attr': ["'none'"],
+            'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+            'script-src': [
+              "'self'",
+              'https:',
+              "'unsafe-inline'",
+              "'strict-dynamic'",
+              "'nonce-{{nonce}}'",
+            ],
+            'connect-src': ["'self'", 'https:'],
+            'upgrade-insecure-requests': true,
+          },
+    },
+  },
 
   sitemap: {
     enabled: true,
