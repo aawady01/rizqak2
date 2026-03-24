@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import BaseFilterSection from "./BaseFilterSection.vue";
 import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
@@ -85,9 +84,9 @@ const handleExpandToggle = () => {
 
 <template>
   <BaseFilterSection
+    v-model:search-query="searchQuery"
     :title="title"
     :searchable="searchable"
-    v-model:searchQuery="searchQuery"
     :has-select-all="true"
     :total-label="totalLabel"
     :total-count="totalCount"

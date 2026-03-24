@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { ChevronRight, ChevronLeft } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
@@ -48,9 +47,9 @@ const handlePageChange = (page: number | string) => {
     <nav aria-label="ترقيم الصفحات" class="flex gap-1.5">
       <!-- Arrow Right (Previous in RTL) -->
       <button
-        @click="handlePageChange(Math.max(1, currentPage - 1))"
         :disabled="currentPage === 1"
         class="size-10 flex items-center justify-center border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground"
+        @click="handlePageChange(Math.max(1, currentPage - 1))"
       >
         <ChevronRight class="size-4" :stroke-width="2.5" />
       </button>
@@ -64,7 +63,6 @@ const handlePageChange = (page: number | string) => {
         </span>
         <button
           v-else
-          @click="handlePageChange(page)"
           :class="
             cn(
               'size-10 flex items-center justify-center transition-colors text-ds-caption font-medium',
@@ -73,6 +71,7 @@ const handlePageChange = (page: number | string) => {
                 : 'border border-border text-foreground hover:border-primary/40 hover:text-primary',
             )
           "
+          @click="handlePageChange(page)"
         >
           {{ page }}
         </button>
@@ -80,9 +79,9 @@ const handlePageChange = (page: number | string) => {
 
       <!-- Arrow Left (Next in RTL) -->
       <button
-        @click="handlePageChange(Math.min(totalPages, currentPage + 1))"
         :disabled="currentPage === totalPages"
         class="size-10 flex items-center justify-center border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground"
+        @click="handlePageChange(Math.min(totalPages, currentPage + 1))"
       >
         <ChevronLeft class="size-4" :stroke-width="2.5" />
       </button>

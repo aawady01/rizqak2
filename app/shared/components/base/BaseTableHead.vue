@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { cn } from "~/shared/utils/tailwind";
 
 interface Props {
-  class?: any;
+  class?: string;
 }
 
 const props = defineProps<Props>();

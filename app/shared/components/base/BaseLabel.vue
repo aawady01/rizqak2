@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { Label } from 'reka-ui'
 import { cn } from '~/shared/utils/tailwind'
 
 interface Props {
   for?: string
-  class?: any
+  class?: string
 }
 
 const props = defineProps<Props>()
@@ -19,7 +18,13 @@ const labelClass = computed(() => {
 </script>
 
 <template>
-  <Label :for="props.for" :class="labelClass" data-slot="label" v-bind="$attrs">
+  <Label
+    :class="labelClass"
+    :for="props.for"
+    :data-for="props.for"
+    data-slot="label"
+    v-bind="$attrs"
+  >
     <slot />
   </Label>
 </template>

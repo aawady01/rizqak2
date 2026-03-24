@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { Search, ChevronRight, ChevronLeft, X } from "lucide-vue-next";
 import CountryCard from "./CountryCard.vue";
-import BaseTypography from "~/components/base/BaseTypography.vue";
+import BaseTypography from "~/shared/components/base/BaseTypography.vue";
 import BaseButton from "~/shared/components/base/BaseButton.vue";
 import { countriesData } from "~/shared/utils/mockData";
 import type { Country } from "~/shared/utils/mockData";
@@ -34,19 +33,19 @@ const handleCountrySelect = (country: Country) => {
 </script>
 
 <template>
-  <section id="hero" class="relative overflow-hidden bg-primary hero__section">
+  <section id="hero" class="relative isolate overflow-hidden bg-primary hero__section">
     <div class="relative z-10 max-w-5xl mx-auto text-center">
       <BaseTypography
         variant="display-l"
         tag="h1"
         class="hero__title text-white tracking-tight drop-shadow-sm"
       >
-        ابحث عن فرصتك الوظيفية في الخارج
+        {{ $t('hero.title') }}
       </BaseTypography>
 
       <!-- Subtitle -->
       <BaseTypography variant="subtitle-l" class="hero__subtitle">
-        آلاف الوظائف في دول الخليج والعالم العربي بانتظارك.
+        {{ $t('hero.subtitle') }}
       </BaseTypography>
 
       <!-- Search Interface -->
@@ -67,27 +66,29 @@ const handleCountrySelect = (country: Country) => {
               'hero__search-icon-box',
               isFocused
                 ? 'bg-primary text-white border-primary'
-                : 'text-neutral-400',
+                : 'text-white/50',
             ]"
           >
             <Search class="size-5" :stroke-width="2.5" />
           </div>
 
+          <label for="hero-search" class="sr-only">{{ $t('hero.searchPlaceholder') }}</label>
           <input
+            id="hero-search"
             v-model="searchQuery"
             type="text"
+            class="hero__search-input text-foreground placeholder:text-neutral-400"
+            :placeholder="$t('hero.searchPlaceholder')"
             @focus="isFocused = true"
             @blur="isFocused = false"
             @keydown.enter="handleSearch"
-            class="hero__search-input text-ds-foreground placeholder:text-neutral-400"
-            placeholder="ابحث عن مسمى وظيفي، مهارة، أو شركة..."
-          />
+          >
 
           <!-- Clear Action -->
           <button
             v-if="searchQuery"
+            class="p-2 me-2 text-white/50 hover:text-white transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             @click="clearSearch"
-            class="p-2 me-2 text-neutral-400 hover:text-primary transition-all active:scale-95"
           >
             <X class="size-5" />
           </button>
@@ -97,7 +98,7 @@ const handleCountrySelect = (country: Country) => {
             class="hero__search-button text-white"
             @click="handleSearch"
           >
-            بحث
+            {{ $t('hero.searchButton') }}
           </BaseButton>
         </div>
       </div>
@@ -108,8 +109,8 @@ const handleCountrySelect = (country: Country) => {
       >
         <!-- Navigation Arrows -->
         <button
+          class="-inset-inline-start-5 absolute top-1/2 -translate-y-1/2 z-carousel size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-xl active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           @click="null"
-          class="-inset-inline-start-5 absolute top-1/2 -translate-y-1/2 z-20 size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-xl active:scale-95"
         >
           <ChevronRight class="size-5" :stroke-width="3" />
         </button>
@@ -125,8 +126,8 @@ const handleCountrySelect = (country: Country) => {
         </div>
 
         <button
+          class="-inset-inline-end-5 absolute top-1/2 -translate-y-1/2 z-carousel size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-lg active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           @click="null"
-          class="-inset-inline-end-5 absolute top-1/2 -translate-y-1/2 z-20 size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-lg active:scale-95"
         >
           <ChevronLeft class="size-5" :stroke-width="3" />
         </button>

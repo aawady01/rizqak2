@@ -1,0 +1,427 @@
+{
+  "app": {
+    "name": "Rizqak"
+  },
+  "common": {
+    "loading": "Loading",
+    "apply": "Apply",
+    "clearAll": "Clear All",
+    "search": "Search",
+    "close": "Close"
+  },
+  "header": {
+    "brandInitial": "R",
+    "brandName": "Rizqak Jobs",
+    "theme": {
+      "light": "Switch to light mode",
+      "dark": "Switch to dark mode",
+      "toggle": "Toggle theme"
+    },
+    "mobileMenu": {
+      "open": "Open menu",
+      "close": "Close menu"
+    },
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "login": "Sign in"
+  },
+  "footer": {
+    "brandInitial": "R",
+    "brandName": "Rizqak",
+    "description": "A leading recruitment platform connecting talent with opportunities in the Gulf and Arab world.",
+    "jobSeekersTitle": "For Job Seekers",
+    "employersTitle": "For Employers",
+    "contactTitle": "Contact Us",
+    "copyright": "© 2026 All rights reserved for Rizqak Platform",
+    "icons": {
+      "email": "Email",
+      "jobs": "Jobs",
+      "external": "External links"
+    },
+    "jobSeekerLinks": {
+      "top": "Back to top",
+      "jobs": "Available Jobs",
+      "companies": "Featured Companies",
+      "contact": "Contact Us"
+    },
+    "employerLinks": {
+      "about": "About Platform",
+      "companies": "Top Companies",
+      "jobs": "Browse Opportunities"
+    }
+  },
+  "hero": {
+    "title": "Find your career opportunity abroad",
+    "subtitle": "Thousands of jobs in the Gulf and Arab world await you.",
+    "searchPlaceholder": "Search for a job title, skill, or company...",
+    "searchAriaLabel": "Search for a job",
+    "clearSearch": "Clear search",
+    "searchButton": "Search"
+  },
+  "jobList": {
+    "title": "Available Jobs",
+    "sortLabel": "Sort by:",
+    "sortOptions": {
+      "latest": "Latest",
+      "salary": "Highest salary",
+      "views": "Most viewed"
+    }
+  },
+  "featuredCompanies": {
+    "title": "Featured Recruitment Companies",
+    "badge": "Carefully selected"
+  },
+  "companyCard": {
+    "availableJobs": "jobs available"
+  },
+  "jobCard": {
+    "save": {
+      "saved": "Save job",
+      "unsaved": "Unsave"
+    }
+  },
+  "countryCard": {
+    "jobCount": "jobs"
+  },
+  "countryCarousel": {
+    "previous": "Previous",
+    "next": "Next",
+    "jobCount": "jobs"
+  },
+  "sidebar": {
+    "title": "Filter Results",
+    "toggleFilters": "Show or hide filters",
+    "salaryFilter": {
+      "title": "Expected Salary",
+      "totalLabel": "All Salaries"
+    },
+    "experienceFilter": {
+      "title": "Years of Experience",
+      "totalLabel": "All Levels"
+    },
+    "applyButton": "Apply",
+    "jobCount": "jobs"
+  },
+  "pagination": {
+    "ariaLabel": "Pagination",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "filterShowMore": {
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "ariaLabel": {
+      "showMore": "Show additional items",
+      "showLess": "Show fewer items"
+    }
+  },
+  "filterHeader": {
+    "searchPlaceholder": "Search...",
+    "searchAriaLabel": "Search in filter"
+  },
+  "searchInput": {
+    "placeholder": "Search...",
+    "ariaLabel": "Search field",
+    "clearLabel": "Clear search"
+  },
+  "treeBranch": {
+    "expandLabel": "Expand group",
+    "collapseLabel": "Collapse group"
+  },
+  "disclosure": {
+    "expandLabel": "Expand list",
+    "collapseLabel": "Collapse list"
+  },
+  "chip": {
+    "removeLabel": "Remove"
+  },
+  "modal": {
+    "closeLabel": "Close"
+  },
+  "textarea": {
+    "ariaLabel": "Text"
+  },
+  "genderFilter": {
+    "title": "Gender",
+    "ariaLabel": "Filter by gender",
+    "options": {
+      "all": "All",
+      "male": "Male",
+      "female": "Female"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "jobs": "Jobs",
+    "companies": "Companies",
+    "contact": "Contact"
+  },
+  "countries": {
+    "sa": "Saudi Arabia",
+    "ae": "UAE",
+    "kw": "Kuwait",
+    "qa": "Qatar",
+    "om": "Oman",
+    "all": "All Countries"
+  },
+  "companies": {
+    "maali": "Maali Recruitment",
+    "alsaie": "Al-Saie Group",
+    "binladin": "Binladin Group",
+    "aramco": "Saudi Aramco"
+  },
+  "jobs": {
+    "accountant": {
+      "title": "Cost Accountant - 3+ Years",
+      "hashtag": "#CostAccountant",
+      "timeAgo": "30 min ago",
+      "country": "Kuwait",
+      "company": "Al Saeed Contracting",
+      "salary": "450 KWD",
+      "benefits": ["Housing", "Transport", "Medical Insurance", "Flight Tickets"]
+    },
+    "civilEng": {
+      "title": "Civil Engineer - Infrastructure",
+      "hashtag": "#CivilEngineer",
+      "timeAgo": "1 hour ago",
+      "country": "Riyadh, Saudi Arabia",
+      "company": "Albinaan Almateen",
+      "salary": "6,000 - 8,000 SAR",
+      "benefits": ["Family Housing", "Car", "Full Insurance"]
+    },
+    "welder": {
+      "title": "TIG/MIG Welder - Industrial",
+      "hashtag": "#Welder",
+      "timeAgo": "3 hours ago",
+      "country": "Doha, Qatar",
+      "company": "Qatar Steel",
+      "salary": "3,500 - 4,500 QAR",
+      "benefits": ["Housing", "Meals", "Overtime"]
+    },
+    "nurse": {
+      "title": "ICU Nurses",
+      "hashtag": "#Nursing",
+      "timeAgo": "5 hours ago",
+      "country": "Dubai, UAE",
+      "company": "Future Hospital",
+      "salary": "8,000 - 12,000 AED",
+      "benefits": ["Luxury Housing", "VIP Insurance", "Annual Ticket"]
+    },
+    "driver": {
+      "title": "Heavy Driver (Class 1 License)",
+      "hashtag": "#Driver",
+      "timeAgo": "8 hours ago",
+      "country": "Muscat, Oman",
+      "company": "Omani Transport Co.",
+      "salary": "250 - 350 OMR",
+      "benefits": ["Housing", "Per Diem", "Incentives"]
+    }
+  },
+  "filters": {
+    "field": {
+      "title": "Field of Work",
+      "totalLabel": "All Fields",
+      "categories": {
+        "engineering": "Engineering",
+        "medical": "Medical & Health",
+        "technical": "Technical / Craft",
+        "electrical": "Electrical",
+        "driving": "Driving & Transport"
+      },
+      "children": {
+        "civil": "Civil Engineer",
+        "mechanical": "Mechanical Engineer",
+        "electricalEng": "Electrical Engineer",
+        "architectural": "Architectural Engineer",
+        "chemical": "Chemical Engineer",
+        "itEng": "Network Engineer",
+        "nursing": "Nursing",
+        "pharmacy": "Pharmacy",
+        "lab": "Medical Labs",
+        "radiology": "Radiology",
+        "physiotherapy": "Physiotherapy",
+        "weldingGeneral": "General Welding",
+        "weldingTig": "TIG Welding",
+        "weldingMig": "MIG Welding",
+        "plumbing": "Plumbing",
+        "carpentry": "Carpentry",
+        "painting": "Painting",
+        "tiling": "Tiling",
+        "acTech": "AC Technician",
+        "elecInstall": "Electrical Installations",
+        "elecMaintain": "Electrical Maintenance",
+        "elecIndustrial": "Industrial Electrical",
+        "elecSolar": "Solar Energy",
+        "heavyDriver": "Heavy Driver",
+        "busDriver": "Bus Driver",
+        "lightDriver": "Light Driver"
+      }
+    },
+    "location": {
+      "title": "Work Location",
+      "totalLabel": "All Locations",
+      "categories": {
+        "gulf": "Gulf Countries",
+        "otherArab": "Other Arab Countries",
+        "africa": "Africa"
+      },
+      "children": {
+        "saudi": "Saudi Arabia",
+        "uae": "UAE",
+        "kuwait": "Kuwait",
+        "qatar": "Qatar",
+        "oman": "Oman",
+        "bahrain": "Bahrain",
+        "jordan": "Jordan",
+        "libya": "Libya",
+        "iraq": "Iraq",
+        "algeria": "Algeria",
+        "southAfrica": "South Africa",
+        "nigeria": "Nigeria",
+        "kenya": "Kenya"
+      }
+    },
+    "salary": {
+      "low": "Less than 2,000 SAR",
+      "mid": "2,000 - 4,000 SAR",
+      "high": "4,000 - 8,000 SAR",
+      "veryHigh": "More than 8,000 SAR"
+    },
+    "experience": {
+      "fresh": "Fresh Graduate (0-1)",
+      "junior": "Junior (1-3)",
+      "mid": "Mid Level (3-5)",
+      "senior": "Senior (5+)"
+    }
+  },
+  "modal": {
+    "close": "Close"
+  },
+  "filterHeader": {
+    "searchAriaLabel": "Search within filter"
+  },
+  "filterShowMore": {
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "showMoreAria": "Show additional items",
+    "showLessAria": "Show fewer items"
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "searchInput": {
+    "placeholder": "Search...",
+    "ariaLabel": "Search field",
+    "clear": "Clear search"
+  },
+  "chip": {
+    "remove": "Remove"
+  },
+  "textarea": {
+    "label": "Text"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content"
+  },
+  "disclosure": {
+    "expand": "Expand menu",
+    "collapse": "Collapse menu"
+  },
+  "treeBranch": {
+    "expandLabel": "Expand category",
+    "collapseLabel": "Collapse category"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Welcome back! Sign in to continue",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "submitButton": "Sign In",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create account",
+      "error": "Login failed. Check your credentials and try again."
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join us and start your career journey",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter password (min 6 characters)",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "roleLabel": "Account Type",
+      "roleJobseeker": "Job Seeker",
+      "roleEmployer": "Employer",
+      "submitButton": "Create Account",
+      "submitting": "Creating account...",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "error": "Registration failed. Please try again."
+    },
+    "forgotPassword": {
+      "title": "Forgot Password?",
+      "subtitle": "Enter your email and we'll send you a reset link",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "submitButton": "Send Reset Link",
+      "submitting": "Sending...",
+      "backToLogin": "Back to sign in",
+      "successTitle": "Email Sent",
+      "successMessage": "Check your email for the password reset link.",
+      "error": "Failed to send. Check your email and try again."
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "subtitle": "Enter your new password",
+      "passwordLabel": "New Password",
+      "passwordPlaceholder": "Enter new password (min 6 characters)",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "submitButton": "Reset Password",
+      "submitting": "Resetting...",
+      "backToLogin": "Back to sign in",
+      "successTitle": "Password Reset Successfully",
+      "successMessage": "Your password has been changed. You can now sign in.",
+      "error": "Reset failed. Please try again."
+    }
+  },
+  "validation": {
+    "email": {
+      "required": "Email is required",
+      "invalid": "Invalid email address"
+    },
+    "password": {
+      "required": "Password is required",
+      "min": "Password must be at least 6 characters"
+    },
+    "confirmPassword": {
+      "required": "Password confirmation is required",
+      "mismatch": "Passwords do not match"
+    },
+    "name": {
+      "required": "Name is required",
+      "min": "Name must be at least 2 characters"
+    },
+    "role": {
+      "required": "Account type is required"
+    }
+  },
+  "seo": {
+    "defaultTitle": "Rizqak | Jobs in Egypt and the Gulf",
+    "defaultDescription": "Discover thousands of trusted jobs in Egypt, the Gulf, and the Arab world with Rizqak.",
+    "jobAt": "at",
+    "jobLocation": "Location",
+    "jobSalary": "Salary"
+  }
+}

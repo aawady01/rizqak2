@@ -1,11 +1,14 @@
-import { ref, computed, watch, onScopeDispose } from 'vue';
 import { normalizeArabic } from '~/shared/utils/string';
 
 export interface SearchableItem {
   id: string;
   label: string;
   children?: SearchableItem[];
-  [key: string]: any;
+  count?: number;
+  totalJobs?: number;
+  expanded?: boolean;
+  isOpen?: boolean;
+  isChecked?: boolean;
 }
 
 /**

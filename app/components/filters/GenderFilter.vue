@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { useRoute, useRouter } from "#imports";
 import BaseFilterSection from "./BaseFilterSection.vue";
 
@@ -42,14 +41,15 @@ const currentValue = computed({
 
     if (!props.queryKey) return;
 
-    const nextQuery = { ...route.query };
+    const currentQuery = { ...route.query } as Record<string, string>;
     if (value && value !== "all") {
-      nextQuery[props.queryKey] = value;
+      currentQuery[props.queryKey] = value;
     } else {
-      delete nextQuery[props.queryKey];
+      const { [props.queryKey]: removed, ...remaining } = currentQuery;
+      Object.assign(currentQuery, remaining);
     }
 
-    await router.replace({ query: nextQuery });
+    await router.replace({ query: currentQuery });
   },
 });
 
@@ -71,13 +71,13 @@ const handleChange = (id: string) => {
         type="button"
         role="radio"
         :aria-checked="currentValue === opt.id"
-        @click="handleChange(opt.id)"
         class="min-h-filter-option border text-ds-body-r text-center transition-colors rounded-none outline-none"
         :class="[
           currentValue === opt.id
             ? 'bg-primary/5 border-primary text-primary font-semibold'
-            : 'border-border text-muted-foreground hover:border-primary/40 hover:text-primary font-medium',
+            : 'border-border text-foreground-muted hover:border-primary/40 hover:text-primary font-medium',
         ]"
+        @click="handleChange(opt.id)"
       >
         {{ opt.label }}
       </button>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import {
   SelectRoot,
   SelectTrigger,
@@ -29,7 +28,7 @@ interface Props {
   options: Option[];
   placeholder?: string;
   disabled?: boolean;
-  class?: any;
+  class?: string | string[] | Record<string, boolean>;
 }
 
 const props = defineProps<Props>();
@@ -46,22 +45,22 @@ const triggerClass = computed(() => {
   <SelectRoot v-model="modelValue" :disabled="disabled">
     <SelectTrigger data-slot="select-trigger" :class="triggerClass">
       <SelectValue data-slot="select-value" :placeholder="placeholder" />
-      <SelectIcon asChild>
-        <ChevronDownIcon class="size-4 opacity-50" />
+      <SelectIcon as-child>
+        <ChevronDownIcon class="size-4 opacity-50" aria-hidden="true" />
       </SelectIcon>
     </SelectTrigger>
 
     <SelectPortal>
       <SelectContent
         data-slot="select-content"
-        class="bg-white text-ds-foreground relative z-50 min-w-select-panel select-content-geometry overflow-x-hidden overflow-y-auto rounded-none border border-ds-border shadow-xl select-content-state"
+        class="bg-surface text-foreground relative z-50 min-w-select-panel select-content-geometry overflow-x-hidden overflow-y-auto rounded-none border border-border shadow-xl select-content-state"
         position="popper"
       >
         <SelectScrollUpButton
           data-slot="select-scroll-up-button"
           class="flex cursor-default items-center justify-center py-1"
         >
-          <ChevronUpIcon class="size-4" />
+          <ChevronUpIcon class="size-4" aria-hidden="true" />
         </SelectScrollUpButton>
 
         <SelectViewport class="p-1 w-full scroll-my-1 select-viewport-geometry">
@@ -71,13 +70,13 @@ const triggerClass = computed(() => {
               :key="option.value"
               :value="option.value"
               data-slot="select-item"
-              class="select-item-state focus:bg-primary/5 focus:text-primary [&_svg:not([class*='text-'])]:text-neutral-400 relative flex w-full cursor-default items-center gap-2 rounded-none py-2.5 pe-10 ps-3 text-ds-caption-r font-bold outline-none select-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 transition-colors"
+              class="select-item-state focus:bg-primary/5 focus:text-primary [&_svg:not([class*='text-'])]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 rounded-none py-2.5 pe-10 ps-3 text-ds-caption-r font-bold outline-none select-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 transition-colors"
             >
               <span
                 class="absolute inset-inline-end-3 flex size-4 items-center justify-center text-primary"
               >
                 <SelectItemIndicator>
-                  <CheckIcon class="size-5" :stroke-width="3" />
+                  <CheckIcon class="size-5" :stroke-width="3" aria-hidden="true" />
                 </SelectItemIndicator>
               </span>
               <SelectItemText>{{ option.label }}</SelectItemText>
@@ -89,7 +88,7 @@ const triggerClass = computed(() => {
           data-slot="select-scroll-down-button"
           class="flex cursor-default items-center justify-center py-1"
         >
-          <ChevronDownIcon class="size-4" />
+          <ChevronDownIcon class="size-4" aria-hidden="true" />
         </SelectScrollDownButton>
       </SelectContent>
     </SelectPortal>

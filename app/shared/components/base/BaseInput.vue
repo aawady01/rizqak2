@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { cn } from "~/shared/utils/tailwind";
 
 const modelValue = defineModel<string | number>();
 
 interface Props {
-  class?: any;
+  class?: string;
 }
 
 const props = defineProps<Props>();
@@ -26,7 +25,7 @@ const inputClass = computed(() => {
     data-slot="input"
     :class="inputClass"
     v-bind="$attrs"
-  />
+  >
 </template>
 
 <script lang="ts">

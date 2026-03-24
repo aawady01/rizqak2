@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import {
   DialogRoot,
   DialogTrigger,
@@ -18,7 +17,7 @@ const modelValue = defineModel<boolean>();
 interface Props {
   title?: string;
   description?: string;
-  contentClass?: any;
+  contentClass?: string;
   hideClose?: boolean;
 }
 
@@ -40,7 +39,7 @@ const finalContentClass = computed(() => {
 
 <template>
   <DialogRoot v-model:open="modelValue">
-    <DialogTrigger data-slot="dialog-trigger" asChild>
+    <DialogTrigger data-slot="dialog-trigger" as-child>
       <slot name="trigger" />
     </DialogTrigger>
 
@@ -52,9 +51,9 @@ const finalContentClass = computed(() => {
         v-bind="$attrs"
       >
         <div
+          v-if="title || description || $slots.header"
           data-slot="dialog-header"
           class="flex flex-col gap-2 text-start sm:text-start"
-          v-if="title || description || $slots.header"
         >
           <slot name="header">
             <DialogTitle
@@ -77,9 +76,9 @@ const finalContentClass = computed(() => {
         <slot />
 
         <div
+          v-if="$slots.footer"
           data-slot="dialog-footer"
           class="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end"
-          v-if="$slots.footer"
         >
           <slot name="footer" />
         </div>

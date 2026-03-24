@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import type { FilterCategory } from "~/shared/utils/mockData";
 import { normalizeArabic, toDomSafeId } from "~/shared/utils/string";
 import { useFilterPagination } from "~/composables/filters/useFilterPagination";

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import TreeBranch from "./TreeBranch.vue";
 import BaseFilterSection from "./BaseFilterSection.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
@@ -84,9 +83,9 @@ const handleToggleBranchExpansion = (
 
 <template>
   <BaseFilterSection
+    v-model:search-query="searchQuery"
     :title="section.title"
     :searchable="searchable"
-    v-model:searchQuery="searchQuery"
     :has-select-all="true"
     :total-label="section.totalLabel"
     :total-count="section.totalCount"

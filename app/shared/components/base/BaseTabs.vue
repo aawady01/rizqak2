@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { TabsRoot, TabsList, TabsTrigger, TabsContent } from "reka-ui";
 import { cn } from "~/shared/utils/tailwind";
 
@@ -12,9 +11,9 @@ interface TabItem {
 
 interface Props {
   items: TabItem[];
-  rootClass?: any;
-  listClass?: any;
-  triggerClass?: any;
+  rootClass?: string;
+  listClass?: string;
+  triggerClass?: string;
 }
 
 const props = defineProps<Props>();
@@ -38,9 +37,9 @@ const finalTriggerClass = computed(() =>
 
 <template>
   <TabsRoot
+    v-model="modelValue"
     data-slot="tabs"
     :class="finalRootClass"
-    v-model="modelValue"
     v-bind="$attrs"
   >
     <TabsList data-slot="tabs-list" :class="finalListClass">

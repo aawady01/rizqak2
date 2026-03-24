@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import BaseDisclosureButton from "../../shared/components/base/BaseDisclosureButton.vue";
 import BaseFilterHeader from "../../shared/components/base/BaseFilterHeader.vue";
 import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
@@ -63,10 +62,10 @@ const connectorActive = computed(
     :aria-labelledby="sectionDomId"
   >
     <BaseFilterHeader
+      v-model:search-query="query"
       :section-id="sectionDomId"
       :title="title"
       :searchable="searchable"
-      v-model:searchQuery="query"
     />
 
     <div class="relative">

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from "vue";
 import { Check } from "lucide-vue-next";
 import { toDomSafeId } from "~/shared/utils/string";
 
@@ -65,7 +64,7 @@ watchEffect(() => {
         :checked="checked"
         :disabled="disabled"
         @change="emit('toggle')"
-      />
+      >
 
       <span
         v-if="inputType === 'radio'"
@@ -108,7 +107,7 @@ watchEffect(() => {
               : 'text-ds-caption-r font-medium text-ds-foreground/80',
           ]"
         >
-          {{ label }}
+          {{ $t(label) }}
         </span>
 
         <span
@@ -126,3 +125,4 @@ watchEffect(() => {
     </div>
   </div>
 </template>
+

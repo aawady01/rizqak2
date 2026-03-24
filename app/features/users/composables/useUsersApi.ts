@@ -46,39 +46,13 @@ export const useUsersApi = () => {
   const uploadAvatar = async (file: File): Promise<{ url: string }> => {
     const formData = new FormData()
     formData.append('avatar', file)
-    
-    const response = await fetch(`${useRuntimeConfig().public.apiBase}/users/me/avatar`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
-      },
-      body: formData,
-    })
-    
-    if (!response.ok) {
-      throw new Error('Failed to upload avatar')
-    }
-    
-    return response.json()
+    return apiClient.post<{ url: string }>('/users/me/avatar', formData)
   }
 
   const uploadResume = async (file: File): Promise<{ url: string }> => {
     const formData = new FormData()
     formData.append('resume', file)
-    
-    const response = await fetch(`${useRuntimeConfig().public.apiBase}/users/me/resume`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
-      },
-      body: formData,
-    })
-    
-    if (!response.ok) {
-      throw new Error('Failed to upload resume')
-    }
-    
-    return response.json()
+    return apiClient.post<{ url: string }>('/users/me/resume', formData)
   }
 
   return {

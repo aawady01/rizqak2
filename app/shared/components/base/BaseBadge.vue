@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "~/shared/utils/tailwind";
 
@@ -32,7 +31,7 @@ type BadgeVariants = VariantProps<typeof badgeVariants>;
 interface Props {
   variant?: BadgeVariants["variant"];
   as?: string;
-  class?: any;
+  class?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {

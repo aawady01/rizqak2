@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { cn } from '~/shared/utils/tailwind'
 
 const modelValue = defineModel<string>()
 
 interface Props {
-  class?: any
+  id?: string
+  class?: string
 }
 
 const props = defineProps<Props>()
+
+const textareaId = computed(() => props.id)
 
 const textareaClass = computed(() => {
   return cn(
@@ -20,6 +22,7 @@ const textareaClass = computed(() => {
 
 <template>
   <textarea
+    :id="textareaId"
     v-model="modelValue"
     data-slot="textarea"
     :class="textareaClass"

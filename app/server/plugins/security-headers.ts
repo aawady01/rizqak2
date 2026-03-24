@@ -1,7 +1,5 @@
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook('request', (event) => {
-    const isDev = import.meta.dev
-
     setHeader(event, 'X-Content-Type-Options', 'nosniff')
     setHeader(event, 'X-Frame-Options', 'SAMEORIGIN')
     setHeader(event, 'Referrer-Policy', 'strict-origin-when-cross-origin')
@@ -13,7 +11,7 @@ export default defineNitroPlugin((nitroApp) => {
 
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:",
+      "script-src 'self' 'unsafe-inline' https:",
       "style-src 'self' 'unsafe-inline' https:",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data: https:",
@@ -23,10 +21,7 @@ export default defineNitroPlugin((nitroApp) => {
       "form-action 'self'",
     ].join('; ')
 
-    // Keep enforcement non-breaking while allowing policy visibility in production.
-    if (!isDev) {
-      setHeader(event, 'Content-Security-Policy-Report-Only', csp)
-    }
+    setHeader(event, 'Content-Security-Policy', csp)
 
     const proto = getRequestProtocol(event, { xForwardedProto: true })
     if (proto === 'https') {

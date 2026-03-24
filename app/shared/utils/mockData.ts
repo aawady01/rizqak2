@@ -1,91 +1,28 @@
-// =============================================
-// أنواع البيانات (Data Types)
-// =============================================
-
-export interface Country {
-  id: string;
-  name: string;
-  flag: string;
-  countryCode?: string; // ISO 3166-1 alpha-2 code
-  jobCount: number;
-  isAllCountries?: boolean;
-}
-
-export interface Company {
-  id: string;
-  name: string;
-  logo?: string;
-  iconName?: string;
-  rating: number;
-  reviewCount: number;
-  availableJobs: number;
-}
-
-export interface JobBenefit {
-  label: string;
-}
-
-export interface Job {
-  id: string;
-  title: string;
-  hashtag: string;
-  timeAgo: string;
-  country: string;
-  countryFlag: string;
-  countryCode: string; // ISO 3166-1 alpha-2 code
-  city?: string;
-  companyName: string;
-  salary: string;
-  benefits: JobBenefit[];
-  companyLogo?: string;
-  iconName?: string;
-  isSaved?: boolean;
-}
-
-export interface FilterChild {
-  id: string;
-  label: string;
-  count: number;
-  checked?: boolean;
-}
-
-export interface FilterCategory {
-  id: string;
-  label: string;
-  count: number;
-  totalJobs: number;
-  children?: FilterChild[];
-  expanded?: boolean;
-  checked?: boolean;
-}
-
-export interface FilterSection {
-  id: string;
-  title: string;
-  totalLabel: string;
-  totalCount: number;
-  totalJobs: number;
-  categories: FilterCategory[];
-  type?: "checkbox" | "radio";
-}
+import type {
+  Country,
+  Company,
+  Job,
+  FilterSection,
+} from '~/shared/types/domain'
 
 // =============================================
 // البيانات التجريبية (Mock Data)
+// Labels use i18n keys — resolve via $t() in templates
 // =============================================
 
 export const countriesData: Country[] = [
-  { id: "sa", name: "السعودية", flag: "🇸🇦", countryCode: "sa", jobCount: 1240 },
-  { id: "ae", name: "الإمارات", flag: "🇦🇪", countryCode: "ae", jobCount: 856 },
-  { id: "kw", name: "الكويت", flag: "🇰🇼", countryCode: "kw", jobCount: 432 },
-  { id: "qa", name: "قطر", flag: "🇶🇦", countryCode: "qa", jobCount: 215 },
-  { id: "om", name: "عمان", flag: "🇴🇲", countryCode: "om", jobCount: 124 },
-  { id: "all", name: "كل الدول", flag: "", jobCount: 3450, isAllCountries: true },
+  { id: "sa", name: "countries.sa", flag: "🇸🇦", countryCode: "sa", jobCount: 1240 },
+  { id: "ae", name: "countries.ae", flag: "🇦🇪", countryCode: "ae", jobCount: 856 },
+  { id: "kw", name: "countries.kw", flag: "🇰🇼", countryCode: "kw", jobCount: 432 },
+  { id: "qa", name: "countries.qa", flag: "🇶🇦", countryCode: "qa", jobCount: 215 },
+  { id: "om", name: "countries.om", flag: "🇴🇲", countryCode: "om", jobCount: 124 },
+  { id: "all", name: "countries.all", flag: "", jobCount: 3450, isAllCountries: true },
 ];
 
 export const companiesData: Company[] = [
   {
     id: "1",
-    name: "المعالي للتوظيف",
+    name: "companies.maali",
     logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCODDMM1ijnzH9l4KLcWKHggPPVSCBlUQFMFuFjLbEL4I_BOY56OHYFtZVKv357Yzaes3hHS4W0-Qd6WBV52DJXCaRY5Ck0RruFSE_2qt1-XKD0tNy0zUNjl0Pa7XFAWnLv12kUGDEPgRUEKyqBkSMdtrl5eF93WFrpkOJJxXUxaM-xvarJDGIryuyWl5l_8CQrERf7zw8gNMF3UTSbn_0fPefGGC_IxU4IUHO0Ir6T8aqfeBBLvj_tN7yvMdV6Z7Zvl2wCZqfTaA",
     rating: 4.8,
     reviewCount: 128,
@@ -93,7 +30,7 @@ export const companiesData: Company[] = [
   },
   {
     id: "2",
-    name: "مجموعة الشايع",
+    name: "companies.alsaie",
     iconName: "building-2",
     rating: 4.5,
     reviewCount: 84,
@@ -101,7 +38,7 @@ export const companiesData: Company[] = [
   },
   {
     id: "3",
-    name: "مجموعة بن لادن",
+    name: "companies.binladin",
     iconName: "building",
     rating: 4.2,
     reviewCount: 215,
@@ -109,7 +46,7 @@ export const companiesData: Company[] = [
   },
   {
     id: "4",
-    name: "أرامكو السعودية",
+    name: "companies.aramco",
     iconName: "landmark",
     rating: 4.9,
     reviewCount: 542,
@@ -120,84 +57,88 @@ export const companiesData: Company[] = [
 export const jobsData: Job[] = [
   {
     id: "1",
-    title: "محاسب تكاليف خبرة أكثر من 3 سنوات",
-    hashtag: "#محاسب_تكاليف",
-    timeAgo: "منذ 30 دقيقة",
-    country: "الكويت",
+    title: "jobs.accountant.title",
+    hashtag: "jobs.accountant.hashtag",
+    timeAgo: "jobs.accountant.timeAgo",
+    country: "jobs.accountant.country",
     countryFlag: "🇰🇼",
-    companyName: "شركة آل سعيد للمقاولات",
-    salary: "450 دينار",
+    companyName: "jobs.accountant.company",
+    salary: "jobs.accountant.salary",
     countryCode: "kw",
     benefits: [
-      { label: "سكن مؤمن" },
-      { label: "مواصلات" },
-      { label: "تأمين طبي" },
-      { label: "تذاكر طيران" },
+      { label: "jobs.accountant.benefits.0" },
+      { label: "jobs.accountant.benefits.1" },
+      { label: "jobs.accountant.benefits.2" },
+      { label: "jobs.accountant.benefits.3" },
     ],
     companyLogo:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCODDMM1ijnzH9l4KLcWKHggPPVSCBlUQFMFuFjLbEL4I_BOY56OHYFtZVKv357Yzaes3hHS4W0-Qd6WBV52DJXCaRY5Ck0RruFSE_2qt1-XKD0tNy0zUNjl0Pa7XFAWnLv12kUGDEPgRUEKyqBkSMdtrl5eF93WFrpkOJJxXUxaM-xvarJDGIryuyWl5l_8CQrERf7zw8gNMF3UTSbn_0fPefGGC_IxU4IUHO0Ir6T8aqfeBBLvj_tN7yvMdV6Z7Zvl2wCZqfTaA",
   },
   {
     id: "2",
-    title: "مهندس مدني - مشاريع بنية تحتية",
-    hashtag: "#مهندس_مدني",
-    timeAgo: "منذ ساعة",
-    country: "الرياض، السعودية",
+    title: "jobs.civilEng.title",
+    hashtag: "jobs.civilEng.hashtag",
+    timeAgo: "jobs.civilEng.timeAgo",
+    country: "jobs.civilEng.country",
     countryFlag: "🇸🇦",
-    companyName: "شركة البنيان المتين",
-    salary: "6,000 - 8,000 ريال",
+    companyName: "jobs.civilEng.company",
+    salary: "jobs.civilEng.salary",
     countryCode: "sa",
     benefits: [
-      { label: "سكن عائلي" },
-      { label: "سيارة" },
-      { label: "تأمين شامل" },
+      { label: "jobs.civilEng.benefits.0" },
+      { label: "jobs.civilEng.benefits.1" },
+      { label: "jobs.civilEng.benefits.2" },
     ],
     iconName: "hard-hat",
   },
   {
     id: "3",
-    title: "فني لحام (TIG/MIG) خبرة صناعية",
-    hashtag: "#فني_لحام",
-    timeAgo: "منذ 3 ساعات",
-    country: "الدوحة، قطر",
+    title: "jobs.welder.title",
+    hashtag: "jobs.welder.hashtag",
+    timeAgo: "jobs.welder.timeAgo",
+    country: "jobs.welder.country",
     countryFlag: "🇶🇦",
-    companyName: "مصانع قطر للصلب",
-    salary: "3,500 - 4,500 ريال",
+    companyName: "jobs.welder.company",
+    salary: "jobs.welder.salary",
     countryCode: "qa",
-    benefits: [{ label: "سكن" }, { label: "وجبات" }, { label: "إضافي" }],
+    benefits: [
+      { label: "jobs.welder.benefits.0" },
+      { label: "jobs.welder.benefits.1" },
+      { label: "jobs.welder.benefits.2" },
+    ],
     iconName: "wrench",
   },
   {
     id: "4",
-    title: "ممرضين وممرضات - عناية مركزة",
-    hashtag: "#تمريض",
-    timeAgo: "منذ 5 ساعات",
-    country: "دبي، الإمارات",
+    title: "jobs.nurse.title",
+    hashtag: "jobs.nurse.hashtag",
+    timeAgo: "jobs.nurse.timeAgo",
+    country: "jobs.nurse.country",
     countryFlag: "🇦🇪",
-    companyName: "مستشفى المستقبل الدولي",
-    salary: "8,000 - 12,000 درهم",
+    companyName: "jobs.nurse.company",
+    salary: "jobs.nurse.salary",
     countryCode: "ae",
     benefits: [
-      { label: "سكن فاخر" },
-      { label: "تأمين صحي VIP" },
-      { label: "تذكرة سنوية" },
+      { label: "jobs.nurse.benefits.0" },
+      { label: "jobs.nurse.benefits.1" },
+      { label: "jobs.nurse.benefits.2" },
     ],
     iconName: "heart-pulse",
   },
   {
     id: "5",
-    title: "سائق نقل ثقيل (رخصة درجة أولى)",
-    hashtag: "#سائق_مهني",
-    timeAgo: "منذ 8 ساعات",
-    country: "مسقط، عمان",
+    title: "jobs.driver.title",
+    hashtag: "jobs.driver.hashtag",
+    timeAgo: "jobs.driver.timeAgo",
+    country: "jobs.driver.country",
     countryFlag: "🇴🇲",
-    companyName: "شركة النقل العمانية",
-    salary: "250 - 350 ريال عماني",
+    companyName: "jobs.driver.company",
+    salary: "jobs.driver.salary",
     countryCode: "om",
     benefits: [
-      { label: "سكن" },
-      { label: "بدل إعاشة" },
-      { label: "حوافز" },
+      { label: "jobs.driver.benefits.0" },
+      { label: "jobs.driver.benefits.1" },
+      { label: "jobs.driver.benefits.2" },
     ],
     iconName: "truck",
   },
@@ -209,80 +150,80 @@ export const jobsData: Job[] = [
 
 export const fieldFilterData: FilterSection = {
   id: "field",
-  title: "مجال العمل",
-  totalLabel: "كل المجالات",
+  title: "filters.field.title",
+  totalLabel: "filters.field.totalLabel",
   totalCount: 18,
   totalJobs: 2340,
   categories: [
     {
       id: "engineering",
-      label: "الهندسة",
+      label: "filters.field.categories.engineering",
       count: 6,
       totalJobs: 780,
       expanded: false,
       children: [
-        { id: "civil", label: "مهندس مدني", count: 245 },
-        { id: "mechanical", label: "مهندس ميكانيكا", count: 198 },
-        { id: "electrical-eng", label: "مهندس كهرباء", count: 156 },
-        { id: "architectural", label: "مهندس معماري", count: 102 },
-        { id: "chemical", label: "مهندس كيميائي", count: 49 },
-        { id: "it-eng", label: "مهندس شبكات", count: 30 },
+        { id: "civil", label: "filters.field.children.civil", count: 245 },
+        { id: "mechanical", label: "filters.field.children.mechanical", count: 198 },
+        { id: "electrical-eng", label: "filters.field.children.electricalEng", count: 156 },
+        { id: "architectural", label: "filters.field.children.architectural", count: 102 },
+        { id: "chemical", label: "filters.field.children.chemical", count: 49 },
+        { id: "it-eng", label: "filters.field.children.itEng", count: 30 },
       ],
     },
     {
       id: "medical",
-      label: "الطب والصحة",
+      label: "filters.field.categories.medical",
       count: 5,
       totalJobs: 520,
       expanded: false,
       children: [
-        { id: "nursing", label: "تمريض", count: 210 },
-        { id: "pharmacy", label: "صيدلة", count: 120 },
-        { id: "lab", label: "مختبرات طبية", count: 85 },
-        { id: "radiology", label: "أشعة", count: 60 },
-        { id: "physiotherapy", label: "علاج طبيعي", count: 45 },
+        { id: "nursing", label: "filters.field.children.nursing", count: 210 },
+        { id: "pharmacy", label: "filters.field.children.pharmacy", count: 120 },
+        { id: "lab", label: "filters.field.children.lab", count: 85 },
+        { id: "radiology", label: "filters.field.children.radiology", count: 60 },
+        { id: "physiotherapy", label: "filters.field.children.physiotherapy", count: 45 },
       ],
     },
     {
       id: "technical",
-      label: "فني / حرفي",
+      label: "filters.field.categories.technical",
       count: 8,
       totalJobs: 640,
       expanded: false,
       children: [
-        { id: "welding-general", label: "لحام عام", count: 120 },
-        { id: "welding-tig", label: "لحام أرجون (TIG)", count: 85 },
-        { id: "welding-mig", label: "لحام CO2 (MIG)", count: 64 },
-        { id: "plumbing", label: "سباكة", count: 95 },
-        { id: "carpentry", label: "نجارة", count: 78 },
-        { id: "painting", label: "دهانات", count: 68 },
-        { id: "tiling", label: "بلاط وسيراميك", count: 72 },
-        { id: "ac-tech", label: "فني تكييف", count: 58 },
+        { id: "welding-general", label: "filters.field.children.weldingGeneral", count: 120 },
+        { id: "welding-tig", label: "filters.field.children.weldingTig", count: 85 },
+        { id: "welding-mig", label: "filters.field.children.weldingMig", count: 64 },
+        { id: "plumbing", label: "filters.field.children.plumbing", count: 95 },
+        { id: "carpentry", label: "filters.field.children.carpentry", count: 78 },
+        { id: "painting", label: "filters.field.children.painting", count: 68 },
+        { id: "tiling", label: "filters.field.children.tiling", count: 72 },
+        { id: "ac-tech", label: "filters.field.children.acTech", count: 58 },
       ],
     },
     {
       id: "electrical",
-      label: "الكهرباء",
+      label: "filters.field.categories.electrical",
       count: 4,
       totalJobs: 320,
       expanded: false,
       children: [
-        { id: "elec-install", label: "تركيبات كهربائية", count: 110 },
-        { id: "elec-maintain", label: "صيانة كهربائية", count: 95 },
-        { id: "elec-industrial", label: "كهرباء صناعية", count: 70 },
-        { id: "elec-solar", label: "طاقة شمسية", count: 45 },
+        { id: "elec-install", label: "filters.field.children.elecInstall", count: 110 },
+        { id: "elec-maintain", label: "filters.field.children.elecMaintain", count: 95 },
+        { id: "elec-industrial", label: "filters.field.children.elecIndustrial", count: 70 },
+        { id: "elec-solar", label: "filters.field.children.elecSolar", count: 45 },
       ],
     },
     {
       id: "driving",
-      label: "القيادة والنقل",
+      label: "filters.field.categories.driving",
       count: 3,
       totalJobs: 180,
       expanded: false,
       children: [
-        { id: "heavy-driver", label: "سائق نقل ثقيل", count: 80 },
-        { id: "bus-driver", label: "سائق حافلة", count: 55 },
-        { id: "light-driver", label: "سائق خفيف", count: 45 },
+        { id: "heavy-driver", label: "filters.field.children.heavyDriver", count: 80 },
+        { id: "bus-driver", label: "filters.field.children.busDriver", count: 55 },
+        { id: "light-driver", label: "filters.field.children.lightDriver", count: 45 },
       ],
     },
   ],
@@ -290,84 +231,95 @@ export const fieldFilterData: FilterSection = {
 
 export const locationFilterData: FilterSection = {
   id: "location",
-  title: "مكان العمل",
-  totalLabel: "كل الأماكن",
+  title: "filters.location.title",
+  totalLabel: "filters.location.totalLabel",
   totalCount: 35,
   totalJobs: 2340,
   categories: [
     {
       id: "gulf",
-      label: "دول الخليج العربي",
+      label: "filters.location.categories.gulf",
       count: 6,
       totalJobs: 1867,
       expanded: false,
       children: [
-        { id: "saudi", label: "السعودية", count: 613 },
-        { id: "uae", label: "الإمارات", count: 428 },
-        { id: "kuwait", label: "الكويت", count: 324 },
-        { id: "qatar", label: "قطر", count: 215 },
-        { id: "oman", label: "عمان", count: 163 },
-        { id: "bahrain", label: "البحرين", count: 124 },
+        { id: "saudi", label: "filters.location.children.saudi", count: 613 },
+        { id: "uae", label: "filters.location.children.uae", count: 428 },
+        { id: "kuwait", label: "filters.location.children.kuwait", count: 324 },
+        { id: "qatar", label: "filters.location.children.qatar", count: 215 },
+        { id: "oman", label: "filters.location.children.oman", count: 163 },
+        { id: "bahrain", label: "filters.location.children.bahrain", count: 124 },
       ],
     },
     {
       id: "other-arab",
-      label: "دول عربية أخرى",
+      label: "filters.location.categories.otherArab",
       count: 4,
       totalJobs: 280,
       expanded: false,
       children: [
-        { id: "jordan", label: "الأردن", count: 95 },
-        { id: "libya", label: "ليبيا", count: 78 },
-        { id: "iraq", label: "العراق", count: 62 },
-        { id: "algeria", label: "الجزائر", count: 45 },
+        { id: "jordan", label: "filters.location.children.jordan", count: 95 },
+        { id: "libya", label: "filters.location.children.libya", count: 78 },
+        { id: "iraq", label: "filters.location.children.iraq", count: 62 },
+        { id: "algeria", label: "filters.location.children.algeria", count: 45 },
       ],
     },
     {
       id: "africa",
-      label: "أفريقيا",
+      label: "filters.location.categories.africa",
       count: 3,
       totalJobs: 193,
       expanded: false,
       children: [
-        { id: "south-africa", label: "جنوب أفريقيا", count: 85 },
-        { id: "nigeria", label: "نيجيريا", count: 63 },
-        { id: "kenya", label: "كينيا", count: 45 },
+        { id: "south-africa", label: "filters.location.children.southAfrica", count: 85 },
+        { id: "nigeria", label: "filters.location.children.nigeria", count: 63 },
+        { id: "kenya", label: "filters.location.children.kenya", count: 45 },
       ],
     },
   ],
 };
 
 export const salaryFilters = [
-  { id: "low", label: "أقل من 2,000 ريال" },
-  { id: "mid", label: "2,000 - 4,000 ريال" },
-  { id: "high", label: "4,000 - 8,000 ريال" },
-  { id: "very-high", label: "أكثر من 8,000 ريال" },
+  { id: "low", label: "filters.salary.low" },
+  { id: "mid", label: "filters.salary.mid" },
+  { id: "high", label: "filters.salary.high" },
+  { id: "very-high", label: "filters.salary.veryHigh" },
 ];
 
 export const experienceFilters = [
-  { id: "fresh", label: "حديث التخرج (0-1)" },
-  { id: "junior", label: "مستوى مبتدئ (1-3)" },
-  { id: "mid", label: "مستوى متوسط (3-5)" },
-  { id: "senior", label: "مستوى متقدم (5+)" },
+  { id: "fresh", label: "filters.experience.fresh" },
+  { id: "junior", label: "filters.experience.junior" },
+  { id: "mid", label: "filters.experience.mid" },
+  { id: "senior", label: "filters.experience.senior" },
 ];
 
 export const navLinks = [
-  { label: "الرئيسية", href: "/", active: true },
-  { label: "الوظائف", href: "#jobs" },
-  { label: "شركات مميزة", href: "#companies" },
-  { label: "تواصل معنا", href: "#contact" },
+  { label: "nav.home", href: "/", active: true },
+  { label: "nav.jobs", href: "#jobs" },
+  { label: "nav.companies", href: "#companies" },
+  { label: "nav.contact", href: "#contact" },
 ];
 
 export const footerJobSeekerLinks = [
-  { label: "العودة للأعلى", href: "#hero" },
-  { label: "الوظائف المتاحة", href: "#jobs" },
-  { label: "الشركات المميزة", href: "#companies" },
-  { label: "تواصل معنا", href: "#contact" },
+  { label: "footer.jobSeekerLinks.top", href: "#hero" },
+  { label: "footer.jobSeekerLinks.jobs", href: "#jobs" },
+  { label: "footer.jobSeekerLinks.companies", href: "#companies" },
+  { label: "footer.jobSeekerLinks.contact", href: "#contact" },
 ];
 
 export const footerEmployerLinks = [
-  { label: "عن المنصة", href: "#hero" },
-  { label: "أبرز الشركات", href: "#companies" },
-  { label: "استعرض الفرص", href: "#jobs" },
+  { label: "footer.employerLinks.about", href: "#hero" },
+  { label: "footer.employerLinks.companies", href: "#companies" },
+  { label: "footer.employerLinks.jobs", href: "#jobs" },
 ];
+
+// Re-export types for backward compatibility
+export type {
+  Country,
+  Company,
+  JobBenefit,
+  Job,
+  FilterChild,
+  FilterCategory,
+  FilterSection,
+} from '~/shared/types/domain'

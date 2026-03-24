@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { Check } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
@@ -15,8 +14,8 @@ interface Props {
 const props = defineProps<Props>();
 
 const emit = defineEmits<{
-  "update:modelValue": [value: any];
-  change: [value: any];
+  "update:modelValue": [value: boolean | string[] | number[]];
+  change: [value: boolean | string | number];
 }>();
 
 const isChecked = computed(() => {
@@ -32,17 +31,17 @@ const isChecked = computed(() => {
 const toggleCheckbox = () => {
   if (props.disabled) return;
 
-  let newValue;
+  let newValue: boolean | string[] | number[] | undefined;
 
   if (Array.isArray(props.modelValue)) {
     if (props.value === undefined) return;
-    const set = new Set(props.modelValue as any[]);
-    if (set.has(props.value as any)) {
-      set.delete(props.value as any);
+    const set = new Set<string | number>(props.modelValue);
+    if (set.has(props.value)) {
+      set.delete(props.value);
     } else {
-      set.add(props.value as any);
+      set.add(props.value);
     }
-    newValue = Array.from(set) as any[];
+    newValue = Array.from(set);
   } else {
     newValue = !props.modelValue;
   }
@@ -54,11 +53,11 @@ const toggleCheckbox = () => {
 
 <template>
   <button
+    :id="id"
     type="button"
     role="checkbox"
     :aria-checked="isChecked"
     :disabled="disabled"
-    :id="id"
     :name="name"
     :class="
       cn(

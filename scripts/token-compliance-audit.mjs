@@ -15,7 +15,7 @@ const RULES = [
     id: 'hardcoded-color-literal',
     severity: 'high',
     description: 'Hardcoded color literals should map to design tokens.',
-    regex: /#[\da-fA-F]{3,8}\b|(?:rgba?|hsla?|oklch)\([^\)]+\)/g,
+    regex: /#[\da-fA-F]{3,8}\b|(?:rgba?|hsla?|oklch)\([^)]+\)/g,
   },
   {
     id: 'arbitrary-tailwind-value',

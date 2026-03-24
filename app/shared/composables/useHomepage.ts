@@ -178,10 +178,6 @@ export const useHomepage = () => {
       : filteredJobs.value.length
   )
 
-  const toggleDark = () => {
-    document.documentElement.classList.toggle('dark')
-  }
-
   const clearAllFilters = () => {
     searchQuery.value = ''
     selectedSalaryRanges.value = []
@@ -217,7 +213,6 @@ export const useHomepage = () => {
     jobs: filteredJobs,
     sortOptions,
     totalJobs,
-    toggleDark,
     clearAllFilters,
   }
 }

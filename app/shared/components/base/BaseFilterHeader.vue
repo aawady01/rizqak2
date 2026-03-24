@@ -24,7 +24,7 @@ const searchQuery = defineModel<string>("searchQuery", { default: "" });
         :id="sectionId"
         class="m-0 text-ds-body-r font-bold text-foreground whitespace-nowrap"
       >
-        {{ title }}
+        {{ $t(title) }}
       </h4>
     </div>
 
@@ -32,8 +32,9 @@ const searchQuery = defineModel<string>("searchQuery", { default: "" });
       <BaseSearchInput
         v-model="searchQuery"
         :placeholder="searchPlaceholder"
-        aria-label="البحث داخل الفلتر"
+        :aria-label="$t('filterHeader.searchAriaLabel')"
       />
     </div>
   </div>
 </template>
+

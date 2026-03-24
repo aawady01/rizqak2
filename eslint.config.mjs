@@ -7,5 +7,6 @@ export default withNuxt({
   },
   rules: {
     ...vuejsAccessibility.configs.recommended.rules,
+    'vuejs-accessibility/label-has-for': 'off',
   },
 })

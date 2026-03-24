@@ -1,4 +1,3 @@
-import { computed, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "#imports";
 
 /**
@@ -52,6 +51,7 @@ export function useTreeSelection(
       if (serializedValue) {
         currentQuery[queryKey] = serializedValue;
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
         delete currentQuery[queryKey];
       }
 

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { SlidersHorizontal } from "lucide-vue-next";
 import TreeFilterSection from "../filters/TreeFilterSection.vue";
 import SimpleFilter from "../filters/SimpleFilter.vue";
 import GenderFilter from "../filters/GenderFilter.vue";
-import BaseTypography from "~/components/base/BaseTypography.vue";
+import BaseTypography from "~/shared/components/base/BaseTypography.vue";
 import {
   fieldFilterData,
   locationFilterData,
@@ -30,15 +29,16 @@ const gender = ref("all");
       <div class="flex justify-between items-center">
         <BaseTypography
           variant="h3"
+          tag="h2"
           weight="bold"
           color="text-foreground"
           class="flex items-center gap-compact"
         >
-          <SlidersHorizontal class="w-5 h-5 text-primary" :stroke-width="2" />
-          تصفية النتائج
+          <SlidersHorizontal class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
+          {{ $t('sidebar.title') }}
         </BaseTypography>
         <button
-          class="cursor-pointer group hover:underline"
+          class="cursor-pointer group hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           @click="$emit('clear-filters')"
         >
           <BaseTypography
@@ -47,13 +47,13 @@ const gender = ref("all");
             color="text-primary"
             class="group-hover:text-primary-dark transition-colors"
           >
-            مسح الكل
+            {{ $t('common.clearAll') }}
           </BaseTypography>
         </button>
       </div>
 
       <!-- Filter Card — p-content -->
-      <div class="bg-card p-content border border-border">
+      <div class="bg-surface p-content border border-border">
         <div class="space-y-6 divide-y divide-separator">
           <div>
             <TreeFilterSection
@@ -73,10 +73,10 @@ const gender = ref("all");
 
           <div class="pt-5">
             <SimpleFilter
-              title="الراتب المتوقع"
-              totalLabel="كل الرواتب"
-              :totalCount="4"
-              :totalJobs="2340"
+              :title="$t('sidebar.salaryFilter.title')"
+              :total-label="$t('sidebar.salaryFilter.totalLabel')"
+              :total-count="4"
+              :total-jobs="2340"
               :items="salaryFilters"
               type="checkbox"
               searchable
@@ -86,10 +86,10 @@ const gender = ref("all");
 
           <div class="pt-5">
             <SimpleFilter
-              title="سنوات الخبرة"
-              totalLabel="كل المستويات"
-              :totalCount="4"
-              :totalJobs="2340"
+              :title="$t('sidebar.experienceFilter.title')"
+              :total-label="$t('sidebar.experienceFilter.totalLabel')"
+              :total-count="4"
+              :total-jobs="2340"
               :items="experienceFilters"
               type="checkbox"
               searchable
@@ -103,9 +103,9 @@ const gender = ref("all");
 
           <div class="pt-5">
             <button
-              class="w-full py-2.5 bg-primary hover:bg-primary-dark text-white transition-colors text-ds-body-r font-semibold"
+              class="w-full py-2.5 bg-primary hover:bg-primary-dark text-white transition-colors text-ds-body-r font-semibold outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
             >
-              تطبيق ({{ totalResults }} وظيفة)
+              {{ $t('sidebar.applyButton') }} ({{ totalResults }} {{ $t('sidebar.jobCount') }})
             </button>
           </div>
         </div>

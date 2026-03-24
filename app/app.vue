@@ -1,18 +1,11 @@
+<script setup lang="ts">
+const { locale } = useI18n()
+const dir = computed(() => locale.value === 'ar' ? 'rtl' : 'ltr')
+</script>
+
 <template>
-  <NuxtPwaAssets />
   <NuxtLayout>
     <NuxtPage />
-    <Toaster rich-colors position="bottom-center" dir="rtl" />
+    <Toaster rich-colors position="bottom-center" :dir="dir" />
   </NuxtLayout>
 </template>
-
-<script setup lang="ts">
-import { Toaster } from 'vue-sonner'
-
-useHead({
-  htmlAttrs: {
-    lang: 'ar',
-    dir: 'rtl',
-  },
-})
-</script>

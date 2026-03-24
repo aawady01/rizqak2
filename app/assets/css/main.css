@@ -56,6 +56,8 @@
   --color-bg-tertiary: #e5e7eb;
   --color-surface: #ffffff;
   --color-surface-hover: #D1FAE5;
+  --color-surface-alt: #f3f4f6;
+  --color-surface-elevated: #ffffff;
   --color-surface-overlay: rgba(0, 0, 0, 0.5);
 
   /* ==========================================
@@ -66,6 +68,8 @@
   --color-text-muted: #999999;
   --color-text-inverse: #ffffff;
   --color-text-on-primary: #ffffff;
+  --color-foreground-muted: #4b5563;
+  --color-foreground-subtle: #9ca3af;
 
   /* ==========================================
      SEMANTIC COLORS - Borders
@@ -91,8 +95,21 @@
   --color-shell-divider: rgba(255, 255, 255, 0.2);
 
   /* ==========================================
-     SEMANTIC COLORS - Interactive State Aliases
+     SEMANTIC COLORS - Shell Sections
      ========================================== */
+  --color-shell-header-bg: var(--color-primary-600);
+  --color-shell-header-text: #ffffff;
+  --color-shell-footer-bg: var(--color-neutral-800);
+  --color-shell-footer-text: var(--color-neutral-200);
+  --color-shell-hero-bg: var(--color-primary-700);
+  --color-shell-hero-text: #ffffff;
+
+  /* ==========================================
+     SEMANTIC COLORS - Interactive States
+     ========================================== */
+  --color-interactive: var(--color-primary-600);
+  --color-interactive-hover: var(--color-primary-700);
+  --color-interactive-active: var(--color-primary-800);
   --color-state-selected-bg: var(--color-primary-600);
   --color-state-selected-text: #ffffff;
   --color-filter-control-bg-dark: #2a2a2a;
@@ -197,6 +214,12 @@
   --spacing-28: 7rem;
   --spacing-32: 8rem;
 
+  /* Semantic Spacing Tokens */
+  --spacing-compact: 0.5rem;    /* 8px — within elements, icon-text gap */
+  --spacing-element: 0.75rem;   /* 12px — between sibling elements */
+  --spacing-content: 1rem;      /* 16px — between content blocks */
+  --spacing-section: 2rem;      /* 32px — between page sections */
+
   /* ==========================================
      BORDER RADIUS - Zero-based (brand standard)
      ========================================== */
@@ -240,15 +263,18 @@
   /* ==========================================
      Z-INDEX SCALE
      ========================================== */
+  --z-base: 0;
+  --z-hover: 10;
+  --z-carousel: 20;
+  --z-sticky: 50;
   --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-fixed: 300;
+  --z-dropdown-overlay: 100;
+  --z-fixed: 200;
   --z-modal-backdrop: 400;
   --z-modal: 500;
   --z-popover: 600;
   --z-tooltip: 700;
   --z-toast: 800;
-  --z-dropdown-overlay: 100;
 
   /* ==========================================
      CONTAINER
@@ -364,6 +390,8 @@ html.dark {
   --color-bg-tertiary: #262626;
   --color-surface: #171717;
   --color-surface-hover: #262626;
+  --color-surface-alt: #262626;
+  --color-surface-elevated: #1f1f1f;
   --color-surface-overlay: rgba(0, 0, 0, 0.7);
 
   /* Text */
@@ -372,6 +400,8 @@ html.dark {
   --color-text-muted: #737373;
   --color-text-inverse: #0a0a0a;
   --color-text-on-primary: #ffffff;
+  --color-foreground-muted: #a3a3a3;
+  --color-foreground-subtle: #737373;
 
   /* Borders */
   --color-border-default: #404040;
@@ -381,6 +411,30 @@ html.dark {
   --color-separator: #404040;
   --color-filter-tree-line: var(--color-primary-400);
   --color-filter-control-bg-dark: #2a2a2a;
+
+  /* Shell sections - Dark mode */
+  --color-shell-bg: #030712;
+  --color-shell-border: rgba(255, 255, 255, 0.05);
+  --color-shell-surface: rgba(255, 255, 255, 0.05);
+  --color-shell-surface-strong: rgba(255, 255, 255, 0.1);
+  --color-shell-text: #e5e5e5;
+  --color-shell-text-soft: rgba(255, 255, 255, 0.8);
+  --color-shell-text-muted: rgba(255, 255, 255, 0.6);
+  --color-shell-text-faint: rgba(255, 255, 255, 0.5);
+  --color-shell-divider: rgba(255, 255, 255, 0.08);
+  --color-shell-header-bg: #030712;
+  --color-shell-header-text: #e5e5e5;
+  --color-shell-footer-bg: #030712;
+  --color-shell-footer-text: #737373;
+  --color-shell-hero-bg: #032d22;
+  --color-shell-hero-text: #e5e5e5;
+
+  /* Interactive states - Dark mode */
+  --color-interactive: var(--color-primary-400);
+  --color-interactive-hover: var(--color-primary-300);
+  --color-interactive-active: var(--color-primary-200);
+  --color-state-selected-bg: var(--color-primary-400);
+  --color-state-selected-text: #ffffff;
 
   /* Primary colors */
   --color-primary-50: #052e16;
@@ -1363,6 +1417,18 @@ html.dark {
     z-index: var(--z-dropdown-overlay);
   }
 
+  .z-hover {
+    z-index: var(--z-hover);
+  }
+
+  .z-carousel {
+    z-index: var(--z-carousel);
+  }
+
+  .z-sticky {
+    z-index: var(--z-sticky);
+  }
+
   .bg-shell-bg {
     background-color: var(--color-shell-bg);
   }
@@ -1396,6 +1462,46 @@ html.dark {
   /* Color utilities */
   .text-secondary {
     color: var(--color-text-secondary);
+  }
+
+  .bg-surface-alt {
+    background-color: var(--color-surface-alt);
+  }
+
+  .bg-surface-elevated {
+    background-color: var(--color-surface-elevated);
+  }
+
+  .text-foreground-muted {
+    color: var(--color-foreground-muted);
+  }
+
+  .text-foreground-subtle {
+    color: var(--color-foreground-subtle);
+  }
+
+  .bg-shell-header-bg {
+    background-color: var(--color-shell-header-bg);
+  }
+
+  .bg-shell-footer-bg {
+    background-color: var(--color-shell-footer-bg);
+  }
+
+  .bg-shell-hero-bg {
+    background-color: var(--color-shell-hero-bg);
+  }
+
+  .bg-interactive {
+    background-color: var(--color-interactive);
+  }
+
+  .text-interactive {
+    color: var(--color-interactive);
+  }
+
+  .text-interactive-hover {
+    color: var(--color-interactive-hover);
   }
 
   /* Page transition */

@@ -1,5 +1,3 @@
-﻿import { computed } from 'vue'
-
 /**
  * SEO options for page-level metadata.
  */
@@ -22,9 +20,6 @@ export interface JobSEOInput {
   summary?: string
 }
 
-const DEFAULT_TITLE = 'Rizqak | Jobs in Egypt'
-const DEFAULT_DESCRIPTION =
-  'Find trusted jobs in Egypt and across the Gulf with Rizqak.'
 const DEFAULT_ROBOTS: SEOOptions['robots'] = 'index,follow'
 
 const trimSlash = (value: string): string => value.replace(/\/$/, '')
@@ -58,11 +53,12 @@ const toAbsoluteUrl = (siteUrl: string, pathOrUrl: string): string => {
  * Apply canonical, social, and robots metadata for the active route.
  */
 export const useSEO = (options: SEOOptions = {}): void => {
+  const { t } = useI18n()
   const route = useRoute()
   const siteUrl = resolveSiteUrl()
 
-  const title = options.title ?? DEFAULT_TITLE
-  const description = options.description ?? DEFAULT_DESCRIPTION
+  const title = options.title ?? t('seo.defaultTitle')
+  const description = options.description ?? t('seo.defaultDescription')
   const type = options.type ?? 'website'
   const robots = options.robots ?? DEFAULT_ROBOTS
 
@@ -111,15 +107,16 @@ export const useSEO = (options: SEOOptions = {}): void => {
  * Generate SEO metadata for job detail-like content.
  */
 export const useJobSEO = (job: JobSEOInput): void => {
+  const { t } = useI18n()
   const path = job.slug ? `/jobs/${job.slug}` : `/jobs/${job.id}`
 
   const descriptionParts = [
-    `${job.title} at ${job.companyName}`,
-    `Location: ${job.location}`,
+    `${job.title} ${t('seo.jobAt')} ${job.companyName}`,
+    `${t('seo.jobLocation')}: ${job.location}`,
   ]
 
   if (job.salary) {
-    descriptionParts.push(`Salary: ${job.salary}`)
+    descriptionParts.push(`${t('seo.jobSalary')}: ${job.salary}`)
   }
 
   if (job.summary) {

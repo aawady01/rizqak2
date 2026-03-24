@@ -1,4 +1,4 @@
-﻿import { defineNuxtConfig } from 'nuxt/config'
+import { defineNuxtConfig } from 'nuxt/config'
 
 import tailwindcss from '@tailwindcss/vite'
 
@@ -13,29 +13,32 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+
   modules: [
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    '@nuxtjs/i18n',
-    '@nuxt/content',
+    '@nuxtjs/i18n',    '@nuxt/content',
     '@nuxt/image',
     '@nuxt/fonts',
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
     'nuxt-og-image',
     '@nuxt/scripts',
-    '@sentry/nuxt/module',
-    '@nuxtjs/device',
-    '@nuxt-modules/compression',
-    'nuxt-security',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
-    'nuxt-schema-org',
-    'nuxt-auth-utils',
-    'nuxt-link-checker',
+    '@vee-validate/nuxt',
     '@nuxt/eslint',
     '@nuxt/test-utils/module',
-    '@vee-validate/nuxt',
+    // Dev-slow modules: only in production
+    ...(!isDev ? [
+      '@sentry/nuxt/module' as const,
+      '@nuxt-modules/compression' as const,
+      'nuxt-security' as const,
+      '@nuxtjs/device' as const,
+      '@nuxtjs/sitemap' as const,
+      '@nuxtjs/robots' as const,
+      'nuxt-schema-org' as const,
+      'nuxt-auth-utils' as const,
+      'nuxt-link-checker' as const,
+    ] : []),
   ],
 
   imports: {
@@ -46,14 +49,17 @@ export default defineNuxtConfig({
     ],
   },
 
+  components: [
+    { path: '~/components', pathPrefix: false },
+    { path: '~/shared/components', pathPrefix: false },
+  ],
+
   css: [
     '~/assets/css/main.css',
   ],
 
   i18n: {
-    restructureDir: 'app',
     defaultLocale: 'ar',
-    langDir: 'locales',
     strategy: 'prefix_except_default',
     detectBrowserLanguage: false,
     locales: [
@@ -104,27 +110,31 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     includeAssets: ['favicon.svg'],
     manifest: {
-      name: 'Rizqak',
-      short_name: 'Rizqak',
-      description: 'Rizqak helps job seekers in Egypt find trusted opportunities.',
+      name: 'رزقاك | Rizqak',
+      short_name: 'رزقاك',
+      description: 'رزقاك تساعد الباحثين عن عمل في مصر وإفريقيا على إيجاد فرص موثوقة.',
       lang: 'ar',
       dir: 'rtl',
       theme_color: '#1B6B4A',
-      background_color: '#ffffff',
+      background_color: '#F8FAFC',
       display: 'standalone',
       start_url: '/',
+      icons: [
+        {
+          src: '/favicon.svg',
+          sizes: 'any',
+          type: 'image/svg+xml',
+          purpose: 'any maskable',
+        },
+      ],
     },
   },
 
-  ogImage: {},
+  ogImage: isDev ? { enabled: false } : {},
 
-  device: {
-    refreshOnResize: true,
-  },
+  device: {},
 
-  compression: {
-    algorithm: 'brotliCompress',
-  },
+  compression: isDev ? { enabled: false } : {},
 
   linkChecker: {
     failOnError: false,
@@ -195,16 +205,15 @@ export default defineNuxtConfig({
     sitemap: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com'}/sitemap.xml`,
   },
 
-  schemaOrg: {
-    canonicalHost: process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com',
-  },
+  schemaOrg: {},
 
   vite: {
     resolve: {
       dedupe: ['vee-validate'],
     },
     plugins: [
-      tailwindcss() as any,
+      // @ts-expect-error -- compatibility issue between vite versions
+      tailwindcss(),
     ],
     css: {
       devSourcemap: true,
@@ -212,19 +221,26 @@ export default defineNuxtConfig({
     optimizeDeps: {
       exclude: ['vue'],
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-pinia': ['pinia'],
+            'vendor-reka': ['reka-ui'],
+            'vendor-query': ['@tanstack/vue-query'],
+          },
+        },
+      },
+    },
   },
 
   app: {
     head: {
-      title: 'Rizqak | Jobs in Egypt',
-      htmlAttrs: {
-        lang: 'ar',
-        dir: 'rtl',
-      },
+      title: 'رزقاك | وظائف في مصر والخليج',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Rizqak helps job seekers in Egypt find trusted opportunities.' },
+        { name: 'description', content: 'رزقاك تساعد الباحثين عن عمل في مصر وإفريقيا على إيجاد فرص موثوقة.' },
         { name: 'theme-color', content: '#1B6B4A' },
         { property: 'og:locale', content: 'ar_EG' },
         { property: 'og:site_name', content: 'Rizqak' },
@@ -233,11 +249,6 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no, address=no, email=no' },
       ],
       link: [
-        { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
-        { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       ],
     },
@@ -258,7 +269,7 @@ export default defineNuxtConfig({
     typeCheck: false,
   },
 
-  ssr: true,
+  ssr: false,
 
   router: {
     options: {
@@ -266,12 +277,8 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'node-server',
     compressPublicAssets: true,
     routeRules: {
-      '/': { prerender: true },
-      '/jobs/**': { swr: 3600 },
-      '/companies/**': { swr: 3600 },
       '/sitemap.xml': {
         headers: {
           'cache-control': 'public, max-age=3600, stale-while-revalidate=86400',
@@ -282,8 +289,6 @@ export default defineNuxtConfig({
           'cache-control': 'public, max-age=3600',
         },
       },
-      '/auth/**': { ssr: false },
-      '/dashboard/**': { ssr: false },
     },
   },
 

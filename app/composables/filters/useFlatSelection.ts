@@ -1,4 +1,3 @@
-import { computed, ref, shallowRef, watch, type ComputedRef } from "vue";
 import { useRoute, useRouter } from "#imports";
 
 interface MultiSelectOptions {
@@ -71,9 +70,10 @@ export function useFlatSelection(
 
     const nextQuery = { ...route.query };
 
-    if (nextSerialized) {
+      if (nextSerialized) {
       nextQuery[options.queryKey] = nextSerialized;
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete nextQuery[options.queryKey];
     }
 
