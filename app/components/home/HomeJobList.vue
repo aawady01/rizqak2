@@ -35,7 +35,7 @@ onClickOutside(dropdownRef, () => {
 <template>
   <section id="jobs" class="scroll-mt-24">
     <!-- Section Header — ds pattern: mb-content, icon 20px/2, ds-heading semibold -->
-    <div class="flex items-center justify-between mb-content">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-y-4 mb-content">
       <div class="flex items-center gap-compact">
         <LayoutList class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
         <BaseTypography

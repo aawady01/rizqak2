@@ -25,7 +25,7 @@ const props = defineProps<Props>();
 
 const overlayClass = computed(() => {
   return cn(
-    "fixed inset-0 z-50 bg-black/50 dialog-overlay-state",
+    "fixed inset-0 z-50 bg-foreground/50 dialog-overlay-state",
   );
 });
 
@@ -66,7 +66,7 @@ const finalContentClass = computed(() => {
             <DialogDescription
               v-if="description"
               data-slot="dialog-description"
-              class="text-neutral-500 text-ds-caption-r"
+              class="text-muted-foreground text-ds-caption-r"
             >
               {{ description }}
             </DialogDescription>
@@ -89,7 +89,7 @@ const finalContentClass = computed(() => {
           class="absolute top-4 inset-inline-end-4 opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ds-focus"
         >
           <XIcon class="size-5" />
-          <span class="sr-only">Close</span>
+          <span class="sr-only">{{ $t('modal.close') }}</span>
         </DialogClose>
       </DialogContent>
     </DialogPortal>

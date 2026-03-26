@@ -1,43 +1,9 @@
-// Core Domain Types
-export interface Country {
-  flag: string
-  name: string
-  count: string | number
-  code?: string
-}
+// =============================================
+// Types — Barrel file
+// Re-exports all domain types + local helpers
+// =============================================
 
-export interface Company {
-  id: string
-  name: string
-  slug: string
-  logo?: string
-  icon?: string
-  rating: string | number
-  reviews: string | number
-  jobs: string | number
-  industry?: string
-  location?: string
-}
-
-export interface Job {
-  id: string | number
-  slug: string
-  title: string
-  category: string
-  time?: string
-  flag?: string
-  location: string
-  company: string
-  companySlug: string
-  salary: string
-  type?: string
-  postedAt?: string
-  benefits?: string[]
-  icon?: string
-  logo?: string
-  experience?: string
-  tags?: string[]
-}
+export * from './domain'
 
 export interface FilterNode {
   id: string
@@ -58,14 +24,6 @@ export interface BreadcrumbItem {
   url: string
 }
 
-// API Response Types
-export interface ApiResponse<T> {
-  success: boolean
-  data?: T
-  message?: string
-  error?: string
-}
-
 export interface PaginatedResponse<T> {
   data: T[]
   pagination: {
@@ -76,23 +34,9 @@ export interface PaginatedResponse<T> {
   }
 }
 
-// Auth Types
 export interface AuthTokens {
   accessToken: string
   refreshToken: string
-}
-
-export interface User {
-  id: string
-  email: string
-  name: string
-  avatar?: string
-  role: 'jobseeker' | 'employer' | 'admin'
-  phone?: string
-  location?: string
-  bio?: string
-  createdAt?: string
-  updatedAt?: string
 }
 
 export interface LoginRequest {
@@ -107,7 +51,6 @@ export interface RegisterRequest {
   role?: 'jobseeker' | 'employer'
 }
 
-// Job Types
 export interface JobFilters {
   page?: number
   perPage?: number
@@ -121,7 +64,6 @@ export interface JobFilters {
   type?: string
 }
 
-// Company Types
 export interface CompanySummary {
   id: string
   name: string
@@ -145,7 +87,6 @@ export interface CompanyDetail extends CompanySummary {
   photos?: string[]
 }
 
-// Review Types
 export interface Review {
   id: string
   author: string
@@ -160,7 +101,6 @@ export interface Review {
   }
 }
 
-// Application Types
 export interface JobApplication {
   id: string
   jobId: string
@@ -170,5 +110,3 @@ export interface JobApplication {
   cv?: string
   coverLetter?: string
 }
-
-export * from './domain'

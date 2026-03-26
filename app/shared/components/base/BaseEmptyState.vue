@@ -2,6 +2,8 @@
 import { Inbox } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
+const { t } = useI18n();
+
 interface Props {
   title?: string;
   description?: string;
@@ -10,10 +12,13 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: "لا توجد نتائج",
-  description: "لم نجد أي عناصر تطابق بحثك",
+  title: undefined,
+  description: undefined,
   icon: true,
 });
+
+const resolvedTitle = computed(() => props.title ?? t('base.emptyState.title'));
+const resolvedDescription = computed(() => props.description ?? t('base.emptyState.description'));
 </script>
 
 <template>
@@ -23,8 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
     <div v-if="icon" class="mb-4 size-12 rounded-full bg-surface-alt flex items-center justify-center">
       <Inbox class="size-6 text-foreground-subtle" :stroke-width="1.5" aria-hidden="true" />
     </div>
-    <h3 class="text-ds-h5 font-semibold text-foreground mb-2">{{ title }}</h3>
-    <p class="text-ds-body-r text-foreground-muted max-w-sm">{{ description }}</p>
+    <h3 class="text-ds-h5 font-semibold text-foreground mb-2">{{ resolvedTitle }}</h3>
+    <p class="text-ds-body-r text-foreground-muted max-w-sm">{{ resolvedDescription }}</p>
     <div v-if="$slots.action" class="mt-4">
       <slot name="action" />
     </div>

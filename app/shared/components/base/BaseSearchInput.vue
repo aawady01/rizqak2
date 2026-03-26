@@ -2,6 +2,8 @@
 import { Search, X } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
+const { t } = useI18n();
+
 interface Props {
   placeholder?: string;
   debounce?: number;
@@ -11,11 +13,14 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  placeholder: "ابحث...",
+  placeholder: undefined,
   debounce: 300, // Default 300ms debounce to protect backend/rendering
-  ariaLabel: "حقل البحث",
+  ariaLabel: undefined,
   disabled: false,
 });
+
+const resolvedPlaceholder = computed(() => props.placeholder ?? t('base.searchInput.placeholder'));
+const resolvedAriaLabel = computed(() => props.ariaLabel ?? t('base.searchInput.ariaLabel'));
 
 // Vue 3.5+ standard
 const model = defineModel<string>({ default: "" });
@@ -59,7 +64,7 @@ const clearSearch = () => {
   <div :class="cn('relative w-full', props.class)">
     <!-- Search Icon wrapper (styled based on isFocused state) -->
     <div
-      class="absolute inset-y-0 start-0 flex items-center justify-center w-8 rounded-none pointer-events-none transition-colors duration-200 z-10"
+      class="absolute inset-y-0 inset-s-0 flex items-center justify-center w-8 rounded-none pointer-events-none transition-colors duration-200 z-10"
       :class="isFocused ? 'bg-primary text-white' : 'text-muted-foreground'"
     >
       <Search class="size-3.5" />
@@ -69,12 +74,12 @@ const clearSearch = () => {
       ref="inputRef"
       v-model="internalValue"
       type="text"
-      :placeholder="placeholder"
-      :aria-label="ariaLabel"
+      :placeholder="resolvedPlaceholder"
+      :aria-label="resolvedAriaLabel"
       :disabled="disabled"
       :class="[
-        'w-full h-8 bg-muted/50 focus:bg-white dark:focus:bg-search-surface-focus-dark border border-transparent focus:border-border rounded-none text-ds-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-0 transition-all z-0 disabled:opacity-50 disabled:cursor-not-allowed ps-10 pe-8 py-1',
-        isFocused ? 'bg-white border-border shadow-sm' : '',
+        'w-full h-8 bg-muted/50 focus:bg-surface border border-transparent focus:border-border rounded-none text-ds-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-0 transition-all z-0 disabled:opacity-50 disabled:cursor-not-allowed ps-10 pe-8 py-1',
+        isFocused ? 'bg-surface border-border shadow-sm' : '',
       ]"
       @focus="isFocused = true"
       @blur="isFocused = false"
@@ -84,8 +89,8 @@ const clearSearch = () => {
     <button
       v-if="internalValue"
       type="button"
-      aria-label="مسح البحث"
-      class="absolute inset-y-0 end-0 flex items-center pe-2.5 text-muted-foreground hover:text-foreground transition-colors outline-none focus-visible:text-primary z-10"
+      :aria-label="t('base.searchInput.clear')"
+      class="absolute inset-y-0 inset-e-0 flex items-center pe-2.5 text-muted-foreground hover:text-foreground transition-colors outline-none focus-visible:text-primary z-10"
       @click="clearSearch"
     >
       <X class="size-3.5" />

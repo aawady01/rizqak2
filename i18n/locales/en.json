@@ -105,7 +105,8 @@
   "pagination": {
     "ariaLabel": "Pagination",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "label": "Pagination"
   },
   "filterShowMore": {
     "showMore": "Show more",
@@ -113,33 +114,41 @@
     "ariaLabel": {
       "showMore": "Show additional items",
       "showLess": "Show fewer items"
-    }
+    },
+    "showMoreAria": "Show additional items",
+    "showLessAria": "Show fewer items"
   },
   "filterHeader": {
     "searchPlaceholder": "Search...",
-    "searchAriaLabel": "Search in filter"
+    "searchAriaLabel": "Search within filter"
   },
   "searchInput": {
     "placeholder": "Search...",
     "ariaLabel": "Search field",
-    "clearLabel": "Clear search"
+    "clearLabel": "Clear search",
+    "clear": "Clear search"
   },
   "treeBranch": {
-    "expandLabel": "Expand group",
-    "collapseLabel": "Collapse group"
+    "expandLabel": "Expand category",
+    "collapseLabel": "Collapse category"
   },
   "disclosure": {
     "expandLabel": "Expand list",
-    "collapseLabel": "Collapse list"
+    "collapseLabel": "Collapse list",
+    "expand": "Expand menu",
+    "collapse": "Collapse menu"
   },
   "chip": {
-    "removeLabel": "Remove"
+    "removeLabel": "Remove",
+    "remove": "Remove"
   },
   "modal": {
-    "closeLabel": "Close"
+    "closeLabel": "Close",
+    "close": "Close"
   },
   "textarea": {
-    "ariaLabel": "Text"
+    "ariaLabel": "Text",
+    "label": "Text"
   },
   "genderFilter": {
     "title": "Gender",
@@ -178,7 +187,12 @@
       "country": "Kuwait",
       "company": "Al Saeed Contracting",
       "salary": "450 KWD",
-      "benefits": ["Housing", "Transport", "Medical Insurance", "Flight Tickets"]
+      "benefits": [
+        "Housing",
+        "Transport",
+        "Medical Insurance",
+        "Flight Tickets"
+      ]
     },
     "civilEng": {
       "title": "Civil Engineer - Infrastructure",
@@ -187,7 +201,11 @@
       "country": "Riyadh, Saudi Arabia",
       "company": "Albinaan Almateen",
       "salary": "6,000 - 8,000 SAR",
-      "benefits": ["Family Housing", "Car", "Full Insurance"]
+      "benefits": [
+        "Family Housing",
+        "Car",
+        "Full Insurance"
+      ]
     },
     "welder": {
       "title": "TIG/MIG Welder - Industrial",
@@ -196,7 +214,11 @@
       "country": "Doha, Qatar",
       "company": "Qatar Steel",
       "salary": "3,500 - 4,500 QAR",
-      "benefits": ["Housing", "Meals", "Overtime"]
+      "benefits": [
+        "Housing",
+        "Meals",
+        "Overtime"
+      ]
     },
     "nurse": {
       "title": "ICU Nurses",
@@ -205,7 +227,11 @@
       "country": "Dubai, UAE",
       "company": "Future Hospital",
       "salary": "8,000 - 12,000 AED",
-      "benefits": ["Luxury Housing", "VIP Insurance", "Annual Ticket"]
+      "benefits": [
+        "Luxury Housing",
+        "VIP Insurance",
+        "Annual Ticket"
+      ]
     },
     "driver": {
       "title": "Heavy Driver (Class 1 License)",
@@ -214,7 +240,11 @@
       "country": "Muscat, Oman",
       "company": "Omani Transport Co.",
       "salary": "250 - 350 OMR",
-      "benefits": ["Housing", "Per Diem", "Incentives"]
+      "benefits": [
+        "Housing",
+        "Per Diem",
+        "Incentives"
+      ]
     }
   },
   "filters": {
@@ -292,46 +322,19 @@
       "junior": "Junior (1-3)",
       "mid": "Mid Level (3-5)",
       "senior": "Senior (5+)"
+    },
+    "collapseGroup": "Collapse group",
+    "expandGroup": "Expand group",
+    "gender": {
+      "title": "Gender",
+      "all": "All",
+      "male": "Male",
+      "female": "Female",
+      "ariaLabel": "Filter by gender"
     }
-  },
-  "modal": {
-    "close": "Close"
-  },
-  "filterHeader": {
-    "searchAriaLabel": "Search within filter"
-  },
-  "filterShowMore": {
-    "showMore": "Show more",
-    "showLess": "Show less",
-    "showMoreAria": "Show additional items",
-    "showLessAria": "Show fewer items"
-  },
-  "pagination": {
-    "label": "Pagination",
-    "previous": "Previous",
-    "next": "Next"
-  },
-  "searchInput": {
-    "placeholder": "Search...",
-    "ariaLabel": "Search field",
-    "clear": "Clear search"
-  },
-  "chip": {
-    "remove": "Remove"
-  },
-  "textarea": {
-    "label": "Text"
   },
   "a11y": {
     "skipToContent": "Skip to main content"
-  },
-  "disclosure": {
-    "expand": "Expand menu",
-    "collapse": "Collapse menu"
-  },
-  "treeBranch": {
-    "expandLabel": "Expand category",
-    "collapseLabel": "Collapse category"
   },
   "auth": {
     "login": {
@@ -423,5 +426,55 @@
     "jobAt": "at",
     "jobLocation": "Location",
     "jobSalary": "Salary"
+  },
+  "homeFeaturedCompanies": {
+    "title": "Featured Hiring Companies",
+    "subtitle": "Carefully Selected",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "base": {
+    "errorState": {
+      "title": "An error occurred",
+      "description": "Sorry, there was a problem loading the data",
+      "retry": "Retry"
+    },
+    "emptyState": {
+      "title": "No results found",
+      "description": "No items match your search"
+    },
+    "spinner": {
+      "label": "Loading"
+    },
+    "alert": {
+      "close": "Close"
+    },
+    "pagination": {
+      "ariaLabel": "Pagination"
+    },
+    "searchInput": {
+      "placeholder": "Search...",
+      "ariaLabel": "Search field",
+      "clear": "Clear search"
+    },
+    "filterHeader": {
+      "searchPlaceholder": "Search..."
+    },
+    "filterShowMore": {
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "ariaShowMore": "Show additional items",
+      "ariaShowLess": "Show fewer items"
+    },
+    "breadcrumb": {
+      "ariaLabel": "Breadcrumb navigation"
+    },
+    "disclosure": {
+      "expand": "Expand",
+      "collapse": "Collapse"
+    }
+  },
+  "layout": {
+    "skipToContent": "Skip to main content"
   }
 }

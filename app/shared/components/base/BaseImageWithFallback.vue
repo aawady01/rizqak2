@@ -17,7 +17,7 @@ const handleError = () => {
 </script>
 
 <template>
-  <div v-if="didError" class="inline-block bg-gray-100 text-center align-middle h-full w-full">
+  <div v-if="didError" class="inline-block bg-muted text-center align-middle h-full w-full">
     <div class="flex items-center justify-center w-full h-full">
       <img :src="ERROR_IMG_SRC" alt="Error loading image" class="w-full h-full object-contain p-2" >
     </div>

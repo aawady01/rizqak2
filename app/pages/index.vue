@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import HomeHero from '~/components/home/HomeHero.vue'
 import HomeSidebar from '~/components/home/HomeSidebar.vue'
 import HomeFeaturedCompanies from '~/components/home/HomeFeaturedCompanies.vue'
@@ -12,10 +12,9 @@ import {
   useItemListStructuredData,
 } from '~/shared/composables/useStructuredData'
 
+const { t } = useI18n()
+
 useSEO({
-  title: 'Rizqak | Jobs in Egypt and the Gulf',
-  description:
-    'Browse verified opportunities in engineering, healthcare, finance, and more with Rizqak.',
   canonicalPath: '/',
   type: 'website',
 })
@@ -23,7 +22,7 @@ useSEO({
 useWebsiteStructuredData()
 useOrganizationStructuredData()
 useBreadcrumbStructuredData([
-  { name: 'Home', path: '/' },
+  { name: t('nav.home'), path: '/' },
 ])
 useItemListStructuredData(
   jobsData.map((job) => ({

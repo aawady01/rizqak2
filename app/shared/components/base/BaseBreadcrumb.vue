@@ -2,6 +2,8 @@
 import { ChevronLeft } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
+const { t } = useI18n();
+
 interface BreadcrumbItem {
   label: string;
   to?: string;
@@ -16,7 +18,7 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <nav aria-label="مسار التنقل" :class="cn('flex items-center gap-1', props.class)">
+  <nav :aria-label="t('base.breadcrumb.ariaLabel')" :class="cn('flex items-center gap-1', props.class)">
     <ol class="flex items-center gap-1 flex-wrap" role="list">
       <li
         v-for="(item, index) in items"

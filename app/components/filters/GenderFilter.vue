@@ -2,6 +2,8 @@
 import { useRoute, useRouter } from "#imports";
 import BaseFilterSection from "./BaseFilterSection.vue";
 
+const { t } = useI18n();
+
 interface Props {
   selected?: string;
   queryKey?: string;
@@ -19,11 +21,11 @@ const emit = defineEmits<{
 const route = useRoute();
 const router = useRouter();
 
-const options = [
-  { id: "all", label: "الكل" },
-  { id: "male", label: "ذكور" },
-  { id: "female", label: "إناث" },
-];
+const options = computed(() => [
+  { id: "all", label: t('filters.gender.all') },
+  { id: "male", label: t('filters.gender.male') },
+  { id: "female", label: t('filters.gender.female') },
+]);
 
 const currentValue = computed({
   get: () => {
@@ -59,11 +61,11 @@ const handleChange = (id: string) => {
 </script>
 
 <template>
-  <BaseFilterSection title="الجنس">
+  <BaseFilterSection :title="t('filters.gender.title')">
     <div
       class="grid grid-cols-3 gap-compact"
       role="radiogroup"
-      aria-label="تصفية حسب الجنس"
+      :aria-label="t('filters.gender.ariaLabel')"
     >
       <button
         v-for="opt in options"

@@ -105,7 +105,8 @@
   "pagination": {
     "ariaLabel": "ترقيم الصفحات",
     "previous": "السابق",
-    "next": "التالي"
+    "next": "التالي",
+    "label": "ترقيم الصفحات"
   },
   "filterShowMore": {
     "showMore": "عرض المزيد",
@@ -113,7 +114,9 @@
     "ariaLabel": {
       "showMore": "عرض عناصر إضافية",
       "showLess": "عرض عناصر أقل"
-    }
+    },
+    "showMoreAria": "عرض عناصر إضافية",
+    "showLessAria": "عرض عناصر أقل"
   },
   "filterHeader": {
     "searchPlaceholder": "ابحث...",
@@ -122,24 +125,30 @@
   "searchInput": {
     "placeholder": "ابحث...",
     "ariaLabel": "حقل البحث",
-    "clearLabel": "مسح البحث"
+    "clearLabel": "مسح البحث",
+    "clear": "مسح البحث"
   },
   "treeBranch": {
-    "expandLabel": "توسيع المجموعة",
-    "collapseLabel": "طي المجموعة"
+    "expandLabel": "توسيع الفئة",
+    "collapseLabel": "طي الفئة"
   },
   "disclosure": {
     "expandLabel": "توسيع القائمة",
-    "collapseLabel": "طي القائمة"
+    "collapseLabel": "طي القائمة",
+    "expand": "توسيع القائمة",
+    "collapse": "طي القائمة"
   },
   "chip": {
-    "removeLabel": "إزالة"
+    "removeLabel": "إزالة",
+    "remove": "إزالة"
   },
   "modal": {
-    "closeLabel": "إغلاق"
+    "closeLabel": "إغلاق",
+    "close": "إغلاق"
   },
   "textarea": {
-    "ariaLabel": "نص"
+    "ariaLabel": "نص",
+    "label": "نص"
   },
   "genderFilter": {
     "title": "الجنس",
@@ -178,7 +187,12 @@
       "country": "الكويت",
       "company": "شركة آل سعيد للمقاولات",
       "salary": "450 دينار",
-      "benefits": ["سكن مؤمن", "مواصلات", "تأمين طبي", "تذاكر طيران"]
+      "benefits": [
+        "سكن مؤمن",
+        "مواصلات",
+        "تأمين طبي",
+        "تذاكر طيران"
+      ]
     },
     "civilEng": {
       "title": "مهندس مدني - مشاريع بنية تحتية",
@@ -187,7 +201,11 @@
       "country": "الرياض، السعودية",
       "company": "شركة البنيان المتين",
       "salary": "6,000 - 8,000 ريال",
-      "benefits": ["سكن عائلي", "سيارة", "تأمين شامل"]
+      "benefits": [
+        "سكن عائلي",
+        "سيارة",
+        "تأمين شامل"
+      ]
     },
     "welder": {
       "title": "فني لحام (TIG/MIG) خبرة صناعية",
@@ -196,7 +214,11 @@
       "country": "الدوحة، قطر",
       "company": "مصانع قطر للصلب",
       "salary": "3,500 - 4,500 ريال",
-      "benefits": ["سكن", "وجبات", "إضافي"]
+      "benefits": [
+        "سكن",
+        "وجبات",
+        "إضافي"
+      ]
     },
     "nurse": {
       "title": "ممرضين وممرضات - عناية مركزة",
@@ -205,7 +227,11 @@
       "country": "دبي، الإمارات",
       "company": "مستشفى المستقبل الدولي",
       "salary": "8,000 - 12,000 درهم",
-      "benefits": ["سكن فاخر", "تأمين صحي VIP", "تذكرة سنوية"]
+      "benefits": [
+        "سكن فاخر",
+        "تأمين صحي VIP",
+        "تذكرة سنوية"
+      ]
     },
     "driver": {
       "title": "سائق نقل ثقيل (رخصة درجة أولى)",
@@ -214,7 +240,11 @@
       "country": "مسقط، عمان",
       "company": "شركة النقل العمانية",
       "salary": "250 - 350 ريال عماني",
-      "benefits": ["سكن", "بدل إعاشة", "حوافز"]
+      "benefits": [
+        "سكن",
+        "بدل إعاشة",
+        "حوافز"
+      ]
     }
   },
   "filters": {
@@ -292,46 +322,19 @@
       "junior": "مستوى مبتدئ (1-3)",
       "mid": "مستوى متوسط (3-5)",
       "senior": "مستوى متقدم (5+)"
+    },
+    "collapseGroup": "طي المجموعة",
+    "expandGroup": "توسيع المجموعة",
+    "gender": {
+      "title": "الجنس",
+      "all": "الكل",
+      "male": "ذكور",
+      "female": "إناث",
+      "ariaLabel": "تصفية حسب الجنس"
     }
-  },
-  "modal": {
-    "close": "إغلاق"
-  },
-  "filterHeader": {
-    "searchAriaLabel": "البحث داخل الفلتر"
-  },
-  "filterShowMore": {
-    "showMore": "عرض المزيد",
-    "showLess": "عرض أقل",
-    "showMoreAria": "عرض عناصر إضافية",
-    "showLessAria": "عرض عناصر أقل"
-  },
-  "pagination": {
-    "label": "ترقيم الصفحات",
-    "previous": "السابق",
-    "next": "التالي"
-  },
-  "searchInput": {
-    "placeholder": "ابحث...",
-    "ariaLabel": "حقل البحث",
-    "clear": "مسح البحث"
-  },
-  "chip": {
-    "remove": "إزالة"
-  },
-  "textarea": {
-    "label": "نص"
   },
   "a11y": {
     "skipToContent": "انتقل إلى المحتوى الرئيسي"
-  },
-  "disclosure": {
-    "expand": "توسيع القائمة",
-    "collapse": "طي القائمة"
-  },
-  "treeBranch": {
-    "expandLabel": "توسيع الفئة",
-    "collapseLabel": "طي الفئة"
   },
   "auth": {
     "login": {
@@ -418,10 +421,60 @@
     }
   },
   "seo": {
-    "defaultTitle": "رزقاك | وظائف في مصر والخليج",
-    "defaultDescription": "اكتشف آلاف الوظائف الموثوقة في مصر والخليج والعالم العربي مع رزقاك.",
+    "defaultTitle": "رزقك | وظائف في مصر والخليج",
+    "defaultDescription": "اكتشف آلاف الوظائف الموثوقة في مصر والخليج والعالم العربي مع رزقك.",
     "jobAt": "في",
     "jobLocation": "الموقع",
     "jobSalary": "الراتب"
+  },
+  "homeFeaturedCompanies": {
+    "title": "شركات توظيف مميزة",
+    "subtitle": "مختارة بعناية",
+    "prev": "السابق",
+    "next": "التالي"
+  },
+  "base": {
+    "errorState": {
+      "title": "حدث خطأ",
+      "description": "عذراً، حدثت مشكلة أثناء تحميل البيانات",
+      "retry": "إعادة المحاولة"
+    },
+    "emptyState": {
+      "title": "لا توجد نتائج",
+      "description": "لم نجد أي عناصر تطابق بحثك"
+    },
+    "spinner": {
+      "label": "جاري التحميل"
+    },
+    "alert": {
+      "close": "إغلاق"
+    },
+    "pagination": {
+      "ariaLabel": "ترقيم الصفحات"
+    },
+    "searchInput": {
+      "placeholder": "ابحث...",
+      "ariaLabel": "حقل البحث",
+      "clear": "مسح البحث"
+    },
+    "filterHeader": {
+      "searchPlaceholder": "ابحث..."
+    },
+    "filterShowMore": {
+      "showMore": "عرض المزيد",
+      "showLess": "عرض أقل",
+      "ariaShowMore": "عرض عناصر إضافية",
+      "ariaShowLess": "عرض عناصر أقل"
+    },
+    "breadcrumb": {
+      "ariaLabel": "مسار التنقل"
+    },
+    "disclosure": {
+      "expand": "توسيع القائمة",
+      "collapse": "طي القائمة"
+    }
+  },
+  "layout": {
+    "skipToContent": "تخطي إلى المحتوى الرئيسي"
   }
 }

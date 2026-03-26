@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import BaseSearchInput from "./BaseSearchInput.vue";
 
+const { t } = useI18n();
+
 interface Props {
   title: string;
   searchable?: boolean;
@@ -10,7 +12,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   searchable: false,
-  searchPlaceholder: "ابحث...",
+  searchPlaceholder: undefined,
   sectionId: undefined,
 });
 
@@ -31,8 +33,7 @@ const searchQuery = defineModel<string>("searchQuery", { default: "" });
     <div v-if="searchable" class="max-w-search-compact w-full">
       <BaseSearchInput
         v-model="searchQuery"
-        :placeholder="searchPlaceholder"
-        :aria-label="$t('filterHeader.searchAriaLabel')"
+        :placeholder="searchPlaceholder ?? t('base.filterHeader.searchPlaceholder')"
       />
     </div>
   </div>

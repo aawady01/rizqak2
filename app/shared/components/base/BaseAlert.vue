@@ -3,6 +3,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Info, CheckCircle, AlertTriangle, XCircle, X } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
+const { t } = useI18n();
+
 const alertVariants = cva(
   "flex items-start gap-3 p-4 border rounded-none",
   {
@@ -71,7 +73,7 @@ const iconComponent = computed(() => iconMap[props.variant || "info"]);
     <button
       v-if="dismissible"
       class="flex-shrink-0 p-1 opacity-70 hover:opacity-100 transition-opacity"
-      aria-label="إغلاق"
+      :aria-label="t('base.alert.close')"
       @click="visible = false; emit('dismiss')"
     >
       <X class="size-4" :stroke-width="2" />

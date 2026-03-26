@@ -53,7 +53,7 @@ const toAbsoluteUrl = (siteUrl: string, pathOrUrl: string): string => {
  * Apply canonical, social, and robots metadata for the active route.
  */
 export const useSEO = (options: SEOOptions = {}): void => {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const route = useRoute()
   const siteUrl = resolveSiteUrl()
 
@@ -73,16 +73,20 @@ export const useSEO = (options: SEOOptions = {}): void => {
   })
 
   const canonicalUrl = computed(() => `${siteUrl}${canonicalPath.value}`)
+  const arUrl = computed(() => `${siteUrl}${canonicalPath.value}`)
+  const enUrl = computed(() => `${siteUrl}/en${canonicalPath.value === '/' ? '' : canonicalPath.value}`)
   const imageUrl = options.image
     ? toAbsoluteUrl(siteUrl, options.image)
-    : `${siteUrl}/favicon.svg`
+    : `${siteUrl}/og-image.png`
+
+  const ogLocale = computed(() => locale.value === 'ar' ? 'ar_EG' : 'en_US')
 
   useHead({
     link: [
       { rel: 'canonical', href: canonicalUrl.value },
-      { rel: 'alternate', href: canonicalUrl.value, hreflang: 'ar-EG' },
-      { rel: 'alternate', href: canonicalUrl.value, hreflang: 'ar' },
-      { rel: 'alternate', href: canonicalUrl.value, hreflang: 'x-default' },
+      { rel: 'alternate', href: arUrl.value, hreflang: 'ar' },
+      { rel: 'alternate', href: enUrl.value, hreflang: 'en' },
+      { rel: 'alternate', href: arUrl.value, hreflang: 'x-default' },
     ],
   })
 
@@ -95,7 +99,7 @@ export const useSEO = (options: SEOOptions = {}): void => {
     ogType: type,
     ogUrl: canonicalUrl.value,
     ogImage: imageUrl,
-    ogLocale: 'ar_EG',
+    ogLocale: ogLocale.value,
     twitterCard: 'summary_large_image',
     twitterTitle: title,
     twitterDescription: description,

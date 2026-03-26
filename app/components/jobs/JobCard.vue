@@ -59,10 +59,10 @@ const handleClick = () => {
     />
 
     <div class="p-content">
-      <div class="flex items-start gap-5">
+      <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
         <!-- Company Logo -->
         <div
-          class="size-14 border border-border bg-surface p-compact flex-shrink-0 flex items-center justify-center rounded-none shadow-sm transition-transform group-hover:bg-surface-alt"
+          class="size-12 sm:size-14 border border-border bg-surface p-compact shrink-0 flex items-center justify-center rounded-none shadow-sm transition-transform group-hover:bg-surface-alt"
         >
           <img
             v-if="job.companyLogo"
@@ -80,7 +80,7 @@ const handleClick = () => {
         </div>
 
         <!-- Content -->
-        <div class="flex-grow min-w-0">
+        <div class="grow min-w-0">
           <div class="flex justify-between items-start gap-content">
             <div class="flex flex-col items-start w-full min-w-0">
               <!-- Meta Row -->
@@ -172,7 +172,7 @@ const handleClick = () => {
 
             <!-- Save Action -->
             <button
-              class="flex-shrink-0 self-start p-compact transition-all active:scale-90 outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1"
+              class="shrink-0 self-start p-compact transition-all active:scale-90 outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1"
               :class="[
                 isSaved
                   ? 'text-primary drop-shadow-sm'

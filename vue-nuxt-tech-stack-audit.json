@@ -1,0 +1,223 @@
+{
+  "auditMeta": {
+    "auditDate": "2026-03-26",
+    "projectRoot": "C:\\Users\\USER\\Desktop\\rizqak2",
+    "projectName": "rizqak2",
+    "scope": "Single Nuxt 4 SPA app — Vue/Nuxt ecosystem",
+    "internetAccess": true,
+    "confidenceLevel": "high",
+    "nodeVersion": ">=24.0.0",
+    "pnpmVersion": "10.31.0"
+  },
+  "changesSinceLastAudit": {
+    "packagesRemoved": ["@vee-validate/zod", "vite-plugin-compression", "@nuxtjs/device", "nuxt-schema-org"],
+    "filesDeleted": ["app/server/plugins/security-headers.ts"],
+    "packagesUpdated": {
+      "vue": {"before": "3.5.30", "after": "3.5.31"},
+      "tailwindcss": {"before": "4.2.1", "after": "4.2.2"},
+      "@tailwindcss/vite": {"before": "4.2.1", "after": "4.2.2"},
+      "@tanstack/vue-query": {"before": "5.92.9", "after": "5.95.2"},
+      "@sentry/nuxt": {"before": "10.43.0", "after": "10.46.0"},
+      "nuxt-og-image": {"before": "6.0.3", "after": "6.2.3"}
+    },
+    "i18nFilesFixed": 13,
+    "securityFixes": 1,
+    "typesConsolidated": true
+  },
+  "technologies": [
+    {
+      "category": "Framework", "name": "Nuxt", "packageName": "nuxt", "scope": "runtime",
+      "declaredVersion": "^4.4.2", "resolvedVersion": "4.4.2",
+      "latestStableVersion": "4.4.2", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Framework", "name": "Vue", "packageName": "vue", "scope": "runtime",
+      "declaredVersion": "^3.5.30", "resolvedVersion": "3.5.31",
+      "latestStableVersion": "3.5.31", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Build", "name": "Vite", "packageName": "vite", "scope": "build",
+      "declaredVersion": "^7.3.1", "resolvedVersion": "7.3.1",
+      "latestStableVersion": "8.0.3", "status": "outdated", "riskLevel": "medium",
+      "recommendation": "wait-for-nuxt", "notes": "Nuxt controls Vite version — do NOT manually override",
+      "confidence": "high"
+    },
+    {
+      "category": "Language", "name": "TypeScript", "packageName": "typescript", "scope": "dev",
+      "declaredVersion": "^5.9.3", "resolvedVersion": "5.9.3",
+      "latestStableVersion": "5.9.3", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Styling", "name": "TailwindCSS", "packageName": "tailwindcss", "scope": "dev",
+      "declaredVersion": "^4.2.1", "resolvedVersion": "4.2.2",
+      "latestStableVersion": "4.2.2", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "State", "name": "Pinia", "packageName": "pinia", "scope": "runtime",
+      "declaredVersion": "^3.0.4", "resolvedVersion": "3.0.4",
+      "latestStableVersion": "3.0.4", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Data Fetching", "name": "TanStack Vue Query", "packageName": "@tanstack/vue-query", "scope": "runtime",
+      "declaredVersion": "^5.92.9", "resolvedVersion": "5.95.2",
+      "latestStableVersion": "5.95.2", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "notes": "Plugin configured but no useQuery calls yet — ready for integration",
+      "confidence": "high"
+    },
+    {
+      "category": "UI Components", "name": "Reka UI", "packageName": "reka-ui", "scope": "dev",
+      "declaredVersion": "2.9.2", "resolvedVersion": "2.9.2",
+      "latestStableVersion": "2.9.2", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Validation", "name": "VeeValidate", "packageName": "vee-validate", "scope": "runtime",
+      "declaredVersion": "4.15.1", "resolvedVersion": "4.15.1",
+      "latestStableVersion": "4.15.1", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Validation", "name": "Zod", "packageName": "zod", "scope": "runtime",
+      "declaredVersion": "^4.3.6", "resolvedVersion": "4.3.6",
+      "latestStableVersion": "4.3.6", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Utilities", "name": "VueUse Core", "packageName": "@vueuse/core", "scope": "runtime",
+      "declaredVersion": "^14.2.1", "resolvedVersion": "14.2.1",
+      "latestStableVersion": "14.2.1", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Utilities", "name": "CVA", "packageName": "class-variance-authority", "scope": "runtime",
+      "declaredVersion": "^0.7.1", "resolvedVersion": "0.7.1",
+      "latestStableVersion": "0.7.1", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Icons", "name": "Lucide Vue Next", "packageName": "lucide-vue-next", "scope": "runtime",
+      "declaredVersion": "^0.577.0", "resolvedVersion": "0.577.0",
+      "latestStableVersion": "0.577.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Notifications", "name": "Vue Sonner", "packageName": "vue-sonner", "scope": "runtime",
+      "declaredVersion": "^2.0.9", "resolvedVersion": "2.0.9",
+      "latestStableVersion": "2.0.9", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "i18n", "name": "Nuxt i18n", "packageName": "@nuxtjs/i18n", "scope": "dev",
+      "declaredVersion": "10.2.3", "resolvedVersion": "10.2.3",
+      "latestStableVersion": "10.2.3", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Content", "name": "Nuxt Content", "packageName": "@nuxt/content", "scope": "dev",
+      "declaredVersion": "3.12.0", "resolvedVersion": "3.12.0",
+      "latestStableVersion": "3.12.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Images", "name": "Nuxt Image", "packageName": "@nuxt/image", "scope": "dev",
+      "declaredVersion": "^2.0.0", "resolvedVersion": "2.0.0",
+      "latestStableVersion": "2.0.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Fonts", "name": "Nuxt Fonts", "packageName": "@nuxt/fonts", "scope": "dev",
+      "declaredVersion": "^0.14.0", "resolvedVersion": "0.14.0",
+      "latestStableVersion": "0.14.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Color Mode", "name": "Nuxt Color Mode", "packageName": "@nuxtjs/color-mode", "scope": "dev",
+      "declaredVersion": "^4.0.0", "resolvedVersion": "4.0.0",
+      "latestStableVersion": "4.0.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "PWA", "name": "Vite PWA Nuxt", "packageName": "@vite-pwa/nuxt", "scope": "dev",
+      "declaredVersion": "^1.1.1", "resolvedVersion": "1.1.1",
+      "latestStableVersion": "1.1.1", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Scripts", "name": "Nuxt Scripts", "packageName": "@nuxt/scripts", "scope": "dev",
+      "declaredVersion": "^0.13.2", "resolvedVersion": "0.13.2",
+      "latestStableVersion": "0.13.2", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Monitoring", "name": "Sentry Nuxt", "packageName": "@sentry/nuxt", "scope": "runtime",
+      "declaredVersion": "^10.43.0", "resolvedVersion": "10.46.0",
+      "latestStableVersion": "10.46.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Security", "name": "Nuxt Security", "packageName": "nuxt-security", "scope": "dev",
+      "declaredVersion": "^2.5.1", "resolvedVersion": "2.5.1",
+      "latestStableVersion": "2.5.1", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Auth", "name": "Nuxt Auth Utils", "packageName": "nuxt-auth-utils", "scope": "dev",
+      "declaredVersion": "^0.5.29", "resolvedVersion": "0.5.29",
+      "latestStableVersion": "0.5.29", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "SEO", "name": "Nuxt OG Image", "packageName": "nuxt-og-image", "scope": "dev",
+      "declaredVersion": "^6.0.3", "resolvedVersion": "6.2.3",
+      "latestStableVersion": "6.2.3", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "SEO", "name": "Nuxt Sitemap", "packageName": "@nuxtjs/sitemap", "scope": "dev",
+      "declaredVersion": "^7.6.0", "resolvedVersion": "7.6.0",
+      "latestStableVersion": "7.6.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "SEO", "name": "Nuxt Robots", "packageName": "@nuxtjs/robots", "scope": "dev",
+      "declaredVersion": "^5.7.1", "resolvedVersion": "5.7.1",
+      "latestStableVersion": "5.7.1", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Testing", "name": "Vitest", "packageName": "vitest", "scope": "dev",
+      "declaredVersion": "4.1.0", "resolvedVersion": "4.1.0",
+      "latestStableVersion": "4.1.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Testing", "name": "Playwright", "packageName": "@playwright/test", "scope": "dev",
+      "declaredVersion": "1.58.2", "resolvedVersion": "1.58.2",
+      "latestStableVersion": "1.58.2", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Linting", "name": "ESLint", "packageName": "eslint", "scope": "dev",
+      "declaredVersion": "10.0.3", "resolvedVersion": "10.0.3",
+      "latestStableVersion": "10.0.3", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    },
+    {
+      "category": "Animation", "name": "Auto Animate", "packageName": "@formkit/auto-animate", "scope": "runtime",
+      "declaredVersion": "^0.9.0", "resolvedVersion": "0.9.0",
+      "latestStableVersion": "0.9.0", "status": "up-to-date", "riskLevel": "low",
+      "recommendation": "keep", "confidence": "high"
+    }
+  ],
+  "removedTechnologies": [
+    {"name": "@vee-validate/zod", "reason": "Unused — custom toTypedSchema.ts replaces it", "status": "removed"},
+    {"name": "vite-plugin-compression", "reason": "Unused — @nuxt-modules/compression handles it", "status": "removed"},
+    {"name": "@nuxtjs/device", "reason": "Unused — VueUse useMediaQuery replaces it", "status": "removed"},
+    {"name": "nuxt-schema-org", "reason": "Unused — custom useStructuredData composable handles it", "status": "removed"}
+  ]
+}

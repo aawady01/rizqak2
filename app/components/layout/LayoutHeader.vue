@@ -3,9 +3,32 @@ import { BellDot, Moon, Sun, SquareUser, LayoutGrid, X } from "lucide-vue-next";
 import { navLinks } from "~/shared/utils/mockData";
 const colorMode = useColorMode();
 const isDark = computed(() => colorMode.value === "dark");
-const toggleTheme = () => {
-  colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+
+const toggleTheme = async () => {
+  const isDarkNow = colorMode.value === "dark";
+  const newTheme = isDarkNow ? "light" : "dark";
+
+  // Fallback for browsers that don't support View Transitions
+  if (!(document as any).startViewTransition) {
+    document.documentElement.classList.add("theme-transitioning");
+    colorMode.preference = newTheme;
+    await nextTick();
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 0);
+    return;
+  }
+
+  document.documentElement.classList.add("theme-transitioning");
+  const transition = (document as any).startViewTransition(() => {
+    colorMode.preference = newTheme;
+  });
+
+  transition.finished.finally(() => {
+    document.documentElement.classList.remove("theme-transitioning");
+  });
 };
+
 const [mobileMenuOpen, toggleMobileMenu] = useToggle(false);
 </script>
 

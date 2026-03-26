@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Plus, Minus } from "lucide-vue-next";
 
+const { t } = useI18n();
+
 interface Props {
   expanded: boolean;
   collapsedLabel?: string;
@@ -9,12 +11,15 @@ interface Props {
   disabled?: boolean;
 }
 
-withDefaults(defineProps<Props>(), {
-  collapsedLabel: "توسيع القائمة",
-  expandedLabel: "طي القائمة",
+const props = withDefaults(defineProps<Props>(), {
+  collapsedLabel: undefined,
+  expandedLabel: undefined,
   controlsId: undefined,
   disabled: false,
 });
+
+const resolvedCollapsed = computed(() => props.collapsedLabel ?? t('base.disclosure.expand'));
+const resolvedExpanded = computed(() => props.expandedLabel ?? t('base.disclosure.collapse'));
 
 defineEmits<{
   toggle: [];
@@ -27,7 +32,7 @@ defineEmits<{
     class="filter-disclosure-button"
     :aria-expanded="expanded"
     :aria-controls="controlsId"
-    :aria-label="expanded ? expandedLabel : collapsedLabel"
+    :aria-label="expanded ? resolvedExpanded : resolvedCollapsed"
     :disabled="disabled"
     @click.stop="$emit('toggle')"
   >

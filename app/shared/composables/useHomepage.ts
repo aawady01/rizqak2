@@ -1,6 +1,38 @@
-import type { Country, Company, Job, FilterNode, SelectOption } from '../types'
+import type { FilterNode, SelectOption } from '../types'
 
-const countries: Country[] = [
+interface HomepageCountry {
+  flag: string
+  name: string
+  count: string | number
+  code?: string
+}
+
+interface HomepageCompany {
+  id: string
+  name: string
+  slug: string
+  icon?: string
+  rating: string | number
+  reviews: string | number
+  jobs: string | number
+}
+
+interface HomepageJob {
+  id: string | number
+  slug: string
+  title: string
+  category: string
+  flag?: string
+  location: string
+  company: string
+  companySlug: string
+  salary: string
+  benefits?: string[]
+  icon?: string
+  experience?: string
+}
+
+const countries: HomepageCountry[] = [
   { flag: '🇸🇦', name: 'السعودية', count: '1,240', code: 'sa' },
   { flag: '🇦🇪', name: 'الإمارات', count: '856', code: 'ae' },
   { flag: '🇰🇼', name: 'الكويت', count: '432', code: 'kw' },
@@ -10,7 +42,7 @@ const countries: Country[] = [
   { flag: '🌐', name: 'كل الدول', count: '3,450', code: 'all' },
 ]
 
-const featuredCompanies: Company[] = [
+const featuredCompanies: HomepageCompany[] = [
   {
     id: '1',
     name: 'المعالي للتوظيف',
@@ -113,7 +145,7 @@ const experienceNodes: FilterNode[] = [
   { id: 'senior', label: 'مستوى متقدم (5+)', isChecked: false },
 ]
 
-const allJobs: Job[] = [
+const allJobs: HomepageJob[] = [
   {
     id: '1',
     slug: 'cost-accountant-kuwait',

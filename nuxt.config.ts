@@ -30,12 +30,9 @@ export default defineNuxtConfig({
     // Dev-slow modules: only in production
     ...(!isDev ? [
       '@sentry/nuxt/module' as const,
-      '@nuxt-modules/compression' as const,
       'nuxt-security' as const,
-      '@nuxtjs/device' as const,
       '@nuxtjs/sitemap' as const,
       '@nuxtjs/robots' as const,
-      'nuxt-schema-org' as const,
       'nuxt-auth-utils' as const,
       'nuxt-link-checker' as const,
     ] : []),
@@ -110,9 +107,9 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     includeAssets: ['favicon.svg'],
     manifest: {
-      name: 'رزقاك | Rizqak',
-      short_name: 'رزقاك',
-      description: 'رزقاك تساعد الباحثين عن عمل في مصر وإفريقيا على إيجاد فرص موثوقة.',
+      name: 'رزقك | Rizqak',
+      short_name: 'رزقك',
+      description: 'رزقك تساعد الباحثين عن عمل في مصر وإفريقيا على إيجاد فرص موثوقة.',
       lang: 'ar',
       dir: 'rtl',
       theme_color: '#1B6B4A',
@@ -132,13 +129,7 @@ export default defineNuxtConfig({
 
   ogImage: isDev ? { enabled: false } : {},
 
-  device: {},
-
-  compression: isDev ? { enabled: false } : {},
-
-  linkChecker: {
-    failOnError: false,
-  },
+  ...(!isDev ? { linkChecker: { failOnError: false } } : {}),
 
   veeValidate: {
     autoImports: true,
@@ -152,67 +143,42 @@ export default defineNuxtConfig({
 
   image: {},
 
-  security: {
-    headers: {
-      contentSecurityPolicy: isDev
-        ? {
-            'base-uri': ["'none'"],
-            'font-src': ["'self'", 'https:', 'data:'],
-            'form-action': ["'self'"],
-            'frame-ancestors': ["'self'"],
-            'img-src': ["'self'", 'data:', 'blob:', 'https:'],
-            'object-src': ["'none'"],
-            'script-src-attr': ["'none'"],
-            'style-src': ["'self'", 'https:', "'unsafe-inline'"],
-            'script-src': [
-              "'self'",
-              'https:',
-              "'unsafe-inline'",
-              "'unsafe-eval'",
-              "'strict-dynamic'",
-              "'nonce-{{nonce}}'",
-            ],
-            'connect-src': ["'self'", 'https:', 'http:', 'ws:', 'wss:'],
-            'upgrade-insecure-requests': false,
-          }
-        : {
-            'base-uri': ["'none'"],
-            'font-src': ["'self'", 'https:', 'data:'],
-            'form-action': ["'self'"],
-            'frame-ancestors': ["'self'"],
-            'img-src': ["'self'", 'data:', 'blob:', 'https:'],
-            'object-src': ["'none'"],
-            'script-src-attr': ["'none'"],
-            'style-src': ["'self'", 'https:', "'unsafe-inline'"],
-            'script-src': [
-              "'self'",
-              'https:',
-              "'unsafe-inline'",
-              "'strict-dynamic'",
-              "'nonce-{{nonce}}'",
-            ],
-            'connect-src': ["'self'", 'https:'],
-            'upgrade-insecure-requests': true,
-          },
+  ...(!isDev ? {
+    security: {
+      headers: {
+        contentSecurityPolicy: {
+          'base-uri': ["'none'"],
+          'font-src': ["'self'", 'https:', 'data:'],
+          'form-action': ["'self'"],
+          'frame-ancestors': ["'self'"],
+          'img-src': ["'self'", 'data:', 'blob:', 'https:'],
+          'object-src': ["'none'"],
+          'script-src-attr': ["'none'"],
+          'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+          'script-src': [
+            "'self'",
+            'https:',
+            "'unsafe-inline'",
+            "'strict-dynamic'",
+            "'nonce-{{nonce}}'",
+          ],
+          'connect-src': ["'self'", 'https:'],
+          'upgrade-insecure-requests': true,
+        },
+      },
     },
-  },
+  } : {}),
 
-  sitemap: {
-    enabled: true,
-  },
-
-  robots: {
-    sitemap: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com'}/sitemap.xml`,
-  },
-
-  schemaOrg: {},
+  ...(!isDev ? {
+    sitemap: { enabled: true },
+    robots: { sitemap: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://rizqak.com'}/sitemap.xml` },
+  } : {}),
 
   vite: {
     resolve: {
       dedupe: ['vee-validate'],
     },
     plugins: [
-      // @ts-expect-error -- compatibility issue between vite versions
       tailwindcss(),
     ],
     css: {
@@ -236,11 +202,11 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'رزقاك | وظائف في مصر والخليج',
+      title: 'رزقك | وظائف في مصر والخليج',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'رزقاك تساعد الباحثين عن عمل في مصر وإفريقيا على إيجاد فرص موثوقة.' },
+        { name: 'description', content: 'رزقك تساعد الباحثين عن عمل في مصر وإفريقيا على إيجاد فرص موثوقة.' },
         { name: 'theme-color', content: '#1B6B4A' },
         { property: 'og:locale', content: 'ar_EG' },
         { property: 'og:site_name', content: 'Rizqak' },

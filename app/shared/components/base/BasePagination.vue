@@ -2,6 +2,8 @@
 import { ChevronRight, ChevronLeft } from "lucide-vue-next";
 import { cn } from "~/shared/utils/tailwind";
 
+const { t } = useI18n();
+
 interface Props {
   currentPage?: number;
   totalPages?: number;
@@ -44,7 +46,7 @@ const handlePageChange = (page: number | string) => {
 
 <template>
   <div :class="cn('pt-6 flex justify-center', props.class)">
-    <nav aria-label="ترقيم الصفحات" class="flex gap-1.5">
+    <nav :aria-label="t('base.pagination.ariaLabel')" class="flex gap-1.5">
       <!-- Arrow Right (Previous in RTL) -->
       <button
         :disabled="currentPage === 1"

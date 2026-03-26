@@ -7,11 +7,11 @@ import { companiesData } from "~/shared/utils/mockData";
 
 <template>
   <section id="companies" class="relative scroll-mt-24">
-    <div class="flex justify-between items-center mb-content">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-y-4 mb-content">
       <div class="flex items-center gap-compact">
         <SquareCheckBig class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
         <BaseTypography variant="h3" tag="h2" class="font-bold text-foreground">
-          شركات توظيف مميزة
+          {{ $t('homeFeaturedCompanies.title') }}
         </BaseTypography>
       </div>
 
@@ -21,7 +21,7 @@ import { companiesData } from "~/shared/utils/mockData";
         color="text-primary"
         class="tracking-wide"
       >
-        مختارة بعناية
+        {{ $t('homeFeaturedCompanies.subtitle') }}
       </BaseTypography>
     </div>
 
@@ -35,7 +35,7 @@ import { companiesData } from "~/shared/utils/mockData";
       </div>
 
       <button
-        aria-label="السابق"
+        :aria-label.attr="$t('homeFeaturedCompanies.next')"
         class="absolute inset-inline-end-overhang-md top-1/2 -translate-y-1/2 size-10 bg-surface border border-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-carousel text-foreground-muted shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100 outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
       >
         <ChevronRight
@@ -44,7 +44,7 @@ import { companiesData } from "~/shared/utils/mockData";
         />
       </button>
       <button
-        aria-label="التالي"
+        :aria-label.attr="$t('homeFeaturedCompanies.prev')"
         class="absolute inset-inline-start-overhang-md top-1/2 -translate-y-1/2 size-10 bg-surface border border-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-carousel text-foreground-muted shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100 outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
       >
         <ChevronLeft

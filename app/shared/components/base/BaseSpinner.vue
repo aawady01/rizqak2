@@ -2,6 +2,8 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "~/shared/utils/tailwind";
 
+const { t } = useI18n();
+
 const spinnerVariants = cva(
   "animate-spin rounded-full border-2 border-current border-t-transparent",
   {
@@ -28,8 +30,10 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   size: "md",
-  label: "جاري التحميل",
+  label: undefined,
 });
+
+const resolvedLabel = computed(() => props.label ?? t('base.spinner.label'));
 </script>
 
 <template>
@@ -38,6 +42,6 @@ const props = withDefaults(defineProps<Props>(), {
     :class="cn('inline-flex items-center justify-center', props.class)"
   >
     <div :class="spinnerVariants({ size })" />
-    <span class="sr-only">{{ label }}</span>
+    <span class="sr-only">{{ resolvedLabel }}</span>
   </div>
 </template>

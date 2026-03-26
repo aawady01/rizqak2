@@ -88,7 +88,8 @@ import {
             <a
               v-for="icon in 3"
               :key="icon"
-              href="#"
+              :href="icon === 1 ? 'mailto:info@rizqak.com' : undefined"
+              role="button"
               :aria-label="icon === 1 ? $t('footer.icons.email') : icon === 2 ? $t('footer.icons.jobs') : $t('footer.icons.external')"
               class="w-10 h-10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all rounded-none active:scale-95"
             >
@@ -107,4 +108,3 @@ import {
     </div>
   </footer>
 </template>
-

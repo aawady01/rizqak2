@@ -7,6 +7,8 @@ import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vu
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
 import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
 
+const { t } = useI18n();
+
 interface Props {
   category: FilterCategory;
   isLast: boolean;
@@ -130,8 +132,8 @@ const onChildToggle = (childId: string) => {
             :expanded="expanded"
             :controls-id="childGroupId"
             :disabled="isSearching"
-            collapsed-label="توسيع المجموعة"
-            expanded-label="طي المجموعة"
+            :collapsed-label="t('filters.expandGroup')"
+            :expanded-label="t('filters.collapseGroup')"
             @toggle="toggleExpanded"
           />
         </BaseFilterItemRow>

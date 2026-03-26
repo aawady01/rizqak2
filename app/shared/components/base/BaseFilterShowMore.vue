@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 interface Props {
   showAll: boolean;
   hiddenCount: number;
@@ -17,10 +19,10 @@ const emit = defineEmits<{ toggle: [] }>();
       type="button"
       class="rounded-none px-1 py-0.5 text-ds-caption-r font-medium text-primary outline-none transition-colors hover:underline filter-tree-focus-ring"
       :aria-expanded="showAll"
-      :aria-label="showAll ? 'عرض عناصر أقل' : 'عرض عناصر إضافية'"
+      :aria-label="showAll ? t('base.filterShowMore.ariaShowLess') : t('base.filterShowMore.ariaShowMore')"
       @click.stop="emit('toggle')"
     >
-      {{ showAll ? "عرض أقل" : "عرض المزيد" }}
+      {{ showAll ? t('base.filterShowMore.showLess') : t('base.filterShowMore.showMore') }}
       <span v-if="!showAll && hiddenCount > 0" class="ms-1">
         ({{ hiddenCount }})
       </span>
