@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import BaseDisclosureButton from "../../shared/components/base/BaseDisclosureButton.vue";
 import BaseFilterHeader from "../../shared/components/base/BaseFilterHeader.vue";
-import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
 import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
 import { toDomSafeId } from "~/shared/utils/string";
 
@@ -51,9 +50,6 @@ const sectionDomId = computed(
   () => toDomSafeId(props.title, "filter-section"),
 );
 const contentDomId = computed(() => `${sectionDomId.value}-content`);
-const connectorActive = computed(
-  () => Boolean(props.allChecked || props.someChecked || props.expanded),
-);
 </script>
 
 <template>
@@ -69,12 +65,6 @@ const connectorActive = computed(
     />
 
     <div class="relative">
-      <BaseTreeConnector
-        v-if="hasSelectAll"
-        type="stem"
-        :active="connectorActive"
-      />
-
       <div
         v-if="hasSelectAll"
         class="relative mb-1 z-20"
@@ -112,7 +102,6 @@ const connectorActive = computed(
           class="overflow-hidden"
           role="group"
           :aria-labelledby="sectionDomId"
-          :class="[hasSelectAll ? 'relative' : '']"
         >
           <slot />
         </div>

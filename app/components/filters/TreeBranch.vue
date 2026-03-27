@@ -3,7 +3,6 @@ import type { FilterCategory } from "~/shared/utils/mockData";
 import { normalizeArabic, toDomSafeId } from "~/shared/utils/string";
 import { useFilterPagination } from "~/composables/filters/useFilterPagination";
 import BaseDisclosureButton from "../../shared/components/base/BaseDisclosureButton.vue";
-import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
 import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
 
@@ -87,9 +86,7 @@ const {
   toggleShowAll,
 } = useFilterPagination(matchingChildren, isSearching, 4);
 
-const rowStateActive = computed(
-  () => someChecked.value || allChecked.value || expanded.value,
-);
+
 const categoryInputId = computed(() => toDomSafeId(props.category.id, "tree-cat"));
 const childGroupId = computed(() => toDomSafeId(props.category.id, "tree-group"));
 
@@ -108,14 +105,8 @@ const onChildToggle = (childId: string) => {
 </script>
 
 <template>
-  <div class="relative">
-    <BaseTreeConnector
-      type="root-branch"
-      :is-last="isLast"
-      :active="rowStateActive"
-    />
-
-    <div class="ps-filter-tree-root">
+  <div class="relative mt-2">
+    <div>
       <div class="relative z-20">
         <BaseFilterItemRow
           :input-id="categoryInputId"
@@ -139,12 +130,6 @@ const onChildToggle = (childId: string) => {
         </BaseFilterItemRow>
       </div>
 
-      <BaseTreeConnector
-        v-if="hasChildren && expanded"
-        type="bridge"
-        :active="rowStateActive"
-      />
-
       <div
         v-if="hasChildren"
         :id="childGroupId"
@@ -155,21 +140,15 @@ const onChildToggle = (childId: string) => {
       >
         <div class="overflow-hidden">
           <div
-            class="relative"
+            class="relative ps-6 mt-1 flex flex-col gap-y-1"
             role="group"
             :aria-labelledby="categoryInputId"
           >
             <div
-              v-for="(child, idx) in visibleChildren"
+              v-for="child in visibleChildren"
               :key="child.id"
               class="relative"
             >
-              <BaseTreeConnector
-                type="branch"
-                :is-last="idx === visibleChildren.length - 1"
-                :active="checkedChildren.has(child.id)"
-              />
-
               <BaseFilterItemRow
                 :input-id="`tree-child-${category.id}-${child.id}`"
                 :label="child.label"

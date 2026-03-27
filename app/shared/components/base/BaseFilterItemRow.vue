@@ -42,18 +42,16 @@ watchEffect(() => {
 
 <template>
   <div
-    class="filter-tree-item-row"
+    class="relative z-10 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 min-w-0 transition-colors"
     :class="[
-      level === 'category'
-        ? 'filter-tree-item-row--category'
-        : 'filter-tree-item-row--child',
+      level === 'category' ? 'min-h-[32px]' : 'min-h-[32px] ms-4',
       disabled ? 'opacity-50' : '',
     ]"
   >
     <label
       :for="resolvedInputId"
-      class="filter-tree-item-row__label"
-      :class="[disabled ? 'filter-tree-item-row__label--disabled' : '']"
+      class="grid grid-cols-[16px_minmax(0,1fr)] items-center gap-3 min-w-0 cursor-pointer py-1 outline-none transition-colors hover:bg-surface-hover"
+      :class="[disabled ? 'cursor-not-allowed' : '']"
     >
       <input
         :id="resolvedInputId"
@@ -68,7 +66,7 @@ watchEffect(() => {
 
       <span
         v-if="inputType === 'radio'"
-        class="filter-tree-item-row__control rounded-full border transition-colors"
+        class="relative inline-flex size-4 items-center justify-center shrink-0 justify-self-start rounded-full border transition-colors"
         :class="[
           checked
             ? 'border-primary bg-primary'
@@ -80,7 +78,7 @@ watchEffect(() => {
 
       <span
         v-else
-        class="filter-tree-item-row__control rounded-none border transition-colors"
+        class="relative inline-flex size-4 items-center justify-center shrink-0 justify-self-start rounded-none border transition-colors"
         :class="[
           checked || indeterminate
             ? 'border-primary bg-primary'
@@ -98,7 +96,7 @@ watchEffect(() => {
         />
       </span>
 
-      <span class="filter-tree-item-row__content">
+      <span class="flex min-w-0 items-baseline gap-1.5">
         <span
           class="min-w-0 truncate transition-colors"
           :class="[
@@ -112,7 +110,7 @@ watchEffect(() => {
 
         <span
           v-if="count !== undefined || totalJobs !== undefined"
-          class="filter-tree-item-row__count"
+          class="shrink-0 text-[11px] leading-[1.4] text-neutral-400 font-medium"
         >
           <template v-if="count !== undefined && count > 0">{{ count }}</template>
           <template v-if="totalJobs !== undefined"> ({{ totalJobs }})</template>

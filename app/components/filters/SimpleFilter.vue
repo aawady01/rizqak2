@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import BaseFilterSection from "./BaseFilterSection.vue";
-import BaseTreeConnector from "../../shared/components/base/BaseTreeConnector.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
 import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
 import { useFilterSearch } from "~/composables/filters/useFilterSearch";
@@ -100,14 +99,8 @@ const handleExpandToggle = () => {
     @toggle-all="handleToggleAll"
     @expand-toggle="handleExpandToggle"
   >
-    <div v-for="(item, idx) in visibleItems" :key="item.id" class="relative">
-      <BaseTreeConnector
-        type="root-branch"
-        :is-last="idx === visibleItems.length - 1"
-        :active="selection.isChecked(item.id)"
-      />
-
-      <div class="ps-filter-tree-root">
+    <div v-for="item in visibleItems" :key="item.id" class="relative mt-2">
+      <div>
         <BaseFilterItemRow
           :input-id="`${sectionIdBase}-${item.id}`"
           :input-name="type === 'radio' ? (radioName ?? title) : undefined"
