@@ -10,38 +10,36 @@ export const createFilterNodes = (items: string[], countRange = 100): FilterNode
   }))
 }
 
-const locations = [
-  'السعودية',
-  'الكويت',
-  'الإمارات',
-  'قطر',
-  'عمان',
-  'البحرين'
-]
+const locations = computed(() => [
+  'filters.location.children.saudi',
+  'filters.location.children.kuwait',
+  'filters.location.children.uae',
+  'filters.location.children.qatar',
+  'filters.location.children.oman',
+  'filters.location.children.bahrain'
+])
 
-const salaryRanges = [
-  'أقل من 2000 ريال',
-  '2000 - 4000 ريال',
-  '4000 - 8000 ريال',
-  'أكثر من 8000 ريال'
-]
+const salaryRanges = computed(() => [
+  'filters.salary.low',
+  'filters.salary.mid',
+  'filters.salary.high',
+  'filters.salary.veryHigh'
+])
 
-const experienceLevels = [
-  'بدون خبرة',
-  'أقل من سنة',
-  '1 - 3 سنوات',
-  '3 - 5 سنوات',
-  '5 - 10 سنوات',
-  'أكثر من 10 سنوات'
-]
+const experienceLevels = computed(() => [
+  'filters.experience.fresh',
+  'filters.experience.junior',
+  'filters.experience.mid',
+  'filters.experience.senior'
+])
 
-const categories = [
-  'البناء والتشييد',
-  'الكهرباء',
-  'المحاسبة والإدارة',
-  'التمريض والرعاية الصحية',
-  'السائقين والنقل'
-]
+const categories = computed(() => [
+  'filters.field.categories.engineering',
+  'filters.field.categories.electrical',
+  'filters.field.categories.technical',
+  'filters.field.categories.medical',
+  'filters.field.categories.driving'
+])
 
 export const useFilterData = () => {
   return {

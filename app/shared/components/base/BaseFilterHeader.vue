@@ -33,6 +33,7 @@ const searchQuery = defineModel<string>("searchQuery", { default: "" });
     <div v-if="searchable" class="max-w-search-compact w-full">
       <BaseSearchInput
         v-model="searchQuery"
+        :debounce="0"
         :placeholder="searchPlaceholder ?? t('base.filterHeader.searchPlaceholder')"
       />
     </div>

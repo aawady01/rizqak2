@@ -1,7 +1,9 @@
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.config.errorHandler = (err, _vm, _info) => {
     const errorDiv = document.createElement('div')
-    errorDiv.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;padding:20px;background:#fee;color:#900;font-family:monospace;font-size:14px;white-space:pre-wrap;max-height:80vh;overflow:auto'
+    const bgColor = 'var(--color-error-bg, #fff5f5)'
+    const textColor = 'var(--color-error, #e53e3e)'
+    errorDiv.style.cssText = `position:fixed;top:0;left:0;right:0;z-index:99999;padding:20px;background:${bgColor};color:${textColor};font-family:monospace;font-size:14px;white-space:pre-wrap;max-height:80vh;overflow:auto`
 
     const strong = document.createElement('strong')
     strong.textContent = 'Vue Error:'

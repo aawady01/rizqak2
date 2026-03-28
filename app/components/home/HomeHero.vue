@@ -28,8 +28,8 @@ const handleCountrySelect = (country: Country) => {
   emit("countrySelect", country);
 };
 
-// Optional: Add logic for the chevron buttons to scroll the container
-// Currently they serve as UI markers as per the react implementation.
+const carouselRef = ref<HTMLElement | null>(null);
+const { scrollCarousel } = useCarouselScroll(carouselRef, { fallbackRatio: 0.7 });
 </script>
 
 <template>
@@ -66,7 +66,7 @@ const handleCountrySelect = (country: Country) => {
               'hero__search-icon-box',
               isFocused
                 ? 'bg-primary text-white border-primary'
-                : 'text-white/50',
+                : 'text-foreground-muted',
             ]"
           >
             <Search class="size-5" :stroke-width="2.5" />
@@ -87,7 +87,8 @@ const handleCountrySelect = (country: Country) => {
           <!-- Clear Action -->
           <button
             v-if="searchQuery"
-            class="p-2 me-2 text-white/50 hover:text-white transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+            :aria-label="$t('hero.clearSearch')"
+            class="p-2 me-2 text-white/50 hover:text-white transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-white/50 cursor-pointer"
             @click="clearSearch"
           >
             <X class="size-5" />
@@ -107,15 +108,16 @@ const handleCountrySelect = (country: Country) => {
       <div
         class="relative hero__carousel-container group/carousel max-w-4xl mx-auto"
       >
-        <!-- Navigation Arrows -->
+        <!-- Navigation Arrows (RTL: right=prev, left=next) -->
         <button
-          class="-inset-inline-start-5 absolute top-1/2 -translate-y-1/2 z-carousel size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-xl active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-          @click="null"
+          :aria-label="$t('countryCarousel.previous')"
+          class="carousel-control carousel-control--shell inset-inline-start-overhang-md group-hover/carousel:opacity-100 focus-visible:ring-2 focus-visible:ring-white/50"
+          @click="scrollCarousel(1)"
         >
           <ChevronRight class="size-5" :stroke-width="3" />
         </button>
 
-        <div class="hero__countries-grid">
+        <div ref="carouselRef" class="hero__countries-grid">
           <CountryCard
             v-for="country in countriesData"
             :key="country.id"
@@ -126,8 +128,9 @@ const handleCountrySelect = (country: Country) => {
         </div>
 
         <button
-          class="-inset-inline-end-5 absolute top-1/2 -translate-y-1/2 z-carousel size-10 bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary-dark transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 shadow-lg active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-          @click="null"
+          :aria-label="$t('countryCarousel.next')"
+          class="carousel-control carousel-control--shell inset-inline-end-overhang-md group-hover/carousel:opacity-100 focus-visible:ring-2 focus-visible:ring-white/50"
+          @click="scrollCarousel(-1)"
         >
           <ChevronLeft class="size-5" :stroke-width="3" />
         </button>

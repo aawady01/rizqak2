@@ -73,7 +73,7 @@ const handleChange = (id: string) => {
         type="button"
         role="radio"
         :aria-checked="currentValue === opt.id"
-        class="min-h-filter-option border text-ds-body-r text-center transition-colors rounded-none outline-none"
+        class="min-h-filter-option border text-ds-body-r text-center transition-colors rounded-none outline-none cursor-pointer"
         :class="[
           currentValue === opt.id
             ? 'bg-primary/5 border-primary text-primary font-semibold'

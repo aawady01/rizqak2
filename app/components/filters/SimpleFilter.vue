@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { ref, computed } from "vue";
 import BaseFilterSection from "./BaseFilterSection.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
 import BaseFilterItemRow from "../../shared/components/base/BaseFilterItemRow.vue";
+import BaseEmptyState from "../../shared/components/base/BaseEmptyState.vue";
 import { useFilterSearch } from "~/composables/filters/useFilterSearch";
 import { useFilterPagination } from "~/composables/filters/useFilterPagination";
 import { useFlatSelection } from "~/composables/filters/useFlatSelection";
@@ -22,17 +24,22 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   type: "checkbox",
+  radioName: undefined,
   expandable: true,
   searchable: false,
   urlKey: undefined,
 });
+const { t } = useI18n();
 
-const allExpanded = ref(true);
+const allExpanded = ref(false);
 const allItemIds = computed(() => props.items.map((item) => item.id));
 const sectionIdBase = computed(() => toDomSafeId(props.title, "flat-section"));
 
-const { searchQuery, isSearching, filteredItems } = useFilterSearch(
+const { searchQuery, isSearching, filteredItems, hasMatches } = useFilterSearch(
   () => props.items,
+  {
+    resolveLabel: (item) => t(item.label),
+  },
 );
 const {
   showAll: showAllItems,
@@ -99,7 +106,13 @@ const handleExpandToggle = () => {
     @toggle-all="handleToggleAll"
     @expand-toggle="handleExpandToggle"
   >
-    <div v-for="item in visibleItems" :key="item.id" class="relative mt-2">
+    <BaseEmptyState
+      v-if="isSearching && !hasMatches"
+      :icon="false"
+      class="py-6 px-0"
+    />
+
+    <div v-for="item in visibleItems" :key="item.id" class="relative">
       <div>
         <BaseFilterItemRow
           :input-id="`${sectionIdBase}-${item.id}`"

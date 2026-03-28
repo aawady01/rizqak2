@@ -1,5 +1,5 @@
 import type { TypedSchema } from 'vee-validate'
-import { ZodObject, ZodDefault, type ZodArray, type ZodSchema } from 'zod/v4'
+import { ZodObject, ZodDefault, type ZodArray, type ZodSchema, type ZodTypeDef } from 'zod'
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -139,8 +139,8 @@ function getSchemaForPath(path: string, schema: ZodSchema): ZodSchema | null {
   return current
 }
 
-export function toTypedSchema<TOutput, TInput = TOutput>(
-  zodSchema: ZodSchema<TOutput, TInput>,
+export function toTypedSchema<TOutput, TDef extends ZodTypeDef, TInput = TOutput>(
+  zodSchema: ZodSchema<TOutput, TDef, TInput>,
 ): TypedSchema<TOutput, TInput> {
   return {
     __type: 'VVTypedSchema' as const,

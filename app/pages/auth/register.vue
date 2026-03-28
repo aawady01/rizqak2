@@ -52,7 +52,7 @@ const roleOptions = [
 <template>
   <div class="min-h-screen flex items-center justify-center bg-background px-content py-section">
     <div class="w-full max-w-md">
-      <div class="bg-surface border border-border rounded-none p-8 shadow-sm">
+      <div class="surface-panel rounded-none p-8 shadow-sm">
         <!-- Header -->
         <div class="text-center mb-8">
           <div class="w-16 h-16 bg-primary rounded-none flex items-center justify-center mx-auto mb-4">

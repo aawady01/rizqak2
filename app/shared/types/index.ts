@@ -20,8 +20,9 @@ export interface SelectOption {
 }
 
 export interface BreadcrumbItem {
-  name: string
-  url: string
+  label: string
+  to?: string
+  url?: string
 }
 
 export interface PaginatedResponse<T> {

@@ -2,6 +2,7 @@
 import TreeBranch from "./TreeBranch.vue";
 import BaseFilterSection from "./BaseFilterSection.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
+import BaseEmptyState from "../../shared/components/base/BaseEmptyState.vue";
 import type { FilterSection } from "~/shared/utils/mockData";
 import { useFilterSearch } from "~/composables/filters/useFilterSearch";
 import { useFilterPagination } from "~/composables/filters/useFilterPagination";
@@ -14,13 +15,10 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const { t } = useI18n();
 
-const allExpanded = ref(true);
-const expandedCategoryId = ref<string | null>(
-  props.section.categories.find(
-    (category) => (category.children?.length ?? 0) > 0 && category.expanded,
-  )?.id ?? null,
-);
+const allExpanded = ref(false);
+const expandedCategoryId = ref<string | null>(null);
 
 const allChildIds = computed(() =>
   props.section.categories.flatMap(
@@ -28,8 +26,15 @@ const allChildIds = computed(() =>
   ),
 );
 
-const { searchQuery, isSearching, filteredItems: filteredCategories } =
-  useFilterSearch(() => props.section.categories);
+const {
+  searchQuery,
+  isSearching,
+  filteredItems: filteredCategories,
+  hasMatches,
+} = useFilterSearch(() => props.section.categories, {
+  resolveLabel: (item, parent) =>
+    parent ? `${t(parent.label)} ${t(item.label)}` : t(item.label),
+});
 const {
   showAll: showAllCategories,
   visibleItems: visibleCategories,
@@ -98,13 +103,19 @@ const handleToggleBranchExpansion = (
     @toggle-all="handleToggleAll"
     @expand-toggle="handleExpandToggle"
   >
+    <BaseEmptyState
+      v-if="isSearching && !hasMatches"
+      :icon="false"
+      class="py-6 px-0"
+    />
+
     <TreeBranch
       v-for="(category, idx) in visibleCategories"
       :key="category.id"
       :category="category"
       :is-last="idx === visibleCategories.length - 1"
       :checked-children="checkedItems"
-      :search-query="searchQuery"
+      :is-searching="isSearching"
       :expanded="expandedCategoryId === category.id"
       @toggle-child="handleToggleChild"
       @toggle-category="handleToggleCategory"

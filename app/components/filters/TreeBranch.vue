@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type { FilterCategory } from "~/shared/utils/mockData";
-import { normalizeArabic, toDomSafeId } from "~/shared/utils/string";
+import { toDomSafeId } from "~/shared/utils/string";
 import { useFilterPagination } from "~/composables/filters/useFilterPagination";
 import BaseDisclosureButton from "../../shared/components/base/BaseDisclosureButton.vue";
 import BaseFilterShowMore from "../../shared/components/base/BaseFilterShowMore.vue";
@@ -12,12 +13,12 @@ interface Props {
   category: FilterCategory;
   isLast: boolean;
   checkedChildren: Set<string>;
-  searchQuery?: string;
+  isSearching?: boolean;
   expanded?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  searchQuery: "",
+  isSearching: false,
   expanded: false,
 });
 
@@ -46,52 +47,21 @@ const allChecked = computed(
 const someChecked = computed(
   () => checkedCount.value > 0 && !allChecked.value,
 );
-
-const normalizedSearch = computed(() =>
-  normalizeArabic(props.searchQuery.trim().toLowerCase()),
-);
-const isSearching = computed(() => normalizedSearch.value.length > 0);
-
-const matchesSelf = computed(() => {
-  if (!isSearching.value) return false;
-
-  return normalizeArabic(props.category.label.toLowerCase()).includes(
-    normalizedSearch.value,
-  );
-});
-
-const matchingChildren = computed(() => {
-  if (!props.category.children) return [];
-  if (!isSearching.value) return props.category.children;
-
-  return props.category.children.filter((child) =>
-    normalizeArabic(child.label.toLowerCase()).includes(normalizedSearch.value),
-  );
-});
-
-const autoExpandedFromSearch = computed(
-  () =>
-    hasChildren.value &&
-    isSearching.value &&
-    (matchesSelf.value || matchingChildren.value.length > 0),
-);
-const expanded = computed(
-  () => Boolean(props.expanded) || autoExpandedFromSearch.value,
-);
+const visibleChildrenSource = computed(() => props.category.children ?? []);
+const expanded = computed(() => Boolean(props.expanded) || props.isSearching);
 
 const {
   showAll: showAllChildren,
   visibleItems: visibleChildren,
   hiddenCount: hiddenChildrenCount,
   toggleShowAll,
-} = useFilterPagination(matchingChildren, isSearching, 4);
-
+} = useFilterPagination(visibleChildrenSource, computed(() => props.isSearching), 4);
 
 const categoryInputId = computed(() => toDomSafeId(props.category.id, "tree-cat"));
 const childGroupId = computed(() => toDomSafeId(props.category.id, "tree-group"));
 
 const toggleExpanded = () => {
-  if (!hasChildren.value || isSearching.value) return;
+  if (!hasChildren.value || props.isSearching) return;
   emit("toggleExpand", props.category.id, !props.expanded);
 };
 
@@ -105,7 +75,7 @@ const onChildToggle = (childId: string) => {
 </script>
 
 <template>
-  <div class="relative mt-2">
+  <div class="relative">
     <div>
       <div class="relative z-20">
         <BaseFilterItemRow
@@ -122,7 +92,7 @@ const onChildToggle = (childId: string) => {
             v-if="hasChildren"
             :expanded="expanded"
             :controls-id="childGroupId"
-            :disabled="isSearching"
+            :disabled="props.isSearching"
             :collapsed-label="t('filters.expandGroup')"
             :expanded-label="t('filters.collapseGroup')"
             @toggle="toggleExpanded"
@@ -140,7 +110,7 @@ const onChildToggle = (childId: string) => {
       >
         <div class="overflow-hidden">
           <div
-            class="relative ps-6 mt-1 flex flex-col gap-y-1"
+            class="relative ps-5 pt-0.5 flex flex-col gap-0.5"
             role="group"
             :aria-labelledby="categoryInputId"
           >
@@ -163,8 +133,8 @@ const onChildToggle = (childId: string) => {
               v-if="
                 hiddenChildrenCount > 0 ||
                 (showAllChildren &&
-                  matchingChildren.length > 4 &&
-                  !isSearching)
+                  visibleChildrenSource.length > 4 &&
+                  !props.isSearching)
               "
               :show-all="showAllChildren"
               :hidden-count="hiddenChildrenCount"

@@ -45,7 +45,7 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <div class="min-h-screen flex items-center justify-center bg-background px-content py-section">
     <div class="w-full max-w-md">
-      <div class="bg-surface border border-border rounded-none p-8 shadow-sm">
+      <div class="surface-panel rounded-none p-8 shadow-sm">
         <!-- Success State -->
         <template v-if="isSubmitted">
           <div class="text-center py-8">

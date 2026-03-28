@@ -1,5 +1,7 @@
 import type { FilterNode, SelectOption } from '../types'
 
+const { t } = useI18n()
+
 interface HomepageCountry {
   flag: string
   name: string
@@ -27,25 +29,25 @@ interface HomepageJob {
   company: string
   companySlug: string
   salary: string
-  benefits?: string[]
+  benefits?: string[] | string
   icon?: string
   experience?: string
 }
 
-const countries: HomepageCountry[] = [
-  { flag: '🇸🇦', name: 'السعودية', count: '1,240', code: 'sa' },
-  { flag: '🇦🇪', name: 'الإمارات', count: '856', code: 'ae' },
-  { flag: '🇰🇼', name: 'الكويت', count: '432', code: 'kw' },
-  { flag: '🇶🇦', name: 'قطر', count: '215', code: 'qa' },
-  { flag: '🇴🇲', name: 'عمان', count: '124', code: 'om' },
-  { flag: '🇧🇭', name: 'البحرين', count: '89', code: 'bh' },
-  { flag: '🌐', name: 'كل الدول', count: '3,450', code: 'all' },
-]
+const countries = computed<HomepageCountry[]>(() => [
+  { flag: '🇸🇦', name: 'countries.sa', count: '1,240', code: 'sa' },
+  { flag: '🇦🇪', name: 'countries.ae', count: '856', code: 'ae' },
+  { flag: '🇰🇼', name: 'countries.kw', count: '432', code: 'kw' },
+  { flag: '🇶🇦', name: 'countries.qa', count: '215', code: 'qa' },
+  { flag: '🇴🇲', name: 'countries.om', count: '124', code: 'om' },
+  { flag: '🇧🇭', name: 'countries.bh', count: '89', code: 'bh' },
+  { flag: '🌐', name: 'countries.all', count: '3,450', code: 'all' },
+])
 
-const featuredCompanies: HomepageCompany[] = [
+const featuredCompanies = computed<HomepageCompany[]>(() => [
   {
     id: '1',
-    name: 'المعالي للتوظيف',
+    name: 'companies.maali',
     slug: 'maalali',
     icon: 'apartment',
     rating: '4.8',
@@ -54,7 +56,7 @@ const featuredCompanies: HomepageCompany[] = [
   },
   {
     id: '2',
-    name: 'مجموعة الشايع',
+    name: 'companies.alsaie',
     slug: 'alshaya',
     icon: 'apartment',
     rating: '4.5',
@@ -63,7 +65,7 @@ const featuredCompanies: HomepageCompany[] = [
   },
   {
     id: '3',
-    name: 'مجموعة بن لادن',
+    name: 'companies.binladin',
     slug: 'binladin',
     icon: 'business',
     rating: '4.2',
@@ -72,115 +74,116 @@ const featuredCompanies: HomepageCompany[] = [
   },
   {
     id: '4',
-    name: 'أرامكو السعودية',
+    name: 'companies.aramco',
     slug: 'aramco',
     icon: 'domain',
     rating: '4.9',
     reviews: '542',
     jobs: '5',
   },
-]
+])
 
-const fieldOfWorkData: FilterNode[] = [
+const fieldOfWorkData = computed<FilterNode[]>(() => [
   {
     id: 'eng',
-    label: 'الهندسة',
+    label: 'filters.field.categories.engineering',
     count: 850,
     isOpen: true,
     isChecked: false,
     children: [
-      { id: 'civil', label: 'هندسة مدنية', count: 320, isChecked: false },
-      { id: 'arch', label: 'هندسة معمارية', count: 150, isChecked: false },
-      { id: 'elect', label: 'هندسة كهربائية', count: 210, isChecked: false },
-      { id: 'mech', label: 'هندسة ميكانيكية', count: 170, isChecked: false },
+      { id: 'civil', label: 'filters.field.children.civil', count: 320, isChecked: false },
+      { id: 'arch', label: 'filters.field.children.architectural', count: 150, isChecked: false },
+      { id: 'elect', label: 'filters.field.children.electricalEng', count: 210, isChecked: false },
+      { id: 'mech', label: 'filters.field.children.mechanical', count: 170, isChecked: false },
     ],
   },
   {
     id: 'med',
-    label: 'القطاع الطبي',
+    label: 'filters.field.categories.medical',
     count: 620,
     isOpen: true,
     isChecked: false,
     children: [
-      { id: 'doc', label: 'أطباء', count: 120, isChecked: false },
-      { id: 'nurse', label: 'تمريض', count: 350, isChecked: false },
-      { id: 'pharm', label: 'صيدلة', count: 150, isChecked: false },
+      { id: 'doc', label: 'filters.field.children.nursing', count: 120, isChecked: false },
+      { id: 'nurse', label: 'filters.field.children.nursing', count: 350, isChecked: false },
+      { id: 'pharm', label: 'filters.field.children.pharmacy', count: 150, isChecked: false },
     ],
   },
   {
     id: 'fin',
-    label: 'المحاسبة والمالية',
+    label: 'filters.field.categories.technical',
     count: 410,
     isOpen: true,
     isChecked: false,
     children: [
-      { id: 'acc', label: 'محاسب عام', count: 280, isChecked: false },
-      { id: 'audit', label: 'مدقق حسابات', count: 80, isChecked: false },
-      { id: 'tax', label: 'محاسب ضرائب', count: 50, isChecked: false },
+      { id: 'acc', label: 'filters.field.children.civil', count: 280, isChecked: false },
+      { id: 'audit', label: 'filters.field.children.mechanical', count: 80, isChecked: false },
+      { id: 'tax', label: 'filters.field.children.electricalEng', count: 50, isChecked: false },
     ],
   },
   {
     id: 'tech',
-    label: 'تقنية المعلومات',
+    label: 'filters.field.categories.electrical',
     count: 310,
     isOpen: true,
     isChecked: false,
     children: [
-      { id: 'dev', label: 'مطور برمجيات', count: 180, isChecked: false },
-      { id: 'sys', label: 'دعم فني', count: 130, isChecked: false },
+      { id: 'dev', label: 'filters.field.children.itEng', count: 180, isChecked: false },
+      { id: 'sys', label: 'filters.field.children.elecMaintain', count: 130, isChecked: false },
     ],
   },
-]
-const salaryNodes: FilterNode[] = [
-  { id: 'low', label: 'أقل من 2,000 ريال', isChecked: false },
-  { id: 'mid', label: '2,000 - 4,000 ريال', isChecked: false },
-  { id: 'high', label: '4,000 - 8,000 ريال', isChecked: false },
-  { id: 'vhigh', label: 'أكثر من 8,000 ريال', isChecked: false },
-]
+])
 
-const experienceNodes: FilterNode[] = [
-  { id: 'fresh', label: 'حديث التخرج (0-1)', isChecked: false },
-  { id: 'junior', label: 'مستوى مبتدئ (1-3)', isChecked: false },
-  { id: 'mid', label: 'مستوى متوسط (3-5)', isChecked: false },
-  { id: 'senior', label: 'مستوى متقدم (5+)', isChecked: false },
-]
+const salaryNodes = computed<FilterNode[]>(() => [
+  { id: 'low', label: 'filters.salary.low', isChecked: false },
+  { id: 'mid', label: 'filters.salary.mid', isChecked: false },
+  { id: 'high', label: 'filters.salary.high', isChecked: false },
+  { id: 'vhigh', label: 'filters.salary.veryHigh', isChecked: false },
+])
 
-const allJobs: HomepageJob[] = [
+const experienceNodes = computed<FilterNode[]>(() => [
+  { id: 'fresh', label: 'filters.experience.fresh', isChecked: false },
+  { id: 'junior', label: 'filters.experience.junior', isChecked: false },
+  { id: 'mid', label: 'filters.experience.mid', isChecked: false },
+  { id: 'senior', label: 'filters.experience.senior', isChecked: false },
+])
+
+const allJobs = computed<HomepageJob[]>(() => [
   {
     id: '1',
     slug: 'cost-accountant-kuwait',
-    category: 'محاسب_تكاليف',
-    title: 'محاسب تكاليف خبرة أكثر من 3 سنوات',
+    category: 'jobs.accountant.hashtag',
+    title: 'jobs.accountant.title',
     flag: '🇰🇼',
-    location: 'الكويت',
-    company: 'شركة آل سعيد للمقاولات',
+    location: 'jobs.accountant.country',
+    company: 'jobs.accountant.company',
     companySlug: 'al-saeed',
-    salary: '450 دينار',
-    benefits: ['سكن مؤمن', 'مواصلات', 'تأمين طبي', 'تذاكر طيران'],
+    salary: 'jobs.accountant.salary',
+    benefits: 'jobs.accountant.benefits',
     icon: 'work',
-    experience: '3 - 5 سنوات',
+    experience: 'filters.experience.mid',
   },
   {
     id: '2',
     slug: 'civil-engineer-saudi',
-    category: 'مهندس_مدني',
-    title: 'مهندس مدني - مشاريع بنية تحتية',
+    category: 'jobs.civilEng.hashtag',
+    title: 'jobs.civilEng.title',
     flag: '🇸🇦',
-    location: 'الرياض، السعودية',
-    company: 'شركة البنيان المتين',
+    location: 'jobs.civilEng.country',
+    company: 'jobs.civilEng.company',
     companySlug: 'al-bnian',
-    salary: '6,000 - 8,000 ريال',
-    benefits: ['سكن عائلي', 'سيارة', 'تأمين شامل'],
+    salary: 'jobs.civilEng.salary',
+    benefits: 'jobs.civilEng.benefits',
     icon: 'engineering',
-    experience: '5 - 10 سنوات',
+    experience: 'filters.experience.senior',
   },
-]
+])
 
-const sortOptions: SelectOption[] = [
-  { label: 'الأحدث', value: 'newest' },
-  { label: 'الأعلى راتباً', value: 'highest_salary' },
-  { label: 'الأكثر مشاهدة', value: 'most_viewed' },
-]
+const sortOptions = computed<SelectOption[]>(() => [
+  { label: 'jobList.sortOptions.latest', value: 'newest' },
+  { label: 'jobList.sortOptions.salary', value: 'highest_salary' },
+  { label: 'jobList.sortOptions.views', value: 'most_viewed' },
+])
 
 export const useHomepage = () => {
   const sortBy = ref('newest')
@@ -189,15 +192,15 @@ export const useHomepage = () => {
   const selectedExperienceLevels = ref<string[]>([])
 
   const filteredJobs = computed(() => {
-    let result = [...allJobs]
+    let result = [...allJobs.value]
 
     if (searchQuery.value) {
       const q = searchQuery.value.toLowerCase()
       result = result.filter(
         (j) =>
-          j.title.toLowerCase().includes(q) ||
-          j.company.toLowerCase().includes(q) ||
-          j.category.toLowerCase().includes(q)
+          t(j.title).toLowerCase().includes(q) ||
+          t(j.company).toLowerCase().includes(q) ||
+          t(j.category).toLowerCase().includes(q)
       )
     }
 
@@ -205,7 +208,7 @@ export const useHomepage = () => {
   })
 
   const totalJobs = computed(() =>
-    filteredJobs.value.length === allJobs.length
+    filteredJobs.value.length === allJobs.value.length
       ? 2340
       : filteredJobs.value.length
   )
@@ -221,13 +224,12 @@ export const useHomepage = () => {
         if (n.children) clearNodes(n.children)
       })
     }
-    clearNodes(fieldOfWorkData)
-    clearNodes(salaryNodes)
-    clearNodes(experienceNodes)
+    clearNodes(fieldOfWorkData.value)
+    clearNodes(salaryNodes.value)
+    clearNodes(experienceNodes.value)
   }
 
   const onFieldOfWorkToggle = (id: string) => {
-    // Mock toggle logic
     console.log('Toggle', id)
   }
 

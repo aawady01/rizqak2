@@ -171,6 +171,7 @@
     "kw": "Kuwait",
     "qa": "Qatar",
     "om": "Oman",
+    "bh": "Bahrain",
     "all": "All Countries"
   },
   "companies": {
@@ -476,5 +477,10 @@
   },
   "layout": {
     "skipToContent": "Skip to main content"
+  },
+  "api": {
+    "error": {
+      "unexpected": "An unexpected request error occurred"
+    }
   }
 }

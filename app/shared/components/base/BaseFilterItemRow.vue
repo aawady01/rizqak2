@@ -44,14 +44,17 @@ watchEffect(() => {
   <div
     class="relative z-10 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 min-w-0 transition-colors"
     :class="[
-      level === 'category' ? 'min-h-[32px]' : 'min-h-[32px] ms-4',
+      level === 'category' ? 'min-h-filter-row-parent' : 'min-h-filter-row-child ms-4',
       disabled ? 'opacity-50' : '',
     ]"
   >
     <label
       :for="resolvedInputId"
-      class="grid grid-cols-[16px_minmax(0,1fr)] items-center gap-3 min-w-0 cursor-pointer py-1 outline-none transition-colors hover:bg-surface-hover"
-      :class="[disabled ? 'cursor-not-allowed' : '']"
+      class="grid grid-cols-[16px_minmax(0,1fr)] items-center gap-3 min-w-0 cursor-pointer outline-none transition-colors hover:bg-surface-hover"
+      :class="[
+        level === 'category' ? 'py-1' : 'py-0.5',
+        disabled ? 'cursor-not-allowed' : ''
+      ]"
     >
       <input
         :id="resolvedInputId"

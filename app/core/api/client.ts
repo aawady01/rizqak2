@@ -4,9 +4,12 @@ import type {
   ApiErrorResponse,
 } from '~/shared/types/domain'
 
+const API_ERROR_FALLBACK = 'api.error.unexpected'
+const AUTH_TOKEN_KEY = 'auth_token'
+
 function getAuthToken(): string | null {
   if (import.meta.client) {
-    return localStorage.getItem('auth_token')
+    return localStorage.getItem(AUTH_TOKEN_KEY)
   }
   return null
 }
@@ -33,7 +36,7 @@ function buildHeaders(customHeaders?: Record<string, string>): Record<string, st
 
 function handleAuthError(status: number) {
   if (status === 401 && import.meta.client) {
-    localStorage.removeItem('auth_token')
+    localStorage.removeItem(AUTH_TOKEN_KEY)
     navigateTo('/auth/login')
   }
 }
@@ -42,12 +45,12 @@ function extractErrorMessage(errorData: unknown): { message: string; code?: stri
   if (errorData && typeof errorData === 'object') {
     const data = errorData as ApiErrorResponse
     return {
-      message: data.message || data.error || 'Unexpected request error',
+      message: data.message || data.error || API_ERROR_FALLBACK,
       code: data.code,
       details: data.details,
     }
   }
-  return { message: 'Unexpected request error' }
+  return { message: API_ERROR_FALLBACK }
 }
 
 class ApiClient {

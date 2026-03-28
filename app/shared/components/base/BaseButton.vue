@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "~/shared/utils/tailwind";
 
 const buttonVariants = cva(
-  "active-scale-subtle inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none text-ds-body-r font-semibold transition-all duration-150 ease-out disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-ds-focus",
+  "active-scale-subtle inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none text-ds-body-r font-semibold transition-all duration-150 ease-out disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-ds-focus cursor-pointer",
   {
     variants: {
       variant: {

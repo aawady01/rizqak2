@@ -16,14 +16,12 @@ import {
     id="contact"
     class="bg-primary border-t border-white/10 mt-section py-section scroll-mt-24"
   >
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="shell-container">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
         <!-- Brand -->
         <div class="col-span-1">
           <div class="flex items-center gap-element mb-content group cursor-default">
-            <div
-              class="w-10 h-10 bg-white/10 text-white flex items-center justify-center border border-white/20 rounded-none transition-transform group-hover:scale-105"
-            >
+            <div class="shell-brand-mark group-hover:scale-105">
               <BaseTypography variant="body-l" class="font-bold text-white"
                 >{{ $t('footer.brandInitial') }}</BaseTypography
               >
@@ -86,16 +84,25 @@ import {
           >
           <div class="flex gap-element">
             <a
-              v-for="icon in 3"
-              :key="icon"
-              :href="icon === 1 ? 'mailto:info@rizqak.com' : undefined"
-              role="button"
-              :aria-label="icon === 1 ? $t('footer.icons.email') : icon === 2 ? $t('footer.icons.jobs') : $t('footer.icons.external')"
-              class="w-10 h-10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all rounded-none active:scale-95"
+              :href="'mailto:info@rizqak.com'"
+              :aria-label="$t('footer.icons.email')"
+              class="shell-outline-button active-scale-subtle"
             >
-              <Mail v-if="icon === 1" class="size-5" />
-              <BriefcaseBusiness v-if="icon === 2" class="size-5" />
-              <SquareArrowOutUpRight v-if="icon === 3" class="size-5" />
+              <Mail class="size-5" />
+            </a>
+            <a
+              :href="'#jobs'"
+              :aria-label="$t('footer.icons.jobs')"
+              class="shell-outline-button active-scale-subtle"
+            >
+              <BriefcaseBusiness class="size-5" />
+            </a>
+            <a
+              :href="'#'"
+              :aria-label="$t('footer.icons.external')"
+              class="shell-outline-button active-scale-subtle"
+            >
+              <SquareArrowOutUpRight class="size-5" />
             </a>
           </div>
         </div>

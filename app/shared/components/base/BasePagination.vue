@@ -49,8 +49,9 @@ const handlePageChange = (page: number | string) => {
     <nav :aria-label="t('base.pagination.ariaLabel')" class="flex gap-1.5">
       <!-- Arrow Right (Previous in RTL) -->
       <button
+        :aria-label="t('pagination.previous')"
         :disabled="currentPage === 1"
-        class="size-10 flex items-center justify-center border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground"
+        class="size-10 flex items-center justify-center border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground cursor-pointer"
         @click="handlePageChange(Math.max(1, currentPage - 1))"
       >
         <ChevronRight class="size-4" :stroke-width="2.5" />
@@ -67,7 +68,7 @@ const handlePageChange = (page: number | string) => {
           v-else
           :class="
             cn(
-              'size-10 flex items-center justify-center transition-colors text-ds-caption font-medium',
+              'size-10 flex items-center justify-center transition-colors text-ds-caption font-medium cursor-pointer',
               currentPage === page
                 ? 'bg-primary text-white font-bold'
                 : 'border border-border text-foreground hover:border-primary/40 hover:text-primary',
@@ -81,8 +82,9 @@ const handlePageChange = (page: number | string) => {
 
       <!-- Arrow Left (Next in RTL) -->
       <button
+        :aria-label="t('pagination.next')"
         :disabled="currentPage === totalPages"
-        class="size-10 flex items-center justify-center border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground"
+        class="size-10 flex items-center justify-center border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-40 disabled:hover:border-border disabled:hover:text-muted-foreground cursor-pointer"
         @click="handlePageChange(Math.min(totalPages, currentPage + 1))"
       >
         <ChevronLeft class="size-4" :stroke-width="2.5" />

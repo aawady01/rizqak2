@@ -67,7 +67,7 @@ const contentDomId = computed(() => `${sectionDomId.value}-content`);
     <div class="relative">
       <div
         v-if="hasSelectAll"
-        class="relative mb-1 z-20"
+        class="relative z-20"
       >
         <BaseFilterItemRow
           :input-id="selectAllInputId"
@@ -100,10 +100,11 @@ const contentDomId = computed(() => `${sectionDomId.value}-content`);
       >
         <div
           class="overflow-hidden"
-          role="group"
           :aria-labelledby="sectionDomId"
         >
-          <slot />
+          <div class="flex flex-col gap-1" :class="{ 'pt-1': hasSelectAll }">
+            <slot />
+          </div>
         </div>
       </div>
     </div>

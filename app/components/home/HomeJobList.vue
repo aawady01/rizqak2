@@ -34,9 +34,9 @@ onClickOutside(dropdownRef, () => {
 
 <template>
   <section id="jobs" class="scroll-mt-24">
-    <!-- Section Header — ds pattern: mb-content, icon 20px/2, ds-heading semibold -->
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-y-4 mb-content">
-      <div class="flex items-center gap-compact">
+    <!-- Section Header — ds pattern -->
+    <div class="section-heading">
+      <div class="section-heading__title">
         <LayoutList class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
         <BaseTypography
           variant="h3"
@@ -56,7 +56,7 @@ onClickOutside(dropdownRef, () => {
         <div ref="dropdownRef" class="relative sort-dropdown-container">
           <button
             type="button"
-            class="w-dropdown-trigger bg-surface border border-border py-1.5 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium"
+            class="surface-panel w-dropdown-trigger py-1.5 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium"
             @click="toggleDropdown"
           >
             {{ sortOptions.find((o) => o.value === sortBy)?.label }}
@@ -64,7 +64,7 @@ onClickOutside(dropdownRef, () => {
 
           <div
             v-if="isDropdownOpen"
-            class="inset-inline-start-0 z-dropdown-overlay absolute top-full w-full bg-surface border border-border shadow-lg"
+            class="surface-panel inset-inline-start-0 z-dropdown-overlay absolute top-full w-full shadow-lg"
           >
             <button
               v-for="option in sortOptions"

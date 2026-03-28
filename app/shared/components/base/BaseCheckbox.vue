@@ -15,7 +15,7 @@ const props = defineProps<Props>();
 
 const emit = defineEmits<{
   "update:modelValue": [value: boolean | string[] | number[]];
-  change: [value: boolean | string | number];
+  change: [value: boolean | string[] | number[]];
 }>();
 
 const isChecked = computed(() => {
@@ -31,17 +31,17 @@ const isChecked = computed(() => {
 const toggleCheckbox = () => {
   if (props.disabled) return;
 
-  let newValue: boolean | string[] | number[] | undefined;
+  let newValue: boolean | string[] | number[];
 
   if (Array.isArray(props.modelValue)) {
     if (props.value === undefined) return;
-    const set = new Set<string | number>(props.modelValue);
-    if (set.has(props.value)) {
-      set.delete(props.value);
+    const set = new Set<string | number>(props.modelValue as (string | number)[]);
+    if (set.has(props.value as never)) {
+      set.delete(props.value as never);
     } else {
-      set.add(props.value);
+      set.add(props.value as never);
     }
-    newValue = Array.from(set);
+    newValue = Array.from(set) as string[] | number[];
   } else {
     newValue = !props.modelValue;
   }

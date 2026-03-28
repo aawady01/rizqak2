@@ -37,7 +37,7 @@ const handleClick = () => {
   <div
     :class="
       cn(
-        'bg-surface border border-border hover:border-primary/40 transition-all duration-300 w-full group relative overflow-hidden cursor-default rounded-none',
+        'surface-panel hover:border-primary/40 transition-all duration-300 w-full group relative overflow-hidden cursor-default rounded-none',
         props.class,
       )
     "
@@ -122,4 +122,3 @@ const handleClick = () => {
     </div>
   </div>
 </template>
-

@@ -3,6 +3,8 @@ import { LayoutGrid } from "lucide-vue-next";
 import type { Country } from "~/shared/utils/mockData";
 import { cn } from "~/shared/utils/tailwind";
 
+const { locale } = useI18n();
+
 interface Props {
   country: Country;
   isSelected?: boolean;
@@ -46,7 +48,7 @@ const emit = defineEmits<{
 
     <div class="flex items-baseline gap-1">
       <BaseTypography variant="subtitle-l" class="font-bold text-white">
-        {{ country.jobCount.toLocaleString("ar-EG") }}
+        {{ country.jobCount.toLocaleString(locale === 'ar' ? 'ar-EG' : 'en-US') }}
       </BaseTypography>
       <BaseTypography variant="caption-s" class="text-white/60">
         {{ $t('countryCard.jobCount') }}

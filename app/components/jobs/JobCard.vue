@@ -51,7 +51,7 @@ const handleClick = () => {
 
 <template>
   <div
-    class="relative bg-surface border border-border hover:border-primary/40 transition-all duration-300 cursor-default group overflow-hidden rounded-none"
+    class="surface-panel relative hover:border-primary/40 transition-all duration-300 cursor-default group overflow-hidden rounded-none"
   >
     <!-- Vertical Hover Indicator -->
     <div
@@ -172,7 +172,7 @@ const handleClick = () => {
 
             <!-- Save Action -->
             <button
-              class="shrink-0 self-start p-compact transition-all active:scale-90 outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1"
+              class="shrink-0 self-start p-compact transition-all active:scale-90 outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1 cursor-pointer"
               :class="[
                 isSaved
                   ? 'text-primary drop-shadow-sm'

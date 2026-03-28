@@ -19,6 +19,10 @@ withDefaults(defineProps<Props>(), {
   totalResults: 145,
 });
 
+defineEmits<{
+  "clear-filters": [];
+}>();
+
 const gender = ref("all");
 </script>
 
@@ -26,7 +30,7 @@ const gender = ref("all");
   <aside class="order-1">
     <div class="sticky top-20 space-y-content">
       <!-- Section Header — ds pattern -->
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center gap-content">
         <BaseTypography
           variant="h3"
           tag="h2"
@@ -53,7 +57,7 @@ const gender = ref("all");
       </div>
 
       <!-- Filter Card — p-content -->
-      <div class="bg-surface p-content border border-border">
+      <div class="surface-panel p-content">
         <div class="space-y-6 divide-y divide-separator">
           <div>
             <TreeFilterSection
@@ -103,7 +107,7 @@ const gender = ref("all");
 
           <div class="pt-5">
             <button
-              class="w-full py-2.5 bg-primary hover:bg-primary-dark text-white transition-colors text-ds-body-r font-semibold outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+              class="w-full py-2.5 bg-primary hover:bg-primary-dark text-white transition-colors text-ds-body-r font-semibold outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 cursor-pointer"
             >
               {{ $t('sidebar.applyButton') }} ({{ totalResults }} {{ $t('sidebar.jobCount') }})
             </button>

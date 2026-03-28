@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import { apiClient } from '../core/api/client'
 import type { User } from '~/shared/types/domain'
 
+const AUTH_TOKEN_KEY = 'auth_token'
+
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null)
   const token = ref<string | null>(null)
@@ -30,9 +32,9 @@ export const useAuthStore = defineStore('auth', () => {
     token.value = newToken
     if (import.meta.client) {
       if (newToken) {
-        localStorage.setItem('auth_token', newToken)
+        localStorage.setItem(AUTH_TOKEN_KEY, newToken)
       } else {
-        localStorage.removeItem('auth_token')
+        localStorage.removeItem(AUTH_TOKEN_KEY)
       }
     }
   }
@@ -88,7 +90,7 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function checkAuth() {
     if (import.meta.client) {
-      const storedToken = localStorage.getItem('auth_token')
+      const storedToken = localStorage.getItem(AUTH_TOKEN_KEY)
       if (!storedToken) {
         return false
       }
@@ -109,7 +111,7 @@ export const useAuthStore = defineStore('auth', () => {
 
   function initAuth() {
     if (import.meta.client) {
-      const storedToken = localStorage.getItem('auth_token')
+      const storedToken = localStorage.getItem(AUTH_TOKEN_KEY)
       if (storedToken) {
         setToken(storedToken)
       }

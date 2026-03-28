@@ -3,12 +3,15 @@ import { ChevronRight, ChevronLeft, SquareCheckBig } from "lucide-vue-next";
 import CompanyCard from "../companies/CompanyCard.vue";
 import BaseTypography from "~/shared/components/base/BaseTypography.vue";
 import { companiesData } from "~/shared/utils/mockData";
+
+const carouselRef = ref<HTMLElement | null>(null);
+const { scrollCarousel } = useCarouselScroll(carouselRef);
 </script>
 
 <template>
   <section id="companies" class="relative scroll-mt-24">
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-y-4 mb-content">
-      <div class="flex items-center gap-compact">
+    <div class="section-heading">
+      <div class="section-heading__title">
         <SquareCheckBig class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
         <BaseTypography variant="h3" tag="h2" class="font-bold text-foreground">
           {{ $t('homeFeaturedCompanies.title') }}
@@ -26,17 +29,23 @@ import { companiesData } from "~/shared/utils/mockData";
     </div>
 
     <div class="relative group/carousel">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div 
+        ref="carouselRef" 
+        class="grid grid-flow-col auto-cols-[calc(50%-10px)] md:auto-cols-[calc(25%-15px)] gap-5 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory"
+      >
         <CompanyCard
           v-for="company in companiesData"
           :key="company.id"
           :company="company"
+          class="snap-start"
         />
       </div>
 
+      <!-- Navigation Arrows (RTL: right=prev, left=next) -->
       <button
-        :aria-label.attr="$t('homeFeaturedCompanies.next')"
-        class="absolute inset-inline-end-overhang-md top-1/2 -translate-y-1/2 size-10 bg-surface border border-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-carousel text-foreground-muted shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100 outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+        :aria-label="$t('homeFeaturedCompanies.previous')"
+        class="carousel-control carousel-control--surface inset-inline-start-overhang-md group/btn group-hover/carousel:opacity-100 focus-visible:ring-2 focus-visible:ring-primary-500"
+        @click="scrollCarousel(1)"
       >
         <ChevronRight
           class="size-5 transition-transform group-hover/btn:scale-110"
@@ -44,8 +53,9 @@ import { companiesData } from "~/shared/utils/mockData";
         />
       </button>
       <button
-        :aria-label.attr="$t('homeFeaturedCompanies.prev')"
-        class="absolute inset-inline-start-overhang-md top-1/2 -translate-y-1/2 size-10 bg-surface border border-border flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all z-carousel text-foreground-muted shadow-md group/btn rounded-none opacity-0 group-hover/carousel:opacity-100 outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+        :aria-label="$t('homeFeaturedCompanies.next')"
+        class="carousel-control carousel-control--surface inset-inline-end-overhang-md group/btn group-hover/carousel:opacity-100 focus-visible:ring-2 focus-visible:ring-primary-500"
+        @click="scrollCarousel(-1)"
       >
         <ChevronLeft
           class="size-5 transition-transform group-hover/btn:scale-110"

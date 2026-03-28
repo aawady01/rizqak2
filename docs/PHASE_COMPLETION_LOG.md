@@ -15,6 +15,30 @@
   - `pnpm typecheck`: **FAIL** — BaseCheckbox type errors and nuxt.config warnings; ogImage warning emitted with SSR disabled.
   - `pnpm lint`: **PASS with warnings** — 17 warnings (require-default-prop, require-explicit-emits).
 
+---
+
+## ✅ Phase 4: Job Filters Sidebar Refactoring & Redesign
+**Completed**: 2026-03-27 | **Files Deleted**: `app/shared/components/base/BaseTreeConnector.vue`
+
+### Changes Made
+- **Deleted** the physical vertical styling dependency `BaseTreeConnector.vue` completely.
+- **Refactored** `TreeBranch.vue`, `SimpleFilter.vue`, and `BaseFilterSection.vue` to stop relying on connectors.
+- **Removed** outdated `--filter-tree-*` CSS variables and complex nested CSS rules from `main.css`.
+- **Modernized** `BaseFilterItemRow.vue` from BEM conventions to native Tailwind CSS utilities (`min-h-section`, `ps-4`, `group-hover:bg-surface`) to dynamically render nested hierarchy without physical lines.
+- **Fixed** `ZodSchema` generics validation mismatch in the `toTypedSchema.ts` adapter block introduced after VeeValidate integration inside `BaseCheckbox` and the overall Form auth.
+- **Resolved** `Set` constructor arguments typing mismatch bug triggered inside `BaseCheckbox.vue`.
+
+### Verification Results
+- `pnpm typecheck`: PASS ✅
+- `pnpm lint`: PASS ✅
+- Conflict grep `filter-tree-`: ZERO ✅
+- Removed `BaseTreeConnector` usage: ZERO (Clean component import cleanup) ✅
+
+### Standards Enforced
+- Clean utility-first Tailwind classes implementation for filter spacing.
+- Zod Schemas strongly typed to Vue's `toTypedSchema` ensuring safe IDE autocomplete.
+- Removed arbitrary CSS variables when generic theme tokens could be applied.
+
 ## ✅ Phase 1: Auto-Import Cleanup & Dead Import Elimination
 **Completed**: 2026-03-12 | **Verification**: `pnpm typecheck` — PASS (2 pre-existing errors resolved)
 

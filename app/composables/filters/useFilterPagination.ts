@@ -1,3 +1,5 @@
+import { ref, computed } from "vue";
+import type { Ref } from "vue";
 
 /**
  * Headless composable for managing "Show More / Show Less" visibility logic on lists.
