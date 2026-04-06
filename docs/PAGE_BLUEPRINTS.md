@@ -146,6 +146,11 @@ Pagination: 10 pages (static mock)
 **File**: `app/pages/jobs/[slug].vue`
 
 ### 2.1 Purpose
+Override for v1 detail page:
+- Dense editorial detail page, not a dashboard.
+- Reuse site shell and base components; no local header/footer variants.
+- Structure is hero -> facts grid -> long-form details -> comments, with a sticky publisher rail on the visual right in RTL.
+
 عرض تفاصيل وظيفة واحدة مع إمكانية التقديم.
 
 ### 2.2 URL Strategy
@@ -223,6 +228,12 @@ salary (i18n key), iconName, benefits[{label (i18n key)}], isSaved
   </section>
 </main>
 ```
+
+### 2.10 Detail Pattern Notes
+- `JobDetailHero` is compact by rule and only carries title, save/share, metadata strip, and small badges.
+- `JobDetailFactsGrid` renders one unified dense card, even when the data comes from multiple logical groups.
+- `JobDetailPublisherPanel` owns publisher summary, social proof, compensation snapshot, contact actions, and safety note.
+- Sidebar width, sticky offset, dense row height, and special action colors must come from governed utilities in `app/assets/css/main.css`.
 
 ### 2.10 SEO
 ```typescript

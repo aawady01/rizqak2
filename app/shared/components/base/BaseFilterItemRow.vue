@@ -108,7 +108,7 @@ watchEffect(() => {
               : 'text-ds-caption-r font-medium text-ds-foreground/80',
           ]"
         >
-          {{ $t(label) }}
+          {{ label }}
         </span>
 
         <span

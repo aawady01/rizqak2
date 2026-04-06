@@ -34,11 +34,15 @@ const toggleTheme = async () => {
 };
 
 const [mobileMenuOpen, toggleMobileMenu] = useToggle(false);
+const { isHidden } = useScrollHeader();
 </script>
 
 <template>
   <header
-    class="bg-primary sticky top-0 z-sticky w-full border-b border-white/10 shadow-sm transition-all duration-300"
+    :class="[
+      'bg-primary sticky top-0 z-sticky w-full border-b border-white/10 shadow-sm transition-transform duration-300 ease-in-out',
+      isHidden ? '-translate-y-full' : 'translate-y-0'
+    ]"
   >
     <div class="shell-container">
       <div class="shell-header-row flex justify-between items-center">
@@ -73,7 +77,7 @@ const [mobileMenuOpen, toggleMobileMenu] = useToggle(false);
         <div class="flex items-center gap-compact">
           <button
             class="shell-icon-button active-scale-subtle"
-            :title="$t('header.notifications')"
+            :aria-label="$t('header.notifications')"
           >
             <BellDot class="size-5" :stroke-width="2" />
           </button>
@@ -94,6 +98,7 @@ const [mobileMenuOpen, toggleMobileMenu] = useToggle(false);
 
           <button
             class="shell-icon-button active-scale-subtle"
+            :aria-label="isDark ? $t('header.theme.light') : $t('header.theme.dark')"
             @click="toggleTheme"
           >
             <Sun v-if="isDark" class="size-5" :stroke-width="2" />
@@ -101,7 +106,7 @@ const [mobileMenuOpen, toggleMobileMenu] = useToggle(false);
           </button>
 
           <button
-            class="md:hidden shell-icon-button"
+            class="md:!hidden shell-icon-button"
             @click="toggleMobileMenu()"
           >
             <X v-if="mobileMenuOpen" class="size-5" :stroke-width="2" />

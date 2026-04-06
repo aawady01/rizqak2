@@ -10,6 +10,7 @@ import {
   BookmarkCheck,
 } from "lucide-vue-next";
 import BaseTypography from "~/shared/components/base/BaseTypography.vue";
+import BaseChip from "~/shared/components/base/BaseChip.vue";
 import type { Job } from "~/shared/utils/mockData";
 
 interface Props {
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const { t } = useI18n();
 
 const emit = defineEmits<{
   click: [job: Job];
@@ -46,12 +48,19 @@ const toggleSaved = (e: Event) => {
 
 const handleClick = () => {
   emit("click", props.job);
+  navigateTo(`/jobs/${props.job.slug}`);
 };
 </script>
 
 <template>
   <div
-    class="surface-panel relative hover:border-primary/40 transition-all duration-300 cursor-default group overflow-hidden rounded-none"
+    class="surface-panel relative hover:border-primary/40 transition-all duration-300 cursor-pointer group overflow-hidden rounded-none"
+    role="link"
+    tabindex="0"
+    :aria-label="t(job.title)"
+    @click="handleClick"
+    @keydown.enter.prevent="handleClick"
+    @keydown.space.prevent="handleClick"
   >
     <!-- Vertical Hover Indicator -->
     <div
@@ -107,7 +116,6 @@ const handleClick = () => {
                 variant="h3"
                 tag="h3"
                 class="mb-compact text-foreground font-bold group-hover:text-primary transition-colors cursor-pointer w-fit relative z-10 leading-tight"
-                @click="handleClick"
               >
                 {{ $t(job.title) }}
               </BaseTypography>
@@ -122,12 +130,18 @@ const handleClick = () => {
                     size="sm"
                     :alt="$t(job.country)"
                   />
-                  <BaseTypography
-                    variant="body-s"
-                    class="text-foreground-muted font-medium truncate"
+                  <NuxtLink
+                    :to="`/companies/${job.companySlug}`"
+                    class="text-foreground-muted font-medium truncate hover:text-primary transition-colors"
+                    @click.prevent.stop
                   >
-                    {{ $t(job.country) }}
-                  </BaseTypography>
+                    <BaseTypography
+                      variant="body-s"
+                      class="hover:text-primary"
+                    >
+                      {{ $t(job.country) }}
+                    </BaseTypography>
+                  </NuxtLink>
                 </div>
                 <div class="size-1 bg-border rounded-full" />
                 <div class="flex items-center gap-compact">
@@ -136,36 +150,41 @@ const handleClick = () => {
                     :stroke-width="2"
                     aria-hidden="true"
                   />
-                  <BaseTypography
-                    variant="body-s"
-                    class="text-foreground-muted font-medium truncate"
+                  <NuxtLink
+                    :to="`/companies/${job.companySlug}`"
+                    class="text-foreground-muted font-medium truncate hover:text-primary transition-colors"
+                    @click.prevent.stop
                   >
-                    {{ $t(job.companyName) }}
-                  </BaseTypography>
+                    <BaseTypography
+                      variant="body-s"
+                      class="hover:text-primary"
+                    >
+                      {{ $t(job.companyName) }}
+                    </BaseTypography>
+                  </NuxtLink>
                 </div>
               </div>
 
               <!-- Salary & Benefits -->
               <div class="flex flex-wrap items-center gap-element w-full">
                 <!-- Salary -->
-                <div
-                  class="flex items-center gap-1.5 text-primary bg-primary/5 px-element py-1 border border-primary/10 rounded-none"
-                >
+                <BaseChip variant="primary" size="md" class="gap-1.5">
                   <Wallet class="size-4" :stroke-width="2" />
                   <BaseTypography variant="body-s" class="font-bold">
                     {{ $t(job.salary) }}
                   </BaseTypography>
-                </div>
+                </BaseChip>
 
                 <!-- Benefits Tags -->
                 <div class="flex flex-wrap gap-compact">
-                  <span
+                  <BaseChip
                     v-for="benefit in job.benefits"
                     :key="benefit.label"
-                    class="px-element py-1 bg-surface-alt text-ds-caption-r text-foreground-muted border border-border rounded-none font-medium hover:bg-surface-hover transition-colors"
+                    variant="default"
+                    size="sm"
                   >
                     {{ $t(benefit.label) }}
-                  </span>
+                  </BaseChip>
                 </div>
               </div>
             </div>

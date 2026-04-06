@@ -26,7 +26,7 @@ const searchQuery = defineModel<string>("searchQuery", { default: "" });
         :id="sectionId"
         class="m-0 text-ds-body-r font-bold text-foreground whitespace-nowrap"
       >
-        {{ $t(title) }}
+        {{ title }}
       </h4>
     </div>
 

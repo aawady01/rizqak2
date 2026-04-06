@@ -5,6 +5,7 @@ import HomeFeaturedCompanies from '~/components/home/HomeFeaturedCompanies.vue'
 import HomeJobList from '~/components/home/HomeJobList.vue'
 import { jobsData } from '~/shared/utils/mockData'
 import { useSEO } from '~/shared/composables/useSEO'
+import { getJobPath } from '~/shared/utils/jobDetails'
 import {
   useWebsiteStructuredData,
   useOrganizationStructuredData,
@@ -27,7 +28,7 @@ useBreadcrumbStructuredData([
 useItemListStructuredData(
   jobsData.map((job) => ({
     name: job.title,
-    path: `/jobs/${job.id}`,
+    path: getJobPath(job),
   })),
 )
 </script>

@@ -304,5 +304,14 @@
   - Cards: `shadow-sm` (default), `shadow-md` (elevated)
   - Dropdowns/Selects: `shadow-lg` (NOT `shadow-xl`)
   - Modals/Dialogs: `shadow-lg`
-  - Headers: `shadow-sm`
+- Headers: `shadow-sm`
 - Verification: `grep "shadow-xl" app/shared/components/base/BaseSelect.vue` returns ZERO.
+
+### Job Detail Page Rules
+
+- Standard: Job detail pages MUST use the governed `grid-cols-job-detail` utility for desktop two-column layout in RTL.
+- Standard: Sticky rail offsets MUST use `--offset-job-detail-sticky`; do not hardcode `top-*` values inside page templates.
+- Standard: Dense fact tables MUST be built from reusable row utilities/classes, not ad-hoc borders and spacing per component.
+- Standard: Page-specific action colors are allowed only through named theme tokens added to `app/assets/css/main.css`.
+- Disallowed: Freehand layout metrics, inline styles, and arbitrary class values inside `app/pages/jobs/[slug].vue` and `app/components/jobs/detail/*`.
+- Verification: job detail templates contain zero `style=` attributes, zero arbitrary color literals, and pass targeted ESLint/typecheck.

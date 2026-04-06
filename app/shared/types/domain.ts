@@ -150,6 +150,7 @@ export interface Country {
 
 export interface Company {
   id: string
+  slug: string
   name: string
   logo?: string
   iconName?: string
@@ -164,6 +165,7 @@ export interface JobBenefit {
 
 export interface Job {
   id: string
+  slug: string
   title: string
   hashtag: string
   timeAgo: string
@@ -172,10 +174,107 @@ export interface Job {
   countryCode: string
   city?: string
   companyName: string
+  companySlug: string
   salary: string
   benefits: JobBenefit[]
   companyLogo?: string
   iconName?: string
+  isSaved?: boolean
+}
+
+export interface JobDetailFactItem {
+  id: string
+  label: string
+  value: string
+  iconName?: string
+}
+
+export interface JobDetailFactGroup {
+  id: string
+  title: string
+  items: JobDetailFactItem[]
+}
+
+export interface JobDetailContentSection {
+  id: string
+  title: string
+  iconName?: string
+  paragraphs?: string[]
+  items?: string[]
+  accentNote?: string
+}
+
+export interface JobDetailPublisherStat {
+  id: string
+  label: string
+  value: string
+}
+
+export interface JobDetailSidebarAction {
+  id: string
+  label: string
+  iconName: string
+  variant: 'default' | 'outline' | 'secondary'
+  tone?: 'brand' | 'success' | 'neutral'
+  href?: string
+}
+
+export interface JobDetailPublisherInfo {
+  name: string
+  tagline: string
+  logo?: string
+  rating: string
+  reviewCount: string
+  followerCount: string
+  headquarters: string
+  license: string
+  isVerified: boolean
+  stats: JobDetailPublisherStat[]
+}
+
+export interface JobDetailComment {
+  id: string
+  author: string
+  role?: string
+  avatarFallback: string
+  avatarSrc?: string
+  body: string
+  timeAgo: string
+  likes?: number
+  dislikes?: number
+  isPublisher?: boolean
+  verified?: boolean
+  replies?: JobDetailComment[]
+}
+
+export interface JobDetailView {
+  id: string
+  slug: string
+  title: string
+  hashtag: string
+  companyName: string
+  companySlug: string
+  companyLogo?: string
+  countryCode: string
+  location: string
+  salary: string
+  postedAtLabel: string
+  postedAtIso: string
+  statusLabel: string
+  statusVariant: 'success' | 'neutral'
+  seoSummary: string
+  summaryBadges: string[]
+  quickStats: JobDetailPublisherStat[]
+  factGroups: JobDetailFactGroup[]
+  compensationItems: JobDetailFactItem[]
+  benefitTags: string[]
+  contentSections: JobDetailContentSection[]
+  interviewSection?: JobDetailContentSection
+  publisher: JobDetailPublisherInfo
+  sidebarActions: JobDetailSidebarAction[]
+  safetyTitle: string
+  safetyBody: string
+  comments: JobDetailComment[]
   isSaved?: boolean
 }
 

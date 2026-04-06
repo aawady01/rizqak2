@@ -19,7 +19,7 @@ const props = defineProps<Props>();
 
 <template>
   <nav :aria-label="t('base.breadcrumb.ariaLabel')" :class="cn('flex items-center gap-1', props.class)">
-    <ol class="flex items-center gap-1 flex-wrap" role="list">
+    <ol class="flex items-center gap-1 flex-wrap">
       <li
         v-for="(item, index) in items"
         :key="index"

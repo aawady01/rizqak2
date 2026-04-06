@@ -20,9 +20,9 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline border-transparent px-0 py-0",
       },
       size: {
-        default: "h-10 px-6 py-2.5", // 10px 24px
-        sm: "h-8 px-4 py-1.5 text-ds-caption-l", // 6px 16px, 12px
-        lg: "h-12 px-8 py-3.5 text-ds-subtitle-r font-bold", // 14px 32px, 16px (spec says 16px for lg)
+        default: "h-11 px-content py-element font-bold", // 44px - matches hero search button
+        sm: "h-10 px-element py-element font-bold", // 40px - compact variant
+        lg: "h-12 px-8 py-3.5 text-ds-subtitle-r font-bold", // 48px
         icon: "size-10",
       },
     },

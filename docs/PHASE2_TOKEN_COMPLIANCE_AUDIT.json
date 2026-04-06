@@ -1,0 +1,217 @@
+{
+  "summary": {
+    "generatedAt": "2026-03-29T18:50:00.490Z",
+    "totals": {
+      "findings": 10,
+      "files": 4
+    },
+    "bySeverity": {
+      "high": 0,
+      "medium": 10,
+      "low": 0
+    },
+    "byRule": {
+      "arbitrary-tailwind-value": 7,
+      "rtl-directional-class-risk": 3
+    }
+  },
+  "governance": {
+    "byBucket": {
+      "token-covered": 0,
+      "geometry-exception": 0,
+      "selector-state": 0,
+      "behavior-layout": 1,
+      "review-needed": 9
+    },
+    "byBucketFiles": {
+      "token-covered": [],
+      "geometry-exception": [],
+      "selector-state": [],
+      "behavior-layout": [
+        {
+          "file": "app/components/jobs/detail/JobDetailPublisherPanel.vue",
+          "count": 1
+        }
+      ],
+      "review-needed": [
+        {
+          "file": "app/shared/components/base/BaseFilterItemRow.vue",
+          "count": 4
+        },
+        {
+          "file": "app/components/home/HomeFeaturedCompanies.vue",
+          "count": 2
+        },
+        {
+          "file": "app/components/jobs/detail/JobDetailPublisherPanel.vue",
+          "count": 2
+        },
+        {
+          "file": "app/components/jobs/detail/JobDetailFactsGrid.vue",
+          "count": 1
+        }
+      ]
+    },
+    "hotspots": {
+      "filter-tree-geometry": {
+        "title": "Filter-tree Geometry System",
+        "bucket": "geometry-exception",
+        "count": 0,
+        "files": [],
+        "byRule": [],
+        "representativeMatches": [],
+        "contract": "docs/PHASE2_GEOMETRY_CONTRACTS.md",
+        "guidance": "Keep connector math and root-branch alignment centralized in the filter-tree variable system; do not fork local spacing rules in new filters."
+      },
+      "reka-select-geometry": {
+        "title": "Reka Select Geometry",
+        "bucket": "geometry-exception",
+        "count": 0,
+        "files": [],
+        "byRule": [],
+        "representativeMatches": [],
+        "contract": "docs/PHASE2_GEOMETRY_CONTRACTS.md",
+        "guidance": "Preserve runtime width, height, and transform-origin variables as a placement contract rather than converting them into fixed tokens."
+      }
+    },
+    "notes": {
+      "token-covered": {
+        "title": "Token-covered Inventory",
+        "policy": "Keep these values as tracked inventory unless an output-equivalent replacement is intentionally performed.",
+        "guidance": "For future pages, reuse the existing token or alias instead of introducing new literals for the same metric."
+      },
+      "geometry-exception": {
+        "title": "Geometry Exceptions",
+        "policy": "Do not treat runtime geometry, filter-tree connector math, or Reka variable-driven layout as generic token debt.",
+        "guidance": "Change only through dedicated variable systems or focused component-level geometry work with visual verification."
+      },
+      "selector-state": {
+        "title": "Selector and State Syntax",
+        "policy": "Do not rewrite data-* or has-data-* state syntax as part of token cleanup.",
+        "guidance": "Touch these only when the component state model or primitive API actually changes."
+      },
+      "behavior-layout": {
+        "title": "Behavior and Layout Expressions",
+        "policy": "Do not treat structural transition expressions as missing token coverage.",
+        "guidance": "Change these only when interaction behavior or layout semantics are intentionally redesigned."
+      },
+      "review-needed": {
+        "title": "Review Needed",
+        "policy": "Any finding in this bucket is not yet covered by current governance and needs explicit review.",
+        "guidance": "This bucket should stay at zero; if it rises, classify or address the findings before doing broad cleanup."
+      }
+    }
+  },
+  "findings": [
+    {
+      "rule": "arbitrary-tailwind-value",
+      "severity": "medium",
+      "description": "Tailwind arbitrary values should be replaced with tokenized classes when available.",
+      "file": "app/components/home/HomeFeaturedCompanies.vue",
+      "line": 34,
+      "column": 35,
+      "match": "auto-cols-[calc(50%-10px)]",
+      "snippet": "class=\"grid grid-flow-col auto-cols-[calc(50%-10px)] md:auto-cols-[calc(25%-15px)] gap-5 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory\"",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "arbitrary-tailwind-value",
+      "severity": "medium",
+      "description": "Tailwind arbitrary values should be replaced with tokenized classes when available.",
+      "file": "app/components/home/HomeFeaturedCompanies.vue",
+      "line": 34,
+      "column": 65,
+      "match": "auto-cols-[calc(25%-15px)]",
+      "snippet": "class=\"grid grid-flow-col auto-cols-[calc(50%-10px)] md:auto-cols-[calc(25%-15px)] gap-5 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory\"",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "rtl-directional-class-risk",
+      "severity": "medium",
+      "description": "Directional classes may break RTL consistency; prefer logical properties.",
+      "file": "app/components/jobs/detail/JobDetailFactsGrid.vue",
+      "line": 70,
+      "column": 22,
+      "match": "text-right",
+      "snippet": "class=\"text-right text-foreground\"",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "arbitrary-tailwind-value",
+      "severity": "medium",
+      "description": "Tailwind arbitrary values should be replaced with tokenized classes when available.",
+      "file": "app/components/jobs/detail/JobDetailPublisherPanel.vue",
+      "line": 89,
+      "column": 24,
+      "match": "grid-cols-[1fr_auto]",
+      "snippet": "<div class=\"grid grid-cols-[1fr_auto] gap-compact\">",
+      "bucket": "behavior-layout"
+    },
+    {
+      "rule": "rtl-directional-class-risk",
+      "severity": "medium",
+      "description": "Directional classes may break RTL consistency; prefer logical properties.",
+      "file": "app/components/jobs/detail/JobDetailPublisherPanel.vue",
+      "line": 104,
+      "column": 23,
+      "match": "text-right",
+      "snippet": "<div class=\"text-right\">",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "rtl-directional-class-risk",
+      "severity": "medium",
+      "description": "Directional classes may break RTL consistency; prefer logical properties.",
+      "file": "app/components/jobs/detail/JobDetailPublisherPanel.vue",
+      "line": 195,
+      "column": 65,
+      "match": "text-right",
+      "snippet": "<BaseTypography variant=\"body-r\" weight=\"bold\" class=\"text-right text-foreground\">",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "arbitrary-tailwind-value",
+      "severity": "medium",
+      "description": "Tailwind arbitrary values should be replaced with tokenized classes when available.",
+      "file": "app/shared/components/base/BaseFilterItemRow.vue",
+      "line": 45,
+      "column": 31,
+      "match": "grid-cols-[minmax(0,1fr)_auto]",
+      "snippet": "class=\"relative z-10 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 min-w-0 transition-colors\"",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "arbitrary-tailwind-value",
+      "severity": "medium",
+      "description": "Tailwind arbitrary values should be replaced with tokenized classes when available.",
+      "file": "app/shared/components/base/BaseFilterItemRow.vue",
+      "line": 53,
+      "column": 19,
+      "match": "grid-cols-[16px_minmax(0,1fr)]",
+      "snippet": "class=\"grid grid-cols-[16px_minmax(0,1fr)] items-center gap-3 min-w-0 cursor-pointer outline-none transition-colors hover:bg-surface-hover\"",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "arbitrary-tailwind-value",
+      "severity": "medium",
+      "description": "Tailwind arbitrary values should be replaced with tokenized classes when available.",
+      "file": "app/shared/components/base/BaseFilterItemRow.vue",
+      "line": 116,
+      "column": 27,
+      "match": "text-[11px]",
+      "snippet": "class=\"shrink-0 text-[11px] leading-[1.4] text-neutral-400 font-medium\"",
+      "bucket": "review-needed"
+    },
+    {
+      "rule": "arbitrary-tailwind-value",
+      "severity": "medium",
+      "description": "Tailwind arbitrary values should be replaced with tokenized classes when available.",
+      "file": "app/shared/components/base/BaseFilterItemRow.vue",
+      "line": 116,
+      "column": 39,
+      "match": "leading-[1.4]",
+      "snippet": "class=\"shrink-0 text-[11px] leading-[1.4] text-neutral-400 font-medium\"",
+      "bucket": "review-needed"
+    }
+  ]
+}

@@ -43,7 +43,7 @@ const { scrollCarousel } = useCarouselScroll(carouselRef);
 
       <!-- Navigation Arrows (RTL: right=prev, left=next) -->
       <button
-        :aria-label="$t('homeFeaturedCompanies.previous')"
+        :aria-label="$t('homeFeaturedCompanies.prev')"
         class="carousel-control carousel-control--surface inset-inline-start-overhang-md group/btn group-hover/carousel:opacity-100 focus-visible:ring-2 focus-visible:ring-primary-500"
         @click="scrollCarousel(1)"
       >

@@ -341,6 +341,24 @@ space-y-compact (8px) between cards — stacked list, not grid
 grid-cols-1 md:grid-cols-4 gap-12
 ```
 
+### 7.6 Job Detail Layout
+
+```
+Desktop (lg+ / RTL):
+  grid-cols-job-detail
+  visual right column = sticky publisher rail
+  visual left column = main detail flow
+
+Mobile:
+  single column
+  hero first, rail after content
+```
+
+- The detail hero is compact and informational, not promotional.
+- Facts use one dense split-row card with label/value rhythm.
+- Long-form copy stays in a unified reading card with subsection dividers.
+- Rail cards use the same zero-radius, border, and spacing rhythm as the homepage system.
+
 ---
 
 ## 8. STATE RULES

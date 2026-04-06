@@ -80,7 +80,7 @@ const onChildToggle = (childId: string) => {
       <div class="relative z-20">
         <BaseFilterItemRow
           :input-id="categoryInputId"
-          :label="category.label"
+          :label="t(category.label)"
           :checked="allChecked"
           :indeterminate="someChecked"
           :count="category.count"
@@ -121,7 +121,7 @@ const onChildToggle = (childId: string) => {
             >
               <BaseFilterItemRow
                 :input-id="`tree-child-${category.id}-${child.id}`"
-                :label="child.label"
+                :label="t(child.label)"
                 :checked="checkedChildren.has(child.id)"
                 :count="child.count"
                 level="child"

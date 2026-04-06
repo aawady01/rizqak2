@@ -25,7 +25,7 @@
   --color-accent-100: #fbf7eb;
   --color-accent-200: #f5eac8;
   --color-accent-300: #eedc9a;
-  --color-accent-400: #34d399;
+  --color-accent-400: #e8c84a;
   --color-accent-500: #cf9e1c;
   --color-accent-600: #a77a14;
   --color-accent-700: #805a0e;
@@ -54,11 +54,14 @@
   --color-bg-primary: #F8FAFC;
   --color-bg-secondary: #ffffff;
   --color-bg-tertiary: #e5e7eb;
+  --color-background-sub: #F9F9F9;
   --color-surface: #ffffff;
   --color-surface-hover: #D1FAE5;
   --color-surface-alt: #f3f4f6;
   --color-surface-elevated: #ffffff;
   --color-surface-overlay: rgba(0, 0, 0, 0.5);
+  --color-primary-light: #e8f5f0;
+  --color-primary-active: #2D8A4E;
 
   /* ==========================================
      SEMANTIC COLORS - Text
@@ -214,12 +217,6 @@
   --spacing-28: 7rem;
   --spacing-32: 8rem;
 
-  /* Semantic Spacing Tokens */
-  --spacing-compact: 0.5rem;    /* 8px — within elements, icon-text gap */
-  --spacing-element: 0.75rem;   /* 12px — between sibling elements */
-  --spacing-content: 1rem;      /* 16px — between content blocks */
-  --spacing-section: 2rem;      /* 32px — between page sections */
-
   /* ==========================================
      BORDER RADIUS - Zero-based (brand standard)
      ========================================== */
@@ -310,6 +307,8 @@
   --font-size-ds-body-l--line-height: 1.6;
   --font-size-ds-body-r: 14px;
   --font-size-ds-body-r--line-height: 1.6;
+  --font-size-ds-body-m: 15px;
+  --font-size-ds-body-m--line-height: 1.6;
   --font-size-ds-body-s: 13px;
   --font-size-ds-body-s--line-height: 1.6;
   --font-size-ds-caption-l: 12px;
@@ -318,6 +317,8 @@
   --font-size-ds-caption-r--line-height: 1.4;
   --font-size-ds-caption-s: 10px;
   --font-size-ds-caption-s--line-height: 1.4;
+  --font-size-ds-caption: 12px;
+  --font-size-ds-caption--line-height: 1.4;
   --font-size-ds-label-l: 14px;
   --font-size-ds-label-l--line-height: 1.4;
   --font-size-ds-label-r: 13px;
@@ -353,14 +354,21 @@
   --radius-flag-sm: 2px;
   --radius-flag-md: 3px;
   --radius-flag-lg: 4px;
-  --layout-home-sidebar-width-lg: 290px;
-  --layout-home-sidebar-width-xl: 310px;
+  --layout-sidebar-width-lg: 320px;
+  --layout-sidebar-width-xl: 340px;
+  --layout-home-sidebar-width-lg: var(--layout-sidebar-width-lg);
+  --layout-home-sidebar-width-xl: var(--layout-sidebar-width-xl);
+  --layout-job-detail-sidebar-width-lg: var(--layout-sidebar-width-lg);
+  --layout-company-sidebar-width-lg: var(--layout-sidebar-width-lg);
+  --layout-company-sidebar-width-xl: var(--layout-sidebar-width-xl);
   --offset-carousel-nav-overhang-md: 20px;
   --offset-carousel-nav-overhang-lg: 24px;
+  --offset-job-detail-sticky: calc(var(--size-shell-header-height) + var(--spacing-content));
   --container-shell-max-width: 80rem;
   --container-shell-padding: clamp(1rem, 1.25vw + 0.75rem, 2rem);
+  --color-brand-whatsapp: #25d366;
+  --color-brand-whatsapp-dark: #1ea952;
 
-  --color-text-tertiary: #6b7280;
   --color-separator: #d1d5db;
   --color-gold-star: #e8b931;
   --color-white: #ffffff;
@@ -375,11 +383,14 @@ html.dark {
   --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #171717;
   --color-bg-tertiary: #262626;
+  --color-background-sub: #111111;
   --color-surface: #171717;
   --color-surface-hover: #262626;
   --color-surface-alt: #262626;
   --color-surface-elevated: #1f1f1f;
   --color-surface-overlay: rgba(0, 0, 0, 0.7);
+  --color-primary-light: #0d2e1f;
+  --color-primary-active: #2D8A4E;
 
   /* Text */
   --color-text-primary: #f5f5f5;
@@ -589,6 +600,20 @@ html.dark {
 
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-neutral-400);
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION - Respect user preference
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -925,13 +950,13 @@ html.dark {
   }
 
   .select-content-geometry {
-    max-height: var(--reka-select-content-available-height);
-    transform-origin: var(--reka-select-content-transform-origin);
+    max-height: var(--reka-select-content-available-height, 300px);
+    transform-origin: var(--reka-select-content-transform-origin, center);
   }
 
   .select-viewport-geometry {
-    height: var(--reka-select-trigger-height);
-    min-width: var(--reka-select-trigger-width);
+    height: var(--reka-select-trigger-height, auto);
+    min-width: var(--reka-select-trigger-width, 8rem);
   }
 
   .select-item-state[data-disabled] {
@@ -1593,6 +1618,10 @@ html.dark {
     inset-inline-start: calc(var(--offset-carousel-nav-overhang-lg) * -1);
   }
 
+  .grid-cols-sidebar {
+    grid-template-columns: var(--layout-sidebar-width-lg) minmax(0, 1fr);
+  }
+
   .grid-cols-home-sidebar-lg {
     grid-template-columns: var(--layout-home-sidebar-width-lg) 1fr;
   }
@@ -1601,15 +1630,43 @@ html.dark {
     grid-template-columns: var(--layout-home-sidebar-width-xl) 1fr;
   }
 
+  .grid-cols-job-detail {
+    grid-template-columns: var(--layout-job-detail-sidebar-width-lg) minmax(0, 1fr);
+  }
+
+  .grid-cols-company-sidebar {
+    grid-template-columns: var(--layout-company-sidebar-width-lg) minmax(0, 1fr);
+  }
+
   @media (min-width: 1024px) {
+    .lg\:grid-cols-sidebar {
+      grid-template-columns: var(--layout-sidebar-width-lg) minmax(0, 1fr);
+    }
+
     .lg\:grid-cols-home-sidebar-lg {
       grid-template-columns: var(--layout-home-sidebar-width-lg) 1fr;
+    }
+
+    .lg\:grid-cols-job-detail {
+      grid-template-columns: var(--layout-job-detail-sidebar-width-lg) minmax(0, 1fr);
+    }
+
+    .lg\:grid-cols-company-sidebar {
+      grid-template-columns: var(--layout-company-sidebar-width-lg) minmax(0, 1fr);
     }
   }
 
   @media (min-width: 1280px) {
+    .xl\:grid-cols-sidebar {
+      grid-template-columns: var(--layout-sidebar-width-xl) minmax(0, 1fr);
+    }
+
     .xl\:grid-cols-home-sidebar-xl {
       grid-template-columns: var(--layout-home-sidebar-width-xl) 1fr;
+    }
+
+    .xl\:grid-cols-company-sidebar {
+      grid-template-columns: var(--layout-company-sidebar-width-xl) minmax(0, 1fr);
     }
   }
 
@@ -1700,6 +1757,275 @@ html.dark {
     background-color: var(--color-interactive);
   }
 
+  .job-detail-shell {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .job-detail-shell::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: clamp(180px, 30vw, 280px);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--color-primary) 10%, transparent),
+        transparent 72%
+      );
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  .job-detail-shell::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: clamp(150px, 24vw, 220px);
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-accent-500) 10%, transparent),
+        transparent 30%,
+        color-mix(in srgb, var(--color-primary) 5%, transparent) 65%,
+        transparent
+      );
+    opacity: 0.9;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .job-detail-sticky {
+    position: sticky;
+    top: var(--offset-job-detail-sticky);
+  }
+
+  .job-detail-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-compact);
+    color: var(--color-primary);
+    font-size: var(--font-size-ds-caption-l);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .job-detail-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-compact);
+    min-height: 32px;
+    padding-inline: var(--spacing-content);
+    padding-block: var(--spacing-1_5);
+    border: 1px solid color-mix(in srgb, var(--color-border-default) 90%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface-alt) 82%, var(--color-surface));
+    color: var(--color-foreground-muted);
+  }
+
+  .job-detail-panel-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-compact);
+    padding-bottom: var(--spacing-element);
+    border-bottom: 1px solid var(--color-border-default);
+  }
+
+  .job-detail-panel-header-icon {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--color-primary) 12%, transparent),
+        color-mix(in srgb, var(--color-accent-500) 9%, transparent)
+      );
+    color: var(--color-primary);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 10%, var(--color-border-default));
+  }
+
+  .job-detail-soft-card {
+    border: 1px solid var(--color-border-default);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--color-surface-alt) 72%, var(--color-surface)),
+        var(--color-surface)
+      );
+  }
+
+  .job-detail-group-strip {
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-primary) 7%, transparent),
+        transparent
+      );
+  }
+
+  .job-detail-accent-note {
+    border: 1px solid color-mix(in srgb, var(--color-primary) 15%, var(--color-border-default));
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-primary) 8%, transparent),
+        transparent
+      );
+  }
+
+  .job-detail-hero-surface {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--color-primary) 4%, var(--color-surface)) 0%,
+        var(--color-surface) 38%,
+        color-mix(in srgb, var(--color-accent-500) 4%, var(--color-surface)) 100%
+      );
+  }
+
+  .job-detail-meta-grid {
+    display: grid;
+    gap: 1px;
+    background-color: var(--color-border-default);
+  }
+
+  @media (min-width: 640px) {
+    .job-detail-meta-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .job-detail-meta-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .job-detail-meta-card {
+    min-width: 0;
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-content);
+    padding-inline: var(--spacing-content);
+    padding-block: var(--spacing-element);
+    background-color: color-mix(in srgb, var(--color-surface-alt) 56%, var(--color-surface));
+  }
+
+  .job-detail-meta-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: var(--color-surface);
+    border: 1px solid color-mix(in srgb, var(--color-border-default) 88%, transparent);
+    color: var(--color-primary);
+  }
+
+  .job-detail-meta-item {
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-compact);
+  }
+
+  .job-detail-fact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-content);
+    min-height: 52px;
+    padding-inline: var(--spacing-content);
+    padding-block: var(--spacing-element);
+  }
+
+  .job-detail-fact-split-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    border-bottom: 1px solid var(--color-border-default);
+  }
+
+  .job-detail-fact-split-row:last-child {
+    border-bottom: 0;
+  }
+
+  .job-detail-fact-label-cell {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-compact);
+    padding-inline: var(--spacing-content);
+    padding-block: var(--spacing-element);
+    background-color: color-mix(in srgb, var(--color-surface-alt) 90%, transparent);
+    border-inline-end: 1px solid var(--color-border-default);
+  }
+
+  .job-detail-fact-value-cell {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-inline: var(--spacing-content);
+    padding-block: var(--spacing-element);
+    background-color: var(--color-surface);
+  }
+
+  .job-detail-fact-icon {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    color: var(--color-primary);
+  }
+
+  .job-detail-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-compact);
+  }
+
+  .job-detail-thread {
+    border-inline-start: 2px solid color-mix(in srgb, var(--color-border-default) 92%, transparent);
+    padding-inline-start: var(--spacing-content);
+    margin-inline-start: calc(var(--spacing-content) + var(--spacing-compact));
+  }
+
+  .job-detail-publisher-info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-compact);
+  }
+
+  .job-detail-stat-tile {
+    border: 1px solid var(--color-border-default);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--color-primary) 4%, var(--color-surface-alt)),
+        var(--color-surface)
+      );
+  }
+
+  .job-detail-whatsapp-button {
+    background-color: var(--color-brand-whatsapp);
+    border-color: var(--color-brand-whatsapp);
+    color: var(--color-white);
+  }
+
+  .job-detail-whatsapp-button:hover {
+    background-color: var(--color-brand-whatsapp-dark);
+    border-color: var(--color-brand-whatsapp-dark);
+  }
+
   .text-interactive {
     color: var(--color-interactive);
   }
@@ -1709,13 +2035,21 @@ html.dark {
   }
 
   /* Carousel / Scrollbar Utilities */
-  .scrollbar-hide {
+  .scrollbar-hide,
+  .hide-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
   
-  .scrollbar-hide::-webkit-scrollbar {
+  .scrollbar-hide::-webkit-scrollbar,
+  .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* LTR direction utility for RTL layouts */
+  .dir-ltr {
+    direction: ltr;
+    unicode-bidi: embed;
   }
 
   /* Page transition */

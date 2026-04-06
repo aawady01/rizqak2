@@ -52,10 +52,10 @@ const roleOptions = [
 <template>
   <div class="min-h-screen flex items-center justify-center bg-background px-content py-section">
     <div class="w-full max-w-md">
-      <div class="surface-panel rounded-none p-8 shadow-sm">
+      <div class="surface-panel rounded-none p-content shadow-sm">
         <!-- Header -->
-        <div class="text-center mb-8">
-          <div class="w-16 h-16 bg-primary rounded-none flex items-center justify-center mx-auto mb-4">
+        <div class="text-center mb-section">
+          <div class="w-16 h-16 bg-primary rounded-none flex items-center justify-center mx-auto mb-element">
             <UserPlus class="size-8 text-white" aria-hidden="true" />
           </div>
           <h1 class="text-ds-h2 font-bold text-foreground">
@@ -153,7 +153,7 @@ const roleOptions = [
                 <button
                   type="button"
                   class="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors duration-fast"
-                  :aria-label="$t('auth.register.passwordPlaceholder')"
+                  :aria-label="showPassword ? $t('auth.register.hidePassword') : $t('auth.register.showPassword')"
                   @click="showPassword = !showPassword"
                 >
                   <EyeOff v-if="showPassword" class="size-4" aria-hidden="true" />
@@ -187,7 +187,7 @@ const roleOptions = [
                 <button
                   type="button"
                   class="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors duration-fast"
-                  :aria-label="$t('auth.register.confirmPasswordPlaceholder')"
+                  :aria-label="showConfirmPassword ? $t('auth.register.hidePassword') : $t('auth.register.showPassword')"
                   @click="showConfirmPassword = !showConfirmPassword"
                 >
                   <EyeOff v-if="showConfirmPassword" class="size-4" aria-hidden="true" />

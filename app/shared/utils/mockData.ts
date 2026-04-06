@@ -22,6 +22,7 @@ export const countriesData: Country[] = [
 export const companiesData: Company[] = [
   {
     id: "1",
+    slug: "maali-construction",
     name: "companies.maali",
     logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCODDMM1ijnzH9l4KLcWKHggPPVSCBlUQFMFuFjLbEL4I_BOY56OHYFtZVKv357Yzaes3hHS4W0-Qd6WBV52DJXCaRY5Ck0RruFSE_2qt1-XKD0tNy0zUNjl0Pa7XFAWnLv12kUGDEPgRUEKyqBkSMdtrl5eF93WFrpkOJJxXUxaM-xvarJDGIryuyWl5l_8CQrERf7zw8gNMF3UTSbn_0fPefGGC_IxU4IUHO0Ir6T8aqfeBBLvj_tN7yvMdV6Z7Zvl2wCZqfTaA",
     rating: 4.8,
@@ -30,6 +31,7 @@ export const companiesData: Company[] = [
   },
   {
     id: "2",
+    slug: "alsaie-group",
     name: "companies.alsaie",
     iconName: "building-2",
     rating: 4.5,
@@ -38,6 +40,7 @@ export const companiesData: Company[] = [
   },
   {
     id: "3",
+    slug: "binladin-group",
     name: "companies.binladin",
     iconName: "building",
     rating: 4.2,
@@ -46,6 +49,7 @@ export const companiesData: Company[] = [
   },
   {
     id: "4",
+    slug: "aramco",
     name: "companies.aramco",
     iconName: "landmark",
     rating: 4.9,
@@ -57,12 +61,14 @@ export const companiesData: Company[] = [
 export const jobsData: Job[] = [
   {
     id: "1",
+    slug: "cost-accountant-kuwait",
     title: "jobs.accountant.title",
     hashtag: "jobs.accountant.hashtag",
     timeAgo: "jobs.accountant.timeAgo",
     country: "jobs.accountant.country",
     countryFlag: "🇰🇼",
     companyName: "jobs.accountant.company",
+    companySlug: "maali-construction",
     salary: "jobs.accountant.salary",
     countryCode: "kw",
     benefits: [
@@ -76,12 +82,14 @@ export const jobsData: Job[] = [
   },
   {
     id: "2",
+    slug: "civil-engineer-saudi",
     title: "jobs.civilEng.title",
     hashtag: "jobs.civilEng.hashtag",
     timeAgo: "jobs.civilEng.timeAgo",
     country: "jobs.civilEng.country",
     countryFlag: "🇸🇦",
     companyName: "jobs.civilEng.company",
+    companySlug: "alsaie-group",
     salary: "jobs.civilEng.salary",
     countryCode: "sa",
     benefits: [
@@ -93,12 +101,14 @@ export const jobsData: Job[] = [
   },
   {
     id: "3",
+    slug: "tig-mig-welder-qatar",
     title: "jobs.welder.title",
     hashtag: "jobs.welder.hashtag",
     timeAgo: "jobs.welder.timeAgo",
     country: "jobs.welder.country",
     countryFlag: "🇶🇦",
     companyName: "jobs.welder.company",
+    companySlug: "binladin-group",
     salary: "jobs.welder.salary",
     countryCode: "qa",
     benefits: [
@@ -110,12 +120,14 @@ export const jobsData: Job[] = [
   },
   {
     id: "4",
+    slug: "icu-nurse-dubai",
     title: "jobs.nurse.title",
     hashtag: "jobs.nurse.hashtag",
     timeAgo: "jobs.nurse.timeAgo",
     country: "jobs.nurse.country",
     countryFlag: "🇦🇪",
     companyName: "jobs.nurse.company",
+    companySlug: "aramco",
     salary: "jobs.nurse.salary",
     countryCode: "ae",
     benefits: [
@@ -127,12 +139,14 @@ export const jobsData: Job[] = [
   },
   {
     id: "5",
+    slug: "heavy-driver-oman",
     title: "jobs.driver.title",
     hashtag: "jobs.driver.hashtag",
     timeAgo: "jobs.driver.timeAgo",
     country: "jobs.driver.country",
     countryFlag: "🇴🇲",
     companyName: "jobs.driver.company",
+    companySlug: "maali-construction",
     salary: "jobs.driver.salary",
     countryCode: "om",
     benefits: [

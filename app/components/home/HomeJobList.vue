@@ -56,6 +56,11 @@ onClickOutside(dropdownRef, () => {
         <div ref="dropdownRef" class="relative sort-dropdown-container">
           <button
             type="button"
+            role="combobox"
+            aria-haspopup="listbox"
+            aria-controls="sort-listbox"
+            :aria-expanded="isDropdownOpen"
+            :aria-label="$t('jobList.sortLabel')"
             class="surface-panel w-dropdown-trigger py-1.5 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium"
             @click="toggleDropdown"
           >
@@ -64,12 +69,16 @@ onClickOutside(dropdownRef, () => {
 
           <div
             v-if="isDropdownOpen"
+            role="listbox"
+            :aria-label="$t('jobList.sortLabel')"
             class="surface-panel inset-inline-start-0 z-dropdown-overlay absolute top-full w-full shadow-lg"
           >
             <button
               v-for="option in sortOptions"
               :key="option.value"
               type="button"
+              role="option"
+              :aria-selected="sortBy === option.value"
               :class="[
                 'w-full text-center py-compact px-element text-ds-caption font-medium transition-all duration-200 cursor-pointer outline-none border-none animate-none',
                 sortBy === option.value

@@ -12,7 +12,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const emit = defineEmits<{
+const _emit = defineEmits<{
   click: [company: Company];
 }>();
 
@@ -29,7 +29,7 @@ const iconComponent = computed(() => {
 });
 
 const handleClick = () => {
-  emit("click", props.company);
+  navigateTo(`/companies/${props.company.slug}`);
 };
 </script>
 
@@ -111,13 +111,10 @@ const handleClick = () => {
         </div>
 
         <!-- Job count -->
-        <div
-          class="bg-primary/5 py-1 px-element border border-primary/10 rounded-none inline-block"
-        >
-          <BaseTypography variant="caption-s" class="text-foreground-muted font-medium">
-            {{ company.availableJobs }} {{ $t('companyCard.availableJobs') }}
-          </BaseTypography>
-        </div>
+        <BaseChip variant="primary" size="sm" class="mx-auto gap-1">
+          <span class="font-bold">{{ company.availableJobs }}</span>
+          {{ $t('companyCard.availableJobs') }}
+        </BaseChip>
       </div>
     </div>
   </div>

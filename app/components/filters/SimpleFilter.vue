@@ -117,7 +117,7 @@ const handleExpandToggle = () => {
         <BaseFilterItemRow
           :input-id="`${sectionIdBase}-${item.id}`"
           :input-name="type === 'radio' ? (radioName ?? title) : undefined"
-          :label="item.label"
+          :label="t(item.label)"
           :checked="selection.isChecked(item.id)"
           :input-type="type"
           level="category"

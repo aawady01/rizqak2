@@ -30,7 +30,7 @@ const props = defineProps<Props>();
       v-if="$slots.header || title || description || $slots.action"
       :class="
         cn(
-          '@container/card-header grid auto-rows-min card-header-layout items-start gap-1 p-5 [.border-b]:pb-5',
+          '@container/card-header grid auto-rows-min card-header-layout items-start gap-1 p-content [.border-b]:pb-content',
           props.headerClass,
         )
       "
@@ -68,7 +68,7 @@ const props = defineProps<Props>();
     </div>
 
     <!-- Content Section -->
-    <div :class="cn('p-5 [&:last-child]:pb-5', props.contentClass)">
+    <div :class="cn('p-content [&:last-child]:pb-content', props.contentClass)">
       <slot />
     </div>
 
@@ -76,7 +76,7 @@ const props = defineProps<Props>();
     <div
       v-if="$slots.footer"
       :class="
-        cn('flex items-center p-5 pt-0 [.border-t]:pt-5', props.footerClass)
+        cn('flex items-center p-content pt-0 [.border-t]:pt-content', props.footerClass)
       "
     >
       <slot name="footer" />

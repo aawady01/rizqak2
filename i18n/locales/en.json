@@ -351,7 +351,9 @@
       "submitting": "Signing in...",
       "noAccount": "Don't have an account?",
       "createAccount": "Create account",
-      "error": "Login failed. Check your credentials and try again."
+      "error": "Login failed. Check your credentials and try again.",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
     },
     "register": {
       "title": "Create Account",
@@ -371,7 +373,9 @@
       "submitting": "Creating account...",
       "hasAccount": "Already have an account?",
       "signIn": "Sign in",
-      "error": "Registration failed. Please try again."
+      "error": "Registration failed. Please try again.",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
     },
     "forgotPassword": {
       "title": "Forgot Password?",
@@ -397,10 +401,11 @@
       "backToLogin": "Back to sign in",
       "successTitle": "Password Reset Successfully",
       "successMessage": "Your password has been changed. You can now sign in.",
-      "error": "Reset failed. Please try again."
-    }
-  },
-  "validation": {
+      "error": "Reset failed. Please try again.",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "validation": {
     "email": {
       "required": "Email is required",
       "invalid": "Invalid email address"
@@ -420,6 +425,7 @@
     "role": {
       "required": "Account type is required"
     }
+    }
   },
   "seo": {
     "defaultTitle": "Rizqak | Jobs in Egypt and the Gulf",
@@ -430,7 +436,7 @@
   },
   "homeFeaturedCompanies": {
     "title": "Featured Hiring Companies",
-    "subtitle": "Carefully Selected",
+    "subtitle": "All",
     "prev": "Previous",
     "next": "Next"
   },
@@ -477,6 +483,232 @@
   },
   "layout": {
     "skipToContent": "Skip to main content"
+  },
+  "jobDetail": {
+    "shared": {
+      "breadcrumbLabel": "Job Details",
+      "status": {
+        "open": "Open now"
+      },
+      "meta": {
+        "location": "Work location",
+        "company": "Publisher",
+        "salary": "Salary",
+        "postedAt": "Published"
+      },
+      "sections": {
+        "roleFacts": "Role facts",
+        "jobContext": "Opportunity context",
+        "additionalDetails": "Additional details",
+        "requirements": "Requirements",
+        "highlights": "Why this role stands out",
+        "interviewInfo": "Interview information",
+        "comments": "Comments",
+        "compensation": "Salary and benefits"
+      },
+      "facts": {
+        "employmentType": "Employment type",
+        "experience": "Experience",
+        "education": "Education",
+        "category": "Job category",
+        "location": "Workplace",
+        "company": "Hiring company",
+        "postedAt": "Published",
+        "salary": "Base salary",
+        "contractDuration": "Contract duration",
+        "openings": "Openings",
+        "schedule": "Work schedule",
+        "industry": "Industry"
+      },
+      "publisher": {
+        "title": "Job publisher",
+        "verified": "Verified",
+        "followers": "Followers",
+        "headquarters": "Headquarters",
+        "license": "License",
+        "stats": {
+          "interested": "Interested",
+          "openings": "Open roles",
+          "responseRate": "Response rate",
+          "hiringSpeed": "Hiring speed"
+        }
+      },
+      "actions": {
+        "save": "Save job",
+        "unsave": "Remove saved job",
+        "share": "Share job",
+        "followPublisher": "Follow",
+        "following": "Following",
+        "applyNow": "Apply now",
+        "callPublisher": "Call publisher",
+        "whatsapp": "Chat on WhatsApp",
+        "sendMessage": "Send message",
+        "originalPost": "Original announcement"
+      },
+      "comments": {
+        "placeholder": "Add a comment about this role...",
+        "submit": "Send",
+        "youFallback": "Me",
+        "like": "Like",
+        "dislike": "Dislike",
+        "reply": "Reply",
+        "publisherRole": "Publisher",
+        "communityAuthor": "Community member",
+        "communityQuestion": "Is the role open to candidates with closely related {role} experience?",
+        "communityTime": "1 hour ago",
+        "publisherReply": "We welcome candidates with a clear professional foundation, and we can review profiles that are close to the required criteria.",
+        "publisherTime": "45 min ago"
+      },
+      "safety": {
+        "title": "Important note",
+        "description": "Do not pay any money for hiring. Verify the publisher identity before sending any personal information."
+      },
+      "notFound": {
+        "title": "We could not find this job",
+        "description": "The listing may no longer be available or the link has changed.",
+        "backHome": "Back to home"
+      },
+      "toasts": {
+        "saved": "Job saved for later review",
+        "unsaved": "Job removed from saved items",
+        "linkCopied": "Job link copied",
+        "followed": "Publisher followed",
+        "unfollowed": "Publisher unfollowed",
+        "applied": "Application flow prepared for future API wiring",
+        "callSoon": "Publisher call channel will be enabled when real data is connected",
+        "whatsappSoon": "WhatsApp link will activate once real publisher data is connected",
+        "messageSoon": "Messaging channel is ready for backend integration",
+        "originalPostSoon": "The original post will open once the real source is connected",
+        "actionQueued": "Action prepared",
+        "commentSubmitted": "Your comment was received"
+      },
+      "generic": {
+        "summaryBadges": [
+          "Verified company",
+          "Fast response",
+          "Review-ready opportunity"
+        ],
+        "stats": {
+          "interested": "18",
+          "openings": "6",
+          "responseRate": "84%",
+          "hiringSpeed": "72 hours"
+        },
+        "employmentType": "Full-time contract",
+        "experience": "Mid to senior experience",
+        "education": "Relevant educational background",
+        "contractDuration": "Two years renewable",
+        "descriptionParagraphOne": "{role} opportunity with {company} in {location}, offering a structured work environment and a clear operating rhythm.",
+        "descriptionParagraphTwo": "The role focuses on outcomes, accountability, and steady execution with room for growth.",
+        "requirements": [
+          "Relevant experience for the role",
+          "Ability to commit and work well within a team",
+          "Strong organization and communication skills",
+          "Readiness to travel and start on time"
+        ],
+        "highlightsNote": "The final offer details are usually shaped by the candidate profile and interview outcome.",
+        "interviewParagraphOne": "{role} profiles are reviewed first before an interview slot is confirmed.",
+        "interviewParagraphTwo": "It is best to send the CV and any supporting documents before attending.",
+        "interviewAccent": "Application steps may vary depending on the country and visa workflow.",
+        "publisherTagline": "A publisher that keeps details clear and responds quickly.",
+        "publisherRating": "4.6",
+        "publisherReviews": "98 reviews",
+        "publisherFollowers": "9.8k",
+        "publisherLicense": "License under review",
+        "seoSummary": "{role} with {company} in {location}, including a strong benefits package and a structured hiring path."
+      }
+    },
+    "accountant": {
+      "summaryBadges": [
+        "Based in Kuwait",
+        "Contracting company",
+        "3+ years experience"
+      ],
+      "facts": {
+        "employmentType": "Full time",
+        "experience": "3+ years in cost accounting",
+        "education": "Bachelor's in Commerce / Accounting",
+        "category": "Accounting and finance",
+        "location": "Kuwait - project site",
+        "contractDuration": "Two years renewable",
+        "openings": "4 candidates",
+        "schedule": "7 working hours daily",
+        "industry": "Contracting and project execution"
+      },
+      "benefits": [
+        "Secured housing",
+        "Transport provided",
+        "Medical insurance",
+        "Flight tickets",
+        "Visa covered",
+        "Ongoing professional development"
+      ],
+      "description": {
+        "paragraphs": [
+          "A major contracting company in Kuwait is hiring a cost accountant with real hands-on experience in project cost tracking, variance analysis, and decision-support reporting.",
+          "The role combines document-cycle review with tight control over materials, labor, and indirect cost lines.",
+          "The successful candidate is expected to produce recurring insight that improves profitability and supports better spending decisions."
+        ],
+        "requirements": [
+          "Direct experience in cost accounting within projects or contracting environments",
+          "Strong ability to prepare cost reports and compare them with budgets",
+          "Advanced Excel and ERP system proficiency",
+          "Solid communication with site teams and finance leadership",
+          "Ability to travel and start within a near-term timeline"
+        ],
+        "requirementsNote": "Priority will go to profiles that clearly show similar, relevant experience.",
+        "highlights": [
+          "A role tied to meaningful financial decisions, not just administrative entries",
+          "Close visibility to decision-makers and clearer cost ownership",
+          "Stable contract with a strong blend of operating and financial benefits"
+        ]
+      },
+      "interview": {
+        "paragraphs": [
+          "The first stage focuses on reviewing the candidate's technical background in project cost control.",
+          "If aligned, a direct interview is scheduled with the company owner and finance leadership."
+        ],
+        "accent": "Interviews are direct with the company owner, and sending the CV in advance is preferred."
+      },
+      "publisher": {
+        "name": "Al Maaly Recruitment",
+        "tagline": "A specialized publisher for trusted project-sector opportunities.",
+        "rating": "4.8",
+        "reviewCount": "120 reviews",
+        "followerCount": "12.5k",
+        "headquarters": "Cairo, Nasr City",
+        "license": "License no. 454",
+        "stats": {
+          "interested": "22",
+          "openings": "14",
+          "responseRate": "91%",
+          "hiringSpeed": "48 hours"
+        }
+      },
+      "comments": {
+        "ahmed": {
+          "author": "Ahmed Ali",
+          "body": "Can I still apply if my background is in general accounting rather than direct cost accounting?",
+          "timeAgo": "1 hour ago",
+          "reply": "Yes, if your experience is close to project environments and your profile clearly shows analysis and reporting strength, we can review it.",
+          "replyTime": "45 min ago"
+        },
+        "mohamed": {
+          "author": "Mohamed Hassan",
+          "body": "I already sent my CV by email. Best of luck to everyone.",
+          "timeAgo": "2 hours ago"
+        },
+        "sara": {
+          "author": "Sara Mahmoud",
+          "body": "Is there any flexibility around travel timing if the candidate is accepted?",
+          "timeAgo": "3 hours ago"
+        }
+      },
+      "seoSummary": "Cost accountant role in Kuwait with strong project exposure, attractive benefits, and a clear contact path."
+    }
+  },
+  "company": {
+    "pageTitle": "Company Profile"
   },
   "api": {
     "error": {

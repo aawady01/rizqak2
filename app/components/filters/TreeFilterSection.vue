@@ -89,10 +89,10 @@ const handleToggleBranchExpansion = (
 <template>
   <BaseFilterSection
     v-model:search-query="searchQuery"
-    :title="section.title"
+    :title="t(section.title)"
     :searchable="searchable"
     :has-select-all="true"
-    :total-label="section.totalLabel"
+    :total-label="t(section.totalLabel)"
     :total-count="section.totalCount"
     :total-jobs="section.totalJobs"
     :all-checked="allChecked"
