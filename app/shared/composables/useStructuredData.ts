@@ -1,4 +1,4 @@
-﻿export interface StructuredDataNode {
+export interface StructuredDataNode {
   '@context'?: 'https://schema.org'
   '@type': string
   [key: string]: unknown
@@ -45,7 +45,18 @@ export interface JobPostingStructuredData {
   jobBenefits?: string[]
   workHours?: string
   applicantLocationRequirements?: string[]
+  // Task 2.3 — applicationContact support
+  applicationContact?: {
+    email?: string
+    url?: string
+  }
   path: string
+}
+
+// Task 2.4 — FAQPage schema types
+export interface FAQEntry {
+  question: string
+  answer: string
 }
 
 const trimSlash = (value: string): string => value.replace(/\/$/, '')
@@ -73,15 +84,17 @@ const withContext = (schema: StructuredDataNode): StructuredDataNode => ({
 
 /**
  * Attach one or many JSON-LD schema nodes to the page head.
+ * Task 1.2 — fix key collision by using Date.now()+index instead of @type+index
  */
 export const useStructuredData = (
   schema: StructuredDataNode | StructuredDataNode[],
 ): void => {
   const nodes = Array.isArray(schema) ? schema : [schema]
+  const ts = Date.now()
 
   useHead({
     script: nodes.map((node, index) => ({
-      key: `jsonld-${node['@type']}-${index}`,
+      key: `jsonld-${node['@type']}-${ts}-${index}`,
       type: 'application/ld+json',
       innerHTML: JSON.stringify(withContext(node)),
     })),
@@ -135,9 +148,19 @@ export const useEmployerStructuredData = (): void => {
 
 /**
  * JobPosting schema for job detail pages.
+ * Task 2.3 — added directApply: true and applicationContact
  */
 export const useJobPostingStructuredData = (job: JobPostingStructuredData): void => {
   const siteUrl = resolveSiteUrl()
+
+  const applicationContactNode = job.applicationContact
+    ? {
+        '@type': 'ContactPoint',
+        contactType: 'HR',
+        ...(job.applicationContact.email ? { email: job.applicationContact.email } : {}),
+        ...(job.applicationContact.url ? { url: job.applicationContact.url } : {}),
+      }
+    : undefined
 
   useStructuredData({
     '@type': 'JobPosting',
@@ -146,6 +169,7 @@ export const useJobPostingStructuredData = (job: JobPostingStructuredData): void
     datePosted: job.datePosted,
     validThrough: job.validThrough,
     employmentType: job.employmentType,
+    directApply: true,
     hiringOrganization: {
       '@type': 'Organization',
       name: job.hiringOrganization.name,
@@ -182,6 +206,7 @@ export const useJobPostingStructuredData = (job: JobPostingStructuredData): void
     jobBenefits: job.jobBenefits,
     workHours: job.workHours,
     applicantLocationRequirements: job.applicantLocationRequirements,
+    applicationContact: applicationContactNode,
     url: `${siteUrl}${job.path}`,
   })
 }
@@ -216,6 +241,24 @@ export const useItemListStructuredData = (items: ItemListEntry[]): void => {
       position: index + 1,
       name: item.name,
       url: `${siteUrl}${item.path}`,
+    })),
+  })
+}
+
+/**
+ * Task 2.4 — FAQPage schema for rich results in Google.
+ * Use in index.vue or any page that has FAQ content.
+ */
+export const useFAQStructuredData = (faqs: FAQEntry[]): void => {
+  useStructuredData({
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
     })),
   })
 }

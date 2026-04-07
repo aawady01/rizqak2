@@ -50,6 +50,14 @@ const toAbsoluteUrl = (siteUrl: string, pathOrUrl: string): string => {
 }
 
 /**
+ * Strip locale prefix from a path (e.g. /en/jobs/1 → /jobs/1, /ar/jobs/1 → /jobs/1).
+ * Arabic is the default locale and has no prefix, so we only strip /en.
+ */
+const stripLocalePrefix = (path: string): string => {
+  return path.replace(/^\/en(\/|$)/, (_, sep) => sep || '/')
+}
+
+/**
  * Apply canonical, social, and robots metadata for the active route.
  */
 export const useSEO = (options: SEOOptions = {}): void => {
@@ -62,32 +70,46 @@ export const useSEO = (options: SEOOptions = {}): void => {
   const type = options.type ?? 'website'
   const robots = options.robots ?? DEFAULT_ROBOTS
 
+  // Task 1.1 — fully reactive canonical path that updates with locale + route changes
   const canonicalPath = computed(() => {
     if (options.canonicalPath && options.canonicalPath.trim().length > 0) {
-      return options.canonicalPath.startsWith('/')
+      const p = options.canonicalPath.startsWith('/')
         ? options.canonicalPath
         : `/${options.canonicalPath}`
+      return stripLocalePrefix(p)
     }
-
-    return route.path
+    // route.fullPath may include /en prefix for English; strip it for a locale-neutral canonical
+    return stripLocalePrefix(route.path)
   })
 
+  // Canonical: always the Arabic (default) version
   const canonicalUrl = computed(() => `${siteUrl}${canonicalPath.value}`)
+
+  // hreflang ar → default locale path (no prefix)
   const arUrl = computed(() => `${siteUrl}${canonicalPath.value}`)
-  const enUrl = computed(() => `${siteUrl}/en${canonicalPath.value === '/' ? '' : canonicalPath.value}`)
+
+  // hreflang en → /en prefix
+  const enUrl = computed(() => {
+    const base = canonicalPath.value === '/' ? '' : canonicalPath.value
+    return `${siteUrl}/en${base}`
+  })
+
   const imageUrl = options.image
     ? toAbsoluteUrl(siteUrl, options.image)
     : `${siteUrl}/og-image.png`
 
+  // Task 2.1 — og:locale and og:locale:alternate
   const ogLocale = computed(() => locale.value === 'ar' ? 'ar_EG' : 'en_US')
+  const ogLocaleAlternate = computed(() => locale.value === 'ar' ? 'en_US' : 'ar_EG')
 
   useHead({
-    link: [
+    link: computed(() => [
       { rel: 'canonical', href: canonicalUrl.value },
       { rel: 'alternate', href: arUrl.value, hreflang: 'ar' },
       { rel: 'alternate', href: enUrl.value, hreflang: 'en' },
+      // Task 2.2 — x-default always points to the AR (default) canonical, not repeated per locale
       { rel: 'alternate', href: arUrl.value, hreflang: 'x-default' },
-    ],
+    ]),
   })
 
   useSeoMeta({
@@ -100,6 +122,8 @@ export const useSEO = (options: SEOOptions = {}): void => {
     ogUrl: canonicalUrl.value,
     ogImage: imageUrl,
     ogLocale: ogLocale.value,
+    // Task 2.1 — og:locale:alternate for the other language
+    ogLocaleAlternate: ogLocaleAlternate.value,
     twitterCard: 'summary_large_image',
     twitterTitle: title,
     twitterDescription: description,
