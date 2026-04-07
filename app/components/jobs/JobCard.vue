@@ -51,18 +51,18 @@ const toggleSaved = (e: Event) => {
   <NuxtLink
     :to="jobPath"
     class="surface-panel relative hover:border-primary/40 transition-all duration-300 cursor-pointer group overflow-hidden rounded-none block"
-    :aria-label="t(job.title)"
+    :aria-label="job.title"
   >
-    <!-- Vertical Hover Indicator -->
+    <!-- Vertical Hover Indicator — always on the inline-start (right in RTL, left in LTR) -->
     <div
-      class="absolute inset-inline-end-0 top-0 bottom-0 w-divider-thin bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-hover"
+      class="absolute inset-inline-start-0 top-0 bottom-0 w-divider-thin bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-hover"
     />
 
     <div class="p-content">
       <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
         <!-- Company Logo -->
         <div
-          class="size-12 sm:size-14 border border-border bg-surface p-compact shrink-0 flex items-center justify-center rounded-none shadow-sm transition-transform group-hover:bg-surface-alt"
+          class="size-12 sm:size-14 border border-border bg-surface p-compact shrink-0 flex items-center justify-center rounded-none shadow-sm transition-all group-hover:bg-surface-alt"
         >
           <img
             v-if="job.companyLogo"
@@ -70,6 +70,7 @@ const toggleSaved = (e: Event) => {
             :alt="$t(job.companyName)"
             class="size-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
             loading="lazy"
+            decoding="async"
             width="56"
             height="56"
           >
