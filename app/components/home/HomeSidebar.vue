@@ -67,7 +67,7 @@ const gender = ref("all");
             />
           </div>
 
-          <div class="pt-5">
+          <div class="pt-4">
             <TreeFilterSection
               :section="locationFilterData"
               searchable
@@ -75,7 +75,7 @@ const gender = ref("all");
             />
           </div>
 
-          <div class="pt-5">
+          <div class="pt-4">
             <SimpleFilter
               :title="$t('sidebar.salaryFilter.title')"
               :total-label="$t('sidebar.salaryFilter.totalLabel')"
@@ -88,7 +88,7 @@ const gender = ref("all");
             />
           </div>
 
-          <div class="pt-5">
+          <div class="pt-4">
             <SimpleFilter
               :title="$t('sidebar.experienceFilter.title')"
               :total-label="$t('sidebar.experienceFilter.totalLabel')"
@@ -101,11 +101,11 @@ const gender = ref("all");
             />
           </div>
 
-          <div class="pt-5">
+          <div class="pt-4">
             <GenderFilter v-model:selected="gender" query-key="gender" />
           </div>
 
-          <div class="pt-5">
+          <div class="pt-4">
             <button
               class="w-full py-2.5 bg-primary hover:bg-primary-dark text-white transition-colors text-ds-body-r font-semibold outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 cursor-pointer"
             >

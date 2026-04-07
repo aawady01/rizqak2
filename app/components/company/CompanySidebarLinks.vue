@@ -14,7 +14,7 @@ defineProps<{
       <h3 class="text-ds-h5 font-bold text-foreground">الروابط الرسمية</h3>
     </div>
     <div class="surface-panel p-content">
-      <div class="space-y-section">
+        <div class="space-y-element">
         <a
           :href="links.website"
           class="flex items-center justify-center gap-element h-9 px-content w-full rounded-none border border-border bg-surface hover:bg-surface-alt text-primary text-ds-label-r font-medium transition-colors"

@@ -168,7 +168,7 @@ const handleTabClick = (tab: TabName) => {
     />
 
     <!-- Tab Content -->
-    <div v-if="activeTab === 'المراجعات'" class="mt-section">
+    <div v-if="activeTab === 'المراجعات'" class="mt-content">
       <div class="max-w-none">
         <CompanyReviewsPanel :data="reviewsData" />
       </div>
@@ -189,9 +189,6 @@ const handleTabClick = (tab: TabName) => {
 
       <div class="order-2 min-w-0">
         <div class="space-y-section">
-
-        <!-- معلومات Tab Content -->
-        <div class="space-y-section">
           <CompanyAbout
             :description="company.aboutDescription"
             :classification="company.classification"
@@ -199,7 +196,7 @@ const handleTabClick = (tab: TabName) => {
             :experience-years="company.experienceYears"
             :size="company.size"
           />
-
+          
           <CompanyActivityStats :stats="company.stats" />
 
           <!-- Top Countries & Fields - Standalone Cards -->
@@ -212,12 +209,11 @@ const handleTabClick = (tab: TabName) => {
             <CompanyLicenseInfo :license="company.license" />
             <CompanyAccountInfo :account="company.account" />
           </div>
-        </div>
 
-        <!-- الوظائف Tab Content (placeholder) -->
-        <div class="text-center py-section text-foreground-muted">
-          <p>قائمة الوظائف ستكون هنا</p>
-        </div>
+          <!-- الوظائف Tab Content (placeholder) -->
+          <div class="text-center py-section text-foreground-muted">
+            <p>قائمة الوظائف ستكون هنا</p>
+          </div>
         </div>
       </div>
     </div>

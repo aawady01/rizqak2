@@ -50,9 +50,6 @@ onClickOutside(dropdownRef, () => {
       </div>
 
       <div class="flex items-center gap-compact">
-        <span class="text-ds-caption text-foreground-muted whitespace-nowrap">
-          {{ $t('jobList.sortLabel') }}
-        </span>
         <div ref="dropdownRef" class="relative sort-dropdown-container">
           <button
             type="button"

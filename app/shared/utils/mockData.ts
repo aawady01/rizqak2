@@ -309,7 +309,7 @@ export const experienceFilters = [
 
 export const navLinks = [
   { label: "nav.home", href: "/", active: true },
-  { label: "nav.jobs", href: "#jobs" },
+  { label: "nav.jobs", href: "/jobs" },
   { label: "nav.companies", href: "#companies" },
   { label: "nav.contact", href: "#contact" },
 ];

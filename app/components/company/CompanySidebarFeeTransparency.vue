@@ -16,7 +16,7 @@ const feeItems: FeeTransparencyItem[] = [
       <h3 class="text-ds-h5 font-bold text-foreground">شفافية الرسوم</h3>
     </div>
     <div class="surface-panel p-content">
-      <div class="space-y-section">
+        <div class="space-y-element">
         <div
           v-for="item in feeItems"
           :key="item.label"

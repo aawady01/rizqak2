@@ -40,9 +40,9 @@ const handleTabClick = (tab: TabName) => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 gap-section lg:grid-cols-company-sidebar xl:grid-cols-sidebar items-stretch mb-10 md:mb-16">
+  <div class="grid grid-cols-1 gap-section lg:grid-cols-company-sidebar xl:grid-cols-sidebar items-stretch mb-section">
     <!-- كارت الوصف والإجراءات الملاصقة (يمين) -->
-    <div class="order-1 surface-panel rounded-none p-0 overflow-hidden flex flex-col h-full gap-0 z-20">
+    <div class="order-1 surface-panel rounded-none p-0 overflow-hidden flex flex-col gap-0 z-20 lg:h-[220px] xl:h-[240px]">
       
       <!-- نص الوصف -->
       <div class="p-content flex-1 z-10 bg-surface flex flex-col">
@@ -87,7 +87,7 @@ const handleTabClick = (tab: TabName) => {
     </div>
 
     <!-- مساحة الكارت الأيسر التي تتضمن الغلاف ومساحة البروز للحفاظ على المحاذاة مع الكارت الأيمن -->
-    <div class="order-2 flex flex-col h-full z-10">
+    <div class="order-2 flex flex-col z-10">
       
       <!-- الغلاف الفعلي بحدوده -->
       <div class="relative flex-1 rounded-none p-0 flex items-end border border-border bg-surface overflow-visible min-h-[180px] md:min-h-[200px]">
@@ -144,9 +144,9 @@ const handleTabClick = (tab: TabName) => {
 
       </div>
 
-      <!-- قائمة التبويبات (على الجانب الأيسر أسفل صورة الغلاف) -->
-      <div v-if="tabs && tabs.length" class="absolute -bottom-10 md:-bottom-14 inset-e-4 md:inset-e-6 flex items-end z-20">
-        <div role="tablist" aria-label="أقسام الشركة" class="bg-surface/90 backdrop-blur-md border border-border flex items-center shadow-sm rounded-none p-1 max-w-full overflow-x-auto hide-scrollbar">
+      <!-- قائمة التبويبات (ملاصقة لأسفل الغلاف من الخارج) -->
+      <div v-if="tabs && tabs.length" class="absolute top-full end-0 z-20">
+        <div role="tablist" aria-label="أقسام الشركة" class="bg-surface border border-border flex items-center shadow-sm overflow-x-auto hide-scrollbar w-fit">
           <button
             v-for="tab in tabs"
             :key="tab.label"
@@ -154,12 +154,12 @@ const handleTabClick = (tab: TabName) => {
             type="button"
             :aria-selected="tab.label === props.activeTab"
             :tabindex="tab.label === props.activeTab ? 0 : -1"
-            class="px-4 md:px-6 py-2 text-xs md:text-sm font-bold transition-all duration-300 rounded-none whitespace-nowrap flex items-center"
+            class="flex-1 md:flex-none px-4 md:px-4 py-2.5 md:py-2.5 text-sm md:text-ds-label-l font-bold transition-all duration-300 whitespace-nowrap flex items-center justify-center md:justify-start"
             :class="tab.label === props.activeTab ? 'bg-primary text-white shadow-inner' : 'text-foreground-subtle hover:text-foreground hover:bg-surface-alt'"
             @click="handleTabClick(tab.label)"
           >
              {{ tab.label }} 
-             <span v-if="tab.count" class="opacity-80 text-[10px] md:text-xs ms-1.5 dir-ltr inline-block">({{ tab.count }})</span>
+             <span v-if="tab.count" class="opacity-80 text-[9px] md:text-[10px] ms-1 md:ms-1.5 dir-ltr inline-block">({{ tab.count }})</span>
           </button>
         </div>
       </div>
@@ -167,8 +167,8 @@ const handleTabClick = (tab: TabName) => {
 
       <!-- هذه المساحة السفلية ضرورية لأن الصورة الشخصية والتبويبات تبرز للأسفل بمقدار معين.
            وجود هذه المساحة داخل جريد الكارت الأيسر يُجبر الكارت الأيمن بأكمله
-           على التمدد والوصول لنفس الحافة السفلية الدقيقة للصورة والتبويبات. -->
-      <div class="h-10 md:h-14 w-full shrink-0 pointer-events-none"></div>
+           على التمدد والوصول لنفس الحافة السفلية الدقيقة. -->
+      <div class="h-20 md:h-24 w-full shrink-0 pointer-events-none"></div>
 
     </div>
   </div>

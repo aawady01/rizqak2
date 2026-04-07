@@ -17,9 +17,9 @@ import {
     class="bg-primary border-t border-white/10 mt-section py-section scroll-mt-24"
   >
     <div class="shell-container">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
         <!-- Brand -->
-        <div class="col-span-1">
+        <div class="col-span-2 md:col-span-1">
           <div class="flex items-center gap-element mb-content group cursor-default">
             <div class="shell-brand-mark group-hover:scale-105">
               <BaseTypography variant="body-l" class="font-bold text-white"
@@ -37,7 +37,7 @@ import {
         </div>
 
         <!-- Job Seekers -->
-        <div>
+        <div class="col-span-1">
           <BaseTypography variant="subtitle-l" class="font-bold text-white mb-content"
             >{{ $t('footer.jobSeekersTitle') }}</BaseTypography
           >
@@ -59,7 +59,7 @@ import {
         </div>
 
         <!-- Employers -->
-        <div>
+        <div class="col-span-1">
           <BaseTypography variant="subtitle-l" class="font-bold text-white mb-content"
             >{{ $t('footer.employersTitle') }}</BaseTypography
           >
@@ -78,7 +78,7 @@ import {
         </div>
 
         <!-- Contact -->
-        <div>
+        <div class="col-span-2 md:col-span-1">
           <BaseTypography variant="subtitle-l" class="font-bold text-white mb-content"
             >{{ $t('footer.contactTitle') }}</BaseTypography
           >

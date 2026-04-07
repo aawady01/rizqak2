@@ -14,16 +14,16 @@ defineProps<{
       <h3 class="text-ds-h4 font-bold text-foreground">بيانات الترخيص</h3>
     </div>
     <div class="surface-panel rounded-none p-content h-full flex flex-col justify-center">
-      <div class="space-y-content">
-        <div class="flex justify-between items-center py-element">
+      <div class="space-y-element">
+        <div class="flex justify-between items-center py-compact">
           <span class="text-foreground-muted font-normal text-ds-body-r">رقم الترخيص</span>
           <span class="text-ds-body-m font-bold text-foreground">{{ license.number }}</span>
         </div>
-        <div class="flex justify-between items-center py-element">
+        <div class="flex justify-between items-center py-compact">
           <span class="text-foreground-muted font-normal text-ds-body-r">جهة الإصدار</span>
           <span class="text-ds-body-m font-bold text-foreground">{{ license.issuer }}</span>
         </div>
-        <div class="flex justify-between items-center py-element">
+        <div class="flex justify-between items-center py-compact">
           <span class="text-foreground-muted font-normal text-ds-body-r">الحالة</span>
           <span class="text-success text-ds-caption-l font-bold">{{ license.status }}</span>
         </div>
