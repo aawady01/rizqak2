@@ -85,6 +85,7 @@ export default defineNuxtConfig({
     },
   },
 
+  // Task 4.2 — add priority: true for Cairo to ensure it is preloaded first
   fonts: {
     provider: 'google',
     families: [
@@ -94,6 +95,7 @@ export default defineNuxtConfig({
         weights: [300, 400, 500, 600, 700, 800],
         styles: ['normal'],
         subsets: ['arabic', 'latin'],
+        priority: true,
       },
     ],
   },
@@ -143,7 +145,20 @@ export default defineNuxtConfig({
     defaultLocale: 'ar',
   },
 
-  image: {},
+  // Task 4.3 — configure Nuxt Image with ipx provider and sensible quality defaults
+  image: {
+    provider: 'ipx',
+    quality: 80,
+    format: ['webp', 'avif'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+  },
 
   ...(!isDev ? {
     security: {
