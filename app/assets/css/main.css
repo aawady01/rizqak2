@@ -977,6 +977,46 @@ html.dark {
     font-family: var(--font-family-sans);
   }
 
+  /* ==========================================
+     SPACING UTILITIES — DS token-based
+     These map class names used in templates to
+     the design-system spacing variables.
+     ========================================== */
+
+  /* Padding */
+  .p-content  { padding: var(--spacing-content); }
+  .px-content { padding-inline: var(--spacing-content); }
+  .py-content { padding-block: var(--spacing-content); }
+
+  .p-compact  { padding: var(--spacing-compact); }
+  .px-compact { padding-inline: var(--spacing-compact); }
+  .py-compact { padding-block: var(--spacing-compact); }
+
+  .p-element  { padding: var(--spacing-element); }
+  .px-element { padding-inline: var(--spacing-element); }
+  .py-element { padding-block: var(--spacing-element); }
+
+  .p-section  { padding: var(--spacing-section); }
+  .py-section { padding-block: var(--spacing-section); }
+
+  /* Gap */
+  .gap-content { gap: var(--spacing-content); }
+  .gap-compact { gap: var(--spacing-compact); }
+  .gap-element { gap: var(--spacing-element); }
+  .gap-section { gap: var(--spacing-section); }
+
+  /* Margin bottom */
+  .mb-compact { margin-bottom: var(--spacing-compact); }
+  .mb-element { margin-bottom: var(--spacing-element); }
+  .mb-content { margin-bottom: var(--spacing-content); }
+  .mb-section { margin-bottom: var(--spacing-section); }
+
+  /* Margin top */
+  .mt-compact { margin-top: var(--spacing-compact); }
+  .mt-element { margin-top: var(--spacing-element); }
+  .mt-content { margin-top: var(--spacing-content); }
+  .mt-section { margin-top: var(--spacing-section); }
+
   .shell-container {
     width: 100%;
     max-width: var(--container-shell-max-width);
