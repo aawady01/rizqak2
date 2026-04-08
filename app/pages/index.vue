@@ -37,10 +37,9 @@ useItemListStructuredData(
   <div>
     <HomeHero />
 
-    <!-- Main content - py-section, gap-section -->
     <div class="page-shell">
       <div class="grid grid-cols-1 lg:grid-cols-home-sidebar-lg xl:grid-cols-home-sidebar-xl gap-section">
-        <HomeSidebar />
+        <HomeSidebar :total-results="jobsData.length" />
 
         <div class="space-y-section order-2 w-full min-w-0">
           <HomeFeaturedCompanies />

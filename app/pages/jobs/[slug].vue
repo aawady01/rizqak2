@@ -83,17 +83,6 @@ const rightRequirementItems = [
   { label: 'مكان السكن داخل مصر', value: 'محافظات وجة قبلى / محافظات الدلتا' },
 ]
 
-const jobDescriptionRows = [
-  { label: 'المسمى الوظيفي', value: 'محاسب تكاليف', icon: Briefcase },
-  { label: 'التصنيف الوظيفي', value: 'محاسبة وإدارة', icon: ListChecks },
-  { label: 'مقر العمل', value: 'الكويت', icon: MapPin },
-  { label: 'الشركة المعلنة', value: 'شركة آل سعيد للمقاولات', icon: Building2 },
-  { label: 'الراتب الأساسي', value: '450 دينار', icon: Wallet },
-  { label: 'مدة العقد', value: 'سنتين', icon: CalendarDays },
-  { label: 'العدد المطلوب', value: '4', icon: Users },
-  { label: 'تاريخ النشر', value: 'منذ 4 ساعات', icon: Clock },
-]
-
 const comments = [
   {
     author: 'أحمد علي',
@@ -577,37 +566,6 @@ const _goBack = async () => {
                     <span class="mb-element block text-ds-body-s font-normal text-foreground-muted dark:text-foreground-muted">{{ item.label }}</span>
                     <p class="text-ds-body-m font-bold leading-relaxed text-foreground dark:text-foreground">{{ item.value }}</p>
                   </div>
-                </div>
-              </div>
-            </div>
-            </div>
-          </section>
-
-          <section>
-            <BaseSectionHeader>
-              <template #icon>
-                <BriefcaseBusiness class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
-              </template>
-              <BaseTypography variant="h3" tag="h3" class="font-bold text-foreground">
-                  وصف الوظيفة
-                </BaseTypography>
-            </BaseSectionHeader>
-
-            <div class="rounded-none border border-border bg-surface p-content dark:border-border dark:bg-surface">
-              <div class="overflow-hidden rounded-none border border-border bg-surface dark:border-border dark:bg-surface">
-              <div
-                v-for="(row, index) in jobDescriptionRows"
-                :key="`${row.label}-${index}`"
-                class="flex border-b border-border last:border-b-0 dark:border-border"
-              >
-                <div class="flex-1 border-l border-border bg-surface-alt p-content dark:border-border dark:bg-surface-alt">
-                  <div class="mb-element flex items-center gap-element text-foreground-muted dark:text-foreground-muted">
-                    <span class="text-ds-body-s font-medium">{{ row.label }}</span>
-                    <component :is="row.icon" class="size-4 text-foreground-subtle" :stroke-width="2" />
-                  </div>
-                </div>
-                <div class="flex-1 bg-surface p-content dark:bg-surface">
-                  <span class="text-ds-body-m font-bold text-foreground dark:text-foreground">{{ row.value }}</span>
                 </div>
               </div>
             </div>

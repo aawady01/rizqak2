@@ -12,6 +12,7 @@ import {
 import BaseTypography from "~/shared/components/base/BaseTypography.vue";
 import BaseChip from "~/shared/components/base/BaseChip.vue";
 import type { Job } from "~/shared/utils/mockData";
+import { getJobPath } from "~/shared/utils/jobDetails";
 
 interface Props {
   job: Job;
@@ -20,11 +21,9 @@ interface Props {
 const props = defineProps<Props>();
 const { t } = useI18n();
 
-const emit = defineEmits<{
-  click: [job: Job];
-}>();
-
 const isSaved = ref(props.job.isSaved ?? false);
+
+const jobPath = computed(() => getJobPath(props.job))
 
 const iconComponent = computed(() => {
   switch (props.job.iconName) {
@@ -43,35 +42,27 @@ const iconComponent = computed(() => {
 
 const toggleSaved = (e: Event) => {
   e.stopPropagation();
+  e.preventDefault();
   isSaved.value = !isSaved.value;
-};
-
-const handleClick = () => {
-  emit("click", props.job);
-  navigateTo(`/jobs/${props.job.slug}`);
 };
 </script>
 
 <template>
-  <div
-    class="surface-panel relative hover:border-primary/40 transition-all duration-300 cursor-pointer group overflow-hidden rounded-none"
-    role="link"
-    tabindex="0"
-    :aria-label="t(job.title)"
-    @click="handleClick"
-    @keydown.enter.prevent="handleClick"
-    @keydown.space.prevent="handleClick"
+  <NuxtLink
+    :to="jobPath"
+    class="surface-panel relative hover:border-primary/40 transition-all duration-300 cursor-pointer group overflow-hidden rounded-none block"
+    :aria-label="job.title"
   >
-    <!-- Vertical Hover Indicator -->
+    <!-- Vertical Hover Indicator — always on the inline-start (right in RTL, left in LTR) -->
     <div
-      class="absolute inset-inline-end-0 top-0 bottom-0 w-divider-thin bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-hover"
+      class="absolute inset-inline-start-0 top-0 bottom-0 w-divider-thin bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-hover"
     />
 
     <div class="p-content">
       <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
         <!-- Company Logo -->
         <div
-          class="size-12 sm:size-14 border border-border bg-surface p-compact shrink-0 flex items-center justify-center rounded-none shadow-sm transition-transform group-hover:bg-surface-alt"
+          class="size-12 sm:size-14 border border-border bg-surface-alt p-compact shrink-0 flex items-center justify-center rounded-none shadow-sm transition-all group-hover:bg-surface-alt"
         >
           <img
             v-if="job.companyLogo"
@@ -79,6 +70,9 @@ const handleClick = () => {
             :alt="$t(job.companyName)"
             class="size-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
             loading="lazy"
+            decoding="async"
+            width="56"
+            height="56"
           >
           <component
             :is="iconComponent"
@@ -94,14 +88,12 @@ const handleClick = () => {
             <div class="flex flex-col items-start w-full min-w-0">
               <!-- Meta Row -->
               <div class="flex items-center gap-compact mb-compact">
-                <NuxtLink to="#" @click.prevent.stop>
-                  <BaseTypography
-                    variant="caption-l"
-                    class="font-bold text-primary hover:text-primary-dark transition-colors"
-                  >
-                    {{ $t(job.hashtag) }}
-                  </BaseTypography>
-                </NuxtLink>
+                <span
+                  class="font-bold text-primary hover:text-primary-dark transition-colors text-ds-caption-l"
+                  @click.prevent.stop
+                >
+                  {{ $t(job.hashtag) }}
+                </span>
                 <div class="size-1 bg-border rounded-full" />
                 <BaseTypography
                   variant="caption-r"
@@ -130,18 +122,12 @@ const handleClick = () => {
                     size="sm"
                     :alt="$t(job.country)"
                   />
-                  <NuxtLink
-                    :to="`/companies/${job.companySlug}`"
-                    class="text-foreground-muted font-medium truncate hover:text-primary transition-colors"
-                    @click.prevent.stop
+                  <BaseTypography
+                    variant="body-s"
+                    class="text-foreground-muted font-medium hover:text-primary transition-colors"
                   >
-                    <BaseTypography
-                      variant="body-s"
-                      class="hover:text-primary"
-                    >
-                      {{ $t(job.country) }}
-                    </BaseTypography>
-                  </NuxtLink>
+                    {{ $t(job.country) }}
+                  </BaseTypography>
                 </div>
                 <div class="size-1 bg-border rounded-full" />
                 <div class="flex items-center gap-compact">
@@ -150,24 +136,17 @@ const handleClick = () => {
                     :stroke-width="2"
                     aria-hidden="true"
                   />
-                  <NuxtLink
-                    :to="`/companies/${job.companySlug}`"
-                    class="text-foreground-muted font-medium truncate hover:text-primary transition-colors"
-                    @click.prevent.stop
+                  <BaseTypography
+                    variant="body-s"
+                    class="text-foreground-muted font-medium hover:text-primary transition-colors"
                   >
-                    <BaseTypography
-                      variant="body-s"
-                      class="hover:text-primary"
-                    >
-                      {{ $t(job.companyName) }}
-                    </BaseTypography>
-                  </NuxtLink>
+                    {{ $t(job.companyName) }}
+                  </BaseTypography>
                 </div>
               </div>
 
               <!-- Salary & Benefits -->
               <div class="flex flex-wrap items-center gap-element w-full">
-                <!-- Salary -->
                 <BaseChip variant="primary" size="md" class="gap-1.5">
                   <Wallet class="size-4" :stroke-width="2" />
                   <BaseTypography variant="body-s" class="font-bold">
@@ -175,7 +154,6 @@ const handleClick = () => {
                   </BaseTypography>
                 </BaseChip>
 
-                <!-- Benefits Tags -->
                 <div class="flex flex-wrap gap-compact">
                   <BaseChip
                     v-for="benefit in job.benefits"
@@ -215,7 +193,5 @@ const handleClick = () => {
         </div>
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
-
-

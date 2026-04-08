@@ -7,6 +7,7 @@ import { jobsData } from "~/shared/utils/mockData";
 
 const { t } = useI18n();
 
+const ITEMS_PER_PAGE = 10
 const sortBy = ref("latest");
 const currentPage = ref(1);
 const isDropdownOpen = ref(false);
@@ -18,12 +19,35 @@ const sortOptions = computed(() => [
   { value: "views", label: t('jobList.sortOptions.views') },
 ]);
 
+const sortedJobs = computed(() => {
+  const jobs = [...jobsData]
+  if (sortBy.value === 'salary') {
+    return jobs.sort((a, b) => {
+      const numA = parseInt(t(a.salary).replace(/[^0-9]/g, '')) || 0
+      const numB = parseInt(t(b.salary).replace(/[^0-9]/g, '')) || 0
+      return numB - numA
+    })
+  }
+  if (sortBy.value === 'views') {
+    return jobs.sort((a, b) => (b.id > a.id ? 1 : -1))
+  }
+  return jobs.sort((a, b) => Number(b.id) - Number(a.id))
+})
+
+const totalPages = computed(() => Math.max(1, Math.ceil(sortedJobs.value.length / ITEMS_PER_PAGE)))
+
+const paginatedJobs = computed(() => {
+  const start = (currentPage.value - 1) * ITEMS_PER_PAGE
+  return sortedJobs.value.slice(start, start + ITEMS_PER_PAGE)
+})
+
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
 };
 
 const selectSortOption = (val: string) => {
   sortBy.value = val;
+  currentPage.value = 1;
   isDropdownOpen.value = false;
 };
 
@@ -34,7 +58,7 @@ onClickOutside(dropdownRef, () => {
 
 <template>
   <section id="jobs" class="scroll-mt-24">
-    <!-- Section Header — ds pattern -->
+    <!-- Section Header -->
     <div class="section-heading">
       <div class="section-heading__title">
         <LayoutList class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
@@ -45,7 +69,7 @@ onClickOutside(dropdownRef, () => {
           color="text-foreground"
         >
           {{ $t('jobList.title') }}
-          <span class="text-primary font-bold">(2,340)</span>
+          <span class="text-primary font-bold">({{ sortedJobs.length }})</span>
         </BaseTypography>
       </div>
 
@@ -91,11 +115,11 @@ onClickOutside(dropdownRef, () => {
       </div>
     </div>
 
-    <!-- Job Cards — gap-compact -->
+    <!-- Job Cards -->
     <div class="space-y-compact">
-      <JobCard v-for="job in jobsData" :key="job.id" :job="job" />
+      <JobCard v-for="job in paginatedJobs" :key="job.id" :job="job" />
     </div>
 
-    <BasePagination v-model:current-page="currentPage" :total-pages="10" />
+    <BasePagination v-model:current-page="currentPage" :total-pages="totalPages" />
   </section>
 </template>

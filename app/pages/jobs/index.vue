@@ -23,16 +23,40 @@ useItemListStructuredData(
   })),
 )
 
+const ITEMS_PER_PAGE = 10
 const currentPage = ref(1)
 const isDropdownOpen = ref(false)
 const dropdownRef = ref<HTMLElement>()
 
-const sortBy = ref("latest")
+const sortBy = ref('latest')
 const sortOptions = computed(() => [
-  { value: "latest", label: t('jobList.sortOptions.latest') },
-  { value: "salary", label: t('jobList.sortOptions.salary') },
-  { value: "views", label: t('jobList.sortOptions.views') },
+  { value: 'latest', label: t('jobList.sortOptions.latest') },
+  { value: 'salary', label: t('jobList.sortOptions.salary') },
+  { value: 'views', label: t('jobList.sortOptions.views') },
 ])
+
+const sortedJobs = computed(() => {
+  const jobs = [...jobsData]
+  if (sortBy.value === 'salary') {
+    return jobs.sort((a, b) => {
+      const numA = parseInt(t(a.salary).replace(/[^0-9]/g, '')) || 0
+      const numB = parseInt(t(b.salary).replace(/[^0-9]/g, '')) || 0
+      return numB - numA
+    })
+  }
+  if (sortBy.value === 'views') {
+    return jobs.sort((a, b) => (b.id > a.id ? 1 : -1))
+  }
+  // latest: default order (by id descending)
+  return jobs.sort((a, b) => Number(b.id) - Number(a.id))
+})
+
+const totalPages = computed(() => Math.max(1, Math.ceil(sortedJobs.value.length / ITEMS_PER_PAGE)))
+
+const paginatedJobs = computed(() => {
+  const start = (currentPage.value - 1) * ITEMS_PER_PAGE
+  return sortedJobs.value.slice(start, start + ITEMS_PER_PAGE)
+})
 
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value
@@ -40,6 +64,7 @@ const toggleDropdown = () => {
 
 const selectSortOption = (val: string) => {
   sortBy.value = val
+  currentPage.value = 1
   isDropdownOpen.value = false
 }
 
@@ -50,10 +75,9 @@ onClickOutside(dropdownRef, () => {
 
 <template>
   <div>
-    <!-- Main content -->
     <div class="page-shell py-section">
       <div class="grid grid-cols-1 lg:grid-cols-home-sidebar-lg xl:grid-cols-home-sidebar-xl gap-section items-start">
-        <HomeSidebar :total-results="jobsData.length" />
+        <HomeSidebar :total-results="sortedJobs.length" />
 
         <div class="order-2 w-full min-w-0">
           <!-- Section Header -->
@@ -67,7 +91,7 @@ onClickOutside(dropdownRef, () => {
                 color="text-foreground"
               >
                 {{ $t('jobList.title') }}
-                <span class="text-primary font-bold">({{ jobsData.length }})</span>
+                <span class="text-primary font-bold">({{ sortedJobs.length }})</span>
               </BaseTypography>
             </div>
 
@@ -110,13 +134,16 @@ onClickOutside(dropdownRef, () => {
 
           <div class="space-y-compact">
             <JobCard
-              v-for="job in jobsData"
+              v-for="job in paginatedJobs"
               :key="job.id"
               :job="job"
             />
           </div>
 
-          <BasePagination v-model:current-page="currentPage" :total-pages="10" />
+          <BasePagination
+            v-model:current-page="currentPage"
+            :total-pages="totalPages"
+          />
         </div>
       </div>
     </div>
