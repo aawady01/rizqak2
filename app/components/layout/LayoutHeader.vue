@@ -49,14 +49,14 @@ const { isHidden } = useScrollHeader();
         <NuxtLink to="/" class="flex items-center gap-element group">
           <div class="shell-brand-mark">
             <BaseTypography variant="body-l" class="text-white font-bold">
-              {{ $t('header.brandInitial') }}
+              {{ $t('header.brand_initial') }}
             </BaseTypography>
           </div>
           <BaseTypography
             variant="h3"
             class="text-white hidden sm:block tracking-tight"
           >
-            {{ $t('header.brandName') }}
+            {{ $t('header.brand_name') }}
           </BaseTypography>
         </NuxtLink>
 

@@ -176,6 +176,8 @@ export interface Job {
   companyName: string
   companySlug: string
   salary: string
+  salaryAmount?: number
+  views?: number
   benefits: JobBenefit[]
   companyLogo?: string
   iconName?: string

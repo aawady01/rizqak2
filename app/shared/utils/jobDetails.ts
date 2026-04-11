@@ -79,23 +79,19 @@ const buildGenericQuickStats = (t: Translate): JobDetailPublisherStat[] => {
 const buildGenericFactGroups = (job: Job, t: Translate): JobDetailFactGroup[] => {
   return [
     {
-      id: 'role-basics',
-      title: t('jobDetail.shared.sections.roleFacts'),
+      id: 'role-required',
+      title: 'يشترط',
       items: [
         { id: 'employment-type', label: t('jobDetail.shared.facts.employmentType'), value: t('jobDetail.shared.generic.employmentType'), iconName: 'briefcase-business' },
         { id: 'experience', label: t('jobDetail.shared.facts.experience'), value: t('jobDetail.shared.generic.experience'), iconName: 'graduation-cap' },
         { id: 'education', label: t('jobDetail.shared.facts.education'), value: t('jobDetail.shared.generic.education'), iconName: 'badge-check' },
-        { id: 'category', label: t('jobDetail.shared.facts.category'), value: t(job.hashtag).replace('#', ''), iconName: 'layers-3' },
       ],
     },
     {
-      id: 'role-context',
-      title: t('jobDetail.shared.sections.jobContext'),
+      id: 'role-preferred',
+      title: 'يفضل',
       items: [
-        { id: 'location', label: t('jobDetail.shared.facts.location'), value: t(job.country), iconName: 'map-pinned' },
-        { id: 'company', label: t('jobDetail.shared.facts.company'), value: t(job.companyName), iconName: 'building-2' },
-        { id: 'posted-at', label: t('jobDetail.shared.facts.postedAt'), value: t(job.timeAgo), iconName: 'clock-3' },
-        { id: 'salary', label: t('jobDetail.shared.facts.salary'), value: t(job.salary), iconName: 'wallet' },
+        { id: 'category', label: t('jobDetail.shared.facts.category'), value: t(job.hashtag).replace('#', ''), iconName: 'layers-3' },
       ],
     },
   ]
@@ -130,19 +126,6 @@ const buildGenericContentSections = (
           role: t(job.title),
         }),
       ],
-    },
-    {
-      id: 'requirements',
-      title: t('jobDetail.shared.sections.requirements'),
-      iconName: 'list-checks',
-      items: asStringArray(tm('jobDetail.shared.generic.requirements'), rt),
-    },
-    {
-      id: 'benefits',
-      title: t('jobDetail.shared.sections.highlights'),
-      iconName: 'sparkles',
-      items: job.benefits.map(benefit => t(benefit.label)),
-      accentNote: t('jobDetail.shared.generic.highlightsNote'),
     },
   ]
 }
@@ -232,27 +215,21 @@ const buildAccountantTemplate = (
   ],
   factGroups: [
     {
-      id: 'job-requirements',
-      title: t('jobDetail.shared.sections.roleFacts'),
+      id: 'required',
+      title: 'يشترط',
       items: [
         { id: 'employment-type', label: t('jobDetail.shared.facts.employmentType'), value: t('jobDetail.accountant.facts.employmentType'), iconName: 'briefcase-business' },
         { id: 'experience', label: t('jobDetail.shared.facts.experience'), value: t('jobDetail.accountant.facts.experience'), iconName: 'graduation-cap' },
         { id: 'education', label: t('jobDetail.shared.facts.education'), value: t('jobDetail.accountant.facts.education'), iconName: 'badge-check' },
-        { id: 'category', label: t('jobDetail.shared.facts.category'), value: t('jobDetail.accountant.facts.category'), iconName: 'layers-3' },
-        { id: 'location', label: t('jobDetail.shared.facts.location'), value: t('jobDetail.accountant.facts.location'), iconName: 'map-pinned' },
-        { id: 'company', label: t('jobDetail.shared.facts.company'), value: t(job.companyName), iconName: 'building-2' },
       ],
     },
     {
-      id: 'job-context',
-      title: t('jobDetail.shared.sections.jobContext'),
+      id: 'preferred',
+      title: 'يفضل',
       items: [
-        { id: 'salary', label: t('jobDetail.shared.facts.salary'), value: t(job.salary), iconName: 'wallet' },
-        { id: 'contract-duration', label: t('jobDetail.shared.facts.contractDuration'), value: t('jobDetail.accountant.facts.contractDuration'), iconName: 'calendar-range' },
-        { id: 'openings', label: t('jobDetail.shared.facts.openings'), value: t('jobDetail.accountant.facts.openings'), iconName: 'users-round' },
-        { id: 'posted-at', label: t('jobDetail.shared.facts.postedAt'), value: t(job.timeAgo), iconName: 'clock-3' },
-        { id: 'schedule', label: t('jobDetail.shared.facts.schedule'), value: t('jobDetail.accountant.facts.schedule'), iconName: 'timer-reset' },
-        { id: 'industry', label: t('jobDetail.shared.facts.industry'), value: t('jobDetail.accountant.facts.industry'), iconName: 'factory' },
+        { id: 'category', label: t('jobDetail.shared.facts.category'), value: t('jobDetail.accountant.facts.category'), iconName: 'layers-3' },
+        { id: 'location', label: t('jobDetail.shared.facts.location'), value: t('jobDetail.accountant.facts.location'), iconName: 'map-pinned' },
+        { id: 'company', label: t('jobDetail.shared.facts.company'), value: t(job.companyName), iconName: 'building-2' },
       ],
     },
   ],
@@ -268,19 +245,6 @@ const buildAccountantTemplate = (
       title: t('jobDetail.shared.sections.additionalDetails'),
       iconName: 'file-text',
       paragraphs: asStringArray(tm('jobDetail.accountant.description.paragraphs'), rt),
-    },
-    {
-      id: 'requirements',
-      title: t('jobDetail.shared.sections.requirements'),
-      iconName: 'list-checks',
-      items: asStringArray(tm('jobDetail.accountant.description.requirements'), rt),
-      accentNote: t('jobDetail.accountant.description.requirementsNote'),
-    },
-    {
-      id: 'highlights',
-      title: t('jobDetail.shared.sections.highlights'),
-      iconName: 'sparkles',
-      items: asStringArray(tm('jobDetail.accountant.description.highlights'), rt),
     },
   ],
   interviewSection: {

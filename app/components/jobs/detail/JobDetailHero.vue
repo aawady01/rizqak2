@@ -110,7 +110,7 @@ const emit = defineEmits<{
       </div>
     </div>
 
-    <div class="border-t border-border bg-surface-alt/55 p-[1px]">
+    <div class="border-t border-border bg-surface-alt/55 p-job-detail-separator">
       <div class="job-detail-meta-grid">
         <div class="job-detail-meta-card">
           <div class="job-detail-meta-icon">

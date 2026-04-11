@@ -64,7 +64,7 @@ const toggleSaved = (e: Event) => {
         <div
           class="size-12 sm:size-14 border border-border bg-surface-alt p-compact shrink-0 flex items-center justify-center rounded-none shadow-sm transition-all group-hover:bg-surface-alt"
         >
-          <img
+          <NuxtImg
             v-if="job.companyLogo"
             :src="job.companyLogo"
             :alt="$t(job.companyName)"
@@ -73,7 +73,7 @@ const toggleSaved = (e: Event) => {
             decoding="async"
             width="56"
             height="56"
-          >
+          />
           <component
             :is="iconComponent"
             v-else

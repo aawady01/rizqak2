@@ -10,8 +10,8 @@
     "close": "Close"
   },
   "header": {
-    "brandInitial": "R",
-    "brandName": "Rizqak Jobs",
+    "brand_initial": "R",
+    "brand_name": "Rizqak Jobs",
     "theme": {
       "light": "Switch to light mode",
       "dark": "Switch to dark mode",
@@ -26,8 +26,8 @@
     "login": "Sign in"
   },
   "footer": {
-    "brandInitial": "R",
-    "brandName": "Rizqak",
+    "brand_initial": "R",
+    "brand_name": "Rizqak",
     "description": "A leading recruitment platform connecting talent with opportunities in the Gulf and Arab world.",
     "jobSeekersTitle": "For Job Seekers",
     "employersTitle": "For Employers",
@@ -708,7 +708,17 @@
     }
   },
   "company": {
-    "pageTitle": "Company Profile"
+    "pageTitle": "Company Profile",
+    "ratingLabel": "Rating",
+    "followersSuffix": "Followers",
+    "follow": "Follow",
+    "unfollow": "Unfollow",
+    "following": "Following",
+    "share": "Share",
+    "coverAlt": "{name} cover",
+    "licensedBadge": "Licensed",
+    "placedSuffix": "Hired",
+    "tabsLabel": "Company tabs"
   },
   "api": {
     "error": {

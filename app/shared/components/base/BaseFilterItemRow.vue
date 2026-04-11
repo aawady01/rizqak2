@@ -113,7 +113,7 @@ watchEffect(() => {
 
         <span
           v-if="count !== undefined || totalJobs !== undefined"
-          class="shrink-0 text-[11px] leading-[1.4] text-neutral-400 font-medium"
+          class="shrink-0 text-ds-filter-count text-foreground-subtle font-medium"
         >
           <template v-if="count !== undefined && count > 0">{{ count }}</template>
           <template v-if="totalJobs !== undefined"> ({{ totalJobs }})</template>

@@ -373,6 +373,73 @@
   --color-gold-star: #e8b931;
   --color-white: #ffffff;
   --color-ds-border: var(--color-border-default);
+
+  /* ==========================================
+     COMPONENT METRICS - Company Hero
+     Tokens for company profile logo, cover, and layout
+     ========================================== */
+  /* Logo sizes (square containers) */
+  --size-company-logo-sm: 96px;   /* w-24, mobile */
+  --size-company-logo-lg: 128px;  /* w-32, desktop */
+
+  /* How far the logo overhangs below the cover bottom edge */
+  --size-company-logo-offset-sm: 40px;  /* -bottom-10 */
+  --size-company-logo-offset-lg: 56px;  /* -bottom-14 */
+
+  /* Total indent = logo width + gap, used to push text away from logo */
+  --size-company-logo-indent-sm: 112px; /* 96px logo + 16px gap */
+  --size-company-logo-indent-lg: 152px; /* 128px logo + 24px gap */
+
+  /* Cover card heights (desktop-only fixed heights) */
+  --size-company-hero-card-lg: 220px;
+  --size-company-hero-card-xl: 240px;
+
+  /* Minimum cover image heights */
+  --size-company-cover-min-h-sm: 180px;
+  --size-company-cover-min-h-md: 200px;
+
+  /* Bottom spacer that accommodates logo + tab overhang */
+  --size-company-hero-spacer-sm: 80px;   /* h-20 */
+  --size-company-hero-spacer-md: 96px;   /* h-24 */
+
+  /* Action bar height for company hero */
+  --size-company-action-bar-sm: 44px;    /* h-11 */
+  --size-company-action-bar-md: 48px;    /* h-12 */
+
+  /* Rating sidecar width */
+  --size-company-rating-col-sm: 48px;    /* w-12 */
+  --size-company-rating-col-md: 64px;    /* w-16 */
+
+  /* Share button width */
+  --size-company-share-btn-sm: 48px;     /* w-12 */
+  --size-company-share-btn-md: 56px;     /* w-14 */
+
+  /* ==========================================
+     COMPONENT METRICS - Filter Count Badge
+     ========================================== */
+  /* The count badge next to filter labels uses a size between
+     caption-s (10px) and label-s (11px). We pin it to label-s. */
+  --font-size-ds-filter-count: var(--font-size-ds-label-s); /* 11px */
+  --font-size-ds-filter-count--line-height: 1.4;
+
+  /* ==========================================
+     COMPONENT METRICS - Review Score Display
+     The large rating number (e.g. "4.8") shown prominently
+     in the reviews sidebar uses the display-xxl scale.
+     ========================================== */
+  --size-review-score-display: var(--font-size-ds-display-xxl); /* 80px */
+
+  /* ==========================================
+     COMPONENT METRICS - JobDetail border accent
+     The 1px separator line between hero and meta grid
+     ========================================== */
+  --size-job-detail-separator: 1px;
+
+  /* ==========================================
+     LAYOUT - Sticky top offsets
+     ========================================== */
+  /* Sticky sidebar top = header height + 1rem buffer */
+  --offset-company-sidebar-sticky: calc(var(--size-shell-header-height) + 1rem);
 }
 
 /* ==========================================
@@ -1633,6 +1700,82 @@ html.dark {
   .checkbox-baseline-nudge {
     transform: translateY(2px);
   }
+
+  /* ==========================================
+     COMPANY HERO UTILITIES
+     Utility classes mapped to company-hero tokens
+     ========================================== */
+
+  /* Logo dimensions */
+  .w-company-logo-sm  { width:  var(--size-company-logo-sm); }
+  .h-company-logo-sm  { height: var(--size-company-logo-sm); }
+  .w-company-logo-lg  { width:  var(--size-company-logo-lg); }
+  .h-company-logo-lg  { height: var(--size-company-logo-lg); }
+
+  /* Logo overhang (negative bottom positioning) */
+  .bottom-company-logo-offset-sm {
+    bottom: calc(var(--size-company-logo-offset-sm) * -1);
+  }
+  .bottom-company-logo-offset-lg {
+    bottom: calc(var(--size-company-logo-offset-lg) * -1);
+  }
+
+  /* Text indent to clear the logo */
+  .ms-company-logo-indent-sm { margin-inline-start: var(--size-company-logo-indent-sm); }
+  .ms-company-logo-indent-lg { margin-inline-start: var(--size-company-logo-indent-lg); }
+
+  /* Card fixed heights (desktop) */
+  .lg\:h-company-hero-card { height: var(--size-company-hero-card-lg); }
+  .xl\:h-company-hero-card-xl { height: var(--size-company-hero-card-xl); }
+
+  /* Cover minimum heights */
+  .min-h-company-cover-sm { min-height: var(--size-company-cover-min-h-sm); }
+  .min-h-company-cover-md { min-height: var(--size-company-cover-min-h-md); }
+
+  /* Spacer heights (logo+tab overhang accommodation) */
+  .h-company-hero-spacer-sm { height: var(--size-company-hero-spacer-sm); }
+  .h-company-hero-spacer-md { height: var(--size-company-hero-spacer-md); }
+
+  /* Action bar heights */
+  .h-company-action-bar-sm { height: var(--size-company-action-bar-sm); }
+  .h-company-action-bar-md { height: var(--size-company-action-bar-md); }
+
+  /* Rating column widths */
+  .w-company-rating-col-sm { width: var(--size-company-rating-col-sm); }
+  .w-company-rating-col-md { width: var(--size-company-rating-col-md); }
+
+  /* Share button widths */
+  .w-company-share-btn-sm { width: var(--size-company-share-btn-sm); }
+  .w-company-share-btn-md { width: var(--size-company-share-btn-md); }
+
+  /* ==========================================
+     FILTER COUNT BADGE UTILITIES
+     ========================================== */
+  .text-ds-filter-count {
+    font-size: var(--font-size-ds-filter-count);
+    line-height: var(--font-size-ds-filter-count--line-height);
+  }
+
+  /* ==========================================
+     REVIEW SCORE DISPLAY UTILITIES
+     ========================================== */
+  .text-review-score {
+    font-size: var(--size-review-score-display);
+    line-height: 1;
+  }
+
+  /* ==========================================
+     LAYOUT STICKY OFFSETS
+     ========================================== */
+  .top-company-sidebar-sticky {
+    top: var(--offset-company-sidebar-sticky);
+  }
+
+  /* JobDetail separator padding */
+  .p-job-detail-separator {
+    padding: var(--size-job-detail-separator);
+  }
+
 
   .inset-inline-start-0 {
     inset-inline-start: 0;

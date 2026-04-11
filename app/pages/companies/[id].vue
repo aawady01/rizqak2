@@ -3,8 +3,14 @@ import type { Company, ReviewsDataSet, TabName } from "~/types/company";
 
 const { t } = useI18n()
 
-useHead({
-  title: () => t('company.pageTitle'),
+const route = useRoute()
+
+useSEO({
+  title: 'الشركة المصرية للتوظيف | ' + t('company.pageTitle'),
+  description: 'شركة رائدة في مجال التوظيف وإلحاق العمالة المصرية بالخارج. نسعى لتوفير فرص عمل حقيقية ومضمونة للشباب المصري في مختلف التخصصات.',
+  canonicalPath: `/companies/${route.params.id}`,
+  type: 'profile',
+  image: '/assets/images/recruitment-logo.png'
 })
 
 const activeTab = ref<TabName>('معلومات')

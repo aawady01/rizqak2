@@ -17,17 +17,17 @@ import {
     class="bg-primary border-t border-white/10 mt-section py-section scroll-mt-24"
   >
     <div class="shell-container">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-section">
         <!-- Brand -->
         <div class="col-span-2 md:col-span-1">
           <div class="flex items-center gap-element mb-content group cursor-default">
             <div class="shell-brand-mark group-hover:scale-105">
               <BaseTypography variant="body-l" class="font-bold text-white"
-                >{{ $t('footer.brandInitial') }}</BaseTypography
+                >{{ $t('footer.brand_initial') }}</BaseTypography
               >
             </div>
             <BaseTypography variant="h3" class="text-white font-bold"
-              >{{ $t('footer.brandName') }}</BaseTypography
+              >{{ $t('footer.brand_name') }}</BaseTypography
             >
           </div>
           <BaseTypography

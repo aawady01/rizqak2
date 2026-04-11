@@ -13,8 +13,7 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "types": ["node", "@nuxtjs/i18n"]
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "dist"]
 }

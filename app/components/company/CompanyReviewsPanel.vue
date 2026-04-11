@@ -45,7 +45,7 @@ onClickOutside(dropdownRef, () => {
         <div class="space-y-section">
           <!-- Overall Rating -->
           <div class="text-center mb-section">
-            <div class="text-[80px] leading-none font-black text-foreground tracking-tight">
+            <div class="text-review-score font-black text-foreground tracking-tight">
               {{ data.overall }}
             </div>
             <div class="flex text-gold-star mt-element justify-center" role="img" :aria-label="`${data.overall} من 5 نجوم`">

@@ -70,6 +70,8 @@ export const jobsData: Job[] = [
     companyName: "jobs.accountant.company",
     companySlug: "maali-construction",
     salary: "jobs.accountant.salary",
+    salaryAmount: 450,
+    views: 1250,
     countryCode: "kw",
     benefits: [
       { label: "jobs.accountant.benefits.0" },
@@ -91,6 +93,8 @@ export const jobsData: Job[] = [
     companyName: "jobs.civilEng.company",
     companySlug: "alsaie-group",
     salary: "jobs.civilEng.salary",
+    salaryAmount: 800,
+    views: 980,
     countryCode: "sa",
     benefits: [
       { label: "jobs.civilEng.benefits.0" },
@@ -110,6 +114,8 @@ export const jobsData: Job[] = [
     companyName: "jobs.welder.company",
     companySlug: "binladin-group",
     salary: "jobs.welder.salary",
+    salaryAmount: 350,
+    views: 750,
     countryCode: "qa",
     benefits: [
       { label: "jobs.welder.benefits.0" },
@@ -129,6 +135,8 @@ export const jobsData: Job[] = [
     companyName: "jobs.nurse.company",
     companySlug: "aramco",
     salary: "jobs.nurse.salary",
+    salaryAmount: 600,
+    views: 1100,
     countryCode: "ae",
     benefits: [
       { label: "jobs.nurse.benefits.0" },
@@ -148,6 +156,8 @@ export const jobsData: Job[] = [
     companyName: "jobs.driver.company",
     companySlug: "maali-construction",
     salary: "jobs.driver.salary",
+    salaryAmount: 280,
+    views: 620,
     countryCode: "om",
     benefits: [
       { label: "jobs.driver.benefits.0" },

@@ -4,6 +4,6 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
-    <Toaster rich-colors position="bottom-center" :dir="$i18n.locale.value === 'ar' ? 'rtl' : 'ltr'" />
+    <Toaster rich-colors position="bottom-center" :dir="String($i18n.locale) === 'ar' ? 'rtl' : 'ltr'" />
   </NuxtLayout>
 </template>

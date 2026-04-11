@@ -38,14 +38,10 @@ const sortOptions = computed(() => [
 const sortedJobs = computed(() => {
   const jobs = [...jobsData]
   if (sortBy.value === 'salary') {
-    return jobs.sort((a, b) => {
-      const numA = parseInt(t(a.salary).replace(/[^0-9]/g, '')) || 0
-      const numB = parseInt(t(b.salary).replace(/[^0-9]/g, '')) || 0
-      return numB - numA
-    })
+    return jobs.sort((a, b) => (b.salaryAmount || 0) - (a.salaryAmount || 0))
   }
   if (sortBy.value === 'views') {
-    return jobs.sort((a, b) => (b.id > a.id ? 1 : -1))
+    return jobs.sort((a, b) => (b.views || 0) - (a.views || 0))
   }
   // latest: default order (by id descending)
   return jobs.sort((a, b) => Number(b.id) - Number(a.id))
@@ -75,13 +71,13 @@ onClickOutside(dropdownRef, () => {
 
 <template>
   <div>
-    <div class="page-shell py-section">
+    <div class="page-shell py-8 lg:py-12">
       <div class="grid grid-cols-1 lg:grid-cols-home-sidebar-lg xl:grid-cols-home-sidebar-xl gap-section items-start">
         <HomeSidebar :total-results="sortedJobs.length" />
 
         <div class="order-2 w-full min-w-0">
           <!-- Section Header -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-content mb-content">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-content mb-content">
             <div class="flex items-center gap-compact">
               <LayoutList class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
               <BaseTypography

@@ -10,8 +10,8 @@
     "close": "إغلاق"
   },
   "header": {
-    "brandInitial": "م",
-    "brandName": "المعالي للتوظيف",
+    "brand_initial": "م",
+    "brand_name": "المعالي للتوظيف",
     "theme": {
       "light": "تفعيل الوضع الفاتح",
       "dark": "تفعيل الوضع الداكن",
@@ -26,8 +26,8 @@
     "login": "تسجيل الدخول"
   },
   "footer": {
-    "brandInitial": "م",
-    "brandName": "المعالي",
+    "brand_initial": "م",
+    "brand_name": "المعالي",
     "description": "منصة توظيف رائدة تربط الكفاءات المصرية بفرص العمل المتميزة في دول الخليج والعالم العربي بمنتهى الاحترافية والشفافية.",
     "jobSeekersTitle": "للباحثين عن عمل",
     "employersTitle": "لأصحاب العمل",
@@ -497,7 +497,7 @@
         "postedAt": "تاريخ النشر"
       },
       "sections": {
-        "roleFacts": "شروط الوظيفة",
+        "roleFacts": "متطلبات الوظيفة",
         "jobContext": "سياق الفرصة",
         "additionalDetails": "تفاصيل إضافية",
         "requirements": "المتطلبات",
@@ -708,7 +708,17 @@
     }
   },
   "company": {
-    "pageTitle": "الملف التعريفي للشركة"
+    "pageTitle": "الملف التعريفي للشركة",
+    "ratingLabel": "التقييم",
+    "followersSuffix": "متابع",
+    "follow": "متابعة",
+    "unfollow": "إلغاء المتابعة",
+    "following": "يتم متابعته",
+    "share": "مشاركة",
+    "coverAlt": "غلاف {name}",
+    "licensedBadge": "حاصلة على ترخيص",
+    "placedSuffix": "تم توظيفهم",
+    "tabsLabel": "تبويبات الشركة"
   },
   "api": {
     "error": {
