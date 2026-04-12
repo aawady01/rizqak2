@@ -235,13 +235,13 @@
   /* ==========================================
      SHADOWS
      ========================================== */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08); /* Standardized Shadow Card Hover */
-  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.16);
-  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-focus: 0 0 0 3px rgba(27, 107, 74, 0.1);
+  --shadow-xs: 0 1px 2px oklch(0.2 0.01 140 / 0.05);
+  --shadow-sm: 0 1px 3px oklch(0.2 0.01 140 / 0.06);
+  --shadow-md: 0 2px 8px oklch(0.2 0.01 140 / 0.08); /* Standardized Shadow Card Hover */
+  --shadow-lg: 0 4px 16px oklch(0.2 0.01 140 / 0.12);
+  --shadow-xl: 0 8px 32px oklch(0.2 0.01 140 / 0.16);
+  --shadow-inner: inset 0 2px 4px oklch(0.2 0.01 140 / 0.06);
+  --shadow-focus: 0 0 0 3px oklch(0.47 0.13 160 / 0.15);
 
   /* ==========================================
      TRANSITIONS
@@ -539,6 +539,15 @@ html.dark {
   --color-info: #60a5fa;
   --color-info-bg: #1e3a5f;
   --color-info-light: #1e40af;
+
+  /* Shadows - Dark mode overrides (S1.P1.1) */
+  --shadow-xs: 0 1px 2px oklch(0 0 0 / 0.25);
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.28);
+  --shadow-md: 0 2px 8px oklch(0 0 0 / 0.32);
+  --shadow-lg: 0 4px 16px oklch(0 0 0 / 0.38);
+  --shadow-xl: 0 8px 32px oklch(0 0 0 / 0.45);
+  --shadow-inner: inset 0 2px 4px oklch(0 0 0 / 0.28);
+  --shadow-focus: 0 0 0 3px oklch(0.72 0.19 160 / 0.2);
 }
 
 /* ==========================================
@@ -784,7 +793,7 @@ html.dark {
   .input-field:focus {
     outline: none;
     border-color: var(--color-border-focus);
-    box-shadow: 0 0 0 3px rgba(27, 107, 74, 0.1);
+    box-shadow: var(--shadow-focus);
   }
 
   .input-field:disabled {
@@ -1299,7 +1308,7 @@ html.dark {
     font-weight: var(--font-weight-extrabold);
     color: var(--color-white);
     letter-spacing: -0.01em;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    text-shadow: 0 1px 3px oklch(0.2 0.01 140 / 0.06);
     margin-bottom: var(--spacing-3);
   }
 
