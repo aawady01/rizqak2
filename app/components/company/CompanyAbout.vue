@@ -13,9 +13,11 @@ defineProps<{
 
 <template>
   <div>
-    <div class="flex items-center gap-2 mb-section">
+    <div class="section-heading">
+      <div class="section-heading__title">
       <Building2 class="size-5 text-primary" :stroke-width="2" />
       <h3 class="text-ds-h4 font-bold text-foreground">عن الشركة</h3>
+      </div>
     </div>
       <div class="surface-panel p-content">
         <BaseDescription tag="div" class="mb-element"><p>{{ description }}</p></BaseDescription>

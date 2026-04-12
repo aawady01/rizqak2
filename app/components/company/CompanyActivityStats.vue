@@ -10,9 +10,11 @@ defineProps<{
 <template>
   <div class="space-y-section">
     <div>
-      <div class="flex items-center gap-content mb-element">
+      <div class="section-heading">
+        <div class="section-heading__title">
         <BarChart3 class="size-6 text-primary" :stroke-width="2" />
         <h3 class="text-ds-h4 font-bold text-foreground">إحصائيات النشاط</h3>
+        </div>
       </div>
       <div class="surface-panel rounded-none p-content">
         <!-- Stats Grid -->

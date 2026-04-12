@@ -9,9 +9,11 @@ defineProps<{
 
 <template>
   <div>
-    <div class="flex items-center gap-element mb-element">
+    <div class="section-heading">
+      <div class="section-heading__title">
       <UserCheck class="size-5 text-primary" :stroke-width="2" />
       <h3 class="text-ds-h4 font-bold text-foreground">بيانات الحساب</h3>
+      </div>
     </div>
     <div class="surface-panel rounded-none p-content h-full flex flex-col justify-center">
       <div class="space-y-element">

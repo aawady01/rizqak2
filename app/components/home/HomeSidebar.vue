@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SlidersHorizontal } from "lucide-vue-next";
+import { SlidersHorizontal, Briefcase, MapPin, Banknote, GraduationCap, Users } from "lucide-vue-next";
 import TreeFilterSection from "../filters/TreeFilterSection.vue";
 import SimpleFilter from "../filters/SimpleFilter.vue";
 import GenderFilter from "../filters/GenderFilter.vue";
@@ -28,54 +28,28 @@ const gender = ref("all");
 
 <template>
   <aside class="order-1">
-    <div class="sticky top-20 space-y-content">
-      <!-- Section Header — ds pattern -->
-      <div class="flex justify-between items-center gap-content">
-        <BaseTypography
-          variant="h3"
-          tag="h2"
-          weight="bold"
-          color="text-foreground"
-          class="flex items-center gap-compact"
-        >
-          <SlidersHorizontal class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
-          {{ $t('sidebar.title') }}
-        </BaseTypography>
-        <button
-          class="cursor-pointer group hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-          @click="$emit('clear-filters')"
-        >
-          <BaseTypography
-            variant="caption-l"
-            weight="medium"
-            color="text-primary"
-            class="group-hover:text-primary-dark transition-colors"
-          >
-            {{ $t('common.clearAll') }}
-          </BaseTypography>
-        </button>
-      </div>
+    <div class="sticky top-[72px] lg:h-[calc(100vh-72px)] flex flex-col">
+      <!-- Removed Title and Icon Section -->
+
 
       <!-- Filter Card — p-content -->
-      <div class="surface-panel p-content">
-        <div class="space-y-6 divide-y divide-separator">
-          <div>
+      <div class="surface-panel flex flex-col flex-1 min-h-0 overflow-hidden relative border-none shadow-none bg-transparent">
+        <div class="flex-1 overflow-y-auto px-0.5 pb-4 pt-0" style="scrollbar-width: thin; scrollbar-gutter: stable;">
+          <div class="flex flex-col gap-4">
             <TreeFilterSection
               :section="fieldFilterData"
               searchable
               url-key="field"
+              :icon="Briefcase"
             />
-          </div>
-
-          <div class="pt-4">
+            
             <TreeFilterSection
               :section="locationFilterData"
               searchable
               url-key="location"
+              :icon="MapPin"
             />
-          </div>
 
-          <div class="pt-4">
             <SimpleFilter
               :title="$t('sidebar.salaryFilter.title')"
               :total-label="$t('sidebar.salaryFilter.totalLabel')"
@@ -85,10 +59,9 @@ const gender = ref("all");
               type="checkbox"
               searchable
               url-key="salary"
+              :icon="Banknote"
             />
-          </div>
 
-          <div class="pt-4">
             <SimpleFilter
               :title="$t('sidebar.experienceFilter.title')"
               :total-label="$t('sidebar.experienceFilter.totalLabel')"
@@ -98,21 +71,26 @@ const gender = ref("all");
               type="checkbox"
               searchable
               url-key="experience"
+              :icon="GraduationCap"
             />
-          </div>
 
-          <div class="pt-4">
-            <GenderFilter v-model:selected="gender" query-key="gender" />
-          </div>
-
-          <div class="pt-4">
-            <button
-              class="w-full py-2.5 bg-primary hover:bg-primary-dark text-white transition-colors text-ds-body-r font-semibold outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 cursor-pointer"
-            >
-              {{ $t('sidebar.applyButton') }} ({{ totalResults }} {{ $t('sidebar.jobCount') }})
-            </button>
+            <GenderFilter v-model:selected="gender" query-key="gender" :icon="Users" />
           </div>
         </div>
+      </div>
+      <div class="shrink-0 p-content bg-surface border-t border-border shadow-[0_-4px_6px_-2px_rgb(0,0,0,0.02)] z-10 w-full relative flex items-center gap-3">
+        <button
+          class="flex-1 py-2.5 bg-primary hover:bg-primary-dark text-white transition-colors text-ds-body-r font-semibold outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 cursor-pointer rounded-sm"
+        >
+          {{ $t('sidebar.applyButton') }} ({{ totalResults }} {{ $t('sidebar.jobCount') }})
+        </button>
+        
+        <button
+          class="px-4 py-2.5 border border-separator/60 hover:bg-muted/30 text-muted-foreground hover:text-foreground transition-all text-ds-caption-l font-medium outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 cursor-pointer rounded-sm whitespace-nowrap"
+          @click="$emit('clear-filters')"
+        >
+          {{ $t('common.clearAll') }}
+        </button>
       </div>
     </div>
   </aside>

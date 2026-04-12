@@ -19,17 +19,17 @@ interface Props {
 const props = defineProps<Props>();
 
 const finalRootClass = computed(() =>
-  cn("flex flex-col gap-2", props.rootClass),
+  cn("flex flex-col gap-compact", props.rootClass),
 );
 const finalListClass = computed(() =>
   cn(
-    "bg-neutral-100 text-neutral-500 inline-flex h-10 w-fit items-center justify-center rounded-none p-1 flex",
+    "bg-muted text-foreground-muted inline-flex h-10 w-fit items-center justify-center rounded-none p-1 flex",
     props.listClass,
   ),
 );
 const finalTriggerClass = computed(() =>
   cn(
-    "tabs-trigger-state focus-visible:ring-ds-focus text-neutral-600 inline-flex h-full flex-1 items-center justify-center gap-2 rounded-none border border-transparent px-4 py-1.5 text-ds-body-r font-semibold whitespace-nowrap transition-all outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    "tabs-trigger-state focus-visible:ring-ds-focus text-foreground-muted inline-flex h-full flex-1 items-center justify-center gap-compact rounded-none border border-transparent px-content py-compact text-ds-body-r font-semibold whitespace-nowrap transition-all outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 min-h-touch-target-compact",
     props.triggerClass,
   ),
 );

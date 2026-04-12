@@ -31,7 +31,7 @@ const { scrollCarousel } = useCarouselScroll(carouselRef);
     <div class="relative group/carousel">
       <div 
         ref="carouselRef" 
-        class="grid grid-flow-col auto-cols-[calc(50%-10px)] md:auto-cols-[calc(25%-15px)] gap-5 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory"
+        class="grid grid-flow-col auto-cols-[calc(50%-var(--spacing-content)/2)] md:auto-cols-[calc(25%-var(--spacing-content)*3/4)] gap-content overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory"
       >
         <CompanyCard
           v-for="company in companiesData"

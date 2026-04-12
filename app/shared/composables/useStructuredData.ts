@@ -59,23 +59,7 @@ export interface FAQEntry {
   answer: string
 }
 
-const trimSlash = (value: string): string => value.replace(/\/$/, '')
-
-const resolveSiteUrl = (): string => {
-  const runtime = useRuntimeConfig()
-  const siteUrl = runtime.public.siteUrl as string | undefined
-  const apiBase = runtime.public.apiBase as string | undefined
-
-  if (siteUrl && siteUrl.trim().length > 0) {
-    return trimSlash(siteUrl)
-  }
-
-  if (apiBase && apiBase.trim().length > 0) {
-    return trimSlash(apiBase.replace(/\/api\/?$/, ''))
-  }
-
-  return 'https://rizqak.com'
-}
+import { resolveSiteUrl } from '~/shared/utils/siteUrl'
 
 const withContext = (schema: StructuredDataNode): StructuredDataNode => ({
   '@context': 'https://schema.org',

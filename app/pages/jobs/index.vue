@@ -71,13 +71,13 @@ onClickOutside(dropdownRef, () => {
 
 <template>
   <div>
-    <div class="page-shell py-8 lg:py-12">
+    <div class="page-shell py-section">
       <div class="grid grid-cols-1 lg:grid-cols-home-sidebar-lg xl:grid-cols-home-sidebar-xl gap-section items-start">
         <HomeSidebar :total-results="sortedJobs.length" />
 
         <div class="order-2 w-full min-w-0">
           <!-- Section Header -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-content mb-content">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-content mb-content min-h-[44px]">
             <div class="flex items-center gap-compact">
               <LayoutList class="size-5 text-primary" :stroke-width="2" aria-hidden="true" />
               <BaseTypography
@@ -97,7 +97,7 @@ onClickOutside(dropdownRef, () => {
                 role="combobox"
                 aria-haspopup="listbox"
                 :aria-expanded="isDropdownOpen"
-                class="surface-panel w-dropdown-trigger py-1.5 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium"
+                class="surface-panel w-dropdown-trigger h-10 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium flex items-center justify-center"
                 @click="toggleDropdown"
               >
                 {{ sortOptions.find((o) => o.value === sortBy)?.label }}

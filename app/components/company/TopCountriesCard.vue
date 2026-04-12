@@ -10,9 +10,11 @@ defineProps<{
 
 <template>
   <div>
-    <div class="flex items-center gap-2 mb-element px-compact">
+    <div class="section-heading px-compact">
+      <div class="section-heading__title">
       <Globe class="size-5 text-primary" :stroke-width="2" />
       <h4 class="text-ds-label-l font-bold text-foreground">أكثر الدول توظيفاً</h4>
+      </div>
     </div>
 
     <div class="surface-panel rounded-none p-content">

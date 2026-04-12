@@ -58,7 +58,7 @@ onClickOutside(dropdownRef, () => {
                 :aria-hidden="i > Math.round(data.overall) ? 'true' : undefined"
               />
             </div>
-            <div class="flex items-center justify-center gap-1 text-lg font-bold text-foreground mt-element">
+            <div class="flex items-center justify-center gap-1 text-ds-subtitle-l font-bold text-foreground mt-element">
               <span class="font-medium">{{ data.label }}</span>
               <span class="mx-1">•</span>
               <span>{{ data.totalReviews }} تقييم</span>
@@ -108,7 +108,7 @@ onClickOutside(dropdownRef, () => {
 
           <!-- Add Review Button -->
           <div class="pt-section border-t border-border">
-            <button class="w-full bg-primary text-white font-bold py-3 hover:bg-primary-dark transition-colors text-ds-label-l" aria-label="أضف تقييمك">
+            <button class="w-full bg-primary text-white font-bold py-element hover:bg-primary-dark transition-colors text-ds-label-l min-h-touch-target-min" aria-label="أضف تقييمك">
               أضف تقييمك
             </button>
           </div>
@@ -146,7 +146,7 @@ onClickOutside(dropdownRef, () => {
             aria-haspopup="listbox"
             aria-label="ترتيب المراجعات"
             :aria-expanded="isDropdownOpen"
-            class="surface-panel w-dropdown-trigger py-1.5 px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium"
+            class="surface-panel w-dropdown-trigger py-compact px-element text-foreground outline-none cursor-pointer text-ds-caption text-center font-medium min-h-touch-target-compact"
             @click="toggleDropdown"
           >
             {{ sortOptions.find((o) => o.value === sortBy)?.label }}

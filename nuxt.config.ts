@@ -251,7 +251,7 @@ export default defineNuxtConfig({
     typeCheck: false,
   },
 
-  ssr: false,
+  ssr: true,
 
   router: {
     options: {
@@ -269,6 +269,18 @@ export default defineNuxtConfig({
       '/robots.txt': {
         headers: {
           'cache-control': 'public, max-age=3600',
+        },
+      },
+      '/**': {
+        headers: {
+          'X-Content-Type-Options': 'nosniff',
+          'X-Frame-Options': 'DENY',
+          'X-XSS-Protection': '0',
+          'Referrer-Policy': 'strict-origin-when-cross-origin',
+          'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+          'Cross-Origin-Opener-Policy': 'same-origin',
+          'Cross-Origin-Resource-Policy': 'same-origin',
+          'Cross-Origin-Embedder-Policy': 'credentialless',
         },
       },
     },

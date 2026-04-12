@@ -35,7 +35,7 @@ const maxWidthMap: Record<string, string> = {
 
 const classes = computed(() =>
   cn(
-    "text-base leading-loose",
+    "text-ds-subtitle-r leading-relaxed",
     variantClassMap[props.variant],
     maxWidthMap[props.maxW],
   ),

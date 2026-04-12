@@ -12,12 +12,14 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex items-center gap-2 md:gap-2.5 mb-5 md:mb-6 border-b border-border">
+  <div class="flex items-center gap-compact md:gap-element mb-content md:mb-section border-b border-border" role="tablist">
     <NuxtLink
       v-for="tab in tabs"
       :key="tab.label"
       :to="tab.href"
-      class="px-4 md:px-6 py-3 md:py-4 text-ds-h5 transition-colors"
+      class="px-content md:px-section py-element md:py-content text-ds-h5 transition-colors min-h-touch-target-min"
+      role="tab"
+      :aria-selected="!!tab.active"
       :class="tab.active
         ? 'font-bold text-primary border-b-2 border-primary'
         : 'font-medium text-foreground-subtle hover:text-foreground'"

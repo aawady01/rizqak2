@@ -10,9 +10,11 @@ defineProps<{
 
 <template>
   <div>
-    <div class="flex items-center gap-element mb-element">
+    <div class="section-heading">
+      <div class="section-heading__title">
       <MapPin class="size-5 text-primary" :stroke-width="2" />
       <h3 class="text-ds-h5 font-bold text-foreground">معلومات الفرع</h3>
+      </div>
     </div>
     <div class="surface-panel p-content">
       <div class="space-y-element">

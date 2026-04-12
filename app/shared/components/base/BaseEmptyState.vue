@@ -23,14 +23,14 @@ const resolvedDescription = computed(() => props.description ?? t('base.emptySta
 
 <template>
   <div
-    :class="cn('flex flex-col items-center justify-center py-12 px-4 text-center', props.class)"
+    :class="cn('flex flex-col items-center justify-center py-section px-content text-center', props.class)"
   >
-    <div v-if="icon" class="mb-4 size-12 rounded-full bg-surface-alt flex items-center justify-center">
+    <div v-if="icon" class="mb-content size-12 rounded-full bg-surface-alt flex items-center justify-center">
       <Inbox class="size-6 text-foreground-subtle" :stroke-width="1.5" aria-hidden="true" />
     </div>
-    <h3 class="text-ds-h5 font-semibold text-foreground mb-2">{{ resolvedTitle }}</h3>
+    <h3 class="text-ds-h5 font-semibold text-foreground mb-compact">{{ resolvedTitle }}</h3>
     <p class="text-ds-body-r text-foreground-muted max-w-sm">{{ resolvedDescription }}</p>
-    <div v-if="$slots.action" class="mt-4">
+    <div v-if="$slots.action" class="mt-content">
       <slot name="action" />
     </div>
   </div>

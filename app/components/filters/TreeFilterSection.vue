@@ -12,6 +12,7 @@ interface Props {
   section: FilterSection;
   searchable?: boolean;
   urlKey?: string;
+  icon?: any;
 }
 
 const props = defineProps<Props>();
@@ -100,13 +101,14 @@ const handleToggleBranchExpansion = (
     :expandable="true"
     :expanded="allExpanded"
     :select-all-input-id="`section-all-${section.id}`"
+    :icon="icon"
     @toggle-all="handleToggleAll"
     @expand-toggle="handleExpandToggle"
   >
     <BaseEmptyState
       v-if="isSearching && !hasMatches"
       :icon="false"
-      class="py-6 px-0"
+      class="py-section px-0"
     />
 
     <TreeBranch

@@ -20,34 +20,9 @@ export interface JobSEOInput {
   summary?: string
 }
 
+import { resolveSiteUrl, toAbsoluteUrl } from '~/shared/utils/siteUrl'
+
 const DEFAULT_ROBOTS: SEOOptions['robots'] = 'index,follow'
-
-const trimSlash = (value: string): string => value.replace(/\/$/, '')
-
-const resolveSiteUrl = (): string => {
-  const runtime = useRuntimeConfig()
-  const siteUrl = runtime.public.siteUrl as string | undefined
-  const apiBase = runtime.public.apiBase as string | undefined
-
-  if (siteUrl && siteUrl.trim().length > 0) {
-    return trimSlash(siteUrl)
-  }
-
-  if (apiBase && apiBase.trim().length > 0) {
-    return trimSlash(apiBase.replace(/\/api\/?$/, ''))
-  }
-
-  return 'https://rizqak.com'
-}
-
-const toAbsoluteUrl = (siteUrl: string, pathOrUrl: string): string => {
-  if (/^https?:\/\//i.test(pathOrUrl)) {
-    return pathOrUrl
-  }
-
-  const normalizedPath = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`
-  return `${siteUrl}${normalizedPath}`
-}
 
 /**
  * Strip locale prefix from a path (e.g. /en/jobs/1 → /jobs/1, /ar/jobs/1 → /jobs/1).

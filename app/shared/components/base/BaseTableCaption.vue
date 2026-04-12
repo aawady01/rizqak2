@@ -8,7 +8,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const captionClass = computed(() => {
-  return cn('text-muted-foreground mt-4 text-sm', props.class)
+  return cn('text-muted-foreground mt-content text-ds-body-r', props.class)
 })
 </script>
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import {
   MapPin,
   Clock,
@@ -47,7 +46,7 @@ const handleTabClick = (tab: TabName) => {
       
       <!-- نص الوصف -->
       <div class="p-content flex-1 z-10 bg-surface flex flex-col">
-        <BaseDescription tag="div" class="wrap-break-word md:text-base leading-relaxed">
+        <BaseDescription tag="div" class="wrap-break-word leading-relaxed">
           <p>{{ description }}</p>
         </BaseDescription>
 
@@ -75,7 +74,7 @@ const handleTabClick = (tab: TabName) => {
         <button
           type="button"
           class="flex-1 text-white text-ds-label-s md:text-ds-label-r font-bold flex items-center justify-center gap-element transition-all shadow-none outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-          :class="isFollowing ? 'bg-neutral-500 hover:bg-neutral-600' : 'bg-primary hover:bg-primary-dark'"
+          :class="isFollowing ? 'bg-foreground-muted hover:bg-foreground-subtle' : 'bg-primary hover:bg-primary-dark'"
           :aria-label="isFollowing ? t('company.unfollow') : t('company.follow')"
           :aria-pressed="isFollowing"
           @click="isFollowing = !isFollowing"
@@ -137,7 +136,7 @@ const handleTabClick = (tab: TabName) => {
               </span>
             </div>
 
-            <div class="flex items-center gap-x-4 gap-y-2 md:gap-x-6 text-ds-caption-l md:text-ds-body-r text-white/80 flex-wrap">
+            <div class="flex items-center gap-x-content gap-y-compact md:gap-x-section text-ds-caption-l md:text-ds-body-r text-white/80 flex-wrap">
               <div class="flex items-center gap-element drop-shadow-sm">
                 <MapPin class="size-4 md:size-4 text-white/60" :stroke-width="2" />
                 {{ location }}

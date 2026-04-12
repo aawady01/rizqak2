@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import type { Company, ReviewsDataSet, TabName } from "~/types/company";
+import { useStructuredData, useBreadcrumbStructuredData } from '~/shared/composables/useStructuredData';
 
 const { t } = useI18n()
 
 const route = useRoute()
 
-useSEO({
-  title: 'الشركة المصرية للتوظيف | ' + t('company.pageTitle'),
-  description: 'شركة رائدة في مجال التوظيف وإلحاق العمالة المصرية بالخارج. نسعى لتوفير فرص عمل حقيقية ومضمونة للشباب المصري في مختلف التخصصات.',
-  canonicalPath: `/companies/${route.params.id}`,
-  type: 'profile',
-  image: '/assets/images/recruitment-logo.png'
-})
+
 
 const activeTab = ref<TabName>('معلومات')
 
@@ -152,6 +147,38 @@ const reviewsData: ReviewsDataSet = {
 const handleTabClick = (tab: TabName) => {
   activeTab.value = tab
 }
+
+useSEO({
+  title: t('company.seo.title', { name: company.name }),
+  description: t('company.seo.description', { name: company.name }),
+  canonicalPath: `/companies/${route.params.id}`,
+  type: 'profile',
+  image: company.logo
+})
+
+useStructuredData({
+  '@type': 'Organization',
+  name: company.name,
+  url: 'https://rizqak.com', // fallback site URL
+  logo: `https://rizqak.com${company.logo}`,
+  description: t('company.seo.description', { name: company.name }),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: company.location,
+    addressCountry: 'مصر'
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: company.rating,
+    reviewCount: reviewsData.totalReviews
+  }
+})
+
+useBreadcrumbStructuredData([
+  { name: t('nav.home'), path: '/' },
+  { name: t('nav.companies'), path: '/companies' },
+  { name: company.name, path: `/companies/${route.params.id}` },
+])
 </script>
 
 <template>
@@ -180,7 +207,7 @@ const handleTabClick = (tab: TabName) => {
       </div>
     </div>
 
-    <div v-else class="grid grid-cols-1 gap-section lg:grid-cols-company-sidebar xl:grid-cols-sidebar items-start">
+    <div v-else class="grid grid-cols-1 gap-section lg:grid-cols-company-sidebar xl:grid-cols-sidebar items-start mt-content">
       <aside class="order-1 space-y-section lg:sticky lg:top-[72px]">
         <CompanySidebarLinks :links="company.links" />
         <CompanySidebarBranchInfo

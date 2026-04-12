@@ -7,11 +7,13 @@ const { t } = useI18n();
 interface Props {
   selected?: string;
   queryKey?: string;
+  icon?: any;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   selected: "all",
   queryKey: undefined,
+  icon: undefined,
 });
 
 const emit = defineEmits<{
@@ -47,8 +49,7 @@ const currentValue = computed({
     if (value && value !== "all") {
       currentQuery[props.queryKey] = value;
     } else {
-      const { [props.queryKey]: removed, ...remaining } = currentQuery;
-      Object.assign(currentQuery, remaining);
+      delete currentQuery[props.queryKey];
     }
 
     await router.replace({ query: currentQuery });
@@ -61,7 +62,7 @@ const handleChange = (id: string) => {
 </script>
 
 <template>
-  <BaseFilterSection :title="t('filters.gender.title')">
+  <BaseFilterSection :title="t('filters.gender.title')" :icon="icon">
     <div
       class="grid grid-cols-3 gap-compact"
       role="radiogroup"

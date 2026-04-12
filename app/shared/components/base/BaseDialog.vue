@@ -31,7 +31,7 @@ const overlayClass = computed(() => {
 
 const finalContentClass = computed(() => {
   return cn(
-    "bg-background fixed top-1/2 inset-inline-start-1/2 z-50 dialog-mobile-max-w grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-none border border-ds-border p-6 shadow-lg duration-200 sm:max-w-lg dialog-content-state",
+    "bg-background fixed top-1/2 inset-inline-start-1/2 z-50 dialog-mobile-max-w grid w-full -translate-x-1/2 -translate-y-1/2 gap-content rounded-none border border-ds-border p-section shadow-lg duration-200 sm:max-w-lg dialog-content-state",
     props.contentClass,
   );
 });
@@ -53,7 +53,7 @@ const finalContentClass = computed(() => {
         <div
           v-if="title || description || $slots.header"
           data-slot="dialog-header"
-          class="flex flex-col gap-2 text-start sm:text-start"
+          class="flex flex-col gap-compact text-start sm:text-start"
         >
           <slot name="header">
             <DialogTitle

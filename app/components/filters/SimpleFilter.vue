@@ -42,6 +42,7 @@ const { searchQuery, isSearching, filteredItems, hasMatches } = useFilterSearch(
   },
 );
 const {
+
   showAll: showAllItems,
   visibleItems,
   hiddenCount,
@@ -102,6 +103,7 @@ const handleExpandToggle = () => {
     :is-radio="type === 'radio'"
     :expandable="expandable"
     :expanded="allExpanded"
+    :icon="icon"
     :select-all-input-id="`${sectionIdBase}-all`"
     @toggle-all="handleToggleAll"
     @expand-toggle="handleExpandToggle"
@@ -109,7 +111,7 @@ const handleExpandToggle = () => {
     <BaseEmptyState
       v-if="isSearching && !hasMatches"
       :icon="false"
-      class="py-6 px-0"
+      class="py-section px-0"
     />
 
     <div v-for="item in visibleItems" :key="item.id" class="relative">

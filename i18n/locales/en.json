@@ -709,6 +709,10 @@
   },
   "company": {
     "pageTitle": "Company Profile",
+    "seo": {
+      "title": "{name} - Profile & Available Jobs | Rizqak",
+      "description": "Discover job openings, reviews, and contact information for {name} on Rizqak."
+    },
     "ratingLabel": "Rating",
     "followersSuffix": "Followers",
     "follow": "Follow",

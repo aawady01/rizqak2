@@ -18,6 +18,7 @@ interface Props {
   expandable?: boolean;
   expanded?: boolean;
   selectAllInputId?: string;
+  icon?: any;
 }
 
 const emit = defineEmits<{
@@ -34,6 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
   expandable: false,
   expanded: false,
   selectAllInputId: undefined,
+  icon: undefined,
 });
 
 const query = computed({
@@ -54,20 +56,24 @@ const contentDomId = computed(() => `${sectionDomId.value}-content`);
 
 <template>
   <section
-    class="filter-tree-scope pb-3"
+    class="filter-tree-scope bg-surface border border-separator/60 rounded flex flex-col overflow-hidden"
     :aria-labelledby="sectionDomId"
   >
-    <BaseFilterHeader
-      v-model:search-query="query"
-      :section-id="sectionDomId"
-      :title="title"
-      :searchable="searchable"
-    />
+    <div class="bg-primary/5 border-b border-separator/60 flex items-center">
+      <BaseFilterHeader
+        v-model:search-query="query"
+        :section-id="sectionDomId"
+        :title="title"
+        :searchable="searchable"
+        :icon="icon"
+        class="!mb-0"
+      />
+    </div>
 
-    <div class="relative">
+    <div class="relative px-4 pt-3 pb-4">
       <div
         v-if="hasSelectAll"
-        class="relative z-20"
+        class="relative z-20 mb-1"
       >
         <BaseFilterItemRow
           :input-id="selectAllInputId"
@@ -102,7 +108,7 @@ const contentDomId = computed(() => `${sectionDomId.value}-content`);
           class="overflow-hidden"
           :aria-labelledby="sectionDomId"
         >
-          <div class="flex flex-col gap-1" :class="{ 'pt-1': hasSelectAll }">
+          <div class="flex flex-col gap-1" :class="{ 'pt-2': hasSelectAll }">
             <slot />
           </div>
         </div>

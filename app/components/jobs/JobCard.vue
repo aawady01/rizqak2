@@ -59,7 +59,7 @@ const toggleSaved = (e: Event) => {
     />
 
     <div class="p-content">
-      <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
+      <div class="flex flex-col sm:flex-row items-start gap-content">
         <!-- Company Logo -->
         <div
           class="size-12 sm:size-14 border border-border bg-surface-alt p-compact shrink-0 flex items-center justify-center rounded-none shadow-sm transition-all group-hover:bg-surface-alt"
