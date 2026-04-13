@@ -27,8 +27,8 @@ const gender = ref("all");
 </script>
 
 <template>
-  <aside class="order-1">
-    <div class="sticky top-[72px] lg:h-[calc(100vh-72px)] flex flex-col">
+  <aside class="order-1 h-full pb-section">
+    <div class="sticky top-[56px] lg:h-[calc(100vh-56px)] flex flex-col">
       <!-- Removed Title and Icon Section -->
 
 
