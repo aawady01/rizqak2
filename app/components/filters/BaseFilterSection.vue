@@ -56,7 +56,7 @@ const contentDomId = computed(() => `${sectionDomId.value}-content`);
 
 <template>
   <section
-    class="filter-tree-scope bg-surface border border-separator/60 rounded flex flex-col overflow-hidden"
+    class="filter-tree-scope flex flex-col overflow-hidden"
     :aria-labelledby="sectionDomId"
   >
     <div class="bg-primary/5 border-b border-separator/60 flex items-center">

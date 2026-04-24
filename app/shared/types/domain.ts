@@ -157,6 +157,9 @@ export interface Company {
   rating: number
   reviewCount: number
   availableJobs: number
+  location?: string
+  description?: string
+  placedCount?: string
 }
 
 export interface JobBenefit {

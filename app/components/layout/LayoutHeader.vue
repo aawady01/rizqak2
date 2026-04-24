@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BellDot, Moon, Sun, SquareUser, LayoutGrid, X } from "lucide-vue-next";
+import { BellDot, Moon, Sun, SquareUser, LayoutGrid, X, LayoutDashboard } from "lucide-vue-next";
 import { navLinks } from "~/shared/utils/mockData";
 const colorMode = useColorMode();
 const isDark = computed(() => colorMode.value === "dark");
@@ -39,7 +39,10 @@ const { isHidden } = useScrollHeader();
 
 <template>
   <header
-    class="bg-primary sticky top-0 z-sticky w-full border-b border-white/10 shadow-sm transition-transform duration-300 ease-in-out translate-y-0"
+    :class="[
+      'bg-primary sticky top-0 z-sticky w-full border-b border-white/10 shadow-sm transition-transform duration-300 ease-in-out',
+      isHidden ? '-translate-y-full' : 'translate-y-0'
+    ]"
   >
     <div class="shell-container">
       <div class="shell-header-row flex justify-between items-center">
@@ -72,6 +75,21 @@ const { isHidden } = useScrollHeader();
         </div>
 
         <div class="flex items-center gap-compact">
+          <!-- Temp Admin Access -->
+          <NuxtLink
+            to="/admin"
+            class="shell-action-button active-scale-subtle text-primary bg-primary/10 hover:bg-primary/20"
+            title="لوحة الإدارة"
+          >
+            <LayoutDashboard class="size-5" :stroke-width="2" />
+            <BaseTypography
+              variant="caption-r"
+              class="font-bold hidden sm:block"
+            >
+              الإدارة
+            </BaseTypography>
+          </NuxtLink>
+
           <button
             class="shell-icon-button active-scale-subtle"
             :aria-label="$t('header.notifications')"
@@ -103,7 +121,7 @@ const { isHidden } = useScrollHeader();
           </button>
 
           <button
-            class="md:!hidden shell-icon-button"
+            class="md:hidden! shell-icon-button"
             @click="toggleMobileMenu()"
           >
             <X v-if="mobileMenuOpen" class="size-5" :stroke-width="2" />

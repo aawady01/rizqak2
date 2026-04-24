@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>إدارة الوظائف</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#dadad5",
+                        "surface-variant": "#e3e3de",
+                        "secondary-container": "#fccb43",
+                        "on-surface-variant": "#3f4943",
+                        "inverse-surface": "#2f312e",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-primary-container": "#9ce9bf",
+                        "surface-container-low": "#f4f4ef",
+                        "on-secondary-container": "#705600",
+                        "on-primary-fixed-variant": "#005235",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "outline": "#6f7a72",
+                        "inverse-primary": "#8ad6ae",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#251a00",
+                        "background": "#fafaf5",
+                        "on-tertiary-container": "#dbd8d7",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e8e8e3",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "tertiary": "#474646",
+                        "surface-bright": "#fafaf5",
+                        "tertiary-container": "#5f5e5e",
+                        "surface-container": "#eeeee9",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "surface": "#fafaf5",
+                        "primary": "#005235",
+                        "secondary": "#765b00",
+                        "primary-container": "#1b6b4a",
+                        "primary-fixed-dim": "#8ad6ae",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f1f1ec",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#1b6b4a",
+                        "on-background": "#1a1c19",
+                        "surface-container-highest": "#e3e3de",
+                        "on-surface": "#1a1c19",
+                        "on-primary-fixed": "#002113",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdf94",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#a6f3c9",
+                        "on-secondary-fixed-variant": "#594400",
+                        "outline-variant": "#bfc9c0",
+                        "secondary-fixed-dim": "#f0c038"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "0rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Cairo", "sans-serif"],
+                        "body": ["Cairo", "sans-serif"],
+                        "label": ["Cairo", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Cairo', sans-serif; }
+        /* Thin green-tinted divider */
+        .divider-green { border-color: rgba(27, 107, 74, 0.2); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface rtl antialiased h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="flex flex-col h-full w-48 fixed right-0 z-50 rtl bg-white dark:bg-slate-900 border-l border-green-800/20 rounded-none text-on-surface font-['Cairo'] font-bold text-right transition-all duration-200 ease-in-out">
+<div class="h-[72px] px-6 border-b border-green-800/20 flex justify-between items-center">
+<div>
+<h1 class="text-2xl font-bold text-primary tracking-tight">رزقك</h1>
+<p class="text-xs mt-0 text-on-surface-variant">لوحة التحكم</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="طي / توسيع القائمة">
+<span class="material-symbols-outlined" data-icon="menu_open">menu_open</span>
+</button>
+</div>
+<div class="flex-1 py-0 space-y-0 overflow-y-auto">
+<a class="flex items-center px-6 py-4 text-on-surface-variant hover:bg-surface-container-low transition-colors border-b border-green-800/10" href="#">
+<span class="material-symbols-outlined ml-4" data-icon="dashboard">dashboard</span>
+                لوحة القيادة
+            </a>
+<a class="flex items-center px-6 py-4 bg-primary-container/10 text-primary-container font-bold border-r-4 border-primary-container border-b border-green-800/10" href="#">
+<span class="material-symbols-outlined ml-4" data-icon="work" data-weight="fill" style="font-variation-settings: 'FILL' 1;">work</span>
+                إدارة الوظائف
+            </a>
+<a class="flex items-center px-6 py-4 text-on-surface-variant hover:bg-surface-container-low transition-colors border-b border-green-800/10" href="#">
+<span class="material-symbols-outlined ml-4" data-icon="business">business</span>
+                الشركات
+            </a>
+<a class="flex items-center px-6 py-4 text-on-surface-variant hover:bg-surface-container-low transition-colors border-b border-green-800/10" href="#">
+<span class="material-symbols-outlined ml-4" data-icon="group">group</span>
+                المستخدمون
+            </a>
+<a class="flex items-center px-6 py-4 text-on-surface-variant hover:bg-surface-container-low transition-colors border-b border-green-800/10" href="#">
+<span class="material-symbols-outlined ml-4" data-icon="analytics">analytics</span>
+                التحليلات
+            </a>
+<a class="flex items-center px-6 py-4 text-on-surface-variant hover:bg-surface-container-low transition-colors border-b border-green-800/10" href="#">
+<span class="material-symbols-outlined ml-4" data-icon="settings">settings</span>
+                الإعدادات
+            </a>
+</div>
+<div class="h-[72px] px-6 border-t border-green-800/20 flex items-center">
+<div class="flex items-center gap-3">
+<img alt="Admin Avatar" class="w-10 h-10 object-cover" data-alt="Professional headshot of a man with short brown hair, wearing a dark suit and light blue shirt, against a soft gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2adFCwBDCaudTp2u8sJc1rvmgu9PCOlL8XhZzVPBeCcGUvoyGDyuHlmNgaSWIvts9LJGgcjHC2z3T37DeczGeM6NnDulnxUUUV3ZglKjG4i5F8SiqYQqBQfZusfeeP_qIlXgFYREGrjYq-PptvsiqD4RBXulYOHWXfonwrTNX1ikKjTqUu_wPAfvoJ5U0FnvyZs8Bqloo0fxGdfdtuTfMX2YYsOJrPBJr0X5l95r_nY_NUmFHxDiYIyvsZl30edsEkkz7AnW-TQ"/>
+<div>
+<p class="text-sm font-bold text-on-surface m-0 leading-tight">المدير العام</p>
+<p class="text-xs text-on-surface-variant m-0 leading-tight">admin@rezqak.com</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 mr-48 flex flex-col h-screen">
+<!-- TopAppBar -->
+<header class="flex items-center w-full px-6 h-[72px] border-b border-green-800/20 bg-white dark:bg-slate-900 font-['Cairo'] text-right shrink-0">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold text-[#1B6B4A]">إدارة الوظائف</h2>
+<span class="text-lg font-bold bg-[#1B6B4A]/10 text-[#1B6B4A] px-3 py-1">1,248 وظيفة</span>
+</div>
+<div class="flex items-center mr-auto gap-4"><div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="pl-4 pr-10 py-2 border border-outline-variant bg-surface-container-lowest text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container w-64 text-sm font-normal" placeholder="بحث عن وظيفة..." type="text"/>
+</div>
+<button class="px-6 py-2 bg-[#1B6B4A] text-white hover:bg-opacity-90 transition-opacity text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    إضافة وظيفة
+                </button>
+<button class="text-[#1B6B4A] hover:underline transition-colors text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                    تصدير
+                </button></div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col bg-surface-container-lowest overflow-hidden">
+<!-- Data Table Container -->
+<div class="w-full flex-1 overflow-y-auto">
+<table class="w-full text-right text-sm">
+<thead class="bg-surface-container-low border-b border-green-800/20 text-on-surface-variant font-bold sticky top-0 z-10">
+<tr>
+<th class="px-4 py-3 whitespace-nowrap w-12 text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</th>
+<th class="px-4 py-3 whitespace-nowrap cursor-pointer hover:bg-surface-container-highest transition-colors border-l border-green-800/10">
+<div class="flex items-center gap-2">المسمى الوظيفي <span class="material-symbols-outlined text-sm text-outline">unfold_more</span></div>
+</th><th class="px-4 py-3 whitespace-nowrap cursor-pointer hover:bg-surface-container-highest transition-colors border-l border-green-800/10 w-40">
+<div class="flex items-center gap-2">الشركة الناشرة <span class="material-symbols-outlined text-sm text-outline">unfold_more</span></div>
+</th>
+<th class="px-4 py-3 whitespace-nowrap cursor-pointer hover:bg-surface-container-highest transition-colors border-l border-green-800/10">
+<div class="flex items-center gap-2">الدولة <span class="material-symbols-outlined text-sm text-outline">unfold_more</span></div>
+</th>
+<th class="px-4 py-3 whitespace-nowrap cursor-pointer hover:bg-surface-container-highest transition-colors border-l border-green-800/10">
+<div class="flex items-center gap-2">إحصائيات <span class="material-symbols-outlined text-sm text-outline">unfold_more</span></div>
+</th><th class="px-4 py-3 whitespace-nowrap cursor-pointer hover:bg-surface-container-highest transition-colors border-l border-green-800/10 w-24">
+<div class="flex items-center gap-2">وقت النشر <span class="material-symbols-outlined text-sm text-outline">unfold_more</span></div>
+</th>
+<th class="px-4 py-3 whitespace-nowrap cursor-pointer hover:bg-surface-container-highest transition-colors border-l border-green-800/10">
+<div class="flex items-center gap-2">تاريخ النشر <span class="material-symbols-outlined text-sm text-outline">unfold_more</span></div>
+</th>
+<th class="px-4 py-3 whitespace-nowrap cursor-pointer hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-2">الحالة <span class="material-symbols-outlined text-sm text-outline">unfold_more</span></div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-green-800/10 text-on-surface bg-surface-container-lowest">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مهندس برمجيات أول</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">حلول التقنية</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">السعودية 🇸🇦</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 1,240</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 320</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 45</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">10:30 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-10-25</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-[#F0F7F4]">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مدير تسويق رقمي</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">مجموعة إبداع</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">السعودية 🇸🇦</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 850</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 210</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 12</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">09:15 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-10-20</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">محلل مالي</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">المصرف العربي</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">السعودية 🇸🇦</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 3,420</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 890</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 89</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">01:45 م</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-09-15</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-container text-on-surface-variant border border-outline-variant text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="block">block</span> مغلق</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-[#F0F7F4]">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مصمم واجهات مستخدم</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">ديزاين لاب</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">الإمارات 🇦🇪</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 5,102</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 1,200</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 150</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">08:00 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-01</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مطور تطبيقات جوال</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">تطبيقات مصر</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">مصر 🇪🇬</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 2,150</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 420</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 35</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">11:20 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-05</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-secondary-container/30 text-on-secondary-container border border-secondary-container/50 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="pending">pending</span> مراجعة</span>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-[#F0F7F4]">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">أخصائي موارد بشرية</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">مواهب الخليج</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">قطر 🇶🇦</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 920</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 180</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 8</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">03:50 م</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-10</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مدير مبيعات إقليمي</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">سيلز بروكيرز</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">البحرين 🇧🇭</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 1,840</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 390</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 52</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">12:05 م</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-10-28</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-container text-on-surface-variant border border-outline-variant text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="block">block</span> مغلق</span>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-[#F0F7F4]">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مهندس بيانات</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">داتا تيك</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">السعودية 🇸🇦</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 4,200</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 950</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 110</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">02:30 م</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-12</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 9 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">كاتب محتوى إبداعي</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">محتوى عمان</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">عمان 🇴🇲</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 1,050</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 260</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 18</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">09:40 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-08</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 10 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-[#F0F7F4]">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">محاسب أول</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">المحاسبون المتحدون</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">الكويت 🇰🇼</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 2,800</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 610</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 75</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">04:15 م</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-10-15</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-container text-on-surface-variant border border-outline-variant text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="block">block</span> مغلق</span>
+</td>
+</tr>
+<!-- Row 11 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مهندس أمن سيبراني</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">سايبر سيلد</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">السعودية 🇸🇦</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 3,900</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 880</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 92</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">11:55 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-14</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 12 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-[#F0F7F4]">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مدير مشروع تقني</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">تك بروجكتس</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">الإمارات 🇦🇪</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 4,500</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 1,100</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 130</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">08:45 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-02</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+<!-- Row 13 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">محلل أعمال</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">بيزنس أنالايز</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">الأردن 🇯🇴</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 1,600</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 340</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 41</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">01:10 م</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-07</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-secondary-container/30 text-on-secondary-container border border-secondary-container/50 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="pending">pending</span> مراجعة</span>
+</td>
+</tr>
+<!-- Row 14 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-[#F0F7F4]">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">أخصائي تسويق شبكات</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">شبكات التسويق</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">السعودية 🇸🇦</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 2,300</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 550</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 68</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">10:05 ص</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-10-22</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-container text-on-surface-variant border border-outline-variant text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="block">block</span> مغلق</span>
+</td>
+</tr>
+<!-- Row 15 -->
+<tr class="hover:bg-surface-container-highest transition-colors bg-white">
+<td class="px-4 py-2 whitespace-nowrap text-center border-l border-green-800/10">
+<input class="border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+</td>
+<td class="px-4 py-2 whitespace-nowrap font-bold border-l border-green-800/10">مهندس ذكاء اصطناعي</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">المستقبل للذكاء</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">الإمارات 🇦🇪</td>
+<td class="px-4 py-2 whitespace-nowrap text-xs border-l border-green-800/10">
+<div class="flex gap-4">
+<span class="flex items-center gap-1" title="مشاهدات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="visibility">visibility</span> 6,800</span>
+<span class="flex items-center gap-1" title="النقرات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span> 1,800</span>
+<span class="flex items-center gap-1" title="مراجعات"><span class="material-symbols-outlined text-[14px] text-primary" data-icon="reviews">reviews</span> 210</span>
+</div>
+</td><td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">05:30 م</td>
+<td class="px-4 py-2 whitespace-nowrap text-on-surface-variant border-l border-green-800/10">2023-11-15</td>
+<td class="px-4 py-2 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-[#1B6B4A]/10 text-[#1B6B4A] border border-[#1B6B4A]/20 text-xs font-bold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> نشط</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex justify-between items-center px-6 h-[72px] border-t border-green-800/20 bg-surface-container-low text-sm text-on-surface-variant shrink-0">
+<div>
+                        عرض 1 إلى 15 من 245 وظيفة
+                    </div>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface-container-highest disabled:opacity-50" disabled="">السابق</button>
+<button class="px-3 py-1 bg-primary-container text-white border border-primary-container">1</button>
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface-container-highest">2</button>
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface-container-highest">3</button>
+<span class="px-2 py-1">...</span>
+<button class="px-3 py-1 border border-outline-variant hover:bg-surface-container-highest">التالي</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

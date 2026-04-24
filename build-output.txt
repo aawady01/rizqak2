@@ -1,0 +1,444 @@
+﻿ظ¤î  [36mBuilding Nuxt for production...[39m
+ظ¤é
+ظù  [32mNuxt [1m4.4.2[22m[39m[90m (with [39m[90mNitro [1m2.13.1[22m[39m[90m, Vite [1m7.3.1[22m[39m[90m and Vue [1m3.5.31[22m[39m[90m)[39m
+[36mظ╣[39m Using zod with vee-validate
+[90m[[90m@nuxtjs/sitemap[90m][39m [36mظ╣[39m No dynamic sources detected. Consider enabling [36mzeroRuntime[39m to reduce server bundle size. See https://nuxtseo.com/sitemap/guides/zero-runtime
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" 
+"C:\nvm4w\nodejs/node_modules/npm/bin/np 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : 
+NotSpecified: (:S    tring) [], 
+RemoteException
+    + FullyQualifiedErrorId : 
+NativeCommandErro    r
+ 
+[41m[30m ERROR [39m[49m 
+[unhandledRejection] no such table: 
+_content_info
+
+    [90mat [39mDatabase.exec ([36mnode
+_modules\.pnpm\better-sqlite3@12.8.0\node
+_modules\better-sqlite3\lib\methods\wrapp
+ers.js:9:14[39m)
+    [90mat [39mObject.exec ([36m/C:/Us
+ers/USER/Desktop/rizqak2/node_modules/.pn
+pm/db0@0.3.4_better-sqlite3@12.8.0/node_m
+odules/db0/dist/connectors/better-sqlite3
+.mjs:24:26[39m)
+    [90mat 
+[39mObject.dropContentTables ([36m/C:/U
+sers/USER/Desktop/rizqak2/node_modules/.p
+npm/@nuxt+content@3.12.0_better_283d36ca5
+57ee6c8ef44a531b39d95d3/node_modules/@nux
+t/content/dist/module.mjs:367:10[39m)
+
+[90m[[90m@nuxt/content[90m][39m [32mظ£¤[39m Processed 2 collections and 0 files in 1260.89ms (0 cached, 0 parsed)
+
+[43m[30m WARN [39m[49m [Sentry] 
+Source map generation 
+([36msourcemap.client[39m) is disabled 
+in your Vite configuration.
+
+ظ¤é
+ظù  Nitro preset: [36mnode-server[39m
+[90m[[90mnuxt[90m][39m [36mظ╣[39m Compiled [36mcontent/types.d.ts[39m in 1914.43ms
+[90m[[90mnuxt[90m][39m [36mظ╣[39m Compiled [36mtypes/runtime-config.d.ts[39m in 1952.11ms
+[90m[[90mnuxt[90m][39m [36mظ╣[39m Compiled [36mtypes/shared-imports.d.ts[39m in 1869.61ms
+[90m[[90mnuxt[90m][39m [36mظ╣[39m Compiled [36mcontent/database.compressed.mjs[39m in 1833.53ms
+[90m[[90mnuxt[90m][39m [36mظ╣[39m Compiled [36mmdc-highlighter.mjs[39m in 1914.14ms
+[90m[[90mnuxt[90m][39m [36mظ╣[39m Compiled [36mtypes/imports.d.ts[39m in 1937.24ms
+[90m[[90mnuxt[90m][39m [36mظ╣[39m Compiled [36mrouter.options.mjs[39m in 2016.09ms
+[36mظ╣[39m Building client...
+[36mظ╣[39m [36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+[sentry-vite-plugin] Info: Sending telemetry data on issues and performance to Sentry. To disable telemetry, set `options.telemetry` to `false`.
+
+[43m[30m WARN [39m[49m [33m[plugin 
+nuxt:module-preload-polyfill] Sourcemap 
+is likely to be incorrect: a plugin 
+(nuxt:module-preload-polyfill) was used 
+to transform files, but didn't generate 
+a sourcemap for the transformation. 
+Consult the plugin documentation for 
+help[39m
+
+[36mظ╣[39m transforming...
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m
+
+
+[43m[30m WARN [39m[49m 
+[33m[vite:css][postcss] Lexical error 
+on line 1: Unrecognized text.
+
+  Erroneous area:
+1: z-fixed + 1
+^..^
+1  |  /*! tailwindcss v4.2.2 | MIT 
+License | https://tailwindcss.com */
+2  |  ...x:20}.z-50{z-index:50}.z-\[calc\
+(z-fixed\+1\)\]{z-index:calc(z-fixed + 1)
+}.z-\[calc\(z-fixed\+2\)\]{z-index:calc(z
+...
+   |                                     
+                
+^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+
+
+[43m[30m WARN [39m[49m 
+[33m[vite:css][postcss] Lexical error 
+on line 1: Unrecognized text.
+
+  Erroneous area:
+1: z-fixed + 2
+^..^
+1  |  /*! tailwindcss v4.2.2 | MIT 
+License | https://tailwindcss.com */
+2  |  ...dex:calc(z-fixed + 1)}.z-\[calc\
+(z-fixed\+2\)\]{z-index:calc(z-fixed + 2)
+}.order-1{order:1}.order-2{order:2}.col-s
+...
+   |                                     
+                
+^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m[2m (x2)[22m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m[2m (x3)[22m
+
+[36mظ╣[39m [32mظ£ô[39m 2469 modules transformed.
+[36mظ╣[39m rendering chunks...
+[sentry-vite-plugin] Warning: No auth 
+token provided. Will not create release. 
+Please set the `authToken` option. You 
+can find information on how to generate 
+a Sentry auth token here: 
+https://docs.sentry.io/api/auth/
+[36mظ╣[39m computing gzip size...
+[sentry-vite-plugin] Warning: No auth 
+token provided. Will not upload source 
+maps. Please set the `authToken` option. 
+You can find information on how to 
+generate a Sentry auth token here: 
+https://docs.sentry.io/api/auth/
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[32mmanifest.json                 [39m[1m[2m 28.52 kB[22m[1m[22m[2m ظ¤é gzip:   2.27 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[35m_nuxt/ProsePre.D5orA6B_.css   [39m[1m[2m  0.03 kB[22m[1m[22m[2m ظ¤é gzip:   0.05 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[35m_nuxt/error-500.Dslq4FCL.css  [39m[1m[2m  1.91 kB[22m[1m[22m[2m ظ¤é gzip:   0.73 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[35m_nuxt/error-404.YRJZTRyB.css  [39m[1m[2m  2.43 kB[22m[1m[22m[2m ظ¤é gzip:   0.86 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[35m_nuxt/entry.CP7lUCiE.css      [39m[1m[2m113.41 kB[22m[1m[22m[2m ظ¤é gzip:  20.27 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/B0UBPC-4.js             [39m[1m[2m  0.50 kB[22m[1m[22m[2m ظ¤é gzip:   0.33 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CdQKS7CS.js             [39m[1m[2m  0.54 kB[22m[1m[22m[2m ظ¤é gzip:   0.36 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DYl8S0Ow.js             [39m[1m[2m  0.55 kB[22m[1m[22m[2m ظ¤é gzip:   0.37 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/C2Q58v_e.js             [39m[1m[2m  0.56 kB[22m[1m[22m[2m ظ¤é gzip:   0.37 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BGzzlEDP.js             [39m[1m[2m  0.66 kB[22m[1m[22m[2m ظ¤é gzip:   0.43 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BEvOXjVq.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.45 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CoIUDZyp.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.45 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CoDMOxkU.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/gnq4GaYe.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/D44QqdU-.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/B5YsC476.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BrTtXT93.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DEAxLSGc.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DmYGPSUb.js             [39m[1m[2m  0.70 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BcGxYMhf.js             [39m[1m[2m  0.71 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/D-8SiabF.js             [39m[1m[2m  0.71 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DtnKxZyl.js             [39m[1m[2m  0.71 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/D1NZKUKl.js             [39m[1m[2m  0.71 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BUs22K3j.js             [39m[1m[2m  0.72 kB[22m[1m[22m[2m ظ¤é gzip:   0.46 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DVUf_D-9.js             [39m[1m[2m  0.75 kB[22m[1m[22m[2m ظ¤é gzip:   0.41 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/C0fRGnC8.js             [39m[1m[2m  0.82 kB[22m[1m[22m[2m ظ¤é gzip:   0.48 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CtofhaXg.js             [39m[1m[2m  0.86 kB[22m[1m[22m[2m ظ¤é gzip:   0.52 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CRdwF-rO.js             [39m[1m[2m  0.88 kB[22m[1m[22m[2m ظ¤é gzip:   0.52 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/Dgrc9YQY.js             [39m[1m[2m  0.89 kB[22m[1m[22m[2m ظ¤é gzip:   0.53 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/B-jqQpoA.js             [39m[1m[2m  0.93 kB[22m[1m[22m[2m ظ¤é gzip:   0.58 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/1nezD-FO.js             [39m[1m[2m  0.97 kB[22m[1m[22m[2m ظ¤é gzip:   0.59 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DFXvyFmY.js             [39m[1m[2m  0.98 kB[22m[1m[22m[2m ظ¤é gzip:   0.60 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DScCH-V_.js             [39m[1m[2m  0.98 kB[22m[1m[22m[2m ظ¤é gzip:   0.60 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DvTAPRRX.js             [39m[1m[2m  0.98 kB[22m[1m[22m[2m ظ¤é gzip:   0.60 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/D3Edf1jj.js             [39m[1m[2m  0.98 kB[22m[1m[22m[2m ظ¤é gzip:   0.60 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/B2juM0wh.js             [39m[1m[2m  0.98 kB[22m[1m[22m[2m ظ¤é gzip:   0.60 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BcBkIEDb.js             [39m[1m[2m  1.11 kB[22m[1m[22m[2m ظ¤é gzip:   0.63 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/s_izBaDC.js             [39m[1m[2m  1.89 kB[22m[1m[22m[2m ظ¤é gzip:   1.02 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BuKSFvfL.js             [39m[1m[2m  1.99 kB[22m[1m[22m[2m ظ¤é gzip:   1.13 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BnMMFRLp.js             [39m[1m[2m  2.17 kB[22m[1m[22m[2m ظ¤é gzip:   1.07 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CWr6JEun.js             [39m[1m[2m  2.95 kB[22m[1m[22m[2m ظ¤é gzip:   1.42 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/B6r-_AO6.js             [39m[1m[2m  2.99 kB[22m[1m[22m[2m ظ¤é gzip:   1.27 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/B6uLU85c.js             [39m[1m[2m  3.84 kB[22m[1m[22m[2m ظ¤é gzip:   1.88 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/Ckp-qih8.js             [39m[1m[2m  3.94 kB[22m[1m[22m[2m ظ¤é gzip:   1.80 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CkbgRysI.js             [39m[1m[2m  4.25 kB[22m[1m[22m[2m ظ¤é gzip:   1.96 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DULdsozF.js             [39m[1m[2m  5.01 kB[22m[1m[22m[2m ظ¤é gzip:   2.38 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/15VVTipm.js             [39m[1m[2m  5.79 kB[22m[1m[22m[2m ظ¤é gzip:   2.35 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BCWCJcrp.js             [39m[1m[2m  6.18 kB[22m[1m[22m[2m ظ¤é gzip:   2.57 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/Bylbjk5U.js             [39m[1m[2m  6.48 kB[22m[1m[22m[2m ظ¤é gzip:   2.87 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DWAT8llm.js             [39m[1m[2m  8.74 kB[22m[1m[22m[2m ظ¤é gzip:   3.72 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DNhTY_HP.js             [39m[1m[2m  9.26 kB[22m[1m[22m[2m ظ¤é gzip:   3.28 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DI3QoPv5.js             [39m[1m[2m 10.28 kB[22m[1m[22m[2m ظ¤é gzip:   2.95 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/B1ifSNEC.js             [39m[1m[2m 11.11 kB[22m[1m[22m[2m ظ¤é gzip:   4.15 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/M4fVqFe2.js             [39m[1m[2m 11.73 kB[22m[1m[22m[2m ظ¤é gzip:   5.39 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/ClE_kX6y.js             [39m[1m[2m 12.90 kB[22m[1m[22m[2m ظ¤é gzip:   3.45 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/BIDaSfDy.js             [39m[1m[2m 26.11 kB[22m[1m[22m[2m ظ¤é gzip:   7.15 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DOHN8NqI.js             [39m[1m[2m 27.82 kB[22m[1m[22m[2m ظ¤é gzip:   8.32 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/drY326gt.js             [39m[1m[2m 28.36 kB[22m[1m[22m[2m ظ¤é gzip:   9.28 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DPQWXp74.js             [39m[1m[2m 34.54 kB[22m[1m[22m[2m ظ¤é gzip:   8.28 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/ChVK-w9s.js             [39m[1m[2m 35.94 kB[22m[1m[22m[2m ظ¤é gzip:  11.36 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CGbEyfJ0.js             [39m[1m[2m 41.86 kB[22m[1m[22m[2m ظ¤é gzip:   9.54 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/DKTSPKHz.js             [39m[1m[2m 48.43 kB[22m[1m[22m[2m ظ¤é gzip:  13.87 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CNwywU02.js             [39m[1m[2m 88.29 kB[22m[1m[22m[2m ظ¤é gzip:  34.93 kB[22m
+[36mظ╣[39m [2m../node_modules/.cache/nuxt/.nuxt/dist/client/[22m[36m_nuxt/CvYe4eX3.js             [39m[1m[2m299.75 kB[22m[1m[22m[2m ظ¤é gzip: 104.11 kB[22m
+[36mظ╣[39m [32mظ£ô built in 2m 4s[39m
+[32mظ£¤[39m Client built in 124932ms
+[36mظ╣[39m Building server...
+[36mظ╣[39m [36mvite v7.3.1 [32mbuilding ssr environment for production...[36m[39m
+[sentry-vite-plugin] Info: Sending telemetry data on issues and performance to Sentry. To disable telemetry, set `options.telemetry` to `false`.
+[36mظ╣[39m transforming...
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m
+
+
+[43m[30m WARN [39m[49m 
+[33m[vite:css][postcss] Lexical error 
+on line 1: Unrecognized text.
+
+  Erroneous area:
+1: z-fixed + 1
+^..^
+1  |  /*! tailwindcss v4.2.2 | MIT 
+License | https://tailwindcss.com */
+2  |  ...x:20}.z-50{z-index:50}.z-\[calc\
+(z-fixed\+1\)\]{z-index:calc(z-fixed + 1)
+}.z-\[calc\(z-fixed\+2\)\]{z-index:calc(z
+...
+   |                                     
+                
+^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+
+
+[43m[30m WARN [39m[49m 
+[33m[vite:css][postcss] Lexical error 
+on line 1: Unrecognized text.
+
+  Erroneous area:
+1: z-fixed + 2
+^..^
+1  |  /*! tailwindcss v4.2.2 | MIT 
+License | https://tailwindcss.com */
+2  |  ...dex:calc(z-fixed + 1)}.z-\[calc\
+(z-fixed\+2\)\]{z-index:calc(z-fixed + 2)
+}.order-1{order:1}.order-2{order:2}.col-s
+...
+   |                                     
+                
+^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m[2m (x2)[22m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m[2m (x3)[22m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m[2m (x4)[22m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m[2m (x5)[22m
+
+
+[43m[30m WARN [39m[49m [33m[plugin 
+@tailwindcss/vite:generate:build] 
+Sourcemap is likely to be incorrect: a 
+plugin 
+(@tailwindcss/vite:generate:build) was 
+used to transform files, but didn't 
+generate a sourcemap for the 
+transformation. Consult the plugin 
+documentation for help[39m[2m (x6)[22m
+
+[36mظ╣[39m [32mظ£ô[39m 576 modules transformed.
+[36mظ╣[39m rendering chunks...
+[sentry-vite-plugin] Warning: No auth 
+token provided. Will not create release. 
+Please set the `authToken` option. You 
+can find information on how to generate 
+a Sentry auth token here: 
+https://docs.sentry.io/api/auth/
+[sentry-vite-plugin] Warning: No auth 
+token provided. Will not upload source 
+maps. Please set the `authToken` option. 
+You can find information on how to 
+generate a Sentry auth token here: 
+https://docs.sentry.io/api/auth/
+[36mظ╣[39m [32mظ£ô built in 1m 1s[39m
+[32mظ£¤[39m Server built in 61262ms
+[90m[[90mnitro[90m][39m [36mظ╣[39m Initializing prerenderer
+[36mظ╣[39m [sentry-rollup-plugin] Info: Sending telemetry data on issues and performance to Sentry. To disable telemetry, set [36moptions.telemetry[39m to [36mfalse[39m.
+
+[43m[30m WARN [39m[49m 
+"mocked-exports/proxy" is imported by 
+" virtual:playwright-core", but could 
+not be resolved ظô treating it as an 
+external dependency.
+
+
+[43m[30m WARN [39m[49m "file:///C:/Us
+ers/USER/Desktop/rizqak2/node_modules/.pn
+pm/@nuxt+nitro-server@4.4.2_@b_94b32db874
+f049567dcea56e73905838/node_modules/@nuxt
+/nitro-server/dist/runtime/utils/cache-dr
+iver.js" is imported by " virtual:#nitro-
+internal-virtual/storage", but could not 
+be resolved ظô treating it as an 
+external dependency.
+
+
+[43m[30m WARN [39m[49m 
+[sentry-rollup-plugin] Warning: No auth 
+token provided. Will not create release. 
+Please set the [36mauthToken[39m 
+option. You can find information on how 
+to generate a Sentry auth token here: 
+https://docs.sentry.io/api/auth/
+
+
+[43m[30m WARN [39m[49m 
+[sentry-rollup-plugin] Warning: No auth 
+token provided. Will not upload source 
+maps. Please set the [36mauthToken[39m 
+option. You can find information on how 
+to generate a Sentry auth token here: 
+https://docs.sentry.io/api/auth/
+
+[90m[[90mnitro[90m][39m [36mظ╣[39m Prerendering 1 routes
+[90m[[90mnitro[90m][39m [90m  ظ¤£ظ¤ /__nuxt_content/content/sql_dump.txt (92ms)[39m
+[90m[[90mnitro[90m][39m [36mظ╣[39m Prerendered 1 routes in 158.27 seconds
+[90m[[90mnitro[90m][39m [32mظ£¤[39m Generated public [36m.output/public[39m
+
+PWA v1.2.0
+mode      generateSW
+precache  4 entries (0.16 KiB)
+files generated
+  ../.output/public/sw.js
+  ../.output/public/workbox-3105ea8d.js
+warnings
+  One of the glob patterns doesn't match 
+any files. Please remove or fix the 
+following: {
+  "globDirectory": "C:\\Users\\USER\\Desk
+top\\rizqak2\\.output\\public",
+  "globPattern": "**/_payload.json",
+  "globIgnores": [
+    "**/node_modules/**/*",
+    "sw.js",
+    "workbox-*.js"
+  ]
+}
+
+[90m[[90mnitro[90m][39m [36mظ╣[39m Building Nuxt Nitro server (preset: [36mnode-server[39m, compatibility date: [36m2024-11-01[39m)
+[sentry-rollup-plugin] Info: Sending telemetry data on issues and performance to Sentry. To disable telemetry, set `options.telemetry` to `false`.
+(node:3816) [DEP0155] 
+DeprecationWarning: Use of deprecated 
+trailing slash pattern mapping "./" in 
+the "exports" field module resolution of 
+the package at C:\Users\USER\Desktop\rizq
+ak2\node_modules\.pnpm\@nuxt+nitro-server
+@4.4.2_@b_94b32db874f049567dcea56e7390583
+8\node_modules\@vue\shared\package.json 
+imported from C:\Users\USER\Desktop\rizqa
+k2\node_modules\.pnpm\@nuxt+nitro-server@
+4.4.2_@b_94b32db874f049567dcea56e73905838
+\node_modules\@nuxt\nitro-server\dist\run
+time\templates\error-500.mjs. Mapping 
+specifiers ending in "/" is no longer 
+supported.
+(Use `node --trace-deprecation ...` to 
+show where the warning was created)

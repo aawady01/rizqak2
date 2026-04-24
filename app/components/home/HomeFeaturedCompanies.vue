@@ -18,14 +18,16 @@ const { scrollCarousel } = useCarouselScroll(carouselRef);
         </BaseTypography>
       </div>
 
-      <BaseTypography
-        variant="caption-l"
-        weight="medium"
-        color="text-primary"
-        class="tracking-wide"
-      >
-        {{ $t('homeFeaturedCompanies.subtitle') }}
-      </BaseTypography>
+      <NuxtLink to="/companies" class="inline-flex items-center gap-1 group/link">
+        <BaseTypography
+          variant="caption-l"
+          weight="medium"
+          color="text-primary"
+          class="tracking-wide group-hover/link:underline"
+        >
+          {{ $t('homeFeaturedCompanies.subtitle') }}
+        </BaseTypography>
+      </NuxtLink>
     </div>
 
     <div class="relative group/carousel">

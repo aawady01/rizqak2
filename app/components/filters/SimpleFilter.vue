@@ -20,6 +20,7 @@ interface Props {
   searchable?: boolean;
   expandable?: boolean;
   urlKey?: string;
+  icon?: any;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -28,6 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
   expandable: true,
   searchable: false,
   urlKey: undefined,
+  icon: undefined,
 });
 const { t } = useI18n();
 

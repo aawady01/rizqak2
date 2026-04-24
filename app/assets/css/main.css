@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "./layers/base.css";
+@import "./layers/components.css";
+@import "./layers/utilities.css";
 
 @theme {
   /* ==========================================
@@ -347,7 +350,7 @@
   --size-select-panel-min-width: 8rem;
   --size-icon-material-md: 20px;
   --size-icon-micro: 10px;
-  --size-shell-header-height: 56px;
+  --size-shell-header-height: 48px;
   --size-shell-action: 40px;
   --size-shell-divider-height: 24px;
   --size-carousel-control: 40px;
@@ -489,6 +492,18 @@
   --font-size-hero-title-sm: clamp(24px, 5vw, 30px);
   --font-size-hero-title-lg: clamp(30px, 4vw, 36px);
   --size-hero-search-height: clamp(48px, 8vw, 56px);
+
+  /* ==========================================
+     ADMIN DASHBOARD - Layout & Table Tokens
+     Named aliases for dashboard-specific values.
+     ========================================== */
+  --size-admin-header-height: 72px;
+  --size-admin-sidebar-width: 72px;
+  --size-admin-sidebar-width-expanded: 256px;
+  --size-admin-pagination-height: 72px;
+  --size-admin-checkbox-col-width: 48px;
+  --color-admin-row-alt: #F0F7F4;
+  --color-admin-row-hover: var(--color-neutral-200);
 }
 
 /* ==========================================
@@ -630,10 +645,5 @@ html.dark {
   }
 }
 
-/* ==========================================
-   LAYER IMPORTS - Split for maintainability
-   ========================================== */
-@import "./layers/base.css";
-@import "./layers/components.css";
-@import "./layers/utilities.css";
+/* Layer imports moved to top of file (CSS spec requires @import before other rules) */
 

@@ -41,6 +41,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: [
       'composables',
+      'composables/admin',
       'core/api',
       'shared/composables',
     ],
@@ -200,9 +201,7 @@ export default defineNuxtConfig({
     css: {
       devSourcemap: true,
     },
-    optimizeDeps: {
-      exclude: ['vue'],
-    },
+
     build: {
       rollupOptions: {
         output: {
@@ -232,6 +231,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap' },
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },

@@ -8,24 +8,24 @@ const route = useRoute()
 
 
 
-const activeTab = ref<TabName>('معلومات')
+const activeTab = ref<TabName>('info')
 
 const company: Company = {
-  name: 'الشركة المصرية للتوظيف',
+  name: t('companyDetail.name'),
   logo: '/assets/images/recruitment-logo.png',
   coverImage: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=1200',
   rating: 4.2,
   licenseNumber: 1247,
-  description: 'شركة رائدة في مجال التوظيف وإلحاق العمالة المصرية بالخارج. نسعى لتوفير فرص عمل حقيقية ومضمونة للشباب المصري في مختلف التخصصات.',
-  location: 'القاهرة، مدينة نصر',
-  hours: 'مفتوح الآن (9 ص - 5 م)',
+  description: t('companyDetail.description'),
+  location: t('companyDetail.location'),
+  hours: t('companyDetail.hours'),
   placedCount: '540+',
   followers: '12,500',
-  aboutDescription: 'الشركة المصرية للتوظيف هي شركة رائدة متخصصة في توفير الكوادر البشرية المؤهلة للعمل في دول الخليج. نتميز بخبرة واسعة في مجالات التشييد والبناء، بالإضافة إلى توفير الطواقم الطبية للمستشفيات والمراكز الصحية. نعمل وفقاً لأعلى معايير الجودة والمصداقية لضمان حقوق العمال وأصحاب العمل على حد سواء.',
-  classification: 'وكالة توظيف وإلحاق عمالة',
+  aboutDescription: t('companyDetail.aboutDescription'),
+  classification: t('companyDetail.classification'),
   foundedYear: '2010',
-  experienceYears: '14 سنة خبرة',
-  size: '20 - 50 موظف',
+  experienceYears: t('companyDetail.experienceYears'),
+  size: t('companyDetail.size'),
   stats: {
     totalJobs: 540,
     jobViews: '25.4K',
@@ -35,29 +35,29 @@ const company: Company = {
     monthlyAvg: 15,
   },
   topCountries: [
-    { countryCode: 'sa', name: 'المملكة العربية السعودية', jobs: 320, percentage: 70 },
-    { countryCode: 'kw', name: 'دولة الكويت', jobs: 150, percentage: 35 },
-    { countryCode: 'ae', name: 'الإمارات العربية المتحدة', jobs: 70, percentage: 15 },
+    { countryCode: 'sa', name: t('companyDetail.topCountries.sa'), jobs: 320, percentage: 70 },
+    { countryCode: 'kw', name: t('companyDetail.topCountries.kw'), jobs: 150, percentage: 35 },
+    { countryCode: 'ae', name: t('companyDetail.topCountries.ae'), jobs: 70, percentage: 15 },
   ],
   topFields: [
-    { name: 'التشييد والبناء', jobs: 250, percentage: 60 },
-    { name: 'الرعاية الصحية والتمريض', jobs: 180, percentage: 40 },
-    { name: 'المبيعات والتسويق', jobs: 60, percentage: 15 },
-    { name: 'السائقين والنقل', jobs: 50, percentage: 12 },
+    { name: t('companyDetail.topFields.construction'), jobs: 250, percentage: 60 },
+    { name: t('companyDetail.topFields.healthcare'), jobs: 180, percentage: 40 },
+    { name: t('companyDetail.topFields.sales'), jobs: 60, percentage: 15 },
+    { name: t('companyDetail.topFields.driving'), jobs: 50, percentage: 12 },
   ],
   license: {
     number: '1247',
-    issuer: 'وزارة القوى العاملة - مصر',
+    issuer: t('companyDetail.license.issuer'),
     expiry: '2025',
-    status: 'ساري المفعول',
+    status: t('companyDetail.license.status'),
   },
   account: {
-    joined: 'يناير 2022',
-    managedBy: 'الشركة نفسها',
+    joined: t('companyDetail.account.joined'),
+    managedBy: t('companyDetail.account.managedBy'),
     verified: true,
   },
-  branchAddress: 'القاهرة، مدينة نصر، شارع عباس العقاد',
-  branchHours: 'مواعيد العمل: 9ص - 5م',
+  branchAddress: t('companyDetail.branchAddress'),
+  branchHours: t('companyDetail.branchHours'),
   mapImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC_nW97shQcr0yLg3QdAJq0yNnbpoQQd5MtCWYQlIUeyMnS8EJy1uB96hpnMl9_in-4CFPmZ_jYZhN_FmOlCFx6Hapmsow73AcnMRWnaiVjlXkkVT632-1u4TWPtZZteINVjRMDSAnxMOGMFTqHajQSv4Skmnc1b2ySl5yRNYFXyngENo1ZFMXhiN9dcD-TzoewKjbKhLCsl65rgKyVpRk5u7sxwpjwKWPw1THZM950kzRZHqTBXUVx1-obeEqR1ucY75gaMIZLHA',
   links: {
     website: '#',
@@ -67,21 +67,21 @@ const company: Company = {
     phone: '#',
   },
   breadcrumb: [
-    { label: 'الصفحة الرئيسية', href: '#' },
-    { label: 'ناشر وظائف', href: '#' },
-    { label: 'شركة إلحاق عمالة مرخصة', href: '#' },
-    { label: 'الشركة المصرية للتوظيف', href: '#', current: true },
+    { label: t('companyDetail.breadcrumb.home'), href: '/' },
+    { label: t('companyDetail.breadcrumb.publisher'), href: '/companies' },
+    { label: t('companyDetail.breadcrumb.licensed'), href: '#' },
+    { label: t('companyDetail.name'), href: '#', current: true },
   ],
   tabs: [
-    { label: 'الوظائف', count: 23, href: '#' },
-    { label: 'المراجعات', count: 128, href: '#' },
-    { label: 'معلومات', active: true, href: '#' },
+    { label: t('companyDetail.tabs.jobs'), count: 23, href: '#' },
+    { label: t('companyDetail.tabs.reviews'), count: 128, href: '#' },
+    { label: t('companyDetail.tabs.info'), active: true, href: '#' },
   ],
 }
 
 const reviewsData: ReviewsDataSet = {
   overall: 4.2,
-  label: 'ممتاز',
+  label: t('companyDetail.reviews.label'),
   totalReviews: 128,
   breakdown: [
     { stars: 5, percentage: 60, count: 77 },
@@ -91,54 +91,54 @@ const reviewsData: ReviewsDataSet = {
     { stars: 1, percentage: 5, count: 7 },
   ],
   detailedRatings: [
-    { label: 'المصداقية', percentage: 90, count: 115 },
-    { label: 'الالتزام بالعقد', percentage: 94, count: 120 },
-    { label: 'وضوح الرسوم والتكاليف', percentage: 85, count: 109 },
-    { label: 'سرعة الإجراءات', percentage: 76, count: 98 },
-    { label: 'التعامل', percentage: 84, count: 108 },
+    { label: t('companyDetail.reviews.ratings.credibility'), percentage: 90, count: 115 },
+    { label: t('companyDetail.reviews.ratings.contractCommitment'), percentage: 94, count: 120 },
+    { label: t('companyDetail.reviews.ratings.feeClarity'), percentage: 85, count: 109 },
+    { label: t('companyDetail.reviews.ratings.speed'), percentage: 76, count: 98 },
+    { label: t('companyDetail.reviews.ratings.treatment'), percentage: 84, count: 108 },
   ],
   reviews: [
     {
       id: '1',
-      author: 'أحمد محمد علي',
+      author: t('companyDetail.reviews.list.0.author'),
       avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBX7cF2wkg_EHGcRU9OGSCGJRRJI0EXFejrDL_5Hr9WNpoYtSrxN6SLxh1lZxjykC4NARks-_0UBXgvlq8bkszmi9iFy8UFlH5JzAnAGckhpLLW-yKUUiqmAsqX5V9QuZhnjzDV4SNdERwa6Ty8-cIpo-m25f38KhrEAyxMryDEft2l5_BxX6_kVdkrXQyRPt2f9spyeUMd-ohP3IgYMaqwzJWNftdHJkiAWHytABstNghJwUtVkF6NCAmzBff4i3NGveUWS2iAew',
-      role: 'محاسب',
-      time: 'منذ أسبوعين',
+      role: t('companyDetail.reviews.list.0.role'),
+      time: t('companyDetail.reviews.list.0.time'),
       rating: 5,
-      badge: { text: 'سافر من خلال الشركة', variant: 'primary' },
-      body: 'تجربة ممتازة مع الشركة. الإجراءات كانت واضحة وسريعة جداً. فريق العمل محترم ومتعاون، ساعدوني في كل خطوة من بداية التقديم حتى الحصول على التأشيرة والسفر للسعودية. أنصح أي حد يتعامل معاهم.',
+      badge: { text: t('companyDetail.reviews.badges.traveled'), variant: 'primary' },
+      body: t('companyDetail.reviews.list.0.body'),
       likes: 12,
       hasReply: true,
       companyReply: {
-        body: 'شكراً لك يا أستاذ أحمد على ثقتك بنا. نتمنى لك التوفيق في رحلتك العملية الجديدة. نحن دائماً في الخدمة.',
+        body: t('companyDetail.reviews.list.0.companyReply'),
         likes: 3,
       },
       userFollowUp: {
-        body: 'شكراً جزيلاً لاهتمامكم وردكم الكريم.',
-        time: 'منذ أسبوع',
+        body: t('companyDetail.reviews.list.0.followUp'),
+        time: t('companyDetail.reviews.list.0.followUpTime'),
         likes: 1,
       },
     },
     {
       id: '2',
-      author: 'سارة إبراهيم',
+      author: t('companyDetail.reviews.list.1.author'),
       avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBypZISlYWdKA1yTm_TEU7zgLVphcE8JZHE6T0-piONy_5l5uSn37rEnZMaTyPN4d7xjbjvYcsDJIKS1Z4XDtayYMr4FnIP921RQbnZluRPnTTN5lgEcm9ZHrfRrAR96McmxQEgb2Vx2ro5zHM3Uwl6FtT1gG0DODNW3xZ1MuMY0-iGaQ9cnZKo0UwIPWkjimn5pdhUinxo1yNRcxKC6Kzzfs11yG9N-Bxg0_pK39AeMlszDYJFTcXoHBr9SsS44ezJAqpPZynYlw',
-      role: 'مهندسة معمارية',
-      time: 'منذ شهر',
+      role: t('companyDetail.reviews.list.1.role'),
+      time: t('companyDetail.reviews.list.1.time'),
       rating: 4,
-      badge: { text: 'في انتظار السفر', variant: 'default' },
-      body: 'الشركة كويسة والمقابلات كانت منظمة. بس كان فيه شوية تأخير في الرد على الاستفسارات بعد توقيع العقد. ياريت يهتموا بخدمة العملاء أكتر شوية عشان الواحد بيبقى قلقان.',
+      badge: { text: t('companyDetail.reviews.badges.waiting'), variant: 'default' },
+      body: t('companyDetail.reviews.list.1.body'),
       likes: 5,
     },
     {
       id: '3',
-      author: 'محمود السيد',
+      author: t('companyDetail.reviews.list.2.author'),
       avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCko8h8eMDE3MaWPGklSQmfONVVu79snB8Qrm72jmy5Zhceiiw44dYVDYLkpvif-1_hhQ1SWla_CCbCC43H5vTg0fdWMUEbP1Gu6N4B73jYpXHpukUJF_BIyJc2rNKacbfxr58xd_WCHDiEMlVeI6Z7PkEa2Ewkh7FPQgDE-64gnfos97gcFB3wsXzgKHY4fC8gzJ21Hs4NAxPVvhfkjLif21-ZxLmVTtZsVlygJnDTBZ4e-AWab7T4WbD_zdzN7-dh7A4iZNc8aA',
-      role: 'فني كهرباء',
-      time: 'منذ شهرين',
+      role: t('companyDetail.reviews.list.2.role'),
+      time: t('companyDetail.reviews.list.2.time'),
       rating: 5,
-      badge: { text: 'سافر من خلال الشركة', variant: 'primary' },
-      body: 'بصراحة، أحسن شركة تعاملت معاها. مفيش أي رسوم مخفية وكل حاجة كانت زي ما اتفقنا عليها بالظبط. ربنا يباركلهم ويوفقهم.',
+      badge: { text: t('companyDetail.reviews.badges.traveled'), variant: 'primary' },
+      body: t('companyDetail.reviews.list.2.body'),
       likes: 24,
     },
   ],
@@ -165,7 +165,7 @@ useStructuredData({
   address: {
     '@type': 'PostalAddress',
     addressLocality: company.location,
-    addressCountry: 'مصر'
+    addressCountry: t('companyDetail.addressCountry')
   },
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -201,14 +201,14 @@ useBreadcrumbStructuredData([
     />
 
     <!-- Tab Content -->
-    <div v-if="activeTab === 'المراجعات'" class="mt-content">
+    <div v-if="activeTab === 'reviews'" class="mt-content">
       <div class="max-w-none">
         <CompanyReviewsPanel :data="reviewsData" />
       </div>
     </div>
 
     <div v-else class="grid grid-cols-1 gap-section lg:grid-cols-company-sidebar xl:grid-cols-sidebar items-start mt-content">
-      <aside class="order-1 space-y-section lg:sticky lg:top-[72px]">
+      <aside class="order-1 space-y-section lg:sticky lg:top-[var(--offset-company-sidebar-sticky)]">
         <CompanySidebarLinks :links="company.links" />
         <CompanySidebarBranchInfo
           :address="company.branchAddress"
@@ -243,9 +243,8 @@ useBreadcrumbStructuredData([
             <CompanyAccountInfo :account="company.account" />
           </div>
 
-          <!-- الوظائف Tab Content (placeholder) -->
           <div class="text-center py-section text-foreground-muted">
-            <p>قائمة الوظائف ستكون هنا</p>
+            <p>{{ $t('companyDetail.jobsPlaceholder') }}</p>
           </div>
         </div>
       </div>

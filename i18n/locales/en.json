@@ -178,7 +178,27 @@
     "maali": "Maali Recruitment",
     "alsaie": "Al-Saie Group",
     "binladin": "Binladin Group",
-    "aramco": "Saudi Aramco"
+    "aramco": "Saudi Aramco",
+    "alFaisal": "Al-Faisal Recruitment",
+    "gulfTalent": "Gulf Talent Recruitment",
+    "nileEmployment": "Nile Employment Abroad",
+    "arabManpower": "Arab Manpower Agency",
+    "maaliLocation": "Cairo, Nasr City",
+    "alsaieLocation": "Riyadh, Saudi Arabia",
+    "binladinLocation": "Jeddah, Saudi Arabia",
+    "aramcoLocation": "Dhahran, Saudi Arabia",
+    "alFaisalLocation": "Alexandria, Egypt",
+    "gulfTalentLocation": "Dubai, UAE",
+    "nileEmploymentLocation": "Cairo, Egypt",
+    "arabManpowerLocation": "Amman, Jordan",
+    "maaliDesc": "A leading company in placing Egyptian workers in Gulf and Middle East jobs",
+    "alsaieDesc": "A group specializing in providing human resources for the construction sector",
+    "binladinDesc": "One of the largest contracting and recruitment companies in Saudi Arabia",
+    "aramcoDesc": "Saudi national petroleum company - direct and sustainable employment",
+    "alFaisalDesc": "A licensed recruitment agency specializing in Gulf hiring and deployment",
+    "gulfTalentDesc": "An approved recruitment and employment company in the UAE",
+    "nileEmploymentDesc": "One of the oldest Egyptian employment companies specializing in overseas placement",
+    "arabManpowerDesc": "A licensed labor placement company operating in Jordan and the Arab region"
   },
   "jobs": {
     "accountant": {
@@ -706,6 +726,95 @@
       },
       "seoSummary": "Cost accountant role in Kuwait with strong project exposure, attractive benefits, and a clear contact path."
     }
+  },
+  "companiesPage": {
+    "title": "Licensed Recruitment Agencies",
+    "searchPlaceholder": "Search by company name...",
+    "searchAriaLabel": "Search for a company",
+    "emptyTitle": "No results found",
+    "emptyDescription": "No company matches your search. Try different keywords.",
+    "placed": "placed",
+    "goToCompany": "Go to {name} page"
+  },
+  "companyDetail": {
+    "name": "Egyptian Recruitment Company",
+    "description": "A leading company in recruitment and placement of Egyptian workers abroad. We strive to provide real and guaranteed job opportunities for Egyptian youth across various specialties.",
+    "location": "Cairo, Nasr City",
+    "hours": "Open now (9 AM - 5 PM)",
+    "aboutDescription": "The Egyptian Recruitment Company is a leading firm specializing in providing qualified human resources for work in Gulf countries. We have extensive experience in construction and building, as well as providing medical crews for hospitals and health centers. We operate according to the highest standards of quality and credibility to ensure the rights of both workers and employers.",
+    "classification": "Recruitment and labor placement agency",
+    "experienceYears": "14 years experience",
+    "size": "20 - 50 employees",
+    "addressCountry": "Egypt",
+    "topCountries": {
+      "sa": "Kingdom of Saudi Arabia",
+      "kw": "State of Kuwait",
+      "ae": "United Arab Emirates"
+    },
+    "topFields": {
+      "construction": "Construction & Building",
+      "healthcare": "Healthcare & Nursing",
+      "sales": "Sales & Marketing",
+      "driving": "Drivers & Transport"
+    },
+    "license": {
+      "issuer": "Ministry of Manpower - Egypt",
+      "status": "Valid"
+    },
+    "account": {
+      "joined": "January 2022",
+      "managedBy": "The company itself"
+    },
+    "branchAddress": "Cairo, Nasr City, Abbas Al-Aqqad Street",
+    "branchHours": "Working hours: 9 AM - 5 PM",
+    "breadcrumb": {
+      "home": "Home",
+      "publisher": "Job Publisher",
+      "licensed": "Licensed Recruitment Company"
+    },
+    "tabs": {
+      "jobs": "Jobs",
+      "reviews": "Reviews",
+      "info": "Info"
+    },
+    "reviews": {
+      "label": "Excellent",
+      "badges": {
+        "traveled": "Traveled through the company",
+        "waiting": "Waiting to travel"
+      },
+      "ratings": {
+        "credibility": "Credibility",
+        "contractCommitment": "Contract Commitment",
+        "feeClarity": "Fee Clarity",
+        "speed": "Processing Speed",
+        "treatment": "Treatment"
+      },
+      "list": {
+        "0": {
+          "author": "Ahmed Mohamed Ali",
+          "role": "Accountant",
+          "time": "2 weeks ago",
+          "body": "Excellent experience with the company. The procedures were clear and very fast. The work team was respectful and helpful, assisting me at every step from application to getting the visa and traveling to Saudi Arabia. I recommend dealing with them.",
+          "companyReply": "Thank you, Mr. Ahmed, for your trust. We wish you success in your new career journey. We are always at your service.",
+          "followUp": "Thank you very much for your attention and kind response.",
+          "followUpTime": "1 week ago"
+        },
+        "1": {
+          "author": "Sara Ibrahim",
+          "role": "Architectural Engineer",
+          "time": "1 month ago",
+          "body": "The company is good and the interviews were organized. But there was some delay in responding to inquiries after signing the contract. I wish they would pay more attention to customer service since people tend to be anxious."
+        },
+        "2": {
+          "author": "Mahmoud Al-Sayed",
+          "role": "Electrician",
+          "time": "2 months ago",
+          "body": "Honestly, the best company I've dealt with. No hidden fees and everything was exactly as agreed. May God bless them and grant them success."
+        }
+      }
+    },
+    "jobsPlaceholder": "Job listings will appear here"
   },
   "company": {
     "pageTitle": "Company Profile",

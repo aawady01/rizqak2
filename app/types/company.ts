@@ -21,7 +21,7 @@ export interface CompanyTab {
   active?: boolean
 }
 
-export type TabName = 'معلومات' | 'المراجعات' | 'الوظائف'
+export type TabName = 'info' | 'reviews' | 'jobs'
 
 export interface CompanyStats {
   totalJobs: number
